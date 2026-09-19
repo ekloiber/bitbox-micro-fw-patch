@@ -13,6 +13,8 @@ The splash reads `community fw`, so a patched unit is never mistaken for one
 of theirs, and nobody should ask 1010music for support with it. Assume running
 it affects your warranty, though it [cannot brick the module](INSTALLING.md#can-this-brick-my-module).
 
+Help Documentation https://modularpatcher.github.io/bitbox-micro-fw-patch/
+
 ## A Patcher, Not Firmware
 
 What you download is a script, not a build of the firmware. It edits a copy you
