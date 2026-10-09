@@ -6,7 +6,7 @@ on one encoder. See [devices](DEVICES.md) for where it sits, and
 
 Where the compressor controls dynamics, this one controls tone and colour. Ten
 modes sit on one encoder: filters first, a DJ sweep and a dual cut and a band
-pass, then shelving and bell EQs, a notch, a phaser and a vowel morpher. One
+pass, then shelving and bell EQs, a notch, a phaser and a formant filter. One
 knob picks the character. Three more play it.
 
 It runs on the sum of everything routed to Out 1 and 2, after the delay and

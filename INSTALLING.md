@@ -171,11 +171,14 @@ You should see something like:
      ok   Delay filter, global         CC 110
      ok   Delay filter width, global   CC 111
      ok   Stop this pad                CC 120 / 123
+     ok   ProgChange: OFF/ON/NEW ONLY  TOOLS > Settings
+     ok   Clk Loss: INTERNAL/HOLD      TOOLS > Settings
+     ok   Flip UI, screen and touch    TOOLS > Settings
      ok   Splash screen, so nobody blames 1010music for my work
 
-  Done. MICRO.BIN is ready -- 676,164 bytes.
+  Done. MICRO.BIN is ready -- 677,024 bytes.
 
-     Fingerprint  46affcde81318a4c9c4cdaa0467a6958156079d4a683bdf56c48aa573c5d70a2
+     Fingerprint  1ce1162229af75f0de5e95985e4805fbc795180d34cfc13cd08dd366ce3d93e6
 ```
 
 It then tells you how to get the file onto the module. That is written out
@@ -185,8 +188,8 @@ Check the fingerprint matches the one above. If it does, you have built
 exactly the same firmware as everybody else running this patch, down to the
 byte.
 
-Add `-v` if you want to watch it work: addresses, opcodes and byte counts for
-every change it makes.
+Add `-v` to watch it work: addresses, opcodes and byte counts for every
+change.
 
 ## Flashing
 
@@ -206,7 +209,7 @@ The splash on the next boot should read:
 ```text
 bitbox micro
 community fw
-2.3.7-mod
+2.3.8-mod
 ```
 
 If it still says `by 1010music` and `2.3.4`, the module booted the old
@@ -224,6 +227,8 @@ ears are the only way to tell. This catches everybody exactly once. The two
 that do show, Reverse and Loop Mode, are the fastest way to prove your
 controller is getting through. See [the CC reference](CC-REFERENCE.md) for the full
 control list once you start checking them off.
+
+The Settings additions are not CCs. See [settings](SETTINGS.md).
 
 ## If Something Goes Wrong
 

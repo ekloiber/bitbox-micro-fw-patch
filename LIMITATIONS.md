@@ -133,7 +133,7 @@ The honest list.
 
 ## How It Works, Briefly
 
-Seven small blocks of code are bolted onto the end of the firmware image, and a
+Ten small blocks of code are bolted onto the end of the firmware image, and a
 few existing instructions and one table entry are pointed at them. The blocks
 chain into one another, so a single redirect serves several of them. Wherever possible, the patch
 hands a value straight to the firmware's own code rather than reimplementing
@@ -142,8 +142,9 @@ handler the encoder already uses, so it does exactly what turning the encoder
 does. Any CC the patch does not claim takes the original path completely
 unchanged.
 
-The change is small and additive. Nothing in the original image is removed,
-relocated or overwritten.
+The change is small and additive. Nothing in the original image is removed or
+relocated. The one piece of data rewritten is the list of rows on the Settings
+screen, which gains two.
 
 The two devices are the exception. Neither has an existing handler to hand a
 value to, so the patch keeps their values itself and applies them to the audio

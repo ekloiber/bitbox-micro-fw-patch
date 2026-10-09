@@ -1035,6 +1035,7 @@ USAGE = f"""
   is on the card.
 
     -v                 show the addresses and opcodes as it works
+    --reassemble      verify frozen hooks against their assembly sources
     --legacy-version   allow a version string too long for the panel, for
                        rebuilding a pre-b11 image to check its fingerprint
 
@@ -1044,7 +1045,7 @@ USAGE = f"""
 
 
 # --- frozen hook code ----------------------------------------------------
-# Assembler output for the three hooks, with branch placeholders left zeroed
+# Assembler output for the hooks, with branch placeholders left zeroed
 # so the bytes are origin-independent. Embedding them is what lets this script
 # run with no toolchain: the assembly below is still the source of truth, and
 # --reassemble rebuilds it and fails loudly if these constants have drifted.
@@ -1209,6 +1210,12 @@ FROZEN = {
         "a16377445aacb044c057fc44fb353445a1b28045bed1b7455646034600803b46"
         ,
         {'$t': 208, 'gvalid': 114, 'gout': 192, 'gapply': 696, '$d': 2768, 'gsetband': 208, 'gdtab': 2768, 'gftab': 256, 'gft1': 280, 'gft2': 298, 'gtable': 3036, 'ghalf': 354, 'ghspan': 2920, 'ghdone': 402, 'gu16': 404, 'gidxs': 2912, 'gqmap': 426, 'gccinv': 2908, 'ggain': 460, 'ggflat': 528, 'ghsinv': 2904, 'ggboost': 514, 'ggcut': 2892, 'ggend': 522, 'ggboo': 2896, 'gtiltd': 540, 'gtdflat': 602, 'gtiltg': 2900, 'gtdend': 600, 'gfshift': 614, 'gfsflat': 690, 'gfsup': 668, 'gfmtdn': 2944, 'gfsend': 676, 'gfmtup': 2948, 'gclr': 700, 'gmout': 2714, 'gmdj': 802, 'gmtwin': 1536, 'gmphone': 1774, 'gmmix': 1056, 'gmtone': 1188, 'gmtilt': 2180, 'gmnotch': 2090, 'gmpeak': 2276, 'gmmnot': 2374, 'gmfmt': 2524, 'gmdjc': 864, 'gmdjhp': 880, 'gmdjf': 882, 'gqres': 2848, 'gctl0f': 952, 'gctl0j': 960, 'gdjspr': 2916, 'gmdjs1': 1010, 'gmdjs2': 1014, 'gqfix': 2884, 'gmix3': 1068, 'gmix3l': 1072, 'gmixf': 2796, 'gmix3k': 1132, 'gmixq': 2808, 'gmixt': 2792, 'gmix3s': 1162, 'gmixkq': 2824, 'gmixkg': 2836, 'gmixk': 2820, 'gmtnk0': 1228, 'gmtns0': 1250, 'gmtnk1': 1308, 'gmtns1': 1330, 'gctl1f': 1362, 'gctl1j': 1370, 'gmtnc': 1430, 'gmtnhp': 1446, 'gmtnf': 1448, 'gctl2f': 1560, 'gctl2j': 1568, 'gctl3f': 1632, 'gctl3j': 1640, 'gctl4f': 1794, 'gctl4j': 1802, 'gbpnar': 2928, 'gbpwid': 2924, 'gqbell': 2888, 'gmbpsl': 1990, 'gqnot': 2856, 'gctl5f': 2128, 'gctl5j': 2136, 'gnotchg': 2932, 'gctl6f': 2190, 'gctl6j': 2198, 'gctl7f': 2300, 'gctl7j': 2308, 'gctl8f': 2330, 'gctl8j': 2338, 'gctl9f': 2394, 'gctl9j': 2402, 'gmnsp': 2864, 'gctl10f': 2424, 'gctl10j': 2432, 'gqmn': 2872, 'gmmnl': 2462, 'gctl11f': 2544, 'gctl11j': 2552, 'gfmtis': 2940, 'gmfmc': 2600, 'gfmtf': 2976, 'gmfmtl': 2644, 'gfmtq': 2952, 'gfmtg': 2964, 'gmfill': 2716, 'gmfnext': 2758, 'gnullf': 2936, 'gqph': 2876, '_sG': 0, 'gnext': 204}),
+    "hookH": ("10b582b01a460ff2141303240094069c01940000000002b010bd0cb495f8b0220a610cbc000000000cb4354a0023136053600cbc000000000cb4314a0023136053600cbc000000000cb42d4a0023136053600cbc0000000070b50c460546000000000fb4002810d026498d420dd1217803290ad12169002901d0234900e000211f4a6fea0103536011600fbc70bd7fb5c0b0669b022b2cd1194b1c681a4dac4227d15c686fea0505ac4222d1174b1b681b78002b1dd1164b1c682378002b18d0144800000000002813d0134841996a460000000000280cd06d4640f2001614f8010b15f8011b884203d1002806d0013ef5d140b0bde87f400000000040b07fbd80c0062478250224324e4350082902240c29022478290224a428022430000c0834000c08000000004e4557204f4e4c590000bf00",
+        {'hregister': 0, '$t': 252, 'hmenu': 284, 'hregister_call': 18, '$d': 256, 'hpost': 26, 'hpost_next': 36, 'hinit': 40, 'hinit_next': 52, 'hinvalidate': 56, 'hinvalidate_next': 68, 'hteardown': 72, 'hteardown_next': 84, 'hresponse': 88, 'hresponse_call': 94, 'hresponse_out': 138, 'hresponse_invalid': 126, 'hresponse_store': 128, 'hload': 142, 'hload_stock': 242, 'hload_idle': 194, 'hload_resolve': 208, 'hload_compare': 222, 'hload_same': 252, 'hload_next': 248, 'hmenu_new_ptr': 292, 'hmenu_new': 296, '_sH': 0}),
+    "hookI": ("82f8143c2de90f5082b000f011f802b0bde80f500000000082f8143c2de90f5082b000f005f802b0bde80f500000000010b582b0002b0cbfc02300238df800306a46012136200000000002b010bd094a12785ab940f23f128b88a2eb03038b8040f2ef02cb88a2eb0303cb809df8083000000000681a0024",
+        {'iapply_a': 0, '$t': 74, 'imadctl': 48, 'iapply_a_next': 20, '$d': 112, 'iapply_b': 24, 'iapply_b_next': 44, 'imadctl_call': 70, 'itouch': 78, 'itouch_out': 108, 'itouch_next': 112, '_sI': 0}),
+    "hookJ": ("1fb582b040f23a110ff278120ff26c13022400940ff28c1401940000000002b0bde81f400000000007b500000000bde8074040f23a1100220000000040f23a1c62450bd1dff828c11bb14a4bccf800307047ccf80030ccf80430704700000000c4f83c31424b4ff0000cc3f800c0c3f804c00000000014f8081021b1dff8f8c03c4bccf800300000000094ed4f0ad4ed067a00f022f80000000090ed4f0ad0ed067a00f01af80000000094ed4f0ad4ed067a00f012f80000000090ed4f0ad0ed067a00f00af80000000094ed4f0ad4ed067a00f002f800000000dff894c0dcf80030dff890c0634517d1dff88cc0dcf80030dff880c063450fd19fed1b7af4ee477af1ee10fa08dd9fed187af4ee477af1ee10fa01dab0ee670a704787b0fbb9dff84cc0dcf80030dff848c0634519d1dff844c0dcf80030dff838c0634511d1d4ed067a9fed087af4ee477af1ee10fa08dd9fed067af4ee477af1ee10fa01da00000000000000000000a04100007a4488c00624444c4f488cc006240000000000000000436c6b204c6f73733a0000bf494e5445524e414c0000bf00484f4c440000bf00636c6b6c6f73736d6f646500",
+        {'jreg': 0, '$t': 218, 'jlabel': 388, 'jvalues': 380, 'jxml': 420, 'jreg_call': 26, '$d': 352, 'jreg_next': 36, 'jstore': 40, 'jstore_call': 42, 'jstore_next': 56, 'jpost': 60, 'jpost_next': 92, 'jpost_internal': 82, 'jctor': 96, 'jctor_next': 114, 'jheld': 118, 'jheld_next': 134, 'jt1': 138, 'jhold': 218, 'jt1_next': 150, 'jt2': 154, 'jt2_next': 166, 'jt3': 170, 'jt3_next': 182, 'jt4': 186, 'jt4_next': 198, 'jt5': 202, 'jt5_next': 214, 'jhold_out': 282, 'jmin': 360, 'jmax': 364, 'jset': 284, 'jset_store': 352, 'jset_rebuild': 356, 'jinternal': 400, 'jholdtxt': 412, '_sJ': 0}),
 }
 
 REASSEMBLE = False
@@ -1255,6 +1262,13 @@ FEATURES = [
     ("Delay filter, global", f"CC {CC_DLYFILTER}"),
     ("Delay filter width, global", f"CC {CC_DLYWIDTH}"),
     ("Stop this pad", f"CC {CC_STOP_HARD} / {CC_STOP_SOFT}"),
+]
+
+# The three additions that live on the module's Settings screen, not on a CC.
+SETTINGS_FEATURES = [
+    ("ProgChange: OFF/ON/NEW ONLY", "TOOLS > Settings"),
+    ("Clk Loss: INTERNAL/HOLD", "TOOLS > Settings"),
+    ("Flip UI, screen and touch", "TOOLS > Settings"),
 ]
 
 
@@ -3830,6 +3844,643 @@ gtable:
     return bytes(code)
 
 
+# Optional Program Change beta. These addresses are specific to stock 2.3.4.
+# Use the PresetMgr's committed name, never SessionMgr's requested bank name.
+PC_MANAGER = 0x24022578
+PC_LIST = PC_MANAGER + 0x32c
+PC_PENDING = PC_MANAGER + 0x390
+PC_CURRENT = PC_MANAGER + 0x394
+PC_STATE = PATCH_RAM + 0x80
+PC_VALID = 0x50434e32
+assert PC_STATE >= EQ_STORE_END and PC_STATE + 8 <= SRAM_END
+PC_BETA_VERSION = "2.3.8-pc1"
+PC_CALLS = (
+    (0x0806b054, 0x08069ed4, "hregister"),
+    (0x080ac35e, 0x080a396c, "hpost"),
+    (0x0807f768, 0x0807c258, "hload"),
+    # Invalidate before engine teardown as well: a dirty list may no longer
+    # resolve an index after LoadBank has stopped the old preset.
+    (0x0807c298, 0x080939d0, "hteardown"),
+    (0x0807c7e8, 0x080939d0, "hteardown"),
+    (0x0808aa0c, 0x080442c4, "hinit"),
+    (0x0808bd52, 0x08044328, "hinvalidate"),
+    # Rename/Save As assigns the new current name BEFORE filesystem success.
+    # Invalidate here; the next completed load will establish identity again.
+    (0x0808c460, 0x08044328, "hinvalidate"),
+    (0x0807f994, 0x0808b4e8, "hresponse"),
+)
+PC_MIRROR_VA = 0x080ac766
+PC_MIRROR_OLD = bytes.fromhex("003b18bf0123")  # subs #0; it ne; movne #1
+PC_MIRROR_NEW = bytes.fromhex("022b88bf0123")  # cmp #2; it hi; movhi #1
+
+
+def build_program_change_hook(org):
+    """H: enum UI, mode transport, and a conservative loaded-name filter.
+
+    All entries replace BLs. Tail calls restore live arguments; the filter
+    restores r0-r6 and its entire frame before either LoadBank or the caller.
+    No hook runs on the audio thread. See DEV-README's Program Change section.
+    """
+    src = f"""
+.syntax unified
+.thumb
+.section .text
+.global _sH
+.thumb_func
+_sH:
+hregister:
+    push    {{r4, lr}}
+    sub     sp, #8
+    mov     r2, r3                  /* numeric label -> enum label */
+    adr.w   r3, hmenu
+    movs    r4, #3
+    str     r4, [sp]
+    ldr     r4, [sp, #24]           /* original caller's XML name at +8 */
+    str     r4, [sp, #4]
+hregister_call:
+    .short  0, 0
+    add     sp, #8
+    pop     {{r4, pc}}
+
+hpost:
+    push    {{r2, r3}}
+    ldrb.w  r2, [r5, #0x2b0]
+    str     r2, [r1, #0x10]         /* unused word of the 24-byte PC message */
+    pop     {{r2, r3}}
+hpost_next:
+    .short  0, 0
+
+hinit:
+    push    {{r2, r3}}
+    ldr     r2, =0x{PC_STATE:08x}
+    movs    r3, #0
+    str     r3, [r2]
+    str     r3, [r2, #4]
+    pop     {{r2, r3}}
+hinit_next:
+    .short  0, 0
+
+hinvalidate:
+    push    {{r2, r3}}
+    ldr     r2, =0x{PC_STATE:08x}
+    movs    r3, #0
+    str     r3, [r2]
+    str     r3, [r2, #4]
+    pop     {{r2, r3}}
+hinvalidate_next:
+    .short  0, 0
+
+hteardown:
+    push    {{r2, r3}}
+    ldr     r2, =0x{PC_STATE:08x}
+    movs    r3, #0
+    str     r3, [r2]
+    str     r3, [r2, #4]
+    pop     {{r2, r3}}
+hteardown_next:
+    .short  0, 0
+
+hresponse:
+    push    {{r4, r5, r6, lr}}
+    mov     r4, r1                  /* response buffer survives stock call */
+    mov     r5, r0
+hresponse_call:
+    .short  0, 0
+    push    {{r0, r1, r2, r3}}       /* preserve stock results, even scratch */
+    cmp     r0, #0
+    beq     hresponse_out
+    ldr     r1, =0x{PC_MANAGER:08x}
+    cmp     r5, r1
+    bne     hresponse_out
+    ldrb    r1, [r4]
+    cmp     r1, #3                  /* actual load completion, any source */
+    bne     hresponse_out
+    ldr     r1, [r4, #0x10]
+    cmp     r1, #0
+    beq     hresponse_invalid
+    ldr     r1, =0x{PC_VALID:08x}
+    b       hresponse_store
+hresponse_invalid:
+    movs    r1, #0
+hresponse_store:
+    ldr     r2, =0x{PC_STATE:08x}
+    mvn.w   r3, r1
+    str     r3, [r2, #4]
+    str     r1, [r2]
+hresponse_out:
+    pop     {{r0, r1, r2, r3}}
+    pop     {{r4, r5, r6, pc}}
+
+hload:
+    push    {{r0, r1, r2, r3, r4, r5, r6, lr}}
+    sub     sp, #256                /* same bounded name buffer as stock */
+    ldr     r3, [sp, #0x198]        /* caller +0x78: PC message +0x10 */
+    cmp     r3, #2
+    bne     hload_stock
+    ldr     r3, =0x{PC_STATE:08x}
+    ldr     r4, [r3]
+    ldr     r5, =0x{PC_VALID:08x}
+    cmp     r4, r5
+    bne     hload_stock
+    ldr     r4, [r3, #4]
+    mvn.w   r5, r5
+    cmp     r4, r5
+    bne     hload_stock
+    ldr     r3, =0x{PC_PENDING:08x}
+    ldr     r3, [r3]
+    ldrb    r3, [r3]
+    cmp     r3, #0
+    bne     hload_stock             /* let stock handle an outstanding load */
+    ldr     r3, =0x{PC_CURRENT:08x}
+    ldr     r4, [r3]
+    ldrb    r3, [r4]
+    cmp     r3, #0
+    beq     hload_stock
+    ldr     r0, =0x24022978
+hload_idle:
+    .short  0, 0                   /* stock LoadBank's file-queue guard */
+    cmp     r0, #0
+    beq     hload_stock
+    ldr     r0, =0x{PC_LIST:08x}
+    ldr     r1, [sp, #260]          /* original program index */
+    mov     r2, sp
+hload_resolve:
+    .short  0, 0                   /* refresh list if dirty, resolve index */
+    cmp     r0, #0
+    beq     hload_stock
+    mov     r5, sp
+    movw    r6, #256
+hload_compare:
+    ldrb    r0, [r4], #1
+    ldrb    r1, [r5], #1
+    cmp     r0, r1
+    bne     hload_stock
+    cmp     r0, #0
+    beq     hload_same
+    subs    r6, #1
+    bne     hload_compare
+    /* No terminator: do not suppress a load on uncertain identity. */
+hload_stock:
+    add     sp, #256
+    pop.w   {{r0, r1, r2, r3, r4, r5, r6, lr}}
+hload_next:
+    .short  0, 0
+hload_same:
+    add     sp, #256
+    pop     {{r0, r1, r2, r3, r4, r5, r6, pc}}
+    .balign 4
+    .ltorg
+hmenu:
+    .word   0x080c0030, 0x080c0034
+hmenu_new_ptr:
+    .word   0
+hmenu_new:
+    .asciz  "NEW ONLY"
+    .balign 4
+"""
+    code, syms = assemble("hookH", src)
+    code = bytearray(code)
+    for sym, target, call in (
+        ("hregister_call", 0x08069e7c, True),
+        ("hpost_next", 0x080a396c, False),
+        ("hinit_next", 0x080442c4, False),
+        ("hinvalidate_next", 0x08044328, False),
+        ("hteardown_next", 0x080939d0, False),
+        ("hresponse_call", 0x0808b4e8, True),
+        ("hload_idle", 0x08093d30, True),
+        ("hload_resolve", 0x0804565c, True),
+        ("hload_next", 0x0807c258, False),
+    ):
+        off = syms[sym]
+        code[off:off + 4] = enc_b_bl(org + off, target, call)
+    struct.pack_into("<I", code, syms["hmenu_new_ptr"], org + syms["hmenu_new"])
+    return bytes(code), syms
+
+
+def apply_program_change(d):
+    """Guard every mutation, append H, then install its call sites."""
+    for site, target, _ in PC_CALLS:
+        got = bytes(d[site - BASE:site - BASE + 4])
+        want = enc_b_bl(site, target, True)
+        if got != want:
+            refuse(f"The Program Change call at {site:#x} is not what it should be.",
+                   f"found {got.hex()}, expected {want.hex()}")
+    off = PC_MIRROR_VA - BASE
+    if bytes(d[off:off + len(PC_MIRROR_OLD)]) != PC_MIRROR_OLD:
+        refuse("The Program Change setting mirror is not what it should be.")
+    org = BASE + len(d)
+    assert org % 4 == 0
+    code, syms = build_program_change_hook(org)
+    d += code
+    for site, _, entry in PC_CALLS:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], True)
+    d[off:off + len(PC_MIRROR_OLD)] = PC_MIRROR_NEW
+    vprint(f"H Program Change {len(code)} bytes at {org:#010x}, state {PC_STATE:#x}")
+
+
+# --- Settings page 2: ProgChange, Clk Loss, SD Mode, Flip UI ---------------
+# The Settings screen is built from halfword parameter ids, eight to a page,
+# zero meaning an empty slot. Stock page 2 holds three; the patch adds Flip UI
+# (id 0x78) and Clk Loss (id 0x13a).
+SETTINGS_P2_VA = 0x080c6e7c
+SETTINGS_P2_OLD = struct.pack("<8H", 0xc3, 0xb5, 0x17b, 0, 0, 0, 0, 0)
+
+# --- I: Flip UI finished ----------------------------------------------------
+# Stock applies `uiflip` to the buttons and knobs only. Both of its handlers
+# store !uiflip into the button object's flag; I hooks those stores to send the
+# panel MADCTL (0x36) -- 0xC0 flipped, 0x00 normal -- and mirrors touch.
+# The apply-all handler runs once the settings file is read, so a saved On
+# takes effect about a second after the first screen is drawn.
+FLIP_FLAG = 0x24000e54 + 0xc14       # 1 = normal, 0 = flipped
+LCD_CMD_FN = 0x08046080              # (cmd, len, buf) over the panel's SPI
+LCD_INVON_CALL = 0x080462da          # init's INVON call proves the writer
+FLIP_SITES = (                        # (site, stock bytes, entry, return)
+    (0x0807c64c, "82f8143c", "iapply_a", 0x0807c650),   # apply-all
+    (0x0807d5f2, "82f8143c", "iapply_b", 0x0807d5f6),   # live edit
+    (0x0804659e, "9df80830", "itouch", 0x080465a2),     # GT911 point join
+)
+TOUCH_CLAMP_VA, TOUCH_CLAMP = 0x080465e8, "b2f5a07f"   # cmp.w r2, #0x140
+
+
+def build_flip_ui_hook(org):
+    """I: panel rotation follows Flip UI; touch points mirror with it.
+
+    The two apply stubs replay the displaced flag store, then save r0-r3,
+    r12 and LR around the LCD writer. The touch stub runs inside the GT911
+    read loop with r1 at the point record; r2 and r3 are dead there.
+    """
+    src = f"""
+.syntax unified
+.thumb
+.section .text
+.global _sI
+.thumb_func
+_sI:
+iapply_a:
+    strb.w  r3, [r2, #0xc14]
+    push    {{r0, r1, r2, r3, r12, lr}}
+    sub     sp, #8
+    bl      imadctl
+    add     sp, #8
+    pop     {{r0, r1, r2, r3, r12, lr}}
+iapply_a_next:
+    .short  0, 0
+iapply_b:
+    strb.w  r3, [r2, #0xc14]
+    push    {{r0, r1, r2, r3, r12, lr}}
+    sub     sp, #8
+    bl      imadctl
+    add     sp, #8
+    pop     {{r0, r1, r2, r3, r12, lr}}
+iapply_b_next:
+    .short  0, 0
+imadctl:                            /* r3 = the flag just stored */
+    push    {{r4, lr}}
+    sub     sp, #8
+    cmp     r3, #0
+    ite     eq
+    moveq   r3, #0xc0               /* flipped: MY | MX */
+    movne   r3, #0
+    strb    r3, [sp]
+    mov     r2, sp
+    movs    r1, #1
+    movs    r0, #0x36               /* MADCTL */
+imadctl_call:
+    .short  0, 0
+    add     sp, #8
+    pop     {{r4, pc}}
+itouch:
+    ldr     r2, =0x{FLIP_FLAG:08x}
+    ldrb    r2, [r2]
+    cbnz    r2, itouch_out
+    movw    r2, #319
+    ldrh    r3, [r1, #4]
+    sub     r3, r2, r3
+    strh    r3, [r1, #4]
+    movw    r2, #239
+    ldrh    r3, [r1, #6]
+    sub     r3, r2, r3
+    strh    r3, [r1, #6]
+itouch_out:
+    ldrb.w  r3, [sp, #8]
+itouch_next:
+    .short  0, 0
+    .balign 4
+    .ltorg
+"""
+    code, syms = assemble("hookI", src)
+    code = bytearray(code)
+    for sym, target, call in (
+        ("iapply_a_next", FLIP_SITES[0][3], False),
+        ("iapply_b_next", FLIP_SITES[1][3], False),
+        ("imadctl_call", LCD_CMD_FN, True),
+        ("itouch_next", FLIP_SITES[2][3], False),
+    ):
+        off = syms[sym]
+        code[off:off + 4] = enc_b_bl(org + off, target, call)
+    return bytes(code), syms
+
+
+# --- J: Clk Loss, INTERNAL / HOLD --------------------------------------------
+# The clock's live tempo is the float at +0x18; the preset's configured tempo
+# (`globtempo`, normally 120) is at +0x13c. Five places load +0x13c when no
+# external clock remains: the timeout, two Starts and two locates. HOLD makes
+# each use +0x18 instead, once an external clock has been followed. SetTempo
+# also skips its rebuild while holding, so a preset load keeps the held tempo
+# rather than bringing its own. A returning clock always takes over again.
+CLK_ID = 0x13a                       # unregistered in stock, no code refers to it
+CLK_MODE = PATCH_RAM + 0x88          # CLK_MAGIC = HOLD, anything else INTERNAL
+CLK_HELD = PATCH_RAM + 0x8c          # CLK_MAGIC once an external tempo was used
+CLK_MAGIC = 0x484f4c44               # "HOLD"; never zero, unlike stale RAM
+assert CLK_MODE >= PC_STATE + 8 and CLK_HELD + 4 <= SRAM_END
+CLK_REG_LIMIT_VA, CLK_REG_LIMIT = 0x08069e4e, "b3f5e87f"   # cmp.w r3, #0x1d0
+CLK_STORE_CAP_VA, CLK_STORE_CAP = 0x08089e08, "4021"       # movs r1, #0x40
+assert CLK_ID <= 0x1d0
+CLK_CALLS = (                        # (site, stock target, entry) -- all BLs
+    (0x0806abbc, 0x08069ed4, "jreg"),     # uiflip's registration
+    (0x08089ef4, 0x0808951e, "jstore"),   # uiflip's global-store entry
+    (0x0807c5be, 0x080937f4, "jpost"),    # apply-all posts every setting
+    (0x0807d51c, 0x080937f4, "jpost"),    # a live edit posts the setting
+)
+CLK_SITES = (                        # (site, stock bytes, entry, return)
+    (0x080a6258, "c4f83c31", "jctor", 0x080a625c),   # ctor seeds 120.0
+    (0x080a6372, "14f80810", "jheld", 0x080a6376),   # per-block source read
+    (0x080a6522, "94ed4f0a", "jt1", 0x080a6526),     # timeout fallback
+    (0x080a65e6, "90ed4f0a", "jt2", 0x080a65ea),     # Start, internal
+    (0x080a6674, "94ed4f0a", "jt3", 0x080a6678),     # Start, CV not locked
+    (0x080a6712, "90ed4f0a", "jt4", 0x080a6716),     # locate, internal
+    (0x080a67a0, "94ed4f0a", "jt5", 0x080a67a4),     # locate, CV not locked
+    (0x080a67d6, "87b02bb1", "jset", None),          # SetTempo: rebuild?
+)
+CLK_SET_STORE = 0x080a67da           # SetTempo's store-only path
+CLK_SET_REBUILD = 0x080a67e6         # SetTempo's rebuild path
+
+
+def build_clock_hold_hook(org):
+    """J: the Clk Loss setting and the HOLD behaviour behind it.
+
+    Register, store and post wrappers replace BLs and tail-call stock with
+    the original arguments and stack. The clock stubs run on the audio
+    thread and touch only r3, r12, s14, s15 and, when holding, s0 -- all
+    dead or about to be consumed at each site (see DEV-README).
+    """
+    src = f"""
+.syntax unified
+.thumb
+.section .text
+.global _sJ
+.thumb_func
+_sJ:
+jreg:                               /* register Clk Loss, then uiflip */
+    push    {{r0, r1, r2, r3, r4, lr}}
+    sub     sp, #8
+    movw    r1, #0x{CLK_ID:x}
+    adr.w   r2, jlabel
+    adr.w   r3, jvalues
+    movs    r4, #2
+    str     r4, [sp]
+    adr.w   r4, jxml
+    str     r4, [sp, #4]
+jreg_call:
+    .short  0, 0                    /* enum registrar */
+    add     sp, #8
+    pop     {{r0, r1, r2, r3, r4, lr}}
+jreg_next:
+    .short  0, 0                    /* the original numeric registration */
+
+jstore:                             /* uiflip's entry, then Clk Loss = 0 */
+    push    {{r0, r1, r2, lr}}
+jstore_call:
+    .short  0, 0
+    pop     {{r0, r1, r2, lr}}
+    movw    r1, #0x{CLK_ID:x}
+    movs    r2, #0
+jstore_next:
+    .short  0, 0
+
+jpost:                              /* catch Clk Loss; post everything else */
+    movw    r12, #0x{CLK_ID:x}
+    cmp     r2, r12
+    bne     jpost_next
+    ldr     r12, =0x{CLK_MODE:08x}
+    cbz     r3, jpost_internal
+    ldr     r3, =0x{CLK_MAGIC:08x}
+    str     r3, [r12]
+    bx      lr
+jpost_internal:
+    str     r3, [r12]               /* INTERNAL */
+    str     r3, [r12, #4]           /* and forget any held tempo */
+    bx      lr
+jpost_next:
+    .short  0, 0
+
+jctor:                              /* clock object constructed at boot */
+    str.w   r3, [r4, #0x13c]
+    ldr     r3, =0x{CLK_MODE:08x}
+    mov.w   r12, #0
+    str     r12, [r3]
+    str     r12, [r3, #4]
+jctor_next:
+    .short  0, 0
+
+jheld:                              /* every block: is a clock in charge? */
+    ldrb.w  r1, [r4, r8]
+    cbz     r1, jheld_next
+    ldr     r12, =0x{CLK_HELD:08x}
+    ldr     r3, =0x{CLK_MAGIC:08x}
+    str     r3, [r12]
+jheld_next:
+    .short  0, 0
+
+jt1:
+    vldr    s0, [r4, #0x13c]
+    vldr    s15, [r4, #0x18]
+    bl      jhold
+jt1_next:
+    .short  0, 0
+jt2:
+    vldr    s0, [r0, #0x13c]
+    vldr    s15, [r0, #0x18]
+    bl      jhold
+jt2_next:
+    .short  0, 0
+jt3:
+    vldr    s0, [r4, #0x13c]
+    vldr    s15, [r4, #0x18]
+    bl      jhold
+jt3_next:
+    .short  0, 0
+jt4:
+    vldr    s0, [r0, #0x13c]
+    vldr    s15, [r0, #0x18]
+    bl      jhold
+jt4_next:
+    .short  0, 0
+jt5:
+    vldr    s0, [r4, #0x13c]
+    vldr    s15, [r4, #0x18]
+    bl      jhold
+jt5_next:
+    .short  0, 0
+
+jhold:                              /* s0 configured, s15 live -> s0 */
+    ldr     r12, =0x{CLK_MODE:08x}
+    ldr     r3, [r12]
+    ldr     r12, =0x{CLK_MAGIC:08x}
+    cmp     r3, r12
+    bne     jhold_out
+    ldr     r12, =0x{CLK_HELD:08x}
+    ldr     r3, [r12]
+    ldr     r12, =0x{CLK_MAGIC:08x}
+    cmp     r3, r12
+    bne     jhold_out
+    vldr    s14, jmin
+    vcmp.f32 s15, s14
+    vmrs    APSR_nzcv, fpscr
+    ble     jhold_out               /* also NaN */
+    vldr    s14, jmax
+    vcmp.f32 s15, s14
+    vmrs    APSR_nzcv, fpscr
+    bge     jhold_out
+    vmov.f32 s0, s15
+jhold_out:
+    bx      lr
+
+jset:                               /* r3 = source; r4 = clock; s0 = tempo */
+    sub     sp, #0x1c
+    cbnz    r3, jset_store          /* stock: a clock is in charge */
+    ldr     r12, =0x{CLK_MODE:08x}
+    ldr     r3, [r12]
+    ldr     r12, =0x{CLK_MAGIC:08x}
+    cmp     r3, r12
+    bne     jset_rebuild
+    ldr     r12, =0x{CLK_HELD:08x}
+    ldr     r3, [r12]
+    ldr     r12, =0x{CLK_MAGIC:08x}
+    cmp     r3, r12
+    bne     jset_rebuild
+    vldr    s15, [r4, #0x18]
+    vldr    s14, jmin
+    vcmp.f32 s15, s14
+    vmrs    APSR_nzcv, fpscr
+    ble     jset_rebuild
+    vldr    s14, jmax
+    vcmp.f32 s15, s14
+    vmrs    APSR_nzcv, fpscr
+    bge     jset_rebuild
+jset_store:
+    .short  0, 0                    /* holding: record the preset's tempo only */
+jset_rebuild:
+    .short  0, 0
+
+    .balign 4
+jmin:
+    .float  20.0
+jmax:
+    .float  1000.0
+    .ltorg
+jvalues:
+    .word   0, 0                    /* -> jinternal, jholdtxt */
+    /* Every string label is word aligned. parse_elf32 clears bit 0 of each
+       symbol (right for Thumb code), so a string at an odd offset would be
+       pointed at one byte early -- "HOLD" read as the NUL ending "INTERNAL". */
+    .balign 4
+jlabel:
+    .asciz  "Clk Loss:"
+    .balign 4
+jinternal:
+    .asciz  "INTERNAL"
+    .balign 4
+jholdtxt:
+    .asciz  "HOLD"
+    .balign 4
+jxml:
+    .asciz  "clklossmode"
+    .balign 4
+"""
+    code, syms = assemble("hookJ", src)
+    code = bytearray(code)
+    for sym, target, call in (
+        ("jreg_call", 0x08069e7c, True),
+        ("jreg_next", 0x08069ed4, False),
+        ("jstore_call", 0x0808951e, True),
+        ("jstore_next", 0x0808951e, False),
+        ("jpost_next", 0x080937f4, False),
+        ("jctor_next", CLK_SITES[0][3], False),
+        ("jheld_next", CLK_SITES[1][3], False),
+        ("jt1_next", CLK_SITES[2][3], False),
+        ("jt2_next", CLK_SITES[3][3], False),
+        ("jt3_next", CLK_SITES[4][3], False),
+        ("jt4_next", CLK_SITES[5][3], False),
+        ("jt5_next", CLK_SITES[6][3], False),
+        ("jset_store", CLK_SET_STORE, False),
+        ("jset_rebuild", CLK_SET_REBUILD, False),
+    ):
+        off = syms[sym]
+        code[off:off + 4] = enc_b_bl(org + off, target, call)
+    struct.pack_into("<II", code, syms["jvalues"],
+                     org + syms["jinternal"], org + syms["jholdtxt"])
+    return bytes(code), syms
+
+
+def _append(d, code):
+    org = BASE + len(d)
+    assert org % 4 == 0
+    if len(code) % 4:
+        code += b"\x00" * (4 - len(code) % 4)
+    d += code
+    return org
+
+
+def _guard(d, va, want_hex, what):
+    got = bytes(d[va - BASE:va - BASE + len(want_hex) // 2])
+    if got.hex() != want_hex:
+        refuse(f"The {what} at {va:#x} is not what it should be.",
+               f"found {got.hex()}, expected {want_hex}")
+
+
+def apply_settings_page(d):
+    """List Clk Loss and Flip UI on Settings page 2. Guarded, data only."""
+    off = SETTINGS_P2_VA - BASE
+    if bytes(d[off:off + 16]) != SETTINGS_P2_OLD:
+        refuse("The Settings screen's second page is not what it should be.")
+    d[off:off + 16] = struct.pack("<8H", 0xc3, 0xb5, CLK_ID, 0x17b, 0x78, 0, 0, 0)
+
+
+def apply_flip_ui(d):
+    """Guard I's sites and the code they rely on, append I, install it."""
+    if bytes(d[LCD_INVON_CALL - BASE:LCD_INVON_CALL - BASE + 4]) != \
+            enc_b_bl(LCD_INVON_CALL, LCD_CMD_FN, True):
+        refuse(f"The panel set-up call at {LCD_INVON_CALL:#x} is not what it should be.")
+    _guard(d, TOUCH_CLAMP_VA, TOUCH_CLAMP, "touch clamp")
+    for site, stock, _, _ in FLIP_SITES:
+        _guard(d, site, stock, "Flip UI site")
+    code, syms = build_flip_ui_hook(BASE + len(d))
+    org = _append(d, bytearray(code))
+    for site, _, entry, _ in FLIP_SITES:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], False)
+    vprint(f"I Flip UI {len(code)} bytes at {org:#010x}")
+
+
+def apply_clock_hold(d):
+    """Guard J's sites and the limits it relies on, append J, install it."""
+    _guard(d, CLK_REG_LIMIT_VA, CLK_REG_LIMIT, "parameter registry limit")
+    _guard(d, CLK_STORE_CAP_VA, CLK_STORE_CAP, "global settings capacity")
+    for site, target, _ in CLK_CALLS:
+        if bytes(d[site - BASE:site - BASE + 4]) != enc_b_bl(site, target, True):
+            refuse(f"The Clk Loss call at {site:#x} is not what it should be.")
+    for site, stock, _, _ in CLK_SITES:
+        _guard(d, site, stock, "clock site")
+    code, syms = build_clock_hold_hook(BASE + len(d))
+    org = _append(d, bytearray(code))
+    for site, _, entry in CLK_CALLS:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], True)
+    for site, _, entry, _ in CLK_SITES:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], False)
+    vprint(f"J Clk Loss {len(code)} bytes at {org:#010x}, "
+           f"mode {CLK_MODE:#x}, held {CLK_HELD:#x}, id {CLK_ID:#x}")
+
+
 def write_slot(d, va, expect, new, display_max=None):
     """Overwrite one 16-byte string slot, guarding on its current contents.
 
@@ -3887,7 +4538,9 @@ def main():
         sys.exit(USAGE)
 
     inp, outp = argv[0], argv[1]
-    ver = argv[2] if len(argv) > 2 else "2.3.7-mod"
+    ver = argv[2] if len(argv) > 2 else "2.3.8-mod"
+    # Program Change is standard from 2.3.8-mod. The flag is still accepted
+    # so the beta's documented command keeps working; it changes nothing.
 
     try:
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -4117,12 +4770,28 @@ def main():
     for what, cc in FEATURES:
         print(f"     ok   {what:<28} {cc}")
 
+    apply_program_change(d)
+    apply_settings_page(d)
+    apply_flip_ui(d)
+    apply_clock_hold(d)
+    for what, where in SETTINGS_FEATURES:
+        print(f"     ok   {what:<28} {where}")
+
     # Splash: drop 1010music's attribution so the modifications are not
     # credited to them, and mark the version as a modified build.
     write_slot(d, ATTRIB_VA, ATTRIB_STOCK, ATTRIB_NEW)
     write_slot(d, VER_VA, VER_STOCK, ver, display_max=VER_DISPLAY_MAX)
 
     print(f"     ok   Splash screen, so nobody blames 1010music for my work")
+
+    # The bootloader programs and then verifies the image, and an image whose
+    # length is not a multiple of four fails that check ("Unable to verify").
+    # Every block above pads itself; this is the backstop.
+    if len(d) % 4:
+        refuse(f"The patched image is {len(d):,} bytes, not a multiple of 4.",
+               "",
+               "The module's bootloader would program it and then fail to",
+               "verify it. Nothing has been written.")
 
     try:
         open(outp, "wb").write(bytes(d))

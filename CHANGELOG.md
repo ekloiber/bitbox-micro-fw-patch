@@ -2,15 +2,32 @@
 
 Changes to the Bitbox Micro firmware patch, newest first. Each entry describes
 something you would notice: what the module does differently once it is
-flashed, or what the patcher does differently to your files. Nothing about how
-either one is built.
+flashed, what the patcher does differently to your files, or what changed in
+the guide you are reading. Nothing about how any of it is built.
+
+## 2.3.8-mod — October 2026
+
+- Three new rows on the module's own Settings screen, the first additions that
+  are not on a CC.
+- Flip UI turns the screen, touch, buttons and knobs over together, for a
+  module mounted upside down.
+- Clk Loss keeps the last tempo when the clock drops out, instead of falling
+  back to 120. Beat-synced delays and LFOs stay where they were, through preset
+  changes, until a clock returns.
+- ProgChange gains NEW ONLY, which ignores a Program Change for the preset
+  already loaded. A sequencer that resends the same request every pattern no
+  longer reloads the preset and swallows its first notes.
+- All three are on page 2 of TOOLS, Settings, and the module saves them with its
+  own settings. A new settings page in the guide covers each one.
+- Everything from 2.3.7-mod is unchanged and still there.
 
 ## 2.3.7-mod — September 2026
 
-- A master EQ and filter, which the module never had, on the sum of everything
-  routed to Out 1 and 2. Ten algorithms on one encoder: a DJ filter, a dual
+- A master EQ and filter, which the module has never had. Ten algorithms: a DJ filter, a dual
   cut, a band pass, a three-band mixer EQ, tone and filter together, a tilt, a
-  notch, a peak, a phaser, and a vowel morpher.
+  notch, a peak, a phaser, and a formant filter.
+- The installation and user guide has been completely redeveloped, hopefully
+  making it easier to take in, and easier to reach just the part you need.
 - Every control is neutral at its centre in every mode, so three centred knobs
   is an EQ doing nothing at all, and the mode dial can be swept without hearing
   it.

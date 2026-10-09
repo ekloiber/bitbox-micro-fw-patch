@@ -420,7 +420,7 @@
 <div class="wrap">
   <aside class="side">
     <p class="brand">Bitbox Micro<br>community modification</p>
-    <nav class="nav"><a href="index.html" aria-current="page">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
+    <nav class="nav"><a href="index.html" aria-current="page">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
     <nav class="toc">
       <p class="toc-label">On this page</p>
       <a href="#a-patcher-not-firmware"><span class="n">1</span><span>A Patcher, Not Firmware</span></a><a href="#requirements"><span class="n">2</span><span>Requirements</span></a><a href="#quick-start"><span class="n">3</span><span>Quick Start</span></a><a href="#read-next"><span class="n">4</span><span>Read Next</span></a><a href="#licence"><span class="n">5</span><span>Licence</span></a><a href="#ai-assistance"><span class="n">6</span><span>AI Assistance</span></a><a href="#if-youre-from-1010music"><span class="n">7</span><span>If You&#x27;re from 1010music</span></a><a href="#getting-help"><span class="n">8</span><span>Getting Help</span></a>
@@ -433,7 +433,7 @@
       <p>What this is, what you need, and where to go next.</p>
     </header>
   <div class="doc">
-    <p>The Bitbox Micro hides a long list of useful controls behind a screen, one knob at a time, and a compressor you can only switch on and off, with no adjustment at all. This patch puts every one of them on MIDI: delay and reverb sends, envelope, LFO, loop and granular controls per pad, and all five compressor parameters. It adds one thing the module never had at all, a multi-algorithm master EQ and filter across the whole mix. All live, while you play.</p>
+    <p>The Bitbox Micro hides a long list of useful controls behind a screen, one knob at a time, and a compressor you can only switch on and off, with no adjustment at all. This patch puts every one of them on MIDI: delay and reverb sends, envelope, LFO, loop and granular controls per pad, and all five compressor parameters. It adds one thing the module never had at all, a multi-algorithm master EQ and filter across the whole mix. All live, while you play. Three new Settings rows turn the display upside down, hold the tempo when a clock drops out, and skip repeated Program Changes.</p>
     <p>It is an unofficial modification. Nobody at 1010music wrote or endorsed it. The splash reads <code>community fw</code>, so a patched unit is never mistaken for one of theirs, and nobody should ask 1010music for support with it. Assume running it affects your warranty, though it <a href="INSTALLING.html#can-this-brick-my-module">cannot brick the module</a>.</p>
   </div>
   <section class="section" id="a-patcher-not-firmware">
@@ -455,14 +455,13 @@
       <li>Python 3, any version from the last few years.</li>
       <li>A microSD card the module can read.</li>
     </ul>
-    <p>Full detail on each of these, including where to get them, is in <a href="INSTALLING.html">installing</a>.</p>
+    <p>Where to get each one is in <a href="INSTALLING.html">installing</a>.</p>
   </div>
   </section>
   <section class="section" id="quick-start">
   <h2 class="sec"><span class="n">3</span>Quick Start</h2>
   <div class="doc">
     <p>Get <a href="patch_micro.py" download><code>patch_micro.py</code></a> and <code>MICRO234.zip</code> from 1010music, run the one against the other, and copy the result to your card. Check the splash afterwards. It should read <code>community fw</code>. Full steps, and everything that can go wrong, are in <a href="INSTALLING.html">installing</a>.</p>
-    <p>It cannot brick your module. The bootloader is a separate program this patch never touches, and it is what does the flashing. See <a href="INSTALLING.html#can-this-brick-my-module">installing</a> for the full answer.</p>
   </div>
   </section>
   <section class="section" id="read-next">
@@ -475,6 +474,7 @@
       <li><a href="DEVICES.html">Devices</a>: the two that act on the whole mix, and where they sit.</li>
       <li><a href="COMPRESSOR.html">The compressor</a>: bus glue, adjustable from there.</li>
       <li><a href="EQ-FILTER.html">The EQ and filter</a>: ten algorithms on one encoder.</li>
+      <li><a href="SETTINGS.html">Settings</a>: Clk Loss, Flip UI and ProgChange, on the module itself.</li>
       <li><a href="LIMITATIONS.html">Limitations</a>: what it will not do, and why it refuses.</li>
       <li><a href="CHANGELOG.html">Changelog</a>: what changed. Newest first.</li>
     </ul>

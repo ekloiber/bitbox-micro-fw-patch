@@ -420,7 +420,7 @@
 <div class="wrap">
   <aside class="side">
     <p class="brand">Bitbox Micro<br>community modification</p>
-    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="LIMITATIONS.html" aria-current="page">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
+    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html" aria-current="page">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
     <nav class="toc">
       <p class="toc-label">On this page</p>
       <a href="#what-it-will-not-do"><span class="n">1</span><span>What It Will Not Do</span></a><a class="sub" href="#use-your-ears"><span class="n"></span><span>Use Your Ears</span></a><a class="sub" href="#a-preset-change-wipes-it"><span class="n"></span><span>A Preset Change Wipes It</span></a><a class="sub" href="#can-cv-control-these"><span class="n"></span><span>Can CV Control These?</span></a><a href="#strict-build-by-design"><span class="n">2</span><span>Strict Build by Design</span></a><a href="#your-mileage-may-vary"><span class="n">3</span><span>Your Mileage May Vary</span></a><a href="#known-limitations"><span class="n">4</span><span>Known Limitations</span></a><a href="#how-it-works-briefly"><span class="n">5</span><span>How It Works, Briefly</span></a>
@@ -489,8 +489,8 @@
   <section class="section" id="how-it-works-briefly">
   <h2 class="sec"><span class="n">5</span>How It Works, Briefly</h2>
   <div class="doc">
-    <p>Seven small blocks of code are bolted onto the end of the firmware image, and a few existing instructions and one table entry are pointed at them. The blocks chain into one another, so a single redirect serves several of them. Wherever possible, the patch hands a value straight to the firmware's own code rather than reimplementing what that code does: a Control Change is rescaled and branched into the same handler the encoder already uses, so it does exactly what turning the encoder does. Any CC the patch does not claim takes the original path completely unchanged.</p>
-    <p>The change is small and additive. Nothing in the original image is removed, relocated or overwritten.</p>
+    <p>Ten small blocks of code are bolted onto the end of the firmware image, and a few existing instructions and one table entry are pointed at them. The blocks chain into one another, so a single redirect serves several of them. Wherever possible, the patch hands a value straight to the firmware's own code rather than reimplementing what that code does: a Control Change is rescaled and branched into the same handler the encoder already uses, so it does exactly what turning the encoder does. Any CC the patch does not claim takes the original path completely unchanged.</p>
+    <p>The change is small and additive. Nothing in the original image is removed or relocated. The one piece of data rewritten is the list of rows on the Settings screen, which gains two.</p>
     <p>The two devices are the exception. Neither has an existing handler to hand a value to, so the patch keeps their values itself and applies them to the audio path continuously, rather than writing them once. That is why they survive a preset change when nothing else does, and why only a power cycle resets them. The EQ is much the larger of the two, and designs its four bands afresh on every audio block.</p>
   </div>
   </section>

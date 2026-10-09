@@ -6,14 +6,13 @@ adjustment at all. This patch puts every one of them on MIDI: delay and
 reverb sends, envelope, LFO, loop and granular controls per pad, and all
 five compressor parameters. It adds one thing the module never had at all, a
 multi-algorithm master EQ and filter across the whole mix. All live, while
-you play.
+you play. Three new Settings rows turn the display upside down, hold the
+tempo when a clock drops out, and skip repeated Program Changes.
 
 It is an unofficial modification. Nobody at 1010music wrote or endorsed it.
 The splash reads `community fw`, so a patched unit is never mistaken for one
 of theirs, and nobody should ask 1010music for support with it. Assume running
 it affects your warranty, though it [cannot brick the module](INSTALLING.md#can-this-brick-my-module).
-
-Help Documentation https://modularpatcher.github.io/bitbox-micro-fw-patch/
 
 ## A Patcher, Not Firmware
 
@@ -39,8 +38,7 @@ Five things, nothing exotic.
 - Python 3, any version from the last few years.
 - A microSD card the module can read.
 
-Full detail on each of these, including where to get them, is in
-[installing](INSTALLING.md).
+Where to get each one is in [installing](INSTALLING.md).
 
 ## Quick Start
 
@@ -48,10 +46,6 @@ Get [`patch_micro.py`](patch_micro.py) and `MICRO234.zip` from 1010music, run
 the one against the other, and copy the result to your card. Check the splash afterwards. It should read
 `community fw`. Full steps, and everything that can go wrong, are in
 [installing](INSTALLING.md).
-
-It cannot brick your module. The bootloader is a separate program this patch
-never touches, and it is what does the flashing. See
-[installing](INSTALLING.md#can-this-brick-my-module) for the full answer.
 
 ## Read Next
 
@@ -63,6 +57,7 @@ never touches, and it is what does the flashing. See
 - [Devices](DEVICES.md): the two that act on the whole mix, and where they sit.
 - [The compressor](COMPRESSOR.md): bus glue, adjustable from there.
 - [The EQ and filter](EQ-FILTER.md): ten algorithms on one encoder.
+- [Settings](SETTINGS.md): Clk Loss, Flip UI and ProgChange, on the module itself.
 - [Limitations](LIMITATIONS.md): what it will not do, and why it refuses.
 - [Changelog](CHANGELOG.md): what changed. Newest first.
 

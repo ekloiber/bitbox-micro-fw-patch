@@ -420,7 +420,7 @@
 <div class="wrap">
   <aside class="side">
     <p class="brand">Bitbox Micro<br>community modification</p>
-    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html" aria-current="page">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
+    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html" aria-current="page">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
     <nav class="toc">
       <p class="toc-label">On this page</p>
       <a href="#prerequisites"><span class="n">1</span><span>Prerequisites</span></a><a class="sub" href="#presets-that-use-it"><span class="n"></span><span>Presets That Use It</span></a><a href="#preparing"><span class="n">2</span><span>Preparing</span></a><a class="sub" href="#getting-python"><span class="n"></span><span>Getting Python</span></a><a href="#building"><span class="n">3</span><span>Building</span></a><a href="#flashing"><span class="n">4</span><span>Flashing</span></a><a href="#checking-it-worked"><span class="n">5</span><span>Checking It Worked</span></a><a href="#if-something-goes-wrong"><span class="n">6</span><span>If Something Goes Wrong</span></a><a class="sub" href="#windows-cannot-find-python"><span class="n"></span><span>Windows Cannot Find Python</span></a><a class="sub" href="#if-it-stops-with-an-error"><span class="n"></span><span>If It Stops with an Error</span></a><a class="sub" href="#going-back-to-stock"><span class="n"></span><span>Going Back to Stock</span></a><a href="#can-this-brick-my-module"><span class="n">7</span><span>Can This Brick My Module?</span></a><a href="#when-new-firmware-lands"><span class="n">8</span><span>When New Firmware Lands</span></a>
@@ -531,14 +531,17 @@ python3 patch_micro.py MICRO.BIN patched/MICRO.BIN</code></pre>
      ok   Delay filter, global         CC 110
      ok   Delay filter width, global   CC 111
      ok   Stop this pad                CC 120 / 123
+     ok   ProgChange: OFF/ON/NEW ONLY  TOOLS &gt; Settings
+     ok   Clk Loss: INTERNAL/HOLD      TOOLS &gt; Settings
+     ok   Flip UI, screen and touch    TOOLS &gt; Settings
      ok   Splash screen, so nobody blames 1010music for my work
 
-  Done. MICRO.BIN is ready -- 676,164 bytes.
+  Done. MICRO.BIN is ready -- 677,024 bytes.
 
-     Fingerprint  46affcde81318a4c9c4cdaa0467a6958156079d4a683bdf56c48aa573c5d70a2</code></pre>
+     Fingerprint  1ce1162229af75f0de5e95985e4805fbc795180d34cfc13cd08dd366ce3d93e6</code></pre>
     <p>It then tells you how to get the file onto the module. That is written out below.</p>
     <p>Check the fingerprint matches the one above. If it does, you have built exactly the same firmware as everybody else running this patch, down to the byte.</p>
-    <p>Add <code>-v</code> if you want to watch it work: addresses, opcodes and byte counts for every change it makes.</p>
+    <p>Add <code>-v</code> to watch it work: addresses, opcodes and byte counts for every change.</p>
   </div>
   </section>
   <section class="section" id="flashing">
@@ -559,10 +562,11 @@ python3 patch_micro.py MICRO.BIN patched/MICRO.BIN</code></pre>
     <p>The splash on the next boot should read:</p>
     <pre><code>bitbox micro
 community fw
-2.3.7-mod</code></pre>
+2.3.8-mod</code></pre>
     <p>If it still says <code>by 1010music</code> and <code>2.3.4</code>, the module booted the old firmware and nothing was flashed. Check the file is named <code>MICRO.BIN</code> and sits in the card root. Then try again.</p>
     <p>Check this every flash. It is the only reliable confirmation of which image is actually running, and it takes one second, against the twenty minutes you would otherwise waste proving a CC does not work on firmware that was never installed.</p>
     <p>Then test the CCs by listening, not by watching the screen. For all but two of them the display never moves, on this firmware or the stock one, so your ears are the only way to tell. This catches everybody exactly once. The two that do show, Reverse and Loop Mode, are the fastest way to prove your controller is getting through. See <a href="CC-REFERENCE.html">the CC reference</a> for the full control list once you start checking them off.</p>
+    <p>The Settings additions are not CCs. See <a href="SETTINGS.html">settings</a>.</p>
   </div>
   </section>
   <section class="section" id="if-something-goes-wrong">
