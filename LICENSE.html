@@ -302,6 +302,7 @@
   .doc ul { margin: 0.75rem 0 0; padding-left: 1.1rem; max-width: var(--measure);
             display: flex; flex-direction: column; gap: 0.4rem; }
   .doc ul li::marker { color: var(--accent); }
+  .doc li > ul { margin-top: 0.4rem; list-style-type: circle; }
 
   /* numbered procedures: accent numeral in its own column */
   .doc ol { margin: 0.9rem 0 0; padding: 0; max-width: var(--measure); list-style: none;
@@ -322,6 +323,8 @@
 
   .doc img { display: block; width: 100%; max-width: var(--measure); height: auto;
              margin: 1.4rem 0 0; }
+  /* Screenshots of the module are pixel art: natural size, never blurred. */
+  .doc img[src$=".png"] { width: auto; max-width: 100%; image-rendering: pixelated; }
 
   .doc hr { border: 0; border-top: 1px solid var(--rule); margin: 2.2rem 0 0; }
 
@@ -420,7 +423,7 @@
 <div class="wrap">
   <aside class="side">
     <p class="brand">Bitbox Micro<br>community modification</p>
-    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html" aria-current="page">Licence</a></nav>
+    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="CHARACTER.html">Character</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html" aria-current="page">Licence</a></nav>
 
   </aside>
   <main class="main">
@@ -469,7 +472,38 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</pre>
+SOFTWARE.
+
+======================================================================
+
+THIRD-PARTY NOTICE: AIRWINDOWS
+
+The Character chain's effects are ports of Airwindows plugins by Chris
+Johnson (airwindows), used under the MIT licence, whose notice travels with
+them:
+
+MIT License
+
+Copyright (c) 2018 Chris Johnson
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
     </div>
   </section>
     <footer><span>Unofficial. Not endorsed by or affiliated with 1010music. Supplied as is, under the MIT licence in LICENSE.</span><span>LICENSE</span></footer>

@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Bitbox Micro Firmware: The Character Chain</title>
+<style>
+/* Bitbox Micro — shared design system.
+ * Single source of truth for palette, typography and common document
+ * furniture. Consumed by bitbox_micro_presets/slice_map.py (slice maps)
+ * and docs/bitbox-firmware/render_docs.py (published documentation).
+ * Component CSS specific to one consumer stays with that consumer.
+ */
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  :root {
+    --paper: #E7E9E3; --panel: #F2F3EE; --sunk: #DDE0D8;
+    --rule: #C7CBC1; --rule-lo: #D8DBD2;
+    --ink: #171A16; --muted: #6C7268;
+    --k1: #2E5E8C; --k1-lo: #2E5E8C1F;
+    --k2: #8C3A5E; --k2-lo: #8C3A5E1F;
+    --k3: #2F6B5B; --k3-lo: #2F6B5B1F;
+    --k4: #8A5A1F; --k4-lo: #8A5A1F1F;
+    --k5: #4B4A8C; --k5-lo: #4B4A8C1F;
+    --k6: #7A4030; --k6-lo: #7A40301F;
+    --warn: #8A6A1F; --warn-lo: #8A6A1F1A;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141815; --panel: #1D211D; --sunk: #101412;
+      --rule: #343B34; --rule-lo: #262C26;
+      --ink: #E2E6DD; --muted: #969E93;
+      --k1: #77ADDC; --k1-lo: #77ADDC24;
+      --k2: #DE8CAF; --k2-lo: #DE8CAF24;
+      --k3: #6FBBA4; --k3-lo: #6FBBA424;
+      --k4: #D5A055; --k4-lo: #D5A05524;
+      --k5: #9A98DE; --k5-lo: #9A98DE24;
+      --k6: #D08A72; --k6-lo: #D08A7224;
+      --warn: #C8A44E; --warn-lo: #C8A44E1F;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #141815; --panel: #1D211D; --sunk: #101412;
+    --rule: #343B34; --rule-lo: #262C26;
+    --ink: #E2E6DD; --muted: #969E93;
+    --k1: #77ADDC; --k1-lo: #77ADDC24;
+    --k2: #DE8CAF; --k2-lo: #DE8CAF24;
+    --k3: #6FBBA4; --k3-lo: #6FBBA424;
+    --k4: #D5A055; --k4-lo: #D5A05524;
+    --k5: #9A98DE; --k5-lo: #9A98DE24;
+    --k6: #D08A72; --k6-lo: #D08A7224;
+    --warn: #C8A44E; --warn-lo: #C8A44E1F;
+  }
+
+  :root[data-theme="light"] {
+    --paper: #E7E9E3; --panel: #F2F3EE; --sunk: #DDE0D8;
+    --rule: #C7CBC1; --rule-lo: #D8DBD2;
+    --ink: #171A16; --muted: #6C7268;
+    --k1: #2E5E8C; --k1-lo: #2E5E8C1F;
+    --k2: #8C3A5E; --k2-lo: #8C3A5E1F;
+    --k3: #2F6B5B; --k3-lo: #2F6B5B1F;
+    --k4: #8A5A1F; --k4-lo: #8A5A1F1F;
+    --k5: #4B4A8C; --k5-lo: #4B4A8C1F;
+    --k6: #7A4030; --k6-lo: #7A40301F;
+    --warn: #8A6A1F; --warn-lo: #8A6A1F1A;
+  }
+
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans);
+         line-height: 1.55; -webkit-font-smoothing: antialiased; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 3rem 1.5rem 5rem;
+          display: flex; flex-direction: column; gap: 3rem; }
+
+  .eyebrow { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em;
+             text-transform: uppercase; color: var(--muted); }
+
+  .masthead { display: flex; flex-direction: column; gap: 1rem; }
+  .masthead h1 { font-family: var(--mono); font-size: clamp(1.4rem, 4vw, 2.1rem);
+                 font-weight: 700; letter-spacing: -0.02em; line-height: 1.15;
+                 text-wrap: balance; margin: 0; overflow-wrap: anywhere; }
+  .masthead p { margin: 0; max-width: 64ch; color: var(--muted); font-size: 0.95rem; }
+
+  .facts { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin: 0; }
+  .facts li { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em;
+              padding: 0.3rem 0.6rem; border: 1px solid var(--rule);
+              background: var(--panel); font-variant-numeric: tabular-nums; }
+
+  h2.sec { font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
+           letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
+           margin: 0; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
+
+  .section { display: flex; flex-direction: column; gap: 1rem; }
+
+  code { font-family: var(--mono); font-size: 0.87em; background: var(--sunk);
+         padding: 0.05em 0.35em; border: 1px solid var(--rule); }
+
+  /* ---- tables ---- */
+
+  .tablewrap { overflow-x: auto; border: 1px solid var(--rule); }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; font-family: var(--mono);
+          font-size: 0.76rem; font-variant-numeric: tabular-nums; background: var(--panel); }
+  thead th { text-align: right; font-weight: 600; font-size: 0.63rem; letter-spacing: 0.1em;
+             text-transform: uppercase; color: var(--muted); padding: 0.6rem 0.8rem;
+             border-bottom: 1px solid var(--rule); white-space: nowrap; }
+  thead th:first-child, thead th.l { text-align: left; }
+  tbody td { text-align: right; padding: 0.45rem 0.8rem; border-bottom: 1px solid var(--rule-lo); white-space: nowrap; }
+  tbody td:first-child, tbody td.l { text-align: left; }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody td.key { color: var(--rowkey); font-weight: 700; box-shadow: inset 3px 0 0 var(--rowkey); }
+  tbody tr.on td { background: var(--accent-lo); }
+  tbody tr.on td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+  .src { color: var(--muted); max-width: 26ch; overflow: hidden; text-overflow: ellipsis; }
+  .barcell { width: 30%; }
+  .minibar { display: block; height: 8px; background: var(--accent); opacity: 0.55; min-width: 1px; }
+
+  /* ---- definition cards ---- */
+
+  .settinggrid { display: grid; gap: 0.5rem;
+                 grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+  .settingcard { background: var(--panel); border: 1px solid var(--rule); padding: 0.7rem 0.85rem; }
+  .settingcard.wide { margin-top: 0.5rem; }
+  .settingcard-head { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em;
+                      text-transform: uppercase; color: var(--muted);
+                      padding-bottom: 0.45rem; margin-bottom: 0.45rem;
+                      border-bottom: 1px solid var(--rule); }
+  .settingcard dl { margin: 0; display: grid; grid-template-columns: auto 1fr;
+                    gap: 0.2rem 0.9rem; font-family: var(--mono); font-size: 0.72rem;
+                    font-variant-numeric: tabular-nums; }
+  .settingcard dt { color: var(--muted); white-space: nowrap; }
+  .settingcard dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+  .settings-source { font-family: var(--mono); font-size: 0.64rem; color: var(--muted);
+                     margin-top: 0.5rem; }
+  .settings-missing { font-size: 0.9rem; color: var(--muted); max-width: 70ch; margin: 0; }
+
+  /* ---- observations ---- */
+
+  .notes { display: flex; flex-direction: column; gap: 1rem; }
+  .note { border-left: 3px solid var(--rule); background: var(--panel);
+          padding: 0.85rem 1.1rem; display: flex; flex-direction: column; gap: 0.3rem; }
+  .note.warn { border-left-color: var(--warn); background: var(--warn-lo); }
+  .note-where { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.1em;
+                text-transform: uppercase; color: var(--muted); }
+  .note h3 { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.06em;
+             text-transform: uppercase; margin: 0; font-weight: 700; }
+  .note.warn h3 { color: var(--warn); }
+  .note p { margin: 0; font-size: 0.9rem; max-width: 70ch; }
+  .note .hits { margin: 0.35rem 0 0; padding: 0; list-style: none;
+                display: flex; flex-direction: column; gap: 0.25rem; }
+  .note .hits li { font-family: var(--mono); font-size: 0.7rem;
+                   font-variant-numeric: tabular-nums; color: var(--ink);
+                   padding-left: 0.85rem; text-indent: -0.85rem; overflow-wrap: anywhere; }
+  .note .hits li::before { content: "\2192 "; color: var(--muted); }
+
+  footer { font-family: var(--mono); font-size: 0.68rem; color: var(--muted);
+           border-top: 1px solid var(--rule); padding-top: 1rem; line-height: 1.7; }
+
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 2rem 1rem 3.5rem; gap: 2.25rem; }
+  }
+
+  /* ---- documentation layer -------------------------------------------
+     The shared file supplies the substrate: paper, hairline rules, spacing,
+     tabular figures. The documents express it as an editorial manual --
+     serif display against sans body, one restrained accent, numbered
+     sections.
+     Fonts are system stacks only: a downloaded folder must render with no
+     network and no bundled assets.
+     ------------------------------------------------------------------- */
+
+  :root {
+    --measure: 54rem;
+    --serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --accent: #8C3A2E;
+    --accent-lo: #8C3A2E14;
+    --callout: #EFEDE7;
+    --paper: #FBFAF7; --panel: #F4F2ED; --sunk: #EFEDE7;
+    --rule: #D8D4CC; --rule-lo: #E7E3DB;
+    --ink: #1A1815; --muted: #6E6A62;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --accent: #D98A78; --accent-lo: #D98A7820; --callout: #22201D;
+      --paper: #14130F; --panel: #1C1A17; --sunk: #100F0D;
+      --rule: #35322C; --rule-lo: #262420;
+      --ink: #E8E4DC; --muted: #9A948A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --accent: #D98A78; --accent-lo: #D98A7820; --callout: #22201D;
+    --paper: #14130F; --panel: #1C1A17; --sunk: #100F0D;
+    --rule: #35322C; --rule-lo: #262420;
+    --ink: #E8E4DC; --muted: #9A948A;
+  }
+
+  body { background: var(--paper); color: var(--ink); }
+
+  /* Sidebar and text column. The measure stays near 70ch for readability --
+     widening prose to fill a large screen is worse to read, not better -- so
+     the horizontal space goes to persistent navigation instead, which also
+     lifts the contents list out of the vertical flow. */
+  .wrap { display: grid; gap: 0 3rem; align-items: start;
+          grid-template-columns: 16.5rem minmax(0, 1fr);
+          justify-content: center; max-width: 100rem; margin: 0 auto;
+          padding: 2rem 2rem 4rem; }
+  .main { min-width: 0; }
+
+  .side { position: sticky; top: 2.5rem; display: flex; flex-direction: column;
+          gap: 1.5rem; padding-right: 1.5rem;
+          border-right: 1px solid var(--rule);
+          max-height: calc(100vh - 5rem); overflow-y: auto;
+          scrollbar-width: thin; }
+  .brand { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.09em;
+           text-transform: uppercase; color: var(--muted); margin: 0;
+           line-height: 1.5; }
+
+  /* ---- running head and foot ---- */
+
+  footer { font-family: var(--sans); font-size: 0.68rem; color: var(--muted);
+           border-top: 1px solid var(--rule); padding-top: 0.9rem;
+           margin-top: 2.5rem; display: flex; justify-content: space-between;
+           gap: 1rem; line-height: 1.6; }
+
+  /* ---- masthead ---- */
+
+  .masthead { gap: 0; margin-bottom: 2.2rem; }
+  .masthead h1 { font-family: var(--serif); font-weight: 700;
+                 font-size: clamp(2rem, 6vw, 3.1rem); letter-spacing: -0.015em;
+                 line-height: 1.05; margin: 0 0 0.5rem; text-wrap: balance; }
+  .masthead .eyebrow { font-family: var(--sans); font-weight: 700; color: var(--accent);
+                       letter-spacing: 0.1em; font-size: 0.7rem;
+                       border-top: 2px solid var(--ink); padding-top: 0.55rem; }
+  .masthead p { font-family: var(--sans); color: var(--muted); font-size: 0.95rem;
+                max-width: 78ch; margin: 0.9rem 0 0; }
+
+  .nav { display: flex; flex-direction: column; gap: 0.15rem; margin: 0; }
+  .nav a { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.02em;
+           font-weight: 600; padding: 0.28rem 0; border: 0; background: none;
+           color: var(--muted); text-decoration: none; }
+  .nav a:hover { color: var(--ink); }
+  .nav a[aria-current] { color: var(--accent); box-shadow: none; }
+
+  /* ---- contents ---- */
+
+  .toc { display: flex; flex-direction: column; gap: 0.1rem; margin: 0;
+         padding-top: 1.2rem; border-top: 1px solid var(--rule); }
+  .toc-label { font-family: var(--sans); font-weight: 700; font-size: 0.62rem;
+               letter-spacing: 0.12em; text-transform: uppercase;
+               color: var(--muted); margin: 0 0 0.5rem; }
+  .toc a { display: grid; grid-template-columns: 1rem 1fr; gap: 0.5rem;
+           align-items: baseline; font-family: var(--sans); font-size: 0.8rem;
+           color: var(--muted); text-decoration: none; padding: 0.24rem 0;
+           border: 0; background: none; line-height: 1.35; }
+  .toc a:hover { color: var(--accent); }
+  .toc a .n { font-variant-numeric: tabular-nums; color: var(--accent);
+              font-weight: 700; }
+  .toc a.sub { color: var(--muted); }
+  .toc a.sub:hover { color: var(--accent); }
+
+  /* ---- numbered sections ---- */
+
+  /* Major sections get real air between them. A numbered heading under a
+     heavy rule is a strong signal, and it needs room above it or the page
+     reads as one continuous column. */
+  .section { display: block; margin: 3.4rem 0 0; }
+  h2.sec { font-family: var(--serif); font-size: clamp(1.35rem, 3.4vw, 1.75rem);
+           font-weight: 700; letter-spacing: -0.01em; text-transform: none;
+           color: var(--ink); margin: 0 0 1.9rem; padding-bottom: 0.5rem;
+           border-bottom: 2px solid var(--ink); display: flex; gap: 0.7rem;
+           align-items: baseline; text-wrap: balance; }
+  h2.sec .n { font-variant-numeric: tabular-nums; color: var(--ink);
+              font-weight: 400; flex: none; }
+  h2.sec .n::after { content: " /"; color: var(--muted); }
+
+  /* ---- prose ---- */
+
+  .doc { font-family: var(--sans); font-size: 1.02rem; }
+  .doc h3 { font-family: var(--sans); font-size: 0.9rem; font-weight: 700;
+            letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent);
+            margin: 2.6rem 0 1rem; border: 0; padding: 0; }
+  .doc h3:first-child { margin-top: 0; }
+  .doc h4 { font-family: var(--sans); font-size: 0.98rem; font-weight: 700;
+            color: var(--ink); letter-spacing: 0; text-transform: none;
+            margin: 1.8rem 0 0.6rem; }
+
+  .doc p { margin: 0.75rem 0 0; max-width: var(--measure); }
+  .doc > :first-child { margin-top: 0; }
+  .doc h3 + p, .doc h4 + p, .doc h3 + ul, .doc h3 + ol,
+  .doc h3 + .tablewrap { margin-top: 0; }
+  .doc a { color: var(--accent); text-underline-offset: 0.18em;
+           text-decoration-thickness: 1px; }
+  .doc a:hover { text-decoration-thickness: 2px; }
+
+  .doc ul { margin: 0.75rem 0 0; padding-left: 1.1rem; max-width: var(--measure);
+            display: flex; flex-direction: column; gap: 0.4rem; }
+  .doc ul li::marker { color: var(--accent); }
+  .doc li > ul { margin-top: 0.4rem; list-style-type: circle; }
+
+  /* numbered procedures: accent numeral in its own column */
+  .doc ol { margin: 0.9rem 0 0; padding: 0; max-width: var(--measure); list-style: none;
+            counter-reset: step; display: flex; flex-direction: column; gap: 0.6rem; }
+  .doc ol { padding-left: 2.1rem; }
+  .doc ol li { counter-increment: step; position: relative; }
+  .doc ol li::before { content: counter(step); position: absolute;
+                       left: -2.1rem; width: 1.5rem; text-align: right;
+                       color: var(--accent); font-weight: 700;
+                       font-variant-numeric: tabular-nums; font-size: 0.86rem; }
+
+  .doc pre { font-family: var(--mono); font-size: 0.82rem; line-height: 1.65;
+             background: var(--sunk); border: 1px solid var(--rule);
+             padding: 0.85rem 1rem; margin: 1rem 0 0; overflow-x: auto; }
+  .doc pre code { background: none; border: 0; padding: 0; font-size: inherit; }
+  code { background: var(--sunk); border: 1px solid var(--rule-lo);
+         font-size: 0.85em; padding: 0.02em 0.22em; }
+
+  .doc img { display: block; width: 100%; max-width: var(--measure); height: auto;
+             margin: 1.4rem 0 0; }
+  /* Screenshots of the module are pixel art: natural size, never blurred. */
+  .doc img[src$=".png"] { width: auto; max-width: 100%; image-rendering: pixelated; }
+
+  .doc hr { border: 0; border-top: 1px solid var(--rule); margin: 2.2rem 0 0; }
+
+  /* Commands are meant to be run, so they are meant to be copied. The button
+     is only drawn once the script has attached, so a page with no scripting
+     shows a plain block rather than a control that does nothing. */
+  .doc .pre-wrap { position: relative; }
+  .doc .pre-wrap .copy { position: absolute; top: 0.45rem; right: 0.45rem;
+                         font-family: var(--sans); font-size: 0.68rem;
+                         letter-spacing: 0.04em; line-height: 1;
+                         padding: 0.35rem 0.5rem; cursor: pointer;
+                         color: var(--muted); background: var(--panel);
+                         border: 1px solid var(--rule); border-radius: 0;
+                         opacity: 0; transition: opacity 0.12s ease; }
+  .doc .pre-wrap:hover .copy,
+  .doc .pre-wrap .copy:focus-visible { opacity: 1; }
+  .doc .pre-wrap .copy:hover { color: var(--ink); border-color: var(--ink); }
+  .doc .pre-wrap .copy[data-done] { color: var(--accent); border-color: var(--accent);
+                                    opacity: 1; }
+  @media print { .doc .pre-wrap .copy { display: none; } }
+
+  /* ---- callout ---- */
+
+  .doc .note { margin: 1.3rem 0 0; max-width: var(--measure); background: var(--callout);
+               border: 0; border-left: 4px solid var(--muted);
+               padding: 0.9rem 1.1rem; }
+  .doc .note.warn { border-left-color: var(--accent); background: var(--accent-lo); }
+  .doc .note p { margin: 0; max-width: none; font-size: 0.97rem; }
+  .doc .note p + p { margin-top: 0.5rem; }
+
+  /* ---- tables ----
+     Two-column tables are definition lists and get the borderless treatment:
+     bold term, hairline row rules, no header. Wider tables keep a shaded
+     header row so a 5-column CC map stays readable. */
+
+  .doc .tablewrap { margin-top: 1.2rem; border: 0; overflow-x: auto; }
+  .doc table { width: auto; max-width: min(100%, var(--measure)); }
+  .doc table.defs, .doc table.wide { width: 100%; }
+  .doc table { background: none; font-family: var(--sans); font-size: 0.94rem;
+               min-width: 0; }
+  .doc thead th { font-family: var(--sans); font-size: 0.68rem; font-weight: 700;
+                  letter-spacing: 0.08em; text-transform: uppercase;
+                  color: var(--ink); background: var(--panel);
+                  border-bottom: 1px solid var(--rule); padding: 0.6rem 0.8rem;
+                  text-align: left; }
+  .doc thead th.num { text-align: right; }
+  .doc tbody td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--rule-lo);
+                  text-align: left; white-space: normal; vertical-align: top; }
+  .doc tbody td.num { text-align: right; white-space: nowrap;
+                      font-variant-numeric: tabular-nums; }
+  .doc tbody tr:last-child td { border-bottom: 1px solid var(--rule); }
+
+  /* A boxed code chip reads well in a sentence and badly in a 27-row table,
+     where every cell would carry one. Inside a table it keeps the monospace
+     and loses the box. */
+  .doc table code { background: none; border: 0; padding: 0;
+                    color: var(--ink); font-size: 0.88em; }
+
+  .doc table.defs thead { display: none; }
+  .doc table.defs tbody td:first-child { font-weight: 700; width: 12rem;
+                                         padding-left: 0; }
+  .doc table.defs tbody td:last-child { padding-right: 0; }
+
+  @media (max-width: 74rem) {
+    .wrap { grid-template-columns: minmax(0, 1fr); gap: 2rem;
+            padding: 1.75rem 1.5rem 3rem; }
+    .side { position: static; border-right: 0; padding-right: 0;
+            padding-bottom: 1.25rem; border-bottom: 1px solid var(--rule);
+            flex-direction: row; flex-wrap: wrap; align-items: baseline;
+            gap: 0.5rem 1.5rem; }
+    .side .brand { width: 100%; }
+    .nav { flex-direction: row; flex-wrap: wrap; gap: 1.1rem; }
+    .toc { border-top: 0; padding-top: 0; width: 100%; }
+    .toc a { display: inline-grid; }
+  }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 1.5rem 1rem 3rem; }
+    .doc table.defs tbody td:first-child { width: auto; }
+    .doc table.defs tbody tr { display: grid; }
+    .doc table.defs tbody td { border-bottom: 0; padding: 0.15rem 0; }
+    .doc table.defs tbody tr { border-bottom: 1px solid var(--rule-lo);
+                               padding: 0.5rem 0; }
+  }
+
+  @media print {
+    .side { display: none; }
+    .wrap { display: block; max-width: none; padding: 0; }
+    h2.sec { break-after: avoid; }
+    .doc table, .doc .note, .doc pre { break-inside: avoid; }
+  }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside class="side">
+    <p class="brand">Bitbox Micro<br>community modification</p>
+    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="CHARACTER.html" aria-current="page">Character</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
+    <nav class="toc">
+      <p class="toc-label">On this page</p>
+      <a href="#the-four-banks"><span class="n">1</span><span>The Four Banks</span></a><a class="sub" href="#destruction"><span class="n"></span><span>Destruction</span></a><a class="sub" href="#overdrive"><span class="n"></span><span>Overdrive</span></a><a class="sub" href="#colour"><span class="n"></span><span>Colour</span></a><a class="sub" href="#saturation"><span class="n"></span><span>Saturation</span></a><a href="#where-it-sits"><span class="n">2</span><span>Where It Sits</span></a><a href="#the-controls"><span class="n">3</span><span>The Controls</span></a><a href="#things-to-know"><span class="n">4</span><span>Things to Know</span></a><a class="sub" href="#cpu"><span class="n"></span><span>CPU</span></a><a class="sub" href="#quiet-tails-come-up"><span class="n"></span><span>Quiet Tails Come Up</span></a><a class="sub" href="#not-saved"><span class="n"></span><span>Not Saved</span></a>
+    </nav>
+  </aside>
+  <main class="main">
+    <header class="masthead">
+      <p class="eyebrow">Device</p>
+      <h1>Bitbox Micro Firmware: The Character Chain</h1>
+      <p>Four Airwindows effect slots, sixteen effects to choose from.</p>
+    </header>
+  <div class="doc">
+    <p>Four effect slots in a row across the whole mix: Destruction, Overdrive, Colour and Saturation. Each slot holds one of four effects, sixteen in all. Every one is a port of a plugin by Chris Johnson of Airwindows, used under its MIT licence.</p>
+    <p>Turn a slot's Amount up and that effect joins the mix. At zero it is gone.</p>
+  </div>
+  <section class="section" id="the-four-banks">
+  <h2 class="sec"><span class="n">1</span>The Four Banks</h2>
+  <div class="doc">
+    <p>Each bank is a family of four. Every effect keeps its Airwindows name, so <a href="https://www.airwindows.com/" rel="noreferrer noopener">the Airwindows site</a> has far more on each one.</p>
+    <h3 id="destruction">Destruction</h3>
+    <p>Destruction is lo-fi and breakage, for when the mix should sound broken on purpose: old samplers, aliasing, clang and buzz.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr>
+      <th class="num">#</th>
+      <th>Effect</th>
+      <th>Sound</th>
+      <th>Tone</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td><strong>Pockey2</strong></td>
+        <td>old-sampler crunch and grit</td>
+        <td>how far the sample rate drops</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td><strong>DeRez3</strong></td>
+        <td>smeared, aliased lo-fi</td>
+        <td>how few bits: harsher as you turn it up</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td><strong>Ring Mod</strong></td>
+        <td>metallic, bell-like clang</td>
+        <td>the ring's pitch; fully down silences it</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td><strong>Fracture2</strong></td>
+        <td>folds the wave into buzzy harmonics</td>
+        <td>where the folding starts</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+    <h3 id="overdrive">Overdrive</h3>
+    <p>Drive the whole mix, from a warm valve glow to big, dirty harmonics.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr>
+      <th class="num">#</th>
+      <th>Effect</th>
+      <th>Sound</th>
+      <th>Tone</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td><strong>Tube2</strong></td>
+        <td>warm valve push</td>
+        <td>how hard it is driven</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td><strong>Drive</strong></td>
+        <td>straight overdrive</td>
+        <td>cuts the lows before the drive; near the top it thins and quietens</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td><strong>Mackity</strong></td>
+        <td>a small desk's input overloaded</td>
+        <td>how much of the extra level is taken back</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td><strong>Huge</strong></td>
+        <td>big, loud, dirty harmonics</td>
+        <td>Nasty: how harsh it gets</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+    <h3 id="colour">Colour</h3>
+    <p>Colour is the sound of the gear rather than an effect: consoles, tape and a transformer. It is subtle at low Amounts, and a good first stop.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr>
+      <th class="num">#</th>
+      <th>Effect</th>
+      <th>Sound</th>
+      <th>Tone</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td><strong>Channel9</strong></td>
+        <td>console warmth and edge</td>
+        <td>which console: Neve, API, SSL, Teac or Mackie</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td><strong>IronOxide5</strong></td>
+        <td>tape, with flutter and hiss</td>
+        <td>tape speed: slower is darker</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td><strong>ToTape8</strong></td>
+        <td>a fuller tape machine, with bump and flutter</td>
+        <td>darker or brighter</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td><strong>Coils2</strong></td>
+        <td>a transformer pushed hard; eases off at the very top</td>
+        <td>from a good transformer to a cheap one</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+    <h3 id="saturation">Saturation</h3>
+    <p>Saturation adds weight and density, smoothly. It is the gentlest bank and comes last, so it rounds off everything before it.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr>
+      <th class="num">#</th>
+      <th>Effect</th>
+      <th>Sound</th>
+      <th>Tone</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td><strong>PurestDrive</strong></td>
+        <td>the cleanest, most transparent saturation</td>
+        <td>how hard it drives, with the level held steady</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td><strong>Spiral2</strong></td>
+        <td>smooth, rounded warmth</td>
+        <td>presence</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td><strong>Density3</strong></td>
+        <td>thick, dense saturation</td>
+        <td>a low cut; its centre already thins the bass, so turn it down for full lows</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td><strong>Mojo</strong></td>
+        <td>fat saturation that lifts the level</td>
+        <td>how much of the lift is taken back</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+  </section>
+  <section class="section" id="where-it-sits">
+  <h2 class="sec"><span class="n">2</span>Where It Sits</h2>
+  <div class="doc">
+    <p>The chain comes first on the master bus, before the EQ and the compressor, so they hear what it made. It hears every pad on Out 1 and 2, tails included. Pads on Out 3–6 skip it. See <a href="DEVICES.html#where-they-sit">devices</a>.</p>
+    <p>The slot order is fixed. Destruction comes first, then Overdrive, Colour and Saturation. You break things before you polish them.</p>
+  </div>
+  </section>
+  <section class="section" id="the-controls">
+  <h2 class="sec"><span class="n">3</span>The Controls</h2>
+  <div class="doc">
+    <p>Each slot has an Amount, a Tone and a way to pick its effect. They are all MIDI CCs on <strong>channel 1</strong>, like the EQ and the compressor.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr>
+      <th>Slot</th>
+      <th>Amount</th>
+      <th>Tone</th>
+      <th>Next effect</th>
+      <th>Pick effect</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Destruction</strong></td>
+        <td>CC 14</td>
+        <td>CC 18</td>
+        <td>CC 26</td>
+        <td>CC 22</td>
+      </tr>
+      <tr>
+        <td><strong>Overdrive</strong></td>
+        <td>CC 15</td>
+        <td>CC 19</td>
+        <td>CC 27</td>
+        <td>CC 23</td>
+      </tr>
+      <tr>
+        <td><strong>Colour</strong></td>
+        <td>CC 16</td>
+        <td>CC 20</td>
+        <td>CC 28</td>
+        <td>CC 24</td>
+      </tr>
+      <tr>
+        <td><strong>Saturation</strong></td>
+        <td>CC 17</td>
+        <td>CC 21</td>
+        <td>CC 29</td>
+        <td>CC 25</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+    <p>Amount is how much of the effect you hear. Zero is off. An off slot costs nothing.</p>
+    <p>Tone is each effect's most useful second control. The bank tables above say what it does. It starts at its centre.</p>
+    <p>To choose the effect, map one of the last two columns. You only need one.</p>
+    <ul>
+      <li>Next effect is for a button. Each press steps to the slot's next effect and wraps back round after the fourth.</li>
+      <li>Pick effect is for jumping straight to one. Its range splits into four: <code>0</code>–<code>31</code> is the first effect, <code>32</code>–<code>63</code> the second, <code>64</code>–<code>95</code> the third and <code>96</code>–<code>127</code> the fourth. Use it from a sequencer, a DAW or a controller snapshot, when a song should always recall the same effect.</li>
+    </ul>
+    <p>A change of effect fades out and back in. It never clicks.</p>
+    <p>Every move shows in the pop-up, such as <code>OVERDRIVE  Huge</code> over <code>Amount  76%</code>.</p>
+    <p><img src="osd-popup.png" alt="The pop-up: a dark box reading OVERDRIVE Huge on the top line and Amount 76% beneath it."></p>
+  </div>
+  </section>
+  <section class="section" id="things-to-know">
+  <h2 class="sec"><span class="n">4</span>Things to Know</h2>
+  <div class="doc">
+    <p>Three things are worth knowing before you stack slots.</p>
+    <h3 id="cpu">CPU</h3>
+    <p>One or two slots are light. All four at full, with the heaviest effect in each bank, take about a quarter of the processor. The two tape effects in Colour are the heaviest. To watch the load, turn on the <a href="SETTINGS.html#the-cpu-bar">CPU bar</a>.</p>
+    <p><img src="cpu-bar.png" alt="The CPU bar at three loads, stacked: green only at a light load, green into amber at about 78%, and on into red at about 95%. A white tick marks the recent peak."></p>
+    <h3 id="quiet-tails-come-up">Quiet Tails Come Up</h3>
+    <p>Saturation lifts quiet sound more than loud. Stack two or three slots and a reverb tail that used to fade away hangs on, with noise you never heard before. High makeup on the compressor lifts it again, and so does auto makeup at extreme settings. If tails turn long and grainy, back a slot off first.</p>
+    <p>Some effects change the level as well as the sound. Match the levels first. Then judge.</p>
+    <h3 id="not-saved">Not Saved</h3>
+    <p>Like the other devices, the chain survives a preset change but not power-off. See <a href="DEVICES.html#what-they-have-in-common">what they have in common</a>. At power-on every slot returns to Amount zero, its first effect and a centred Tone.</p>
+    <p>The Airwindows licence travels with the patch, in <a href="LICENSE.html">LICENSE.html</a>.</p>
+  </div>
+  </section>
+    <footer><span>Unofficial. Not endorsed by or affiliated with 1010music. Supplied as is, under the MIT licence in LICENSE.</span><span>Bitbox Micro Firmware: The Character Chain</span></footer>
+  </main>
+</div>
+<script>
+// Adds a copy control to each code block. Written here rather than fetched:
+// a downloaded folder has no network, and the pages must work from file://.
+// navigator.clipboard is unavailable on file:// in some browsers, so fall
+// back to a selection-based copy rather than failing silently.
+(function () {
+  var blocks = document.querySelectorAll('.doc pre');
+  Array.prototype.forEach.call(blocks, function (pre) {
+    var wrap = document.createElement('div');
+    wrap.className = 'pre-wrap';
+    pre.parentNode.insertBefore(wrap, pre);
+    wrap.appendChild(pre);
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'copy';
+    btn.textContent = 'Copy';
+    btn.setAttribute('aria-label', 'Copy this block');
+    wrap.appendChild(btn);
+
+    btn.addEventListener('click', function () {
+      var text = pre.innerText;
+      var done = function () {
+        btn.textContent = 'Copied';
+        btn.setAttribute('data-done', '');
+        setTimeout(function () {
+          btn.textContent = 'Copy';
+          btn.removeAttribute('data-done');
+        }, 1400);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { btn.textContent = 'Select and copy'; }
+        document.body.removeChild(ta);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

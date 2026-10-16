@@ -1,40 +1,130 @@
 # Bitbox Micro Firmware: Settings
 
-Three of the patch's additions are not on a CC. They sit on the module's own
-Settings screen, beside 1010music's, and the module saves them with the rest of
-its settings. Set them once. They stay set, through preset changes and power
-cycles.
+Six of the patch's additions live on the module's own Settings screen, not on a
+CC. Set them once and they stay set, through preset changes and power cycles.
+Preset BPM is the exception: it belongs to each preset, and saves with it.
 
 Press TOOLS once to open Settings. Turn the top knob to pick a row and the
-bottom knob to change it. All three are on the second page, in this order:
+bottom knob to change it. Scroll past MIDI Keys and you reach these rows, in
+this order:
 
 ```text
+MIDI Rec:    1010music's, unchanged
 ProgChange:  OFF / ON / NEW ONLY
 Clk Loss:    INTERNAL / HOLD
+Preset BPM:  40 to 250
 SD Mode:     1010music's, unchanged
-Flip UI:     off or on
+Flip UI:     OFF / ON
+OSD:         OFF / POP-UP / CPU / BOTH
+Keep CCs:    OFF / ON
 ```
+
+## OSD
+
+This row turns on the pop-up, the CPU bar, or both. They appear on top of
+whichever screen you are on.
+
+- OFF: neither.
+- POP-UP: the pop-up only. This is the default.
+- CPU: the bar only.
+- BOTH: the pop-up and the bar.
+
+Both turn upside down with Flip UI.
+
+### The Pop-Up
+
+Send any of the patch's CCs, except the pad stop, and a box opens in the middle
+of the screen. The top line says where: the Character bank and its effect, `EQ`
+and its mode, `COMPRESSOR`, `DELAY`, or a pad's channel. The bottom line says
+what changed and its new value, in real units: hertz, decibels, milliseconds,
+percent, or a name. It closes about a second and a half after you stop turning.
+
+This is where to look. The module's own pages do not move for a CC.
+
+Pad pop-ups name the MIDI channel, as in `CH 3`, not the pad, because every pad
+on that channel takes the CC. Give each pad its own channel and the channel
+names the pad. A pad pop-up appears only when a pad on that channel took the CC.
+No pop-up means no pad there answers it. See
+[when a control seems dead](CC-REFERENCE.md#when-a-control-seems-dead).
+
+The clock has pop-ups too: `CLOCK OFF` when an external clock stops, with the
+tempo the module is holding or falling back to, `Synced` when one takes over,
+and `Tempo` when it settles on a new tempo.
+
+No pop-up opens for the value already showing, a preset load, or the values
+Keep CCs puts back.
+
+### The CPU Bar
+
+A bar along the bottom of the screen shows how hard the processor is working. It
+is green, then amber from about 70%, then red from about 90%. Use it to see what
+the Character chain costs before you hear it.
+
+![The CPU bar at three loads, stacked: green only at a light load, green into
+amber at about 78%, and on into red at about 95%. A white tick marks the
+recent peak.](cpu-bar.png)
+
+From the top, the bars show a light load, a load into the amber and one into
+the red. The white tick is the recent peak.
+
+## Preset BPM
+
+Set a preset's tempo on the module and save it with the preset. That was never
+possible before. The only way was to edit the preset file on a computer.
+
+### Using It
+
+Pick a tempo from 40 to 250 BPM, then save the preset. It loads at that tempo
+from then on. Each preset can have its own.
+
+This is the tempo the module runs at when no clock is driving it. Synced delays
+and LFOs follow it. Most presets sit at 120 only because nothing on the module
+could change it.
+
+### With a Clock
+
+A running clock always sets the tempo. Change Preset BPM while one is running
+and you hear no change yet. Your tempo takes over when the clock stops, and it
+saves with the preset as normal.
+
+### Capturing a Tempo
+
+With Clk Loss on HOLD, stop or unplug the clock and the tempo it was running at
+is copied into Preset BPM. Save the preset to keep it. Changing Preset BPM by
+hand ends a hold.
+
+## Keep CCs
+
+Loading a preset puts every pad back the way it was saved. Keep CCs keeps the
+changes you made from your controller instead.
+
+Say your vocal pad is on channel 6 and you have pushed its delay and reverb
+sends up for the last chorus. Load the next preset and both sends drop back to
+their saved values. With Keep CCs ON, the new preset's channel 6 pad comes up
+with the sends where you left them.
+
+It covers the per-pad controls this patch adds: the sends, Reverse, Sustain,
+the loop, granular and LFO controls. Only the ones you have moved since
+power-on carry over. The rest load as saved.
+
+OFF is the default: presets load exactly as saved.
 
 ## Clk Loss
 
-Keeps the tempo when the clock goes away.
+Clk Loss keeps the tempo when the clock goes away.
 
 ### What It Fixes
 
-With an external clock connected, the module runs at the clock's tempo. Unplug
-it, or let a clock simply stop sending, and after about five seconds the module
-gives up on it. It falls back to the preset's own tempo, which is 120 BPM in
-nearly every preset. Every beat-synced delay and LFO jumps with it.
+Unplug an external clock, or let it stop sending, and after about five seconds
+the module falls back to the preset's own tempo. Every beat-synced delay and LFO
+jumps with it.
 
-HOLD stops the jump. The module carries on at the last tempo the clock gave it,
-as if the clock were still there.
+HOLD stops the jump. The module carries on at the last tempo the clock gave it.
 
-- INTERNAL: what the module has always done. The default.
+- INTERNAL: what the module has always done. This is the default.
 - HOLD: keep the last external tempo until a clock returns.
 
-The fallback tempo lives in each preset's `preset.xml`, as `globtempo`. That is
-where the 120 comes from. The module has no control for it, so edit the file if
-you want a different one.
+Set the fallback tempo with the Preset BPM row above.
 
 ### What HOLD Keeps Through
 
@@ -42,38 +132,40 @@ A held tempo survives loading another preset, by Program Change or from the
 panel. It survives Stop and Start too.
 
 A returning clock always takes over, at whatever tempo it now runs. So does a
-second clock source that is still running. Holding only ever fills a gap.
+second clock source that is still running.
 
-Power off and the held tempo is gone. The setting is kept. The module starts at
-the preset's tempo, as always, until a clock arrives.
+Power off and the held tempo is gone, unless you saved the preset while it was
+holding. HOLD itself stays set. The module starts at the preset's tempo until a
+clock arrives.
 
-One delay to know about. Switching to INTERNAL while holding takes effect at the
-next Start, locate or preset load, not at once.
+Switching to INTERNAL while holding takes effect at the next Start, locate or
+preset load, not at once.
 
 ## Flip UI
 
-For a module mounted upside down. Flip UI turns the screen, touch, buttons and
-knobs the other way up, all together.
+Flip UI is for a module mounted upside down. It turns the screen, touch, buttons
+and knobs the other way up, all together.
 
 ### What Turns
 
 - Screen: rotated half a turn.
 - Touch: follows the screen, so a tap lands on what is under your finger.
 - Buttons: swap ends, so each sits where it should.
-- Knobs: swap jobs. Turning direction is unchanged, because clockwise is still
-  clockwise to your hand.
+- Knobs: swap jobs. Turning direction is unchanged.
 
 The knob swap happens the moment you change the setting. The knob you just used
 starts doing the other job. Expect it.
 
 ### What Stays Put
 
-The printing on the faceplate stays the right way up for a normal mount. So
-does the screen the bootloader shows while flashing.
+The faceplate printing stays the right way up for a normal mount. So does the
+bootloader's screen while flashing. One owner turned the buttons round inside
+the module so their labels read correctly upside down. That is hardware work.
+Do it at your own risk.
 
-At power-on the splash and the first screen appear the normal way up for about
-a second, then turn. The setting lives on the SD card, and the module draws its
-first screen before it has read the card. Nothing is wrong.
+At power-on the splash and first screen appear the normal way up for about a
+second, then turn. Nothing is wrong. The module draws them before it has read
+the setting from the card.
 
 ## ProgChange
 
@@ -82,16 +174,16 @@ Stock firmware offers OFF and ON. The patch adds a third choice.
 ### NEW ONLY
 
 - OFF: ignore Program Change.
-- ON: always load, including reloading the preset already playing. Unchanged.
+- ON: always load, even the preset already playing, as stock firmware does.
 - NEW ONLY: skip a request for the preset already loaded.
 
-Some sequencers send the same Program Change every time a pattern starts. On ON,
-every repeat reloads the preset, which interrupts it and swallows the first
-notes. NEW ONLY lets the repeats go by. A different preset still loads.
+Some sequencers resend the same Program Change every time a pattern starts. With
+ON, each repeat reloads the preset and swallows the first notes. NEW ONLY lets
+the repeats go by. A different preset still loads.
 
-Going from A to B and back to A works. So does loading B from the panel and then
-sending A. After you rename the current preset or use Save As, the first request
-reloads it once, and repeats after that are skipped. Choose ON when you want a
-resend to reload a preset you have just edited.
+Going from A to B and back to A works. So does loading B from the panel and
+then sending A. After you rename the current preset or use Save As, the first
+request reloads it once. Choose ON when you want a resend to reload a preset
+you have just edited.
 
 Program Change still answers on the MIDI Pads and MIDI Keys channels, as before.

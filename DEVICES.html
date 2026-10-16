@@ -302,6 +302,7 @@
   .doc ul { margin: 0.75rem 0 0; padding-left: 1.1rem; max-width: var(--measure);
             display: flex; flex-direction: column; gap: 0.4rem; }
   .doc ul li::marker { color: var(--accent); }
+  .doc li > ul { margin-top: 0.4rem; list-style-type: circle; }
 
   /* numbered procedures: accent numeral in its own column */
   .doc ol { margin: 0.9rem 0 0; padding: 0; max-width: var(--measure); list-style: none;
@@ -322,6 +323,8 @@
 
   .doc img { display: block; width: 100%; max-width: var(--measure); height: auto;
              margin: 1.4rem 0 0; }
+  /* Screenshots of the module are pixel art: natural size, never blurred. */
+  .doc img[src$=".png"] { width: auto; max-width: 100%; image-rendering: pixelated; }
 
   .doc hr { border: 0; border-top: 1px solid var(--rule); margin: 2.2rem 0 0; }
 
@@ -420,7 +423,7 @@
 <div class="wrap">
   <aside class="side">
     <p class="brand">Bitbox Micro<br>community modification</p>
-    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html" aria-current="page">Devices</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
+    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html" aria-current="page">Devices</a><a href="CHARACTER.html">Character</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
     <nav class="toc">
       <p class="toc-label">On this page</p>
       <a href="#where-they-sit"><span class="n">1</span><span>Where They Sit</span></a><a href="#what-they-have-in-common"><span class="n">2</span><span>What They Have in Common</span></a>
@@ -430,34 +433,32 @@
     <header class="masthead">
       <p class="eyebrow">Devices</p>
       <h1>Bitbox Micro Firmware: Devices</h1>
-      <p>The two that act on the whole mix, and where they sit.</p>
+      <p>The three that act on the whole mix, and where they sit.</p>
     </header>
   <div class="doc">
-    <p>A device acts on the whole mix rather than on one pad. It sits on the master bus, after everything has been summed and after the delay and reverb returns, so it hears the finished sound and not the parts. That is what separates these from the controls in <a href="PAD-CONTROLS.html">pad controls</a>, which are addressed per pad on that pad's own channel.</p>
-    <p>There are two.</p>
+    <p>Three devices act on the whole mix rather than on one pad. They sit on the master bus, after the delay and reverb returns, so they hear the finished sound.</p>
     <ul>
-      <li><strong><a href="COMPRESSOR.html">The compressor</a></strong>: dynamics. It arrives set up as a glue compressor, and all five of its parameters are on MIDI.</li>
-      <li><strong><a href="EQ-FILTER.html">The master EQ and filter</a></strong>: tone and colour. Ten algorithms on one encoder, and the larger of the two.</li>
+      <li><strong><a href="CHARACTER.html">The Character chain</a></strong>: four Airwindows effect slots, from bit crushing to tape, with sixteen effects to choose from.</li>
+      <li><strong><a href="EQ-FILTER.html">The master EQ and filter</a></strong>: tone and colour, with ten algorithms on one encoder.</li>
+      <li><strong><a href="COMPRESSOR.html">The compressor</a></strong>: dynamics, set up as a glue compressor when it arrives. All five of its parameters are on MIDI, with auto makeup.</li>
     </ul>
-    <p>Both answer on <strong>MIDI channel 1</strong>, unlike the per-pad controls, and both act on everything routed to Out 1 and Out 2. Pads on Out 3–6 skip them completely, which is your clean path when you want one.</p>
-    <p>The module gives you no screen for any of it. Nothing on the display moves when a CC arrives, for either device, so your controller is the display and your ears are the test.</p>
+    <p>All three answer on <strong>MIDI channel 1</strong>, not on a pad's channel. They act on everything routed to Out 1 and Out 2. Pads on Out 3–6 skip them completely, which is your clean path when you want one.</p>
+    <p>Every change shows in the <a href="SETTINGS.html#the-pop-up">pop-up</a>.</p>
   </div>
   <section class="section" id="where-they-sit">
   <h2 class="sec"><span class="n">1</span>Where They Sit</h2>
   <div class="doc">
-    <p><img src="signal-chain.svg" alt="Signal chain: pads routed to Out 1 and 2 join the delay and reverb returns, then pass through the compressor, the master EQ and filter, a safety limiter and master volume before reaching the outputs."></p>
-    <p>1010music do not publish the order of the master bus, so this is reasonably deduced rather than documented. It is consistent with what both devices do to a mix.</p>
-    <p>Three things follow from that, and they apply to both devices.</p>
-    <p>They see everything. Each acts on the sum of every pad routed to Out 1/2, including the delay and reverb returns. These are mix processors, not channel strips, and they hear the whole thing at once.</p>
-    <p>Master volume is after both of them. So turning the module down does not change how hard either one works, which is what you want.</p>
-    <p>Behind them sits a safety limiter this patch does not touch. It is the last thing before the outputs, it is not adjustable, and it is what stops a careless setting from reaching your speakers. You can push either device hard without worrying that you will damage anything.</p>
+    <p><img src="signal-chain.svg" alt="Signal chain: pads routed to Out 1 and 2 join the delay and reverb returns, then pass through the Character chain, the master EQ and filter, the compressor, a safety limiter and master volume before reaching the outputs."></p>
+    <p>They hear everything. Every pad on Out 1/2 is in there, delay and reverb tails included. These are mix processors, not channel strips.</p>
+    <p>Each one feeds the next. A filter sweep after heavy drive is a filter on a distorted mix. An EQ boost makes the compressor work harder.</p>
+    <p>Master volume comes after all three. Turning the module down does not change how hard any of them works.</p>
+    <p>Behind them sits a safety limiter. You cannot adjust it. The patch does not touch it. It stops a careless setting from reaching your speakers, so push any of the three as hard as you like.</p>
   </div>
   </section>
   <section class="section" id="what-they-have-in-common">
   <h2 class="sec"><span class="n">2</span>What They Have in Common</h2>
   <div class="doc">
-    <p>Neither is stored in a preset. Both keep their settings while the module is switched on, both <strong>survive a preset change</strong> when nothing else in this patch does, and a power cycle returns both to their starting values. There is no way to save either into a preset and no reset control for either.</p>
-    <p>Every control on both devices has been heard and tested on hardware.</p>
+    <p>None is stored in a preset. Their settings <strong>survive a preset change</strong> and last until you switch off. Power-on returns them to their starting values. There is no way to save them and no reset control. The compressor's on/off switch is the exception: the module keeps that with its own settings, as it always has.</p>
   </div>
   </section>
     <footer><span>Unofficial. Not endorsed by or affiliated with 1010music. Supplied as is, under the MIT licence in LICENSE.</span><span>Bitbox Micro Firmware: Devices</span></footer>

@@ -302,6 +302,7 @@
   .doc ul { margin: 0.75rem 0 0; padding-left: 1.1rem; max-width: var(--measure);
             display: flex; flex-direction: column; gap: 0.4rem; }
   .doc ul li::marker { color: var(--accent); }
+  .doc li > ul { margin-top: 0.4rem; list-style-type: circle; }
 
   /* numbered procedures: accent numeral in its own column */
   .doc ol { margin: 0.9rem 0 0; padding: 0; max-width: var(--measure); list-style: none;
@@ -322,6 +323,8 @@
 
   .doc img { display: block; width: 100%; max-width: var(--measure); height: auto;
              margin: 1.4rem 0 0; }
+  /* Screenshots of the module are pixel art: natural size, never blurred. */
+  .doc img[src$=".png"] { width: auto; max-width: 100%; image-rendering: pixelated; }
 
   .doc hr { border: 0; border-top: 1px solid var(--rule); margin: 2.2rem 0 0; }
 
@@ -420,10 +423,10 @@
 <div class="wrap">
   <aside class="side">
     <p class="brand">Bitbox Micro<br>community modification</p>
-    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html" aria-current="page">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
+    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html" aria-current="page">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="CHARACTER.html">Character</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
     <nav class="toc">
       <p class="toc-label">On this page</p>
-      <a href="#which-cc-which-channel"><span class="n">1</span><span>Which CC, Which Channel</span></a><a class="sub" href="#which-pad-types-work"><span class="n"></span><span>Which Pad Types Work</span></a><a class="sub" href="#midi-cc-map"><span class="n"></span><span>MIDI CC Map</span></a><a class="sub" href="#which-channel-to-send-on"><span class="n"></span><span>Which Channel to Send On</span></a><a href="#setting-up-your-controller"><span class="n">2</span><span>Setting Up Your Controller</span></a><a class="sub" href="#recommended-controller"><span class="n"></span><span>Recommended Controller</span></a><a class="sub" href="#encoder-types"><span class="n"></span><span>Encoder Types</span></a><a class="sub" href="#getting-the-full-range"><span class="n"></span><span>Getting the Full Range</span></a><a class="sub" href="#use-14-bit-cc"><span class="n"></span><span>Use 14-Bit CC</span></a><a href="#when-a-control-seems-dead"><span class="n">3</span><span>When a Control Seems Dead</span></a><a class="sub" href="#does-the-encoder-do-it"><span class="n"></span><span>Does the Encoder Do It?</span></a>
+      <a href="#which-cc-which-channel"><span class="n">1</span><span>Which CC, Which Channel</span></a><a class="sub" href="#which-pad-types-work"><span class="n"></span><span>Which Pad Types Work</span></a><a class="sub" href="#midi-cc-map"><span class="n"></span><span>MIDI CC Map</span></a><a class="sub" href="#which-channel-to-send-on"><span class="n"></span><span>Which Channel to Send On</span></a><a href="#setting-up-your-controller"><span class="n">2</span><span>Setting Up Your Controller</span></a><a class="sub" href="#recommended-controller"><span class="n"></span><span>Recommended Controller</span></a><a class="sub" href="#encoder-types"><span class="n"></span><span>Encoder Types</span></a><a class="sub" href="#getting-the-full-range"><span class="n"></span><span>Getting the Full Range</span></a><a class="sub" href="#use-14-bit-cc"><span class="n"></span><span>Use 14-Bit CC</span></a><a href="#when-a-control-seems-dead"><span class="n">3</span><span>When a Control Seems Dead</span></a><a class="sub" href="#is-there-a-pop-up"><span class="n"></span><span>Is There a Pop-Up?</span></a><a class="sub" href="#does-the-encoder-do-it"><span class="n"></span><span>Does the Encoder Do It?</span></a>
     </nav>
   </aside>
   <main class="main">
@@ -433,13 +436,11 @@
       <p>Which CC, which channel, which pad types answer it.</p>
     </header>
   <div class="doc">
-    <p>The numbers. Which CC does what, which channel it goes on, which pad types answer it, and what to check when one appears to do nothing.</p>
-    <p>See <a href="PAD-CONTROLS.html">pad controls</a> for what each control does, and <a href="DEVICES.html">devices</a> for the two that act on the whole mix. Start at <a href="index.html">the overview</a> if you have not installed it yet.</p>
+    <p>This page lists every CC, its channel and the pad types that answer it, and what to check when one seems dead. <a href="PAD-CONTROLS.html">Pad controls</a> says what each one does, and <a href="DEVICES.html">devices</a> covers the three that act on the whole mix.</p>
   </div>
   <section class="section" id="which-cc-which-channel">
   <h2 class="sec"><span class="n">1</span>Which CC, Which Channel</h2>
   <div class="doc">
-    <p>Everything you need to get your controller talking to the module: what works on which pad type, every CC number in one table, and which channel to send each one on. Three tables. That is the whole section.</p>
     <h3 id="which-pad-types-work">Which Pad Types Work</h3>
   <div class="tablewrap">
   <table class="wide">
@@ -527,13 +528,16 @@
     </tbody>
   </table>
   </div>
-    <p><strong>Multi-Sample</strong>: Sample mode, not a separate pad mode. It is a Sample pad with a folder of WAVs loaded into it. The manual says so twice: loading a directory "will automatically be changed to Sample", and switching a multi-sample pad to any other mode leaves it playing only the first file in the folder. Anything proven on a Sample pad is proven there too.</p>
-    <p>Two of the gaps belong to the module, not the patch. The Bitbox runs pads through two different bits of firmware: one for Sample, Multi-Sample and Granular, another for Clip and Slicer, and they do not have identical features.</p>
-    <p><strong>Reverse</strong>: does not exist in the Clip/Slicer half, since there is no setting for CC 86 to point at, so it can never work on those pads. <strong>Play Through</strong> is narrower still: a <strong>Slicer</strong> parameter only, since a Clip pad has no slices to carry on past. CC 90 does nothing anywhere except a Slicer pad.</p>
-    <p>Loop Mode and Loop Crossfade are the same story: Clip and Slicer pads handle looping their own way and have no equivalent setting.</p>
-    <p>Sustain and the three LFO controls, by contrast, <strong>do</strong> work on every pad type. The Clip/Slicer half keeps its parameters in a separate place with two copies of everything, so those arms hand the value to the firmware's own setter rather than writing it directly.</p>
-    <p><strong>Recorded-sample pads</strong>: no FX sends in stock firmware, either. The delay and reverb knobs on the FX screen do nothing on one, even with content recorded, and that is stock behaviour. Confirmed on hardware. Only two routines send audio to the FX bus, both patched here, so <strong>this covers every pad type that can use the FX sends.</strong> Giving recorded-sample pads sends would mean building that capability from scratch, which this does not attempt.</p>
-    <p>The compressor is not in this table: pad type is irrelevant to it. It sits on the Out 1/2 bus, post-mix, so it acts on every pad routed there and on nothing routed to Out 3–6.</p>
+    <p><strong>Multi-Sample</strong>: this is a Sample pad with a folder of WAVs loaded into it, not a separate mode, so it behaves exactly like a Sample pad. Switch it to another mode and it plays only the first file.</p>
+    <p>The gaps are the module's, not the patch's:</p>
+    <ul>
+      <li><strong>Reverse</strong>: Clip and Slicer pads have no reverse setting.</li>
+      <li><strong>Play Through</strong>: Slicer pads only, since only they have slices.</li>
+      <li><strong>Loop Mode and Loop Crossfade</strong>: Clip and Slicer pads loop their own way, with no equivalent setting.</li>
+      <li><strong>Recorded-sample pads</strong>: these have no FX sends in stock firmware. The delay and reverb knobs on the FX screen do nothing on them either.</li>
+    </ul>
+    <p>Sustain and the LFO controls work on Clip and Slicer pads too.</p>
+    <p>The three devices are not in the table. They act on every pad routed to Out 1/2, whatever its type.</p>
     <h3 id="midi-cc-map">MIDI CC Map</h3>
   <div class="tablewrap">
   <table>
@@ -545,6 +549,34 @@
       <th>Encoder</th>
     </tr></thead>
     <tbody>
+      <tr>
+        <td class="num"><strong>14–17</strong></td>
+        <td>Character Amount: Destruction, Overdrive, Colour, Saturation</td>
+        <td><strong>1 only</strong></td>
+        <td><code>0</code> off … <code>127</code> full</td>
+        <td>linear</td>
+      </tr>
+      <tr>
+        <td class="num"><strong>18–21</strong></td>
+        <td>Character Tone, same order</td>
+        <td><strong>1 only</strong></td>
+        <td><code>0</code>–<code>127</code>, starts at centre</td>
+        <td>linear</td>
+      </tr>
+      <tr>
+        <td class="num"><strong>22–25</strong></td>
+        <td>Character pick effect, same order</td>
+        <td><strong>1 only</strong></td>
+        <td>four bands, one per effect</td>
+        <td>stepped, 4</td>
+      </tr>
+      <tr>
+        <td class="num"><strong>26–29</strong></td>
+        <td>Character next effect, same order</td>
+        <td><strong>1 only</strong></td>
+        <td>any value above <code>0</code></td>
+        <td>button</td>
+      </tr>
       <tr>
         <td class="num"><strong>40</strong></td>
         <td>Compressor on/off</td>
@@ -586,6 +618,13 @@
         <td><strong>1 only</strong></td>
         <td>−36 … +36 dB</td>
         <td>linear</td>
+      </tr>
+      <tr>
+        <td class="num"><strong>46</strong></td>
+        <td>Compressor auto makeup</td>
+        <td><strong>1 only</strong></td>
+        <td><code>≥64</code> on, <code>&lt;64</code> off</td>
+        <td>button</td>
       </tr>
       <tr>
         <td class="num"><strong>50</strong></td>
@@ -800,34 +839,30 @@
     </tbody>
   </table>
   </div>
-    <p>Every control the patch adds, on thirty-six numbers. Write them down somewhere.</p>
-    <p><strong>Every one of them has been heard on the module</strong>: nothing in this table rests on reading the code and hoping.</p>
-    <p>There is nothing to set up. Every one of these is fixed in the firmware and live on every pad of every preset the moment you flash. You do not map them, assign them, learn them or save them: send the CC and it works. That is the opposite of every other CC on the module, which you <em>do</em> assign yourself, per preset, at a cost of one modulation slot each.</p>
-    <p>Fixed numbers work here where MIDI Learn cannot. MIDI Learn works through the modulation system, exactly what these controls cannot reach: the reason they needed patching. Fixed CCs cost no modulation slot and work the same on every preset. The numbers clear the four CCs stock firmware already claims (1, 7, 10, 64) and the MIDI spec's reserved 96–101 range. <strong>CC 120 and 123 are the exceptions: Channel Mode messages</strong> (All Sound Off, All Notes Off), which most DAWs already send on stop.</p>
+    <p>There is nothing to set up on the module. Each control has a fixed CC that works on every preset, with no MIDI Learn and no modulation slot. Set your controller to send these CCs on the channel shown and you are playing. Every one but the pad stop opens a <a href="SETTINGS.html#the-pop-up">pop-up</a>.</p>
     <h3 id="which-channel-to-send-on">Which Channel to Send On</h3>
-    <p><strong>CC 79 through 93 and 120/123</strong>: per-pad. Send them on the MIDI channel that pad is already set to listen on, the same channel you use to trigger it. Eight pads on eight channels answer independently.</p>
-    <p><strong>CC 108 through 111</strong>: global. They answer on any channel, because they control the one delay the whole preset shares.</p>
-    <p><strong>CC 40 through 45</strong>: the compressor, and they answer on channel 1 only.</p>
-    <p><strong>CC 50 through 57, and 59</strong>: the master EQ and filter, on channel 1 only as well. See <a href="EQ-FILTER.html">the EQ and filter</a> for what each one does in each of the ten modes. Send CC 50 as plain 7-bit: a 14-bit pair would put its second half on CC 82, inside the per-pad range above.</p>
-    <p>That last one is the odd one out. It is deliberate. <strong>CC 40 to 45 sit in the fine-adjust range that almost nothing actually uses.</strong> Formally, CC 32 to 63 are the LSB partners of CC 0 to 31, so CC 40 is the low half of CC 8, but hardly any device sends those, which leaves the numbers effectively free. It also means some gear uses them for other things.</p>
-    <p>"Effectively free" is not the same as free, and this is the one block in the patch sitting on numbers with a defined meaning. The other patched globals, CC 108 to 111, live in 102–119. That is genuinely undefined. So the compressor is restricted to a single channel, to stop a stray message from elsewhere in your rig quietly changing it while you are not looking.</p>
-    <p>If the compressor does not respond to anything, this is why: put your controller on MIDI channel 1.</p>
+    <ul>
+      <li><strong>CC 79 to 93, and 120/123</strong>: per pad. Send them on the channel the pad listens on, the one you trigger it with. Eight pads on eight channels answer independently.</li>
+      <li><strong>CC 108 to 111</strong>: the delay, which the whole preset shares. Send them on any channel.</li>
+      <li><strong>CC 14 to 29</strong>: the <a href="CHARACTER.html">Character chain</a>, channel 1 only.</li>
+      <li><strong>CC 40 to 46</strong>: the <a href="COMPRESSOR.html">compressor</a>, channel 1 only.</li>
+      <li><strong>CC 50 to 57, and 59</strong>: the <a href="EQ-FILTER.html">EQ and filter</a>, channel 1 only.</li>
+    </ul>
+    <p>If a device ignores everything, put your controller on MIDI channel 1.</p>
   </div>
   </section>
   <section class="section" id="setting-up-your-controller">
   <h2 class="sec"><span class="n">2</span>Setting Up Your Controller</h2>
   <div class="doc">
-    <p>Do this once. It sticks. Every preset behaves the same after that. Nothing to redo, ever.</p>
+    <p>Do this once. Every preset behaves the same after that.</p>
     <h3 id="recommended-controller">Recommended Controller</h3>
-    <p>The per-pad CCs, 79 to 93, plus 120 and 123, send on each pad's own MIDI channel, so a controller needs to set the MIDI channel per control, not merely per device. Many controllers assign one channel per device or preset and cannot do this.</p>
-    <p>The <strong><a href="https://www.neuzeit-instruments.com/products/drop/" rel="noreferrer noopener">Neuzeit Instruments Drop</a></strong> is one controller that can. Its manual says each control element mapped to a device "can either send to the default channel or a specific channel 1-16": one assignment can override its device's default channel. In practice, one Drop device slot covers all eight pads plus the global controls, since every assignment carries its own channel and CC number, leaving the other seven slots free.</p>
-    <p>Any controller with the same per-control channel capability works as well.</p>
+    <p>The per-pad CCs go out on each pad's own channel, so your controller must set the MIDI channel per control, not just per device. Many cannot.</p>
+    <p>The <strong><a href="https://www.neuzeit-instruments.com/products/drop/" rel="noreferrer noopener">Neuzeit Instruments Drop</a></strong> can. Each control sends on its device's default channel or on any channel you pick. One Drop device slot covers all eight pads plus the global controls, leaving the other seven slots free. Any controller that sets the channel per control works as well.</p>
     <h3 id="encoder-types">Encoder Types</h3>
-    <p>The <strong>Encoder</strong> column in the <a href="#midi-cc-map">MIDI CC map</a> is a suggestion for how to set up each control on your controller. It changes the feel, not what the firmware does: the module always maps a CC evenly across the parameter's range.</p>
-    <p>Almost everything wants a plain linear encoder. Two do not:</p>
-    <p><strong>Attack and Release</strong>: anything but linear. Both are times, and times are not heard evenly. Attack runs 0.5 ms to 100 ms, the difference between 0.5 ms and 5 ms is enormous, and on a linear encoder every useful fast setting is crammed into the first few percent of travel. You want the curve that <strong>starts gradually and then ramps up</strong>. Vendors name it inconsistently, so go by shape. On the Drop it is <strong>Exponential minus</strong>, which sags low and climbs late; the plus variant rises early and would make the crowding worse. Test it at halfway travel. Attack should be sending about <code>8</code> there, and Release about <code>12</code>. Near <code>64</code> is still linear.</p>
-    <p><strong>Ratio</strong>: a borderline case, and linear is fine. The gentle, musical settings live in the bottom quarter of the throw: 2:1 sits at about 5% and 4:1 at about 16%, so move slowly down there. Not one to go out of your way for.</p>
-    <p><strong>Loop Mode and LFO Wave</strong>: lists, not sweeps. Use a stepped encoder. The firmware divides the CC range into even bands, one per entry, so it needs exactly the right number of positions:</p>
+    <p>The <strong>Encoder</strong> column in the <a href="#midi-cc-map">MIDI CC map</a> suggests how to set up each control. It changes the feel, not what the module does. Almost everything wants a plain linear encoder. These are the exceptions:</p>
+    <p><strong>Attack and Release</strong>: use a curve that <strong>starts gradually and then ramps up</strong>, so the useful fast settings are not crammed into the first few percent. Vendors name it differently, so go by shape. On the Drop it is <strong>Exponential minus</strong>. The plus variant makes the crowding worse. At halfway, Attack should send about <code>8</code> and Release about <code>12</code>. If either sends about <code>64</code>, the curve is still linear.</p>
+    <p><strong>Ratio</strong>: linear is fine. The musical settings sit low, though, with 2:1 at about 5% and 4:1 at about 16%, so move slowly down there.</p>
+    <p><strong>Loop Mode, LFO Wave and Character pick effect</strong>: these are lists, not sweeps. Use a stepped encoder with exactly this many steps. Any other count skips entries or hits one twice.</p>
   <div class="tablewrap">
   <table>
     <thead><tr>
@@ -846,16 +881,20 @@
         <td class="num"><strong>10</strong></td>
         <td>the ten waveforms, in the module's order</td>
       </tr>
+      <tr>
+        <td><strong>Character pick effect</strong></td>
+        <td class="num"><strong>4</strong></td>
+        <td>the bank's four effects, in order</td>
+      </tr>
     </tbody>
   </table>
   </div>
-    <p>Set to ten steps, one click moves cleanly to the next waveform and never lands between two. Set it to anything else and you will skip shapes or hit the same one twice, which reads as a broken control.</p>
-    <p>If your controller cannot do stepped encoders, a slow linear sweep still works: you just have to find the bands by ear, and the edges are easy to sit on by accident.</p>
-    <p>The switches want buttons: anything marked <code>≥64 on</code> is a toggle. Set it up as a button sending 0 and 127 rather than as an encoder you have to sweep.</p>
+    <p>Without stepped encoders, a slow linear sweep still works. Find the bands by ear.</p>
+    <p><strong>Switches</strong>: set up anything marked <code>≥64 on</code> as a button sending 0 and 127.</p>
     <h3 id="getting-the-full-range">Getting the Full Range</h3>
-    <p>This is about the module rather than the patch, but it will catch you out the first time and it looks exactly like a broken mapping.</p>
-    <p>A CC mapped to a parameter <strong>through a preset</strong> moves that parameter <em>upward from whatever value it was saved with</em>. It does not sweep the full range. Save a parameter sitting halfway and your CC reaches the top half of it and stops, looking for all the world like a broken cable.</p>
-    <p>So before you save, set the parameter to its <strong>minimum</strong> on the device:</p>
+    <p>This is about CCs you map yourself in a preset. The patch's own CCs always cover their full range.</p>
+    <p>A CC mapped <strong>through a preset</strong> moves its parameter <em>upward from the saved value</em>. Save a parameter halfway and the CC only reaches the top half. It looks exactly like a broken mapping.</p>
+    <p>Before you save, set each parameter you will drive to its <strong>minimum</strong>:</p>
   <div class="tablewrap">
   <table class="wide">
     <thead><tr>
@@ -886,56 +925,23 @@
     </tbody>
   </table>
   </div>
-    <p>Now the CC has somewhere to go.</p>
-    <p>Two things worth knowing:</p>
-    <p>Cutoff reads oddly. The screen shows it running negative for low-pass and positive for high-pass, but it is stored as a plain 0-1000 with the midpoint as neutral. So its minimum really is zero: it just means fully low-passed, and the delay will sound very dark until the CC brings it up.</p>
-    <p>Your preset will sound different unmodulated. Feedback at zero is a single slap rather than a delay, so the preset is duller before any MIDI arrives. That is the trade for full CC range, and it is only worth making on parameters you really are going to drive.</p>
-    <p>None of this applies to any CC in this patch. Every one of them is written directly rather than through the modulation system, so they all cover their full range no matter what the pad was saved with. The rule above is about the CCs you map yourself in a preset.</p>
+    <p>Delay cutoff's minimum, <code>0</code>, means fully low-passed, though the screen shows it as negative. The delay sounds very dark until the CC brings it up.</p>
+    <p>Your preset will sound different before any MIDI arrives. Feedback at zero is a single slap, not a delay. Do this only for parameters you really will drive.</p>
     <h3 id="use-14-bit-cc">Use 14-Bit CC</h3>
-    <p>Worth doing, and worth understanding why it helps, because it is not the reason you would guess.</p>
-    <p>The module widens every incoming CC internally, but on the Control Change path it reads only the value byte and shifts it: <strong>the LSB of a 14-bit CC pair is discarded</strong>. Your lovely high-resolution controller sends 16,384 values and the module cheerfully throws away 16,256 of them. It can land on 128 positions and no more, however you send them, and there is no getting between them.</p>
-    <p>What 14-bit mode does change is the <em>feel</em>. In 7-bit, one detent is one value, and on a sweep-heavy parameter that lurches. In 14-bit the controller only advances the MSB once every 128 internal steps, so the same physical turn sends far fewer messages and the parameter moves smoothly instead of leaping.</p>
-    <p>Recommended for anything you sweep by hand. Filter cutoff and resonance are your own CC lanes rather than anything this patch adds, and they are listed because they show the problem most clearly:</p>
-  <div class="tablewrap">
-  <table class="defs">
-    <thead><tr>
-      <th></th>
-      <th></th>
-    </tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>Filter cutoff, resonance</strong></td>
-        <td>The two that step most obviously</td>
-      </tr>
-      <tr>
-        <td><strong>Granular Density, Window, Scatter</strong></td>
-        <td>Slow sweeps are the point</td>
-      </tr>
-      <tr>
-        <td><strong>Delay and reverb sends</strong></td>
-        <td>Riding a send wants smooth</td>
-      </tr>
-      <tr>
-        <td><strong>Envelope Sustain, Loop Crossfade</strong></td>
-        <td>Both step audibly in 7-bit</td>
-      </tr>
-      <tr>
-        <td><strong>Delay filter Width</strong></td>
-        <td>Bandwidth wants the same smoothing</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-    <p>Leave the switches on plain 7-bit: Reverse, Play Through, LFO Beat Sync, LFO Retrigger, and the delay's Beat Sync, Ping-Pong and Filter. They only want to know which side of halfway you are on, and giving them extra precision to ignore helps nobody. The same goes for the two banded controls, Loop Mode and LFO Wave: they divide the range into three and ten steps. Finer resolution buys nothing.</p>
+    <p>Use it for CCs you map yourself in a preset, such as filter cutoff and resonance. The module still lands on only 128 positions, because it discards the second half of the pair. But a 14-bit sweep sends far fewer messages, so the parameter moves smoothly instead of lurching.</p>
+    <p>Keep the patch's CCs <strong>7-bit</strong>. A 14-bit pair sends its second half 32 numbers higher. Something else lives there. For the Character chain, that is auto makeup or the EQ. For CC 50, it is a pad's granular window. Granular Density's second half lands on the delay's filter width, and Loop Crossfade's on Reset All Controllers.</p>
   </div>
   </section>
   <section class="section" id="when-a-control-seems-dead">
   <h2 class="sec"><span class="n">3</span>When a Control Seems Dead</h2>
   <div class="doc">
-    <p>One test settles most of it. Try the encoder. If a control does nothing, the question is whether the module can do it at all, and the encoder answers that faster than any amount of MIDI. Things the module will not do are listed in <a href="LIMITATIONS.html">limitations</a>. Read those next.</p>
+    <p>Two tests settle most cases. Look for the pop-up, then try the encoder. Things the module cannot do are in <a href="LIMITATIONS.html">limitations</a>.</p>
+    <h3 id="is-there-a-pop-up">Is There a Pop-Up?</h3>
+    <p>A pad pop-up appears only when a pad on that channel took the CC. If none appears, check the channel. Then check the pad type. For the three devices, no pop-up means nothing arrived on channel 1.</p>
+    <p>A pop-up with no sound means the CC arrived and the cause is elsewhere, such as an LFO pointed at nothing, or Scatter with Density up.</p>
+    <p>No pop-up opens for the value already showing, or with the OSD row on OFF or CPU.</p>
     <h3 id="does-the-encoder-do-it">Does the Encoder Do It?</h3>
-    <p>Turn the same parameter by hand on the device. If the encoder changes it, your MIDI is fine and the fault is elsewhere. If the encoder does not change it either, the patch is not your problem. You are asking for something the module itself does not do, and no quantity of MIDI will talk it round.</p>
-    <p>The one exception is the stop pair, CC 120 and 123. There is no encoder for stopping a single pad, so that is the one thing here the module cannot do by hand.</p>
+    <p>Turn the parameter by hand. If the encoder changes it, your MIDI is fine. The fault is elsewhere. If it does not, the module cannot do it, and no MIDI will change that. The stop pair, CC 120 and 123, is the one control with no encoder.</p>
   </div>
   </section>
     <footer><span>Unofficial. Not endorsed by or affiliated with 1010music. Supplied as is, under the MIT licence in LICENSE.</span><span>Bitbox Micro Firmware: CC Reference</span></footer>

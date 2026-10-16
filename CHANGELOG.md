@@ -3,7 +3,34 @@
 Changes to the Bitbox Micro firmware patch, newest first. Each entry describes
 something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
-the guide you are reading. Nothing about how any of it is built.
+the guide you are reading. None of them covers how any of it is built.
+
+## 2.3.9-mod — October 2026
+
+- Sixteen Airwindows effects on the master bus, and a pop-up that shows what
+  every CC in the patch just did.
+- The Character chain: four effect slots across the whole mix, each with an
+  Amount, a Tone and four effects. Ports of Chris Johnson's Airwindows
+  plugins, described in depth on
+  [the Airwindows site](https://www.airwindows.com/).
+  - Destruction, lo-fi and breakage: Pockey2, DeRez3, Ring Mod, Fracture2.
+  - Overdrive, warm tube to dirty harmonics: Tube2, Drive, Mackity, Huge.
+  - Colour, consoles, tape and a transformer: Channel9, IronOxide5, ToTape8,
+    Coils2.
+  - Saturation, smooth weight and density: PurestDrive, Spiral2, Density3,
+    Mojo.
+- Pop-ups: every patch CC shows what it changed, in real units. The clock gets
+  them too.
+- A CPU bar along the bottom of the screen, and a new OSD row that picks the
+  pop-ups, the bar, both or neither.
+- Preset BPM: set a preset's tempo on the module and save it with the preset.
+  With Clk Loss on HOLD, it also captures a clock's tempo.
+- Auto makeup for the compressor on CC 46, so the peaks stay level as you
+  compress harder.
+- Keep CCs, a Settings row that puts your per-pad CCs back after a preset load.
+- Fixed: MIDI notes could change compressor, EQ or delay settings.
+- Fixed in the guide: the EQ comes before the compressor, not after it.
+- Everything from 2.3.8-mod is unchanged and still there.
 
 ## 2.3.8-mod — October 2026
 

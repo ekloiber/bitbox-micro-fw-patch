@@ -302,6 +302,7 @@
   .doc ul { margin: 0.75rem 0 0; padding-left: 1.1rem; max-width: var(--measure);
             display: flex; flex-direction: column; gap: 0.4rem; }
   .doc ul li::marker { color: var(--accent); }
+  .doc li > ul { margin-top: 0.4rem; list-style-type: circle; }
 
   /* numbered procedures: accent numeral in its own column */
   .doc ol { margin: 0.9rem 0 0; padding: 0; max-width: var(--measure); list-style: none;
@@ -322,6 +323,8 @@
 
   .doc img { display: block; width: 100%; max-width: var(--measure); height: auto;
              margin: 1.4rem 0 0; }
+  /* Screenshots of the module are pixel art: natural size, never blurred. */
+  .doc img[src$=".png"] { width: auto; max-width: 100%; image-rendering: pixelated; }
 
   .doc hr { border: 0; border-top: 1px solid var(--rule); margin: 2.2rem 0 0; }
 
@@ -420,7 +423,7 @@
 <div class="wrap">
   <aside class="side">
     <p class="brand">Bitbox Micro<br>community modification</p>
-    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html" aria-current="page">Pad controls</a><a href="DEVICES.html">Devices</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
+    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html" aria-current="page">Pad controls</a><a href="DEVICES.html">Devices</a><a href="CHARACTER.html">Character</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
     <nav class="toc">
       <p class="toc-label">On this page</p>
       <a href="#building-your-presets"><span class="n">1</span><span>Building Your Presets</span></a><a class="sub" href="#building-a-preset-for-this"><span class="n"></span><span>Building a Preset for This</span></a><a class="sub" href="#editors-worth-knowing-about"><span class="n"></span><span>Editors Worth Knowing About</span></a><a href="#the-controls"><span class="n">2</span><span>The Controls</span></a><a class="sub" href="#delay-and-reverb"><span class="n"></span><span>Delay and Reverb</span></a><a class="sub" href="#playback"><span class="n"></span><span>Playback</span></a><a class="sub" href="#granular"><span class="n"></span><span>Granular</span></a><a class="sub" href="#envelope"><span class="n"></span><span>Envelope</span></a><a class="sub" href="#lfo"><span class="n"></span><span>LFO</span></a>
@@ -433,70 +436,67 @@
       <p>Parameters the module already had, now on MIDI.</p>
     </header>
   <div class="doc">
-    <p>Parameters the module already had. Each one was reachable only by pressing the encoder and turning it, one at a time, and the patch puts every one of them on a MIDI CC instead. Nothing here is new sound. None of it is new code. It is the same engine, reachable while you play. That is all.</p>
-    <p>These are addressed per pad, on that pad's own MIDI channel. One pad, one channel. Eight pads, eight channels. See <a href="CC-REFERENCE.html">the CC reference</a> for the numbers.</p>
+    <p>These are parameters the module already had, but only on the encoder, one at a time. The patch puts each one on a MIDI CC, so you can play them. Nothing here is a new sound.</p>
+    <p>Send them on the pad's own MIDI channel. <a href="CC-REFERENCE.html">The CC reference</a> has the numbers. Each one shows in the <a href="SETTINGS.html#the-pop-up">pop-up</a> as you send it.</p>
   </div>
   <section class="section" id="building-your-presets">
   <h2 class="sec"><span class="n">1</span>Building Your Presets</h2>
   <div class="doc">
-    <p>Two things shape what you get out of this patch: how the preset is put together, and how easily you can put it together. This covers both.</p>
+    <p>What you get from these controls depends on how the preset is built.</p>
     <h3 id="building-a-preset-for-this">Building a Preset for This</h3>
-    <p>Worth knowing before you start, because it shapes what you get out of this.</p>
-    <p>The controls need no setting up and work on every preset you own from the moment you flash. But <strong>an old preset will only give you back what it was built to do.</strong> Eight Sample pads all listening on one MIDI channel, with the delay turned down and the LFO wired to nothing, will answer barely a third of them, and none of it is the patch's fault.</p>
-    <p>The things that matter, in rough order:</p>
+    <p>There is nothing to set up on the module. Every control has a fixed CC that works on every preset. Set your controller to send those CCs and you are playing. But <strong>an old preset only gives back what it was built to do.</strong> Eight Sample pads on one MIDI channel, with the delay turned down and the LFO wired to nothing, will answer barely a third of these controls.</p>
+    <p>Here is what matters, in rough order:</p>
     <ul>
-      <li><strong>Give every pad its own MIDI channel.</strong> This is the big one. Per-pad controls are addressed by channel, so eight pads on eight channels is eight independent sets of controls. All on one channel and every pad answers at once.</li>
-      <li><strong>Pick pad modes deliberately.</strong> The five granular controls do nothing except on a Granular pad, and Play Through nothing except on a Slicer pad.</li>
-      <li><strong>Decide which FX parameters you will drive and which you will fix.</strong> The six worth mapping, delay time, feedback, cutoff, reverb decay, damping, predelay, want parking at their minimum so a CC has room to travel. Whatever you do not map is whatever you saved it as, so a reverb with no decay and nothing driving it is silence.</li>
-      <li><strong>Point the LFO at something</strong>, the filter is the obvious choice. Three of these controls shape an LFO that does nothing until you do.</li>
-      <li><strong>Leave a modulation slot or two spare</strong> for it. Fill all nine CC lanes on a pad and there is no room left to route anything, and the module does not warn you, the Source box simply stops responding.</li>
+      <li><strong>Give every pad its own MIDI channel.</strong> Put them all on one and every pad answers at once.</li>
+      <li><strong>Pick pad modes deliberately.</strong> The granular controls only work on a Granular pad, and Play Through only on a Slicer pad. See <a href="CC-REFERENCE.html#which-pad-types-work">which pad types work</a>.</li>
+      <li><strong>Park the FX parameters you will drive at their minimum</strong>, so a CC has room to travel. See <a href="CC-REFERENCE.html#getting-the-full-range">getting the full range</a>. Whatever you do not drive stays as saved, so a reverb saved with no decay stays silent.</li>
+      <li><strong>Point the LFO at something</strong>, such as the filter. See <a href="#lfo">LFO</a>.</li>
+      <li><strong>Leave a modulation slot or two spare.</strong> A full pad stops taking new routings. See <a href="#lfo">LFO</a>.</li>
     </ul>
-    <p><a href="CC-REFERENCE.html#which-channel-to-send-on">Which Channel to Send On</a> covers the first point, and <a href="CC-REFERENCE.html#which-pad-types-work">Which Pad Types Work</a> the second. FX parameters, the LFO and modulation slots each get their own section below. The short version: half an hour spent on a preset built for this is worth more than any single control on its own.</p>
     <h3 id="editors-worth-knowing-about">Editors Worth Knowing About</h3>
-    <p>Building a preset on the module means the encoder, one parameter at a time. Two browser editors do the same job on a computer, with a mouse and a waveform you can see. Neither is mine, neither is 1010music's, and neither needs this patch. They are listed because pointing a CC at a preset is quicker when the preset was quick to build.</p>
+    <p>Two browser editors build presets on a computer, with a mouse and a waveform you can see. Neither is 1010music's, and neither needs this patch.</p>
     <ul>
-      <li><a href="https://bartbral.github.io/Bitbox-editor/BITBOXER_index.html" rel="noreferrer noopener">BITBOXER</a>: free, and runs in the browser. Edits pad parameters, effects and whole presets, and reads and writes the XML the module already uses. It handles WAV, SFZ and zip archives too.</li>
-      <li><a href="https://bpm.markijzerman.com/" rel="noreferrer noopener">Preset Manager for Bitbox</a>: ten euros, one payment. Waveform editing with loop and sample markers, effects sends, and audio preview before you commit. It wants a Chromium browser. Bitbox Micro is fully supported; MK2 is experimental.</li>
+      <li><a href="https://bartbral.github.io/Bitbox-editor/BITBOXER_index.html" rel="noreferrer noopener">BITBOXER</a>: free, and runs in the browser. It edits pad parameters, effects and whole presets, and it reads and writes the XML the module already uses. It handles WAV, SFZ and zip archives too.</li>
+      <li><a href="https://bpm.markijzerman.com/" rel="noreferrer noopener">Preset Manager for Bitbox</a>: ten euros, paid once. It offers waveform editing with loop and sample markers, effects sends and audio preview. It needs a Chromium browser. Bitbox Micro is fully supported, and MK2 support is experimental.</li>
     </ul>
-    <p>Check what either one writes before you trust a whole card to it. Keep a backup of a preset you care about.</p>
+    <p>Check what either one writes before you trust a whole card to it. Back up any preset you care about.</p>
   </div>
   </section>
   <section class="section" id="the-controls">
   <h2 class="sec"><span class="n">2</span>The Controls</h2>
   <div class="doc">
-    <p>Five groups. Take them in any order.</p>
+    <p>The controls fall into five groups. Take them in any order.</p>
     <h3 id="delay-and-reverb">Delay and Reverb</h3>
-    <p><strong>Delay send and Reverb send</strong>: per pad, so each of your eight can sit in the effects by a different amount, changed live. This is the pair people reach for first, and it is the fastest way to make a static loop move.</p>
-    <p>Recorded-sample pads are the exception: they have no FX sends in stock firmware at all, so there is nothing for the control to reach. That is the module, not this patch.</p>
-    <p><strong>The delay itself</strong>: shared by the whole preset, and four of its controls are here. These answer on any channel:</p>
-    <p><strong>Beat Sync</strong>: locks the delay time to tempo rather than milliseconds. <strong>Ping-pong</strong> bounces repeats across the stereo field. <strong>Filter on/off</strong> and <strong>Filter width</strong> shape the tone of the repeats: darkening each successive echo is the classic dub move, and width is how aggressively it happens.</p>
-    <p>The delay's time and feedback are not here, because the module already lets you modulate them: they work over MIDI without this patch.</p>
+    <p><strong>Delay send and Reverb send</strong>: each pad has its own, so it sits in the effects by its own amount. They are the fastest way to make a static loop move. Recorded-sample pads have no FX sends in stock firmware, so there is nothing to reach.</p>
+    <p>Four controls set up the delay itself, which the whole preset shares. They answer on any channel.</p>
+    <ul>
+      <li><strong>Beat Sync</strong> locks the delay time to tempo rather than milliseconds.</li>
+      <li><strong>Ping-pong</strong> bounces repeats across the stereo field.</li>
+      <li><strong>Filter on/off</strong> and <strong>Filter width</strong> shape the repeats. Darkening each echo is the classic dub move, and width sets how hard.</li>
+    </ul>
+    <p>Delay time and feedback are not here. They already work over MIDI without this patch.</p>
     <h4 id="delay-time-and-beat-sync">Delay Time and Beat Sync</h4>
-    <p>The delay keeps <strong>two</strong> separate time values and beat-sync decides which one the engine actually reads. So a CC mapped to delay time works beautifully until you switch beat-sync off, at which point it goes completely dead, because your CC is still faithfully driving a parameter nobody is listening to any more.</p>
-    <p>Map both destinations to the same CC and the problem evaporates. This is a preset-level quirk and nothing to do with the patch. It was here first.</p>
-    <p><strong>LFO Rate</strong>: exactly the same shape, for exactly the same reason: one control on screen, two parameters underneath, and BeatSync picking between them. If your LFO Rate knob dies the moment you flip that switch, this is why, and the same fix applies.</p>
+    <p>The delay keeps <strong>two</strong> time values, and Beat Sync picks which one plays. Map a CC to delay time, switch Beat Sync off, and the CC goes dead. It is still driving the value that is no longer in use. Map both to the same CC. This is stock behaviour.</p>
+    <p><strong>LFO Rate</strong>: this has the same trap and the same fix. There is one control on screen and two values underneath, and the LFO's Beat Sync picks between them.</p>
     <h3 id="playback">Playback</h3>
-    <p>These decide what the sample actually does when a pad is triggered, and they are the first thing in the chain.</p>
-    <p><strong>Loop Mode</strong>: picks between None, Forward and Bidirectional. On a controller it is three even bands across the throw. Bidirectional runs the sample forwards then backwards, which is either lovely or seasick depending on the material.</p>
-    <p><strong>Loop Crossfade</strong>: softens the join. A loop that clicks usually just needs a little of this. Long crossfades on short loops start to blur the sound, which is sometimes what you want.</p>
-    <p><strong>Reverse</strong>: plays the sample backwards. It works on Sample, Multi-Sample and Granular pads only: Clip and Slicer pads have no reverse setting in the module at all, so there is nothing for the control to reach.</p>
-    <p><strong>Play Through</strong>: is a Slicer control and only a Slicer control. It decides whether playback carries on past the end of a slice into the next one. On any other pad type it does nothing, because there are no slices to carry on past.</p>
+    <p><strong>Loop Mode</strong>: None, Forward or Bidirectional, as three even bands across the throw. Bidirectional plays forwards then backwards, which is lovely or seasick depending on the material.</p>
+    <p><strong>Loop Crossfade</strong>: softens the join. A loop that clicks usually needs a little. Long crossfades on short loops blur the sound, which is sometimes what you want.</p>
+    <p><strong>Reverse</strong>: plays the sample backwards, on Sample, Multi-Sample and Granular pads. Clip and Slicer pads have no reverse setting.</p>
+    <p><strong>Play Through</strong>: on Slicer pads only, this decides whether playback carries on past the end of a slice into the next.</p>
     <h4 id="stopping-a-pad">Stopping a Pad</h4>
-    <p><strong>Stop this pad</strong>: answers to the two standard MIDI panic messages, All Sound Off and All Notes Off, on that pad's own channel. Either one releases the note.</p>
-    <p>It matters most on long clips. A four-bar loop that you have triggered and now want gone would otherwise play to its end, and this cuts it cleanly from wherever your controller sits. Both messages behave identically here. Use whichever your controller sends more conveniently.</p>
+    <p><strong>Stop this pad</strong>: send All Sound Off or All Notes Off, CC 120 or 123, on the pad's own channel. Either one releases the note. Use it to cut a long clip cleanly instead of letting it play out. Most DAWs send these when you press Stop, so stopping the DAW stops the pads too.</p>
     <h3 id="granular">Granular</h3>
-    <p>These five only do anything on a pad set to <strong>Granular</strong> mode, and they are the part of this patch the module fights hardest. They are the Granular page controls 1010music marks "Mod Target? No": no three boxes on the screen to indicate that modulation is possible, and MIDI Learn looks straight through them. Until now the encoder was the only way in.</p>
-    <p><strong>Density</strong>: how many grains play at once. <strong>Grain Size</strong>: how long each one lasts. Between them they take you from a recognisable sample to a smeared pad to a sparse cloud of fragments.</p>
-    <p><strong>Window</strong>: the shape each grain fades in and out with. Softer windows sound smoother; harder ones click and click is sometimes the point.</p>
-    <p><strong>Scatter</strong>: randomises grain timing, and <strong>Pan Rnd</strong> randomises their position in the stereo field. Both turn a regular texture into a diffuse one.</p>
-    <p>Scatter is the one that will fool you. It does nothing whatsoever unless Density is below half. The manual says so plainly, and it is the module's behaviour rather than anything this patch introduces. Sweep Scatter with Density up. You will hear nothing and blame the patch. Pull Density down to a quarter first, where the grains are sparse enough to hear individually, and Scatter's effect on their timing is obvious. In CC terms, that threshold is <strong>CC 63 or lower</strong>: CC 64 already lands a shade above half, so one step further up puts Scatter back to doing nothing.</p>
-    <p>Speed is not here, deliberately. The module already marks it "Mod Target? Yes", so it works over MIDI without any of this.</p>
-    <p>These are also the ones most likely to cost you CPU. Density is the one the manual warns about.</p>
+    <p>These five only work on a pad set to <strong>Granular</strong> mode. 1010music marks them "Mod Target? No", so until now the encoder was the only way in.</p>
+    <p><strong>Density</strong>: how many grains play at once, while <strong>Grain Size</strong> sets how long each one lasts. Between them they take you from a recognisable sample to a smeared pad to a sparse cloud.</p>
+    <p><strong>Window</strong>: the shape each grain fades in and out with. Softer windows sound smoother. Harder ones click, and that is sometimes the point.</p>
+    <p><strong>Scatter</strong>: randomises grain timing, and <strong>Pan Rnd</strong> randomises their place in the stereo field. Both turn a regular texture into a diffuse one.</p>
+    <p>Scatter does nothing unless Density is below half. That is stock behaviour. It will fool you. Send Density at <strong>63 or lower</strong>, because 64 is already a shade above half. Pull Density down to about a quarter and Scatter is obvious.</p>
+    <p>Speed is not here. It already works over MIDI without this patch.</p>
+    <p>These are the controls most likely to cost CPU, Density above all. Watch the <a href="SETTINGS.html#the-cpu-bar">CPU bar</a>.</p>
     <h3 id="envelope">Envelope</h3>
-    <p><strong>Sustain</strong>: the control this patch adds, and Decay is why it matters.</p>
-    <p>Decay is how long the sound takes to fall <em>from its initial peak down to the sustain level</em>. So with Sustain at full, Decay has nowhere to travel and does nothing you can hear, which is exactly why a decay knob so often feels dead. Pull Sustain down and it comes alive: at zero, the pad falls from its peak to silence over the decay time, and Decay becomes a <strong>length</strong> control.</p>
-    <h4 id="the-hi-hat-which-is-the-case-that-makes-it-click">The Hi-Hat, Which Is the Case That Makes It Click</h4>
-    <p>Load a hi-hat and you have two very different instruments in one sample, depending entirely on where these two sit:</p>
+    <p><strong>Sustain</strong>: this is the control the patch adds, and the one that makes Decay work.</p>
+    <p>Decay is how long the sound takes to fall <em>from its peak to the sustain level</em>. With Sustain at full, Decay has nowhere to go, which is why a decay knob so often feels dead. Pull Sustain to zero and Decay becomes a <strong>length</strong> control.</p>
+    <h4 id="try-it-on-a-hi-hat">Try It on a Hi-Hat</h4>
   <div class="tablewrap">
   <table>
     <thead><tr>
@@ -521,23 +521,21 @@
     </tbody>
   </table>
   </div>
-    <p>Same sample. Same pad. The difference between a hat that drives a track and one that clutters it is those two controls, and until now Sustain was frozen at whatever the preset happened to be saved with.</p>
-    <p>Now you can move between the two while the pattern is playing. Open the hats through a build, tighten them for the drop, and do it from a knob rather than by loading a different preset. That is the whole argument for putting Sustain on a CC, and once you have heard it on a hat you will start using it on snares, claps and anything else with a tail.</p>
-    <p><strong>Attack, Decay and Release</strong>: always modulation targets, so you could already automate those. Sustain never was, which meant you could drive Decay all you liked while the one control that decides whether Decay does anything stayed fixed. Both are yours now.</p>
+    <p>Both use the same sample on the same pad. Open the hats through a build and tighten them for the drop, from a knob, while the pattern plays. Then try it on snares, claps and anything else with a tail.</p>
+    <p>Attack, Decay and Release could always be modulated. Sustain could not, until now.</p>
     <h3 id="lfo">LFO</h3>
-    <p>Three controls here, <strong>Wave</strong>, <strong>Beat Sync</strong> and <strong>Retrigger</strong>, and they shape an LFO rather than making a sound themselves. If that LFO is not pointed at anything, all three will seem broken, and this catches people because <strong>the manual never explains how to connect it.</strong></p>
-    <p>The LFO is a modulation <em>source</em>, like velocity or the mod wheel. It does nothing until you give it a destination:</p>
+    <p>Three controls, <strong>Wave</strong>, <strong>Beat Sync</strong> and <strong>Retrigger</strong>, shape the pad's LFO. It does nothing until you point it at something, so until then all three seem broken. The manual never says how:</p>
     <ol>
-      <li>Touch the pad, then <strong>right arrow twice</strong> to Pad Parameters.</li>
+      <li>Touch the pad, then press <strong>right arrow twice</strong> to reach Pad Parameters.</li>
       <li>Scroll to <strong>Filter</strong> on the Main page. The three small boxes on the right edge mark it as something that can be modulated.</li>
-      <li><strong>Right arrow</strong> again for the Modulation Parameters screen.</li>
+      <li>Press <strong>right arrow</strong> again for the Modulation Parameters screen.</li>
       <li>Find a <strong>Source</strong> slot reading <code>None</code> and turn the bottom knob to <strong>LFO</strong>.</li>
       <li><strong>Turn up the Amount for that slot.</strong> It starts at 0%, so the LFO is connected and inaudible until you do. This is the step everyone misses.</li>
     </ol>
-    <p>Filter is the best first destination because it is the most obvious to the ear, and it doubles as your test rig for the three LFO controls.</p>
-    <p><strong>Wave</strong>: picks the shape, ten of them, as ten even bands across the throw. <strong>Beat Sync</strong> locks the rate to the tempo instead of running free. <strong>Retrigger</strong> restarts the LFO from the top on every note, which is the difference between a wobble that lines up with your hits and one that drifts against them.</p>
-    <p>If the bottom knob will not change a <code>None</code> slot, the pad is full. Each pad has twelve modulation slots, three of which the firmware claims for itself, and a preset with lots of mapped CCs can easily use the rest. It reads exactly like a dead encoder. Free a slot by removing a mapping you are not using. It will spring back.</p>
-    <p>Worth knowing: the Source list on that screen is longer than the manual suggests. The MIDI chapter lists the MIDI sources, the CV chapter lists EXT 1–8, and no page lists the whole thing. LFO is in there, several clicks further round than you might stop.</p>
+    <p>The filter is the best first destination, because it is the easiest to hear.</p>
+    <p><strong>Wave</strong>: ten shapes, as ten even bands across the throw. <strong>Beat Sync</strong> locks the rate to the tempo. <strong>Retrigger</strong> restarts the LFO on every note, so a wobble lines up with your hits instead of drifting against them.</p>
+    <p>LFO is further round the Source list than you might expect. Keep turning.</p>
+    <p>If the bottom knob will not change a <code>None</code> slot, the pad is full. Each pad has twelve modulation slots and the firmware keeps three, so a preset with lots of mapped CCs can use up the rest. It looks like a dead encoder. Free a slot by removing a mapping you do not use.</p>
   </div>
   </section>
     <footer><span>Unofficial. Not endorsed by or affiliated with 1010music. Supplied as is, under the MIT licence in LICENSE.</span><span>Bitbox Micro Firmware: Pad Controls</span></footer>

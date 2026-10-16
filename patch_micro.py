@@ -1009,18 +1009,20 @@ PY = "python" if os.name == "nt" else "python3"
 
 
 USAGE = f"""
-  Community enhancements for Bitbox Micro
-  ---------------------------------------
+  Community enhancements for Bitbox Micro -- 2.3.9-mod
+  ----------------------------------------------------
 
-  Adds MIDI control of the master bus compressor -- threshold, ratio, attack,
-  release and makeup gain, none of which the module exposes to anyone -- plus
-  the five unmodulatable granular controls, the per-pad delay and reverb sends,
-  reverse, envelope sustain, loop mode and crossfade, play through, the three
-  LFO controls, the global delay switches and filter, and per-pad stop.
+  Adds to the stock 2.3.4 firmware:
+    - MIDI control of the master compressor (with auto makeup) and EQ
+    - per-pad controls the module keeps off MIDI: granular, sends, reverse,
+      sustain, loop, LFO, play through, stop; and the delay's switches
+    - Character: four effects in a chain on the master bus
+    - a pop-up naming what a control just changed, and a CPU bar
+    - Settings: Preset BPM, Clk Loss, Flip UI, OSD, Keep CCs, ProgChange
 
-  You need your own copy of the stock 2.3.4 firmware, from
-  https://1010music.com/downloads -- none of it is included here. It arrives
-  as MICRO234.zip; unzip it and you get MICRO.BIN.
+  You need your own copy of the stock 2.3.4 firmware, from 1010music's
+  downloads page -- none of it is included here. It arrives as MICRO234.zip;
+  unzip it and you get MICRO.BIN.
 
     mkdir patched
     {PY} patch_micro.py MICRO.BIN patched/MICRO.BIN
@@ -1034,8 +1036,9 @@ USAGE = f"""
   fewer than that, and a truncated version means you cannot tell which image
   is on the card.
 
+    --v238             build the previous release, 2.3.8-mod, exactly
     -v                 show the addresses and opcodes as it works
-    --reassemble      verify frozen hooks against their assembly sources
+    --reassemble       verify the frozen code against its sources
     --legacy-version   allow a version string too long for the panel, for
                        rebuilding a pre-b11 image to check its fingerprint
 
@@ -1095,6 +1098,8 @@ FROZEN = {
     ),
     "hookD": ("03b4ddf888c0bcf1000f40f07f80ddf88cc0bcf1280f04d0acf12903042b2cd974e04cf67810c2f202404cf67851c2f202410268a2f11053b3f5a02f0cd24ff6a073d358b3f1c00f06d14ff6a473d35848f6a04c634503d004308842e9d355e0ddf890c0bcf5005fb4bf0023012348f6c041c0f20201535448e04cf20002c2f2064211684cf2de0cc1f2100c61450ed0c2f800c01fa002f1040102f1180c90ed000a81ed000a043004316145f7d3ddf890c000ee10cab8ee400a03eb43001aa101eb8001d1ed000a91ed011a886820ee200a30ee010a002801d0bceec00a02eb830080ed010ad2f800c053688cea030c93688cea030cd3688cea030c13698cea030c53698cea030cc2f818c003bc0000000000bf000040c100000040a005000040380000000000008002203b000020c2000000006002983a0000803f000000005542953e0000c04101000000e7a239400000f043010000004002903b000010c200000000",
         {'$t': 0, 'dout': 268, 'donoff': 34, 'dparam': 122, 'dscan': 50, 'dnextc': 88, 'dfound': 96, 'dseeded': 174, 'dstock': 276, 'dseed': 158, 'dscale': 296, 'dstore': 222, '$d': 270, '_sD': 0, 'dnext': 270}),
+    "hookDr": ("03b4ddf888c0bcf1000f40f0a280ddf88cc0bcf1280f04d0acf12903052b2cd997e04cf67810c2f202404cf67851c2f202410268a2f11053b3f5a02f0cd24ff6a073d358b3f1c00f06d14ff6a473d35848f6a04c634503d004308842e9d378e0ddf890c0bcf5005fb4bf0023012348f6c041c0f2020153546be04cf20002c2f2064211684cf2de0cc1f2100c61450ed0c2f800c050a002f1040102f1180c90ed000a81ed000a043004316145f7d3052b52d0042b0bd146480168dff818c1614505d141686fea0c0c614500d141e0ddf890c01cf07f0f08bf4ceadc1c00ee10cab8ee400a03eb430040a101eb8001d1ed000a91ed011a886820ee200a30ee010a002801d0bceec00a02eb830080ed010a012b0bd82e480168dff8b8c0614505d141686fea0c0c614500d125e0d2f800c053688cea030c93688cea030cd3688cea030c13698cea030c53698cea030cc2f818c003bc00000000ddf890c01c48bcf5005f05db1b4901606fea0101416003e0002101604160ece792ed010ad2ed020ab7ee001ac1ee200a70eec10a20ee200ab4ee400af1ee10fa15d60ca0d0ed000ab4ee600af1ee10fac8bfb0ee600af1ee600ab4ee600af1ee10fab8bfb0ee600a82ed050ab2e700205061afe70000104220a606244155544f000040c100000040a005000040380000000000008002203b000020c2000000006002983a0000803f000000005542953e0000c04101000000e7a239400000f043010000004002903b000010c200000000",
+        {'$t': 344, 'dout': 338, 'donoff': 34, 'dparam': 122, 'dscan': 50, 'dnextc': 88, 'dfound': 96, 'dseeded': 174, 'dstock': 472, 'dseed': 158, 'dauto': 344, 'dval': 206, 'dscale': 492, 'dstore': 264, 'dsum': 300, 'dmakeup': 376, '$d': 460, 'dauto_off': 368, 'dmk_zero': 454, 'dk36': 460, '_sD': 0, 'dnext': 340}),
     "hookE": ("4cf20002c2f2064213684cf2de0cc1f2100c634519d0c2f800c040f20003ccf24013536040f20003c4f20003936040f2a053d36043f64003136140f2000353614ff63e53c9f25013936153688cea030c93688cea030cd3688cea030c13698cea030c53698cea030c936963450ed15368c0f828349368c0f82c34d368c0f848341369c0f84c345369c0f8303400000000",
         {'$t': 0, 'everify': 74, 'eout': 140, '$d': 140, '_sE': 0, 'enext': 140}),
     "hookF": (
@@ -1216,6 +1221,625 @@ FROZEN = {
         {'iapply_a': 0, '$t': 74, 'imadctl': 48, 'iapply_a_next': 20, '$d': 112, 'iapply_b': 24, 'iapply_b_next': 44, 'imadctl_call': 70, 'itouch': 78, 'itouch_out': 108, 'itouch_next': 112, '_sI': 0}),
     "hookJ": ("1fb582b040f23a110ff278120ff26c13022400940ff28c1401940000000002b0bde81f400000000007b500000000bde8074040f23a1100220000000040f23a1c62450bd1dff828c11bb14a4bccf800307047ccf80030ccf80430704700000000c4f83c31424b4ff0000cc3f800c0c3f804c00000000014f8081021b1dff8f8c03c4bccf800300000000094ed4f0ad4ed067a00f022f80000000090ed4f0ad0ed067a00f01af80000000094ed4f0ad4ed067a00f012f80000000090ed4f0ad0ed067a00f00af80000000094ed4f0ad4ed067a00f002f800000000dff894c0dcf80030dff890c0634517d1dff88cc0dcf80030dff880c063450fd19fed1b7af4ee477af1ee10fa08dd9fed187af4ee477af1ee10fa01dab0ee670a704787b0fbb9dff84cc0dcf80030dff848c0634519d1dff844c0dcf80030dff838c0634511d1d4ed067a9fed087af4ee477af1ee10fa08dd9fed067af4ee477af1ee10fa01da00000000000000000000a04100007a4488c00624444c4f488cc006240000000000000000436c6b204c6f73733a0000bf494e5445524e414c0000bf00484f4c440000bf00636c6b6c6f73736d6f646500",
         {'jreg': 0, '$t': 218, 'jlabel': 388, 'jvalues': 380, 'jxml': 420, 'jreg_call': 26, '$d': 352, 'jreg_next': 36, 'jstore': 40, 'jstore_call': 42, 'jstore_next': 56, 'jpost': 60, 'jpost_next': 92, 'jpost_internal': 82, 'jctor': 96, 'jctor_next': 114, 'jheld': 118, 'jheld_next': 134, 'jt1': 138, 'jhold': 218, 'jt1_next': 150, 'jt2': 154, 'jt2_next': 166, 'jt3': 170, 'jt3_next': 182, 'jt4': 186, 'jt4_next': 198, 'jt5': 202, 'jt5_next': 214, 'jhold_out': 282, 'jmin': 360, 'jmax': 364, 'jset': 284, 'jset_store': 352, 'jset_rebuild': 356, 'jinternal': 400, 'jholdtxt': 412, '_sJ': 0}),
+    "hookK": ("1fb584b040f23b110ff290120ff28413022400940ff2901401940000000004b0bde81f400000000007b500000000bde8074040f23b1100220000000040f23b1c624501d000000000dff838c103b14e4bccf8003070472de9175004460000000020680168426859b38a4288bf0a4640f2e83302fb03f2b2fbf1f240f2e83c624588bf624641480168614588bf1146531a01ebe301016041688368614584bf002100238a4203d9114640f2771306e00bb1013b03e002292cbf0239002141608360bde817902de9ff512e4909682e4a914228d180462d490c684d6840f2e83c644588bf6446654588bf654664016d016426b4fbf6f4b5fbf6f5002d08bf4ff6ff7508f5907700f012f808f5967700f00ef808f59c7700f00af808f5a27700f006f8bff34f8fbde8ff5100000000386840b3b98849000022aa4209d0a2420ad2b2f5907f0ad2e02a0bd248f2e0330ae04ff6ff7307e048f6420304e04ff6004301e04ff6806302fb01f6064433807380b380f380dff81cc0ccf800600132b2f5a07fd9d3704790c00624444c4f4898c0062468ef00e030000c0834000c08435055204d657465723a00006370756d657465720000bf00",
+        {'kreg': 0, '$t': 300, 'klabel_meter': 412, 'kvalues': 404, 'kxml_meter': 424, 'kreg_call1': 26, '$d': 388, 'kreg_next': 36, 'kstore': 40, 'kstore_call': 42, 'kstore_next': 56, 'kpost': 60, 'kpost_meter': 72, 'kpost_next': 68, 'kpost_store': 80, 'kstart': 86, 'kstart_call': 92, 'kdone': 192, 'kpeak_old': 174, 'kpeak_save': 188, 'kpeak_decay': 180, 'kdraw': 196, 'kdraw_out': 292, 'kbar': 300, 'kdraw_next': 296, 'kbar_ret': 386, 'kbar_loop': 310, 'kc_peak': 334, 'kc_bg': 340, 'kc_red': 346, 'kc_amber': 352, 'kc_put': 356, '_sK': 0}),
+    "hookL": ("0ff2901300000000662903d1584b984208bf584870b4458900000000662903d1534b984208bf5348f0b4468900000000662a1cd130b4504c2460504c24684ff01055ac420dd34e4dac420ad242f66045655d35b14b4c9db2cbf6d015256030bc7047484c0025256030bc4ff482310000000016b52ded027b424c21680a0c4bf6d0139a4211d13d4a12684ff010539a420bd33b4b9a4208d289b207ee901af8ee677ac2ed4f7a00212160bdec027bbde8164000000000dff8c4c0ccf80040000000002de9ff512ded027b2f4909682f4a914241d12849096891423dd1274c24684ff010518c4237d325498c4234d242f66041615c81bbd4ed067a9fed1a7af4ee477af1ee10fa27dd9fed177af4ee477af1ee10fa20da9fed157a77ee877afdeee77a17ee905a282d38bf2825fa2d88bffa251048662100000000a8420cd00d4866212a46000000000e48a9b2cbf6d01101600f4801210170bdec027bbde8ff51000000000000a04100007a440000003f80bc0124285f01248cc00624a4c0062400c00724a8c0062488c00624444c4f48b4bc01245072657365742042504d3a00",
+        {'lreg': 0, '$t': 328, 'llabel': 404, 'lreg_next': 4, '$d': 352, 'lgetall': 8, 'lgetall_go': 20, 'lgetall_next': 24, 'lsetall': 28, 'lsetall_go': 40, 'lsetall_next': 44, 'lpost': 48, 'lpost_next': 110, 'lpost_now': 98, 'lblock': 114, 'lblock_done': 170, 'lblock_next': 178, 'lctor': 182, 'lctor_next': 190, 'ltick': 194, 'ltick_out': 344, 'lmin': 356, 'lmax': 360, 'lhalf': 364, 'ltick_get': 310, 'ltick_set': 324, 'ltick_next': 352, '_sL': 0}),
+    "hookM": ("2de9ff512ded027b80463f4c24684ff010518c4231d33d498c422ed242f66041615c4cf21025012908bf48f21f05022908bf48f2e035d4ed067a00f024f80646d4ed4f7a00f01ff8074631490968090c4bf6d012891a08f5907200f021f808f5967200f01df808f59c7200f019f808f5a27200f015f8bff34f8fbdec027bbde8ff5100000000fdeee77a17ee900a0028b8bf002040f23f139842c8bf1846704712b514684cb3b2f804c04fea4c0c002000fb0cf3234448f20002b04238bf2a461a825a829a82da8248f20002b84238bf4ff6ff729a83da831a845a84009931b9b0f59e7f03d34ff600421a829a83094a13600130b0f5a07fdad312bddff808c0ccf8004000000000a4c0062400c00724a8c0062468ef00e0",
+        {'mdraw': 0, '$t': 134, 'mdraw_out': 122, 'mlen': 134, 'mbuf': 160, 'mdraw_next': 130, '$d': 260, 'mbuf_ret': 250, 'mbuf_row': 176, 'mbuf_nopend': 238, 'mctor': 252, 'mctor_next': 260, '_sM': 0}),
+    "hookN": ("01b5000000002de90f50eff30080f1ee101a03b42ded100a189800000000bdec100a03bc80f30088e1ee101abde80f5001b000bd2de90f50eff30080f1ee101a03b42ded100a389839993a9a00000000bdec100a03bc80f30088e1ee101abde80f500000000000bf",
+        {'nblock': 0, '$t': 80, 'nblock_orig': 2, '$d': 98, 'nblock_c': 26, 'nmidi': 52, 'nmidi_c': 76, 'nmidi_next': 98, '_sN': 0}),
+    "hookO": ("2de91f5083b040f24b110ff23c120ff22c13022400940ff2381401940000000003b0bde81f50000000002de90f5040f24b11012200000000bde80f500000000040f24b1c62450ad1dff8e0c01bb10023ccf800307047364bccf800307047000000002de90f50eff30081f1ee102a06b42ded100a00000000bdec100a06bc81f30088e1ee102abde80f5000000000dff8a4c0ccf800404ff0000c000000002de90710eff3008ca3f14f000e2814d80121814047f2ff7211420ed0532b02d894f8751549b1149a1c4840f200111943416082600168013101608cf30088bde80710000000002de90710eff3008ca3f14f000e2814d80121814047f6601211420ed05a2b02d194f8541249b1129a0a4840f200211943416082600168013101608cf30088bde807100000000000bf00c306244f44534f40c3062444c3062430000c0834000c0834000c084f53443a0000bf006f736400",
+        {'oreg': 0, '$t': 228, 'olabel': 328, 'ovalues': 316, 'oxml': 336, 'oreg_call': 28, '$d': 294, 'oreg_next': 38, 'ostore': 42, 'ostore_call': 52, 'ostore_next': 60, 'opost': 64, 'opost_next': 94, 'opost_off': 86, 'odraw': 98, 'odraw_c': 116, 'odraw_next': 138, 'octor': 142, 'octor_next': 154, 'opadA': 158, 'oA_out': 216, 'oA_take': 196, 'opadA_next': 224, 'opadB': 228, 'oB_out': 286, 'oB_take': 266, 'opadB_next': 294, '_sO': 0}),
+    "hookOm": ("2de91f5083b040f24b110ff29c120ff27413042400940ff2981401940000000003b0bde81f50000000002de90f5040f24b11012200000000bde80f500000000040f24b1c62451bd110b5032b05d94448114601220000000001230021414813f0010f18bf0846dff800c1ccf800003f48022b38bf0846dff8f8c0ccf8000010bd000000002de90f50eff30081f1ee102a06b42ded100a00000000bdec100a06bc81f30088e1ee102abde80f5000000000dff8c0c0ccf800404ff0000c000000002de90710eff3008ca3f14f000e2819d80121814047f2ff72114213d0532b02d894f8751571b1244800682449884209d0149a234840f200111943416082600168013101608cf30088bde80710000000002de90710eff3008ca3f14f000e2819d80121814047f66012114213d05a2b02d194f8541271b1104800681049884209d0129a0f4840f200211943416082600168013101608cf30088bde807100000000080bc01244f44534f00c30624444c4f4890c0062440c3062410a406244c50455244c3062430000c08000000000000000000000000504f502d5550000043505500424f54480000bf004f53443a0000bf006f73646d6f646500",
+        {'oreg': 0, '$t': 272, 'olabel': 424, 'ovalues': 388, 'oxml': 432, 'oreg_call': 28, '$d': 348, 'oreg_next': 38, 'ostore': 42, 'ostore_call': 52, 'ostore_next': 60, 'opost': 64, 'opost_next': 128, 'opost_mode': 90, 'opost_set': 84, 'odraw': 132, 'odraw_c': 150, 'odraw_next': 172, 'octor': 176, 'octor_next': 188, 'opadA': 192, 'oA_out': 260, 'oA_take': 230, 'opadA_next': 268, 'opadB': 272, 'oB_out': 340, 'oB_take': 310, 'opadB_next': 348, 'ostr_popup': 404, 'ostr_cpu': 412, 'ostr_both': 416, '_sO': 0}),
+    "hookP": ("2de91f5083b040f266110ff250220ff24423022400940ff2502401940000000003b0bde81f50000000002de90f5040f26611002200000000bde80f5000000000662a06d1dff8f4c101b401208cf8000001bc40f2661c624510d110b5012b05d9774811460022000000000023dff8d4c1002003b17448ccf8000010bd0000000010b5000000000fb4eff300836d4c20686d49884202d160680130606083f300880fbc10bd0fb4eff300836648002140f22822043a8150fcd1f021c16083f300880fbc4ff0000c000000009df87830072b01d0000000002de91f10eff3008c26980f2813d827994f390e290fd8289a554b0401241a641803eb4404a4f8402003eb4004208c01228a40104320848cf30088bde81f10000000002de9ff50eff3008c4df804cd87b0474c0020206120684649884279d16068a168884204d0a0600021e1606161a161e568f02d6dd2a0690130a0613e4f4af61060385c002831d04af204203e58a6f11050b0f5a02f29d24df6d84030584df6dc417158884221d149f23c703858a8b948f2d430385848f2d831795888420dd148f6e010385848f6e4117958884205d160690130606120283bd30ae000206061a06940f2ee21884233d302e0002060612fe042f6dc50c0f201003058102828d81027f02d24d20f20b5fbf0f101fb105204eb41031b8cd340db0717d007200090002001900590029112f14f00039004eb4500b0f8400004901048206130466946000000000135013fdbd101e00135d8e7e56007b05df804cb8cf30088bde8ff500000000000bfb4bc012480bc012400a406245045454b782902244c50455230000c0834000c084b656570204343733a0000bf6b65657063637300",
+        {'preg': 0, '$t': 538, 'plabel': 604, 'pvalues': 596, 'pxml': 616, 'preg_call': 28, '$d': 566, 'preg_next': 38, 'pstore': 42, 'pstore_call': 52, 'pstore_next': 60, 'pedit': 64, 'ppost': 82, 'ppost_next': 124, 'ppost_mode': 108, 'ppost_set': 102, 'ppost_store': 118, 'pfinal': 128, 'pfinal_call': 130, 'pfinal_out': 156, 'pctor': 164, 'pctor_clr': 178, 'pctor_next': 198, 'pmidi': 202, 'pmidi_cc': 214, 'pmidi_stock': 210, 'pmidi_out': 268, 'pmidi_next': 276, 'pblock': 280, 'pb_out': 552, 'pb_have': 326, 'pb_unsteady': 450, 'pb_busy': 434, 'pb_ready': 456, 'pb_loop': 472, 'pb_save': 550, 'pb_next': 546, 'pb_post': 534, 'pblock_next': 566, '_sP': 0}),
+}
+
+# Reduced C objects (see "C hooks" below): compressed, origin-independent, and
+# linked at build time with no toolchain.
+#
+# FROZEN_C["chr"] is compiled from character/character.c. Its effects are ports
+# of Airwindows plugins by Chris Johnson (airwindows), used under the MIT
+# licence, whose notice travels with them:
+#
+#   MIT License
+#
+#   Copyright (c) 2018 Chris Johnson
+#
+#   Permission is hereby granted, free of charge, to any person obtaining a
+#   copy of this software and associated documentation files (the
+#   "Software"), to deal in the Software without restriction, including
+#   without limitation the rights to use, copy, modify, merge, publish,
+#   distribute, sublicense, and/or sell copies of the Software, and to
+#   permit persons to whom the Software is furnished to do so, subject to
+#   the following conditions:
+#
+#   The above copyright notice and this permission notice shall be included
+#   in all copies or substantial portions of the Software.
+#
+#   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+#   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+#   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+#   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+#   CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+#   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+#   SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+FROZEN_C = {
+    "chr": (
+        "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"
+        "+e8v/ge5JAlb"
+    ),
 }
 
 REASSEMBLE = False
@@ -1372,6 +1996,236 @@ def assemble(key, src):
         sys.exit(f"no frozen blob for {key!r}; rerun with --reassemble")
     blob, syms = FROZEN[key]
     return bytes.fromhex(blob), syms
+
+
+# --- C hooks: compiled by clang, linked HERE, frozen ---------------------------
+# Every hook above is hand-written assembly. The Character chain (hook N) is
+# DSP, which is written in C. There is no ELF linker on a stock Mac, so this
+# file does the link itself: clang produces one relocatable object, the object
+# is reduced to its allocated sections, its relocations and its exported
+# symbols, and `c_link` places it at whatever origin the image has reached.
+#
+# The REDUCED OBJECT is what gets frozen (FROZEN_C), not linked bytes, because
+# the origin moves with the opt-in hooks in front of it. Linking a frozen
+# object needs no toolchain and is deterministic, so a no-toolchain build still
+# reproduces the image byte for byte. --reassemble recompiles the C and refuses
+# if the frozen object has drifted from the source.
+#
+# Rules the C must keep, enforced here rather than remembered:
+#   - no writable data at all (.data/.bss): state lives at fixed patch-RAM
+#     addresses, reached through pointers, never in a linked section;
+#   - no libc: every external symbol must be passed in `externs` explicitly;
+#   - only the relocation types below. Anything else refuses loudly, because a
+#     relocation applied wrongly is a wild branch, not a build error.
+C_FLAGS = ("--target=thumbv7em-none-eabihf", "-mcpu=cortex-m7", "-mfpu=fpv5-d16",
+           "-mfloat-abi=hard", "-mthumb", "-O2", "-ffreestanding", "-fno-builtin",
+           "-fno-exceptions", "-fno-unwind-tables", "-fno-asynchronous-unwind-tables",
+           "-fno-math-errno", "-ffp-contract=off", "-ffunction-sections",
+           "-fdata-sections", "-fno-common", "-fno-stack-protector", "-mno-unaligned-access",
+           "-Wall", "-Werror=implicit-function-declaration", "-Wdouble-promotion",
+           "-Werror=double-promotion")
+R_ARM_NONE, R_ARM_ABS32, R_ARM_REL32 = 0, 2, 3
+R_ARM_THM_CALL, R_ARM_THM_JUMP24 = 10, 30
+R_ARM_THM_MOVW_ABS_NC, R_ARM_THM_MOVT_ABS = 47, 48
+C_RELOCS = {R_ARM_NONE, R_ARM_ABS32, R_ARM_REL32, R_ARM_THM_CALL,
+            R_ARM_THM_JUMP24, R_ARM_THM_MOVW_ABS_NC, R_ARM_THM_MOVT_ABS}
+# Section-name prefixes that are linked; everything else allocated must be empty.
+C_KEEP = (".text", ".rodata")
+C_IGNORE = (".ARM.exidx", ".ARM.extab", ".comment", ".note", ".ARM.attributes",
+            ".llvm_addrsig", ".group", ".debug", ".strtab", ".symtab", ".shstrtab",
+            ".rel.", ".rela.")
+
+
+def c_compile(path):
+    """clang -> relocatable ELF bytes. Only ever called under --reassemble."""
+    with tempfile.TemporaryDirectory() as td:
+        obj = os.path.join(td, "c.o")
+        r = subprocess.run(["xcrun", "clang", *C_FLAGS, "-c", "-o", obj, path],
+                           capture_output=True, text=True)
+        if r.returncode:
+            sys.stderr.write(r.stderr)
+            raise SystemExit(f"C compile failed: {path}")
+        return open(obj, "rb").read()
+
+
+def c_reduce(e):
+    """Reduce a relocatable ELF32 ARM object to what linking needs.
+
+    Returns (sections, exports): sections = [(name, align, hex data,
+    [(offset, type, ref)])] in link order (all .text first, then .rodata);
+    ref = ("sec", index, value) or ("ext", name). exports = {name: (index,
+    value)} for global symbols, value keeping the Thumb bit of a function."""
+    if e[:4] != b"\x7fELF" or e[4] != 1 or e[5] != 1 or struct.unpack_from("<H", e, 18)[0] != 40:
+        refuse("The C object is not a little-endian 32-bit ARM ELF.")
+    shoff, = struct.unpack_from("<I", e, 0x20)
+    shent, shnum, shstrndx = struct.unpack_from("<HHH", e, 0x2E)
+    sh = [dict(zip(("name", "type", "flags", "addr", "off", "size", "link", "info",
+                    "align", "entsz"), struct.unpack_from("<10I", e, shoff + i * shent)))
+          for i in range(shnum)]
+    strs = lambda sec, o: e[sh[sec]["off"] + o:e.index(b"\0", sh[sec]["off"] + o)].decode()
+    names = [strs(shstrndx, s["name"]) for s in sh]
+    SHF_WRITE, SHF_ALLOC, SHF_EXEC = 1, 2, 4
+    keep = []
+    for i, (s, n) in enumerate(zip(sh, names)):
+        if not (s["flags"] & SHF_ALLOC) or s["size"] == 0:
+            continue
+        if n.startswith(C_IGNORE):
+            continue
+        if s["flags"] & SHF_WRITE or s["type"] != 1 or not n.startswith(C_KEEP):
+            refuse(f"The C object has a section this linker will not place: {n}",
+                   "Hook C must hold no writable data and no unknown sections.")
+        keep.append(i)
+    keep.sort(key=lambda i: (0 if names[i].startswith(".text") else 1, i))
+    index = {i: k for k, i in enumerate(keep)}
+    symtab = next(i for i, s in enumerate(sh) if s["type"] == 2)
+    syms = []
+    for j in range(sh[symtab]["size"] // 16):
+        n, val, size, info, other, shndx = struct.unpack_from(
+            "<IIIBBH", e, sh[symtab]["off"] + 16 * j)
+        syms.append((strs(sh[symtab]["link"], n) if n else "", val, info, shndx))
+    exports = {}
+    for n, val, info, shndx in syms:
+        if n and (info >> 4) == 1 and shndx in index:          # STB_GLOBAL
+            exports[n] = (index[shndx], val)
+    sections = []
+    for i in keep:
+        relocs = []
+        for r, s in enumerate(sh):
+            if s["type"] == 9 and s["info"] == i:              # SHT_REL for this section
+                for k in range(s["size"] // 8):
+                    off, info = struct.unpack_from("<II", e, s["off"] + 8 * k)
+                    typ, sym = info & 0xff, info >> 8
+                    if typ not in C_RELOCS:
+                        refuse(f"Unknown relocation type {typ} in {names[i]}+{off:#x}.",
+                               "Teach c_link how to apply it before using it.")
+                    if typ == R_ARM_NONE:
+                        continue
+                    n, val, sinfo, shndx = syms[sym]
+                    if shndx == 0:
+                        ref = ("ext", n)
+                    elif shndx in index:
+                        ref = ("sec", index[shndx], 0 if (sinfo & 0xf) == 3 else val)
+                    else:
+                        refuse(f"Relocation in {names[i]} refers to {names[shndx]}, "
+                               "which is not linked.")
+                    relocs.append((off, typ, ref))
+            elif s["type"] == 4 and s["info"] == i and s["size"]:
+                refuse("RELA relocations are not supported here.")
+        s = sh[i]
+        sections.append((names[i], max(s["align"], 1),
+                         e[s["off"]:s["off"] + s["size"]].hex(), sorted(relocs)))
+    return sections, dict(sorted(exports.items()))
+
+
+def _thm_branch_addend(hw1, hw2):
+    s = (hw1 >> 10) & 1
+    i1 = 1 - (((hw2 >> 13) & 1) ^ s)
+    i2 = 1 - (((hw2 >> 11) & 1) ^ s)
+    imm = (s << 24) | (i1 << 23) | (i2 << 22) | ((hw1 & 0x3ff) << 12) | ((hw2 & 0x7ff) << 1)
+    return imm - (1 << 25) if s else imm
+
+
+def _thm_imm16(hw1, hw2):
+    return (((hw1 & 0xf) << 12) | (((hw1 >> 10) & 1) << 11)
+            | (((hw2 >> 12) & 7) << 8) | (hw2 & 0xff))
+
+
+def _thm_put_imm16(hw1, hw2, v):
+    hw1 = (hw1 & ~0x040f) | ((v >> 12) & 0xf) | (((v >> 11) & 1) << 10)
+    hw2 = (hw2 & ~0x70ff) | (((v >> 8) & 7) << 12) | (v & 0xff)
+    return hw1, hw2
+
+
+def c_link(obj, org, externs=None):
+    """Place a reduced object at `org` and apply every relocation.
+
+    Returns (code, syms): syms are offsets from `org` with the Thumb bit
+    cleared, the same convention as the assembled hooks."""
+    externs = externs or {}
+    sections, exports = obj
+    assert org % 4 == 0
+    out, base = bytearray(), []
+    for name, align, data, _ in sections:
+        while (org + len(out)) % align:
+            out += b"\0"
+        base.append(org + len(out))
+        out += bytes.fromhex(data)
+    for k, (name, _, _, relocs) in enumerate(sections):
+        for off, typ, ref in relocs:
+            P = base[k] + off
+            o = P - org
+            if ref[0] == "sec":
+                S = base[ref[1]] + ref[2]
+            elif ref[1] in externs:
+                S = externs[ref[1]]
+            else:
+                refuse(f"The C hook calls {ref[1]!r}, which nothing provides.",
+                       "Hook C links against no libc. Implement it, or pass it",
+                       "as an extern with its firmware address.")
+            if typ in (R_ARM_THM_CALL, R_ARM_THM_JUMP24):
+                hw1, hw2 = struct.unpack_from("<HH", out, o)
+                is_bl = typ == R_ARM_THM_CALL
+                if hw1 & 0xf800 != 0xf000 or hw2 & 0xd000 != (0xd000 if is_bl else 0x9000):
+                    refuse(f"Relocation type {typ} at {name}+{off:#x} is not on a "
+                           "bl/b.w (a blx to ARM code, perhaps). Refusing.")
+                A = _thm_branch_addend(hw1, hw2)
+                if ref[0] == "ext" and not S & 1:
+                    refuse(f"Extern {ref[1]!r} is not a Thumb address (bit 0 clear).")
+                out[o:o + 4] = enc_b_bl(P, (S & ~1) + A + 4, is_bl)
+            elif typ in (R_ARM_THM_MOVW_ABS_NC, R_ARM_THM_MOVT_ABS):
+                hw1, hw2 = struct.unpack_from("<HH", out, o)
+                A = _thm_imm16(hw1, hw2)
+                A -= (A & 0x8000) << 1
+                X = (S + A) & 0xffffffff
+                v = X & 0xffff if typ == R_ARM_THM_MOVW_ABS_NC else X >> 16
+                struct.pack_into("<HH", out, o, *_thm_put_imm16(hw1, hw2, v))
+            elif typ == R_ARM_ABS32:
+                A, = struct.unpack_from("<I", out, o)
+                struct.pack_into("<I", out, o, (S + A) & 0xffffffff)
+            elif typ == R_ARM_REL32:
+                A, = struct.unpack_from("<I", out, o)
+                struct.pack_into("<I", out, o, (S + A - P) & 0xffffffff)
+            else:                                   # c_reduce already refused these
+                refuse(f"Unhandled relocation type {typ}.")
+    while len(out) % 4:
+        out += b"\0"
+    syms = {n: (base[k] + v - org) & ~1 for n, (k, v) in exports.items()}
+    return bytes(out), syms
+
+
+def c_freeze_text(obj):
+    """Canonical, compressed text form of a reduced object, for FROZEN_C."""
+    import base64, zlib
+    raw = base64.b64encode(zlib.compress(repr(obj).encode(), 9)).decode()
+    return tuple(raw[i:i + 76] for i in range(0, len(raw), 76))
+
+
+def c_thaw(lines):
+    import base64, zlib
+    return ast.literal_eval(zlib.decompress(base64.b64decode("".join(lines))).decode())
+
+
+def c_object(key, path):
+    """The reduced object for one C hook: frozen by default, clang on request."""
+    if REASSEMBLE:
+        obj = c_reduce(c_compile(path))
+        if key not in FROZEN_C:
+            print(f'    "{key}": (')
+            for line in c_freeze_text(obj):
+                print(f'        "{line}"')
+            print("    ),")
+            return obj
+        if c_thaw(FROZEN_C[key]) != obj:
+            print(f'FROZEN_C[{key!r}] is STALE -- the compiler now produces:')
+            for line in c_freeze_text(obj):
+                print(f'        "{line}"')
+            sys.exit(f"FROZEN_C[{key!r}] is STALE")
+        size = sum(len(s[2]) // 2 for s in obj[0])
+        print(f"  recompiled {key:8} matches frozen object ({size} bytes)")
+        return obj
+    if key not in FROZEN_C:
+        sys.exit(f"no frozen C object for {key!r}; rerun with --reassemble")
+    return c_thaw(FROZEN_C[key])
 
 
 def build(org, ret, vslot, arms, tag):
@@ -1652,8 +2506,17 @@ csetp:
     return bytes(code)
 
 
-def build_comp_hook(org, hookc):
+def build_comp_hook(org, hookc, full_range=False):
     """CC 40-45, chained in front of hook C.
+
+    full_range (rc1, --v239 only; frozen as hookDr): CC 41-45 reach the top of
+    their range. The dispatcher delivers every CC as byte << 7 (0x080439de:
+    `ldrb r0, [r4, #2]; lsls r0, #7` -- it never pairs CC n with n+32), so
+    127 arrived as 16256 and the top was 99.2% of the way: threshold -0.3 dB,
+    ratio 19.85:1, makeup +35.4 dB. A value whose low seven bits are all zero
+    is widened to (v << 7) | v, so 127 -> 16383. A value with any low bit set
+    would be true 14-bit and passes unchanged -- no path in 2.3.4 produces
+    one, but the rule cannot break one. CC 40 (a switch) is unchanged.
 
     CC 40 writes the session's on/off flag directly -- the session is allocated
     once at boot, so that target is stable, and hardware testing confirms it.
@@ -1669,6 +2532,81 @@ def build_comp_hook(org, hookc):
     rng = "".join(
         f"    .float {(hi - lo) / CCMAX!r}\n    .float {lo!r}\n    .word  {1 if i else 0}\n"
         for lo, hi, i in COMP_RANGES)
+    widen = """
+    tst     r12, #0x7f                 /* 7-bit (byte << 7): fill the range */
+    it      eq
+    orreq.w r12, r12, r12, lsr #7""" if full_range else ""
+    # rc1 (release only, with full_range): CC 46, auto makeup. See AUTO_ below.
+    last = CC_COMP_COUNT - 1 + (1 if full_range else 0)
+    auto_on = lambda no: f"""
+    ldr     r0, =0x{AUTO_RAM:08x}
+    ldr     r1, [r0]
+    ldr     r12, =0x{AUTO_MAGIC:08x}
+    cmp     r1, r12
+    bne     {no}
+    ldr     r1, [r0, #4]
+    mvn     r12, r12
+    cmp     r1, r12
+    bne     {no}"""
+    pre_val = f"""
+    cmp     r3, #5
+    beq     dauto                      /* CC 46 */
+    cmp     r3, #4
+    bne     dval{auto_on("dval")}
+    b       dout                       /* CC 45 while auto is on: ignored outright */
+dval:""" if full_range else ""
+    post_store = f"""
+    cmp     r3, #1
+    bhi     dsum{auto_on("dsum")}
+    b       dmakeup                    /* threshold or ratio moved: recompute */
+dsum:""" if full_range else ""
+    auto_code = f"""
+dauto:                                 /* r2 = the store, seeded */
+    ldr     r12, [sp, #{MSG_VAL_SP + 8:#x}]
+    ldr     r0, =0x{AUTO_RAM:08x}
+    cmp.w   r12, #{BOOL_THRESHOLD}
+    blt     dauto_off
+    ldr     r1, =0x{AUTO_MAGIC:08x}
+    str     r1, [r0]
+    mvn     r1, r1
+    str     r1, [r0, #4]
+    b       dmakeup                    /* the jump happens on enable */
+dauto_off:
+    movs    r1, #0
+    str     r1, [r0]
+    str     r1, [r0, #4]
+    b       dout                       /* makeup stays where auto left it */
+dmakeup:                               /* makeup = -threshold x (1 - 1/ratio) */
+    vldr    s0, [r2, #4]
+    vldr    s1, [r2, #8]
+    vmov.f32 s2, #1.0
+    vdiv.f32 s1, s2, s1
+    vsub.f32 s1, s1, s2
+    vmul.f32 s0, s0, s1
+    vcmp.f32 s0, s0
+    vmrs    APSR_nzcv, fpscr
+    bvs     dmk_zero                   /* a broken ratio: no makeup, never -36 */
+    adr     r0, dk36
+    vldr    s1, [r0]
+    vcmp.f32 s0, s1
+    vmrs    APSR_nzcv, fpscr
+    it      gt
+    vmovgt.f32 s0, s1
+    vneg.f32 s1, s1
+    vcmp.f32 s0, s1
+    vmrs    APSR_nzcv, fpscr
+    it      lt
+    vmovlt.f32 s0, s1
+    vstr    s0, [r2, #20]
+    b       dsum
+dmk_zero:
+    movs    r0, #0
+    str     r0, [r2, #20]
+    b       dsum
+    .balign 4
+dk36:
+    .float  36.0
+    .ltorg""" if full_range else ""
     src = f"""
     .syntax unified
     .thumb
@@ -1713,7 +2651,7 @@ _sD:
     cmp     r12, #{CC_COMP_ONOFF}
     beq     donoff
     sub.w   r3, r12, #{CC_COMP_FIRST}
-    cmp     r3, #{CC_COMP_COUNT - 1}
+    cmp     r3, #{last}
     bls     dparam
     b       dout
 donoff:
@@ -1769,8 +2707,8 @@ dseed:
     adds    r1, #4
     cmp     r1, r12
     blo     dseed
-dseeded:
-    ldr     r12, [sp, #{MSG_VAL_SP + 8:#x}]
+dseeded:{pre_val}
+    ldr     r12, [sp, #{MSG_VAL_SP + 8:#x}]{widen}
     vmov    s0, r12
     vcvt.f32.u32 s0, s0
     add.w   r0, r3, r3, lsl #1
@@ -1787,6 +2725,7 @@ dseeded:
 dstore:
     add.w   r0, r2, r3, lsl #2
     vstr    s0, [r0, #4]
+{post_store}
     ldr     r12, [r2]                  /* checksum = magic XOR all five */
     ldr     r3, [r2, #4]
     eor.w   r12, r12, r3
@@ -1803,13 +2742,13 @@ dout:
     pop     {{r0, r1}}                  /* before dnext -- see the note at _sD */
     .global dnext
 dnext:
-    .short 0,0
+    .short 0,0{auto_code}
     .align 2
 dstock:
 {dstock}
 dscale:
 {rng}"""
-    code, syms = assemble("hookD", src)
+    code, syms = assemble("hookDr" if full_range else "hookD", src)
     code = bytearray(code)
     code[syms["dnext"]:syms["dnext"] + 4] = enc_b_bl(org + syms["dnext"], hookc, False)
     return bytes(code)
@@ -4439,12 +5378,27 @@ def _guard(d, va, want_hex, what):
                f"found {got.hex()}, expected {want_hex}")
 
 
-def apply_settings_page(d):
-    """List Clk Loss and Flip UI on Settings page 2. Guarded, data only."""
+def apply_settings_page(d, rows=(0xc3, 0xb5, CLK_ID, 0x17b, 0x78)):
+    """Write Settings page 2's rows (8 slots, zero = empty). Guarded, data only.
+    The default rows list Clk Loss and Flip UI; opt-in builds add their own."""
+    assert len(rows) <= 8
     off = SETTINGS_P2_VA - BASE
     if bytes(d[off:off + 16]) != SETTINGS_P2_OLD:
         refuse("The Settings screen's second page is not what it should be.")
-    d[off:off + 16] = struct.pack("<8H", 0xc3, 0xb5, CLK_ID, 0x17b, 0x78, 0, 0, 0)
+    d[off:off + 16] = struct.pack("<8H", *rows, *([0] * (8 - len(rows))))
+
+
+def branch_target(d, at):
+    """Destination of the Thumb-2 b.w or bl at `at` (T4 / BL encodings)."""
+    hw1, hw2 = struct.unpack_from("<HH", d, at - BASE)
+    assert hw1 & 0xf800 == 0xf000 and hw2 & 0x9000 == 0x9000, f"no b.w/bl at {at:#x}"
+    s = (hw1 >> 10) & 1
+    i1 = 1 - (((hw2 >> 13) & 1) ^ s)
+    i2 = 1 - (((hw2 >> 11) & 1) ^ s)
+    imm = (s << 24) | (i1 << 23) | (i2 << 22) | ((hw1 & 0x3ff) << 12) | ((hw2 & 0x7ff) << 1)
+    if s:
+        imm -= 1 << 25
+    return at + 4 + imm
 
 
 def apply_flip_ui(d):
@@ -4479,6 +5433,1699 @@ def apply_clock_hold(d):
         d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], False)
     vprint(f"J Clk Loss {len(code)} bytes at {org:#010x}, "
            f"mode {CLK_MODE:#x}, held {CLK_HELD:#x}, id {CLK_ID:#x}")
+    return org, syms
+
+
+# --- K: CPU meter (opt-in test build) ---------------------------------------
+# The engine already profiles every block: profiler B brackets the per-block
+# function 0x08093e48 and records {period, busy} cycle counts. The summariser at
+# the top of each block resets the count, so the previous block's pair is always
+# entry 0. K reads it after the start call, keeps a smoothed per-mille load and
+# a held peak, and the UI's every-tick present call draws a bar into all four
+# LTDC buffers (two ARGB1555 layers x double buffer, 240x320 portrait).
+# CPU Test (id 0x125, a cycle burner for calibrating the meter) was REMOVED in
+# 2.3.9-chr9: on hardware a value of 56 overloaded the module and locked it up,
+# and as a SAVED setting it came back at every boot. 0x125 is no longer
+# registered or in the global store, so a stale `cputest` in settings.tml has
+# no parameter to land on (tests/test_firmware_osd.py follows that path), and
+# nothing reads K_BURN any more. Test build only; never in a release as-is.
+CPU_METER_VERSION = "2.3.9-cpu2"
+CPU_ID_METER = 0x13b                 # enum OFF/ON; unregistered in stock
+CPU_ID_TEST_RETIRED = 0x125          # was CPU Test; deliberately left unregistered
+K_MODE = PATCH_RAM + 0x90            # CLK_MAGIC = meter on
+K_BURN = PATCH_RAM + 0x94            # retired with CPU Test; nothing reads it
+K_AVG = PATCH_RAM + 0x98             # per-mille, smoothed
+K_PEAK = PATCH_RAM + 0x9c            # per-mille, held then decaying
+K_HOLD = PATCH_RAM + 0xa0            # blocks left in the peak hold
+assert K_MODE >= CLK_HELD + 4 and K_HOLD + 4 <= SRAM_END
+DISPLAY_OBJ = 0x24002e7c
+K_CALLS = (                          # (site, stock target, entry) -- all BLs
+    (0x08093e72, 0x08044eb8, "kstart"),    # profiler B start, every block
+    (0x0805bbb4, 0x08042900, "kdraw"),     # UI present, every UI tick
+    (0x08089efe, 0x0808951e, "kstore"),    # global store: the 0xdc entry
+)
+
+
+def build_cpu_meter_hook(org, post_next=0x080937f4, draw_next=0x08042900,
+                         start_next=0x08044eb8):
+    src = f"""
+.syntax unified
+.thumb
+.section .text
+.global _sK
+.thumb_func
+_sK:
+kreg:                               /* chained after jreg; r0 = registry */
+    push    {{r0, r1, r2, r3, r4, lr}}
+    sub     sp, #16
+    movw    r1, #0x{CPU_ID_METER:x}
+    adr.w   r2, klabel_meter
+    adr.w   r3, kvalues
+    movs    r4, #2
+    str     r4, [sp]
+    adr.w   r4, kxml_meter
+    str     r4, [sp, #4]
+kreg_call1:
+    .short  0, 0                    /* enum registrar */
+    add     sp, #16
+    pop     {{r0, r1, r2, r3, r4, lr}}
+kreg_next:
+    .short  0, 0                    /* the original uiflip registration */
+
+kstore:                             /* the 0xdc entry, then ours */
+    push    {{r0, r1, r2, lr}}
+kstore_call:
+    .short  0, 0
+    pop     {{r0, r1, r2, lr}}
+    movw    r1, #0x{CPU_ID_METER:x}
+    movs    r2, #0
+kstore_next:
+    .short  0, 0
+
+kpost:                              /* chained after jpost */
+    movw    r12, #0x{CPU_ID_METER:x}
+    cmp     r2, r12
+    beq     kpost_meter
+kpost_next:
+    .short  0, 0
+kpost_meter:
+    ldr     r12, =0x{K_MODE:08x}
+    cbz     r3, kpost_store
+    ldr     r3, =0x{CLK_MAGIC:08x}
+kpost_store:
+    str     r3, [r12]
+    bx      lr
+
+kstart:                             /* r0 = profiler B; keep r0-r2, r12 */
+    push    {{r0, r1, r2, r4, r12, lr}}
+    mov     r4, r0
+kstart_call:
+    .short  0, 0                    /* start timing this block */
+    ldr     r0, [r4]                /* ring: entry 0 = previous block */
+    ldr     r1, [r0]                /* period */
+    ldr     r2, [r0, #4]            /* busy */
+    cbz     r1, kdone
+    cmp     r2, r1
+    it      hi
+    movhi   r2, r1
+    movw    r3, #1000
+    mul     r2, r2, r3
+    udiv    r2, r2, r1              /* per-mille load */
+    movw    r12, #1000
+    cmp     r2, r12
+    it      hi
+    movhi   r2, r12
+    ldr     r0, =0x{K_AVG:08x}
+    ldr     r1, [r0]
+    cmp     r1, r12
+    it      hi
+    movhi   r1, r2                  /* stale RAM: start from now */
+    subs    r3, r2, r1
+    add     r1, r1, r3, asr #3
+    str     r1, [r0]
+    ldr     r1, [r0, #4]            /* peak */
+    ldr     r3, [r0, #8]            /* hold */
+    cmp     r1, r12
+    itt     hi
+    movhi   r1, #0
+    movhi   r3, #0
+    cmp     r2, r1
+    bls     kpeak_old
+    mov     r1, r2
+    movw    r3, #375                /* about a second of blocks */
+    b       kpeak_save
+kpeak_old:
+    cbz     r3, kpeak_decay
+    subs    r3, #1
+    b       kpeak_save
+kpeak_decay:
+    cmp     r1, #2
+    ite     hs
+    subhs   r1, #2
+    movlo   r1, #0
+kpeak_save:
+    str     r1, [r0, #4]
+    str     r3, [r0, #8]
+kdone:
+    pop     {{r0, r1, r2, r4, r12, pc}}
+
+kdraw:                              /* r0 = display object, every UI tick */
+    push    {{r0, r1, r2, r3, r4, r5, r6, r7, r8, r12, lr}}
+    ldr     r1, =0x{K_MODE:08x}
+    ldr     r1, [r1]
+    ldr     r2, =0x{CLK_MAGIC:08x}
+    cmp     r1, r2
+    bne     kdraw_out
+    mov     r8, r0
+    ldr     r1, =0x{K_AVG:08x}
+    ldr     r4, [r1]
+    ldr     r5, [r1, #4]
+    movw    r12, #1000
+    cmp     r4, r12
+    it      hi
+    movhi   r4, r12
+    cmp     r5, r12
+    it      hi
+    movhi   r5, r12
+    lsls    r4, r4, #5              /* x 320 / 1000 = x 32 / 100 */
+    lsls    r5, r5, #5
+    movs    r6, #100
+    udiv    r4, r4, r6              /* bar length out of 320 px: full width */
+    udiv    r5, r5, r6
+    cmp     r5, #0
+    it      eq
+    movweq  r5, #0xffff             /* no peak tick at zero */
+    add.w   r7, r8, #0x120
+    bl      kbar
+    add.w   r7, r8, #0x12c
+    bl      kbar
+    add.w   r7, r8, #0x138
+    bl      kbar
+    add.w   r7, r8, #0x144
+    bl      kbar
+    dsb
+kdraw_out:
+    pop     {{r0, r1, r2, r3, r4, r5, r6, r7, r8, r12, lr}}
+kdraw_next:
+    .short  0, 0                    /* the stock present */
+
+kbar:                               /* r7 = bitmap, r4 level, r5 peak */
+    ldr     r0, [r7]
+    cbz     r0, kbar_ret
+    ldrh    r1, [r7, #4]
+    lsls    r1, r1, #1              /* stride in bytes */
+    movs    r2, #0
+kbar_loop:
+    cmp     r2, r5
+    beq     kc_peak
+    cmp     r2, r4
+    bhs     kc_bg
+    cmp     r2, #288                /* 90% of 320 */
+    bhs     kc_red
+    cmp     r2, #224                /* 70% of 320 */
+    bhs     kc_amber
+    movw    r3, #0x83e0             /* ARGB1555 green */
+    b       kc_put
+kc_peak:
+    movw    r3, #0xffff
+    b       kc_put
+kc_bg:
+    movw    r3, #0x8842
+    b       kc_put
+kc_red:
+    movw    r3, #0xfc00
+    b       kc_put
+kc_amber:
+    movw    r3, #0xfe80
+kc_put:
+    mul     r6, r2, r1
+    add     r6, r6, r0
+    strh    r3, [r6]
+    strh    r3, [r6, #2]
+    strh    r3, [r6, #4]
+    strh    r3, [r6, #6]
+    ldr     r12, =0xe000ef68        /* DCCMVAC: clean the line to RAM */
+    str     r6, [r12]
+    adds    r2, #1
+    cmp     r2, #320
+    blo     kbar_loop
+kbar_ret:
+    bx      lr
+
+    .balign 4
+    .ltorg
+kvalues:
+    .word   0x080c0030, 0x080c0034  /* stock OFF / ON strings */
+    .balign 4
+klabel_meter:
+    .asciz  "CPU Meter:"
+    .balign 4
+kxml_meter:
+    .asciz  "cpumeter"
+    .balign 4
+"""
+    code, syms = assemble("hookK", src)
+    code = bytearray(code)
+    for sym, target, call in (
+        ("kreg_call1", 0x08069e7c, True),
+        ("kreg_next", 0x08069ed4, False),
+        ("kstore_call", 0x0808951e, True),
+        ("kstore_next", 0x0808951e, False),
+        ("kpost_next", post_next, False),
+        ("kstart_call", start_next, True),
+        ("kdraw_next", draw_next, False),
+    ):
+        off = syms[sym]
+        code[off:off + 4] = enc_b_bl(org + off, target, call)
+    return bytes(code), syms
+
+
+# --- M: clock diagnostic strips (debug build only, never shipped) ------------
+# Draws, each UI tick, into all four LTDC buffers at buffer columns 8..11 and
+# 14..17 (just above the CPU meter's 0..3): the live tempo +0x18 at 1 px per
+# BPM, coloured by the clock source (grey internal, green MIDI, blue CV), the
+# fallback +0x13c in white, and a red tick at x = 316..319 while an edit is
+# parked in L_PEND. Requires L (for L_CLOCK).
+def build_clock_debug_hook(org, draw_next, ctor_next=0x080a625c):
+    src = f"""
+.syntax unified
+.thumb
+.section .text
+.global _sM
+.thumb_func
+_sM:
+mdraw:                              /* r0 = display object */
+    push    {{r0, r1, r2, r3, r4, r5, r6, r7, r8, r12, lr}}
+    vpush   {{d7}}
+    mov     r8, r0
+    ldr     r4, =0x{L_CLOCK:08x}
+    ldr     r4, [r4]
+    ldr     r1, =0x24000000
+    cmp     r4, r1
+    blo     mdraw_out
+    ldr     r1, =0x2407c000
+    cmp     r4, r1
+    bhs     mdraw_out
+    movw    r1, #0x2c60
+    ldrb    r1, [r4, r1]            /* source */
+    movw    r5, #0xc210             /* grey: internal */
+    cmp     r1, #1
+    it      eq
+    movweq  r5, #0x801f             /* blue: CV pulse */
+    cmp     r1, #2
+    it      eq
+    movweq  r5, #0x83e0             /* green: MIDI */
+    vldr    s15, [r4, #0x18]
+    bl      mlen
+    mov     r6, r0                  /* live length */
+    vldr    s15, [r4, #0x13c]
+    bl      mlen
+    mov     r7, r0                  /* fallback length */
+    ldr     r1, =0x{L_PEND:08x}
+    ldr     r1, [r1]
+    lsrs    r1, r1, #16
+    movw    r2, #0x{L_PEND_MAGIC:x}
+    subs    r1, r1, r2              /* 0 if an edit is parked */
+    add.w   r2, r8, #0x120
+    bl      mbuf
+    add.w   r2, r8, #0x12c
+    bl      mbuf
+    add.w   r2, r8, #0x138
+    bl      mbuf
+    add.w   r2, r8, #0x144
+    bl      mbuf
+    dsb
+mdraw_out:
+    vpop    {{d7}}
+    pop     {{r0, r1, r2, r3, r4, r5, r6, r7, r8, r12, lr}}
+mdraw_next:
+    .short  0, 0
+
+mlen:                               /* s15 BPM -> r0 in 0..319 (NaN -> 0) */
+    vcvt.s32.f32 s15, s15
+    vmov    r0, s15
+    cmp     r0, #0
+    it      lt
+    movlt   r0, #0
+    movw    r3, #319
+    cmp     r0, r3
+    it      gt
+    movgt   r0, r3
+    bx      lr
+
+mbuf:                               /* r2 = bitmap; r5 colour, r6/r7 lengths, r1 parked flag */
+    push    {{r1, r4, lr}}
+    ldr     r4, [r2]
+    cbz     r4, mbuf_ret
+    ldrh    r12, [r2, #4]
+    lsl     r12, r12, #1            /* stride in bytes */
+    movs    r0, #0                  /* row = BPM */
+mbuf_row:
+    mul     r3, r0, r12
+    add     r3, r3, r4
+    movw    r2, #0x8000             /* black (opaque) */
+    cmp     r0, r6
+    it      lo
+    movlo   r2, r5
+    strh    r2, [r3, #16]
+    strh    r2, [r3, #18]
+    strh    r2, [r3, #20]
+    strh    r2, [r3, #22]
+    movw    r2, #0x8000
+    cmp     r0, r7
+    it      lo
+    movwlo  r2, #0xffff
+    strh    r2, [r3, #28]
+    strh    r2, [r3, #30]
+    strh    r2, [r3, #32]
+    strh    r2, [r3, #34]
+    ldr     r1, [sp]
+    cbnz    r1, mbuf_nopend
+    cmp     r0, #316
+    blo     mbuf_nopend
+    movw    r2, #0xfc00             /* red: an edit is parked */
+    strh    r2, [r3, #16]
+    strh    r2, [r3, #28]
+mbuf_nopend:
+    ldr     r2, =0xe000ef68
+    str     r3, [r2]
+    adds    r0, #1
+    cmp     r0, #320
+    blo     mbuf_row
+mbuf_ret:
+    pop     {{r1, r4, pc}}
+
+mctor:                              /* only when L is absent; r4 = clock */
+    ldr     r12, =0x{L_CLOCK:08x}
+    str     r4, [r12]
+mctor_next:
+    .short  0, 0
+    .balign 4
+    .ltorg
+"""
+    code, syms = assemble("hookM", src)
+    code = bytearray(code)
+    for sym, target in (("mdraw_next", draw_next), ("mctor_next", ctor_next)):
+        off = syms[sym]
+        code[off:off + 4] = enc_b_bl(org + off, target, False)
+    return bytes(code), syms
+
+
+def apply_clock_debug(d, chained, j_org, j_syms, own_ctor):
+    site = 0x0805bbb4
+    if branch_target(d, site) not in (0x08042900, *chained):
+        refuse(f"The UI present call at {site:#x} is not what it should be.")
+    jc = j_org + j_syms["jctor_next"]
+    code, syms = build_clock_debug_hook(BASE + len(d), branch_target(d, site),
+                                        branch_target(d, jc))
+    org = _append(d, bytearray(code))
+    d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms["mdraw"], True)
+    apply_clock_debug.entry = org + syms["mdraw"]
+    if own_ctor:                       # without L, M records the clock itself
+        if branch_target(d, jc) != 0x080a625c:
+            refuse("Hook J's jctor_next is not what it should be.")
+        d[jc - BASE:jc - BASE + 4] = enc_b_bl(jc, org + syms["mctor"], False)
+    vprint(f"M clock debug {len(code)} bytes at {org:#010x}")
+
+
+def apply_cpu_meter(d, j_org, j_syms, chained=(), row=True):
+    """Guard K's sites, append K, install it, and chain J's register and post
+    tails through it. A site or tail may already lead to another opt-in hook
+    (`chained`), in which case K slots in front of it.
+
+    row=False (rc1): the bar only. K's registration, store entry and post
+    wrapper are left out of every chain -- 0x13b is never registered, never
+    in the store, never posted -- and the OSD row's post sets K_MODE. The blob
+    is K's own, unchanged; its kreg/kstore/kpost are unreachable."""
+    calls = [c for c in K_CALLS if row or c[2] != "kstore"]
+    for site, target, _ in calls:
+        if branch_target(d, site) not in (target, *chained):
+            refuse(f"The CPU meter call at {site:#x} is not what it should be.")
+    for sym, stock in (("jreg_next", 0x08069ed4), ("jpost_next", 0x080937f4)):
+        if branch_target(d, j_org + j_syms[sym]) not in (stock, *chained):
+            refuse(f"Hook J's {sym} is not what it should be.")
+    code, syms = build_cpu_meter_hook(
+        BASE + len(d),
+        post_next=branch_target(d, j_org + j_syms["jpost_next"]),
+        draw_next=branch_target(d, 0x0805bbb4),
+        start_next=branch_target(d, 0x08093e72))
+    org = _append(d, bytearray(code))
+    for site, _, entry in calls:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], True)
+    for sym, entry in (("jreg_next", "kreg"), ("jpost_next", "kpost")) if row else ():
+        at = j_org + j_syms[sym]
+        d[at - BASE:at - BASE + 4] = enc_b_bl(at, org + syms[entry], False)
+    vprint(f"K CPU meter {len(code)} bytes at {org:#010x}, ram {K_MODE:#x}")
+
+
+# --- L: Preset BPM on Settings page 2, with HOLD capture (opt-in) -------------
+# `globtempo` (0x66, registered as BPM: 40-250) lives in the preset's song store
+# at SessionMgr+0x2278, not the global store the Settings screen reads. L points
+# the Settings screen's reads and writes of 0x66 at the song store, posts edits
+# to the engine at the song's padKey 0x10400 exactly as a preset load does (the
+# clock then echoes the tempo back via message 0x6f), and relabels the row.
+# A user edit releases a HOLD. While Clk Loss is holding with no clock, each UI
+# tick copies the held tempo into the song store, so saving the preset keeps it.
+PRESET_BPM_VERSION = "2.3.9-bpm7"
+# The UI's SessionMgr, whose stores the Settings screen reads: every caller of
+# the page builder 0x080776e4 passes this literal. NOT 0x24022978, which is the
+# engine-command manager PostSetParam takes -- bpm1 used that and read nothing.
+SESSION_MGR = 0x24013cb0
+SESSION_MGR_GUARDS = (0x0806d6e0, 0x0806dc14, 0x080921e8)   # literals holding it
+SONG_STORE = SESSION_MGR + 0x2278
+GLOBAL_STORE = SESSION_MGR + 0x7fd0
+SESSION_DIRTY = SESSION_MGR + 0x8004    # 1 = unsaved changes; stock edits set it, save clears it
+L_CLOCK = PATCH_RAM + 0xa4           # the clock object, recorded by its ctor
+L_PEND = PATCH_RAM + 0xa8            # 0xB9D0_0000 | BPM: an edit made under a clock
+L_PEND_MAGIC = 0xb9d0
+assert L_CLOCK >= K_HOLD + 4 and L_PEND + 4 <= SRAM_END
+L_CALLS = (                          # (site, stock target, entry) -- all BLs
+    (0x0806a8c2, 0x08069ed4, "lreg"),      # BPM:'s registration
+    (0x0805bbb4, 0x08042900, "ltick"),     # UI present, every UI tick
+    (0x08093e72, 0x08044eb8, "lblock"),    # engine block start (profiler B)
+)
+# bpm3 on hardware: with a clock playing, turning Preset BPM audibly fought
+# the clock -- the posted 0x66 reaches the voices' tempo as well as SetTempo's
+# store-only fallback, and the clock re-asserts on its next update. So under a
+# clock, lpost does NOT post: it parks the BPM in L_PEND, and the next engine
+# block writes it straight into the clock's fallback field +0x13c, which is
+# exactly what stock SetTempo does when a clock is in charge.
+# GetParam / SetParam themselves: redirect (global store, 0x66) to the song
+# store at the source. bpm2 hooked three call sites and missed two more -- the
+# knob's current-value read 0x080774d0 and the row refresh 0x08076d8c -- so the
+# row could be read but never changed. Every other (store, id) passes through.
+L_ENTRIES = (                        # (entry, stock bytes, hook, resume)
+    (0x080894d0, "70b44589", "lgetall", 0x080894d4),   # push {r4-r6}; ldrh r5
+    (0x080894fa, "f0b44689", "lsetall", 0x080894fe),   # push {r4-r7}; ldrh r6
+)
+
+
+def build_preset_bpm_hook(org, post_next, tick_next, ctor_next, block_next=0x08044eb8):
+    src = f"""
+.syntax unified
+.thumb
+.section .text
+.global _sL
+.thumb_func
+_sL:
+lreg:                               /* register 0x66 under our own label */
+    adr.w   r3, llabel
+lreg_next:
+    .short  0, 0
+
+/* REGISTER CONTRACT. 1010's compiler tracks which registers each callee
+   really writes and lets callers keep values in the rest across the call.
+   GetParam writes only r0/r2/r3, SetParam only r0/r3, profiler start only r3.
+   bpm1-4 used r12 here and r1/r2/r12 in lblock: MIDI clock never locked. */
+lgetall:                            /* GetParam's entry: (store, id) */
+    cmp     r1, #0x66
+    bne     lgetall_go
+    ldr     r3, =0x{GLOBAL_STORE:08x}
+    cmp     r0, r3
+    it      eq
+    ldreq   r0, =0x{SONG_STORE:08x}
+lgetall_go:
+    push    {{r4, r5, r6}}           /* the two displaced instructions */
+    ldrh    r5, [r0, #0xa]
+lgetall_next:
+    .short  0, 0
+
+lsetall:                            /* SetParam's entry: (store, id, value) */
+    cmp     r1, #0x66
+    bne     lsetall_go
+    ldr     r3, =0x{GLOBAL_STORE:08x}
+    cmp     r0, r3
+    it      eq
+    ldreq   r0, =0x{SONG_STORE:08x}
+lsetall_go:
+    push    {{r4, r5, r6, r7}}
+    ldrh    r6, [r0, #0xa]
+lsetall_next:
+    .short  0, 0
+
+lpost:                              /* chained after jpost */
+    cmp     r2, #0x66
+    bne     lpost_next
+    push    {{r4, r5}}
+    ldr     r4, =0x{CLK_HELD:08x}
+    str     r4, [r4]                /* not the magic: the edit ends any hold */
+    ldr     r4, =0x{L_CLOCK:08x}
+    ldr     r4, [r4]
+    ldr     r5, =0x24000000
+    cmp     r4, r5
+    blo     lpost_now
+    ldr     r5, =0x2407c000
+    cmp     r4, r5
+    bhs     lpost_now
+    movw    r5, #0x2c60
+    ldrb    r5, [r4, r5]
+    cbz     r5, lpost_now           /* no clock: post, so it applies at once */
+    ldr     r4, =0x{L_PEND:08x}     /* a clock is in charge: park it */
+    uxth    r5, r3
+    movt    r5, #0x{L_PEND_MAGIC:x}    /* tag the top half */
+    str     r5, [r4]
+    pop     {{r4, r5}}
+    bx      lr                      /* not posted: the clock is undisturbed */
+lpost_now:
+    ldr     r4, =0x{L_PEND:08x}
+    movs    r5, #0
+    str     r5, [r4]
+    pop     {{r4, r5}}
+    ldr     r1, =0x00010400         /* the song's padKey, as a load posts it */
+lpost_next:
+    .short  0, 0
+
+lblock:                             /* engine block start; r0 = profiler B */
+    push    {{r1, r2, r4, lr}}
+    vpush   {{d7}}
+    ldr     r4, =0x{L_PEND:08x}
+    ldr     r1, [r4]
+    lsrs    r2, r1, #16
+    movw    r3, #0x{L_PEND_MAGIC:x}
+    cmp     r2, r3
+    bne     lblock_done
+    ldr     r2, =0x{L_CLOCK:08x}
+    ldr     r2, [r2]
+    ldr     r3, =0x24000000
+    cmp     r2, r3
+    blo     lblock_done
+    ldr     r3, =0x2407c000
+    cmp     r2, r3
+    bhs     lblock_done
+    uxth    r1, r1
+    vmov    s15, r1
+    vcvt.f32.u32 s15, s15
+    vstr    s15, [r2, #0x13c]       /* the fallback, as stock SetTempo does */
+    movs    r1, #0
+    str     r1, [r4]
+lblock_done:
+    vpop    {{d7}}
+    pop     {{r1, r2, r4, lr}}
+lblock_next:
+    .short  0, 0
+
+lctor:                              /* chained after jctor; r4 = clock */
+    ldr     r12, =0x{L_CLOCK:08x}
+    str     r4, [r12]
+lctor_next:
+    .short  0, 0
+
+ltick:                              /* r0 = display object, every UI tick */
+    push    {{r0, r1, r2, r3, r4, r5, r6, r7, r8, r12, lr}}
+    vpush   {{d7}}
+    ldr     r1, =0x{CLK_MODE:08x}
+    ldr     r1, [r1]
+    ldr     r2, =0x{CLK_MAGIC:08x}
+    cmp     r1, r2
+    bne     ltick_out
+    ldr     r1, =0x{CLK_HELD:08x}
+    ldr     r1, [r1]
+    cmp     r1, r2
+    bne     ltick_out
+    ldr     r4, =0x{L_CLOCK:08x}
+    ldr     r4, [r4]
+    ldr     r1, =0x24000000
+    cmp     r4, r1
+    blo     ltick_out
+    ldr     r1, =0x2407c000
+    cmp     r4, r1
+    bhs     ltick_out
+    movw    r1, #0x2c60
+    ldrb    r1, [r4, r1]
+    cbnz    r1, ltick_out           /* a clock is in charge: nothing held */
+    vldr    s15, [r4, #0x18]
+    vldr    s14, lmin
+    vcmp.f32 s15, s14
+    vmrs    APSR_nzcv, fpscr
+    ble     ltick_out
+    vldr    s14, lmax
+    vcmp.f32 s15, s14
+    vmrs    APSR_nzcv, fpscr
+    bge     ltick_out
+    vldr    s14, lhalf
+    vadd.f32 s15, s15, s14
+    vcvt.s32.f32 s15, s15           /* rounded BPM */
+    vmov    r5, s15
+    cmp     r5, #40
+    it      lo
+    movlo   r5, #40
+    cmp     r5, #250
+    it      hi
+    movhi   r5, #250
+    ldr     r0, =0x{SONG_STORE:08x}
+    movs    r1, #0x66
+ltick_get:
+    .short  0, 0
+    cmp     r0, r5
+    beq     ltick_out
+    ldr     r0, =0x{SONG_STORE:08x}
+    movs    r1, #0x66
+    mov     r2, r5
+ltick_set:
+    .short  0, 0
+    ldr     r0, =0x{L_PEND:08x}     /* and the engine's fallback, next block */
+    uxth    r1, r5
+    movt    r1, #0x{L_PEND_MAGIC:x}
+    str     r1, [r0]
+    ldr     r0, =0x{SESSION_DIRTY:08x}  /* mark the preset changed, as stock edits do */
+    movs    r1, #1
+    strb    r1, [r0]
+ltick_out:
+    vpop    {{d7}}
+    pop     {{r0, r1, r2, r3, r4, r5, r6, r7, r8, r12, lr}}
+ltick_next:
+    .short  0, 0
+
+    .balign 4
+lmin:
+    .float  20.0
+lmax:
+    .float  1000.0
+lhalf:
+    .float  0.5
+    .ltorg
+    .balign 4
+llabel:
+    .asciz  "Preset BPM:"
+    .balign 4
+"""
+    code, syms = assemble("hookL", src)
+    code = bytearray(code)
+    for sym, target, call in (
+        ("lreg_next", 0x08069ed4, False),
+        ("lgetall_next", 0x080894d4, False),
+        ("lsetall_next", 0x080894fe, False),
+        ("lpost_next", post_next, False),
+        ("lctor_next", ctor_next, False),
+        ("ltick_get", 0x080894d0, True),
+        ("ltick_set", 0x080894fa, True),
+        ("ltick_next", tick_next, False),
+        ("lblock_next", block_next, False),
+    ):
+        off = syms[sym]
+        code[off:off + 4] = enc_b_bl(org + off, target, call)
+    return bytes(code), syms
+
+
+def apply_preset_bpm(d, j_org, j_syms):
+    """Guard L's sites, append L, install it, chain J's post and ctor tails."""
+    for site, target, _ in L_CALLS:
+        if branch_target(d, site) != target:
+            refuse(f"The Preset BPM call at {site:#x} is not what it should be.")
+    for entry, stock, _, _ in L_ENTRIES:
+        _guard(d, entry, stock, "settings store entry")
+    for va in SESSION_MGR_GUARDS:
+        if struct.unpack_from("<I", d, va - BASE)[0] != SESSION_MGR:
+            refuse(f"The session literal at {va:#x} is not what it should be.")
+    for sym, stock in (("jpost_next", 0x080937f4), ("jctor_next", 0x080a625c)):
+        if branch_target(d, j_org + j_syms[sym]) != stock:
+            refuse(f"Hook J's {sym} is not what it should be.")
+    code, syms = build_preset_bpm_hook(
+        BASE + len(d),
+        post_next=branch_target(d, j_org + j_syms["jpost_next"]),
+        tick_next=branch_target(d, 0x0805bbb4),
+        ctor_next=branch_target(d, j_org + j_syms["jctor_next"]),
+        block_next=branch_target(d, 0x08093e72))
+    org = _append(d, bytearray(code))
+    for site, _, entry in L_CALLS:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], True)
+    for entry, _, hook, _ in L_ENTRIES:
+        d[entry - BASE:entry - BASE + 4] = enc_b_bl(entry, org + syms[hook], False)
+    for sym, entry in (("jpost_next", "lpost"), ("jctor_next", "lctor")):
+        at = j_org + j_syms[sym]
+        d[at - BASE:at - BASE + 4] = enc_b_bl(at, org + syms[entry], False)
+    vprint(f"L Preset BPM {len(code)} bytes at {org:#010x}")
+    return org, syms
+
+
+# --- N: the Character chain (opt-in test build) ---------------------------------
+# Four chained Airwindows effects on the master bus -- Destruction, Drive,
+# Colour, Saturation -- after the delay/reverb returns and before the master EQ
+# and compressor. The DSP is C (character/character.c, compiled, reduced and
+# frozen in FROZEN_C["chr"], linked here); this section adds two asm shims.
+#
+# The effects are ports of Airwindows plugins by Chris Johnson / airwindows,
+# used under the MIT licence. Copyright (c) 2018 Chris Johnson. The full MIT
+# notice -- permission notice and warranty disclaimer -- is reproduced at the
+# top of character/character.c and travels with the frozen object's source.
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+#
+# WHERE IT HOOKS. The engine block routine 0x08096530 (called once per audio
+# block from 0x0809418a, inside the profiled per-block function 0x08093e48)
+# sums the pads into master buffer 0, then mixes in buffer 0xd (delay return,
+# `bl 0x080a3328` at 0x08096cf2) and buffer 0xe (reverb return, the same call
+# at 0x08096d04), then calls the EQ chain head at engine+0x28cec (the master
+# EQ, constructed with node id 0 = buffer 0), then the compressor if it is on,
+# then renders the outputs. N retargets the SECOND mix call: the stock mix runs
+# first, unchanged, and then the chain runs over buffer 0.
+#
+# THE REGISTER CONTRACT. nblock calls the original, then saves EVERYTHING the
+# compiled C could change -- r0-r3, r12, lr, APSR, FPSCR, s0-s15 -- as they
+# stand AFTER the original returned, and restores them before returning. So
+# the caller sees exactly the original callee's register effects whatever the
+# C does. nmidi does the same around chr_cc and then branches on to the next
+# hook with every register as it found it (r0/r1 are the thunk's arguments).
+CHARACTER_VERSION = "2.3.9-chr4"
+CHR_RAM = 0x2406c200                 # store +0; engine +0x40; OSD +0x100; dry +0x200
+assert CHR_RAM >= L_PEND + 4 + 0x100
+CHR_SITE, CHR_SITE_FN = 0x08096d04, 0x080a3328     # reverb-return mix into bus 0
+CHR_SITE_CONTEXT = (0x08096cf8, "18ee900a11f0dcfa01462046")  # vmov r0,s17; bl; mov r1,r0; mov r0,r4
+CHR_EQ_HEAD_VA, CHR_EQ_HEAD = 0x0809702c, 0x00028cec          # literal: the chain head after us
+CHR_CC_FIRST, CHR_CC_LAST = 14, 29   # channel 1: 14-17 Amount, 18-21 Tone, 22-25 Type, 26-29 Next
+CHR_SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "character", "character.c")
+# The work area: the dry copies (2 x 256 floats), then the four slot states
+# packed to their real sizes (character.c: CHR_SLOTn_OFF/BYTES, one static
+# assert per slot). DEVICE memory under the firmware's own MPU setup (regions
+# 4/5 at 0x24060000/0x24070000: TEX0 C0 B1, XN), as it always was.
+# ch12: up to ch11 the slots were 0x3000 apart, to 0x24078c00, inside the
+# stock uncached pool's preset/stream buffer -- see POOL_ below. The untested
+# --fast-ram variant (work area in D2 SRAM2) was removed with it; D2 SRAM
+# (0x30000000-0x30047fff: no reference of any kind in the stock image, clocked
+# by SystemInit, cacheable under MPU region 9) remains a future option.
+CHR_WORK_DEFAULT = CHR_RAM + 0x200
+CHR_SLOTS = (                        # (offset into the work area, reserved bytes)
+    (0x0800, 0x0100),                # slot 0 Destruction, 0x2406cc00 (largest state 72 B)
+    (0x0900, 0x0100),                # slot 1 Overdrive,   0x2406cd00 (104 B)
+    (0x0b00, 0x2000),                # slot 2 Colour,      0x2406cf00 (ToTape8, 8172 B)
+    (0x0a00, 0x0100),                # slot 3 Saturation,  0x2406ce00 (28 B)
+)
+CHR_WORK_BYTES = max(o + n for o, n in CHR_SLOTS)    # 0x2b00: to 0x2406ef00
+
+
+def build_character_hook(org, midi_next, features=0):
+    obj = c_object("chr", CHR_SRC)
+    ccode, csyms = c_link(obj, org)
+    wb = csyms["chr_work_base"]
+    if struct.unpack_from("<I", ccode, wb)[0] != CHR_WORK_DEFAULT:
+        refuse("The Character work-area word is not what the patcher expects.")
+    fb = csyms["chr_features"]
+    if struct.unpack_from("<I", ccode, fb)[0] != 0:
+        refuse("The Character features word is not what the patcher expects.")
+    if features:
+        ccode = bytearray(ccode)
+        struct.pack_into("<I", ccode, fb, features)
+        ccode = bytes(ccode)
+    sorg = org + len(ccode)
+    src = """
+.syntax unified
+.thumb
+.section .text
+.global _sN
+.thumb_func
+_sN:
+nblock:                             /* replaces bl 0x080a3328 at 0x08096d04 */
+    push    {r0, lr}                /* r0 = master bus buffer 0 */
+nblock_orig:
+    .short  0, 0                    /* bl 0x080a3328: the stock mix, unchanged */
+    push    {r0, r1, r2, r3, r12, lr}   /* the state the original left */
+    mrs     r0, apsr
+    vmrs    r1, fpscr
+    push    {r0, r1}
+    vpush   {s0-s15}
+    ldr     r0, [sp, #96]           /* 64 + 8 + 24: our saved r0 */
+nblock_c:
+    .short  0, 0                    /* bl chr_block */
+    vpop    {s0-s15}
+    pop     {r0, r1}
+    msr     apsr_nzcvq, r0
+    vmsr    fpscr, r1
+    pop     {r0, r1, r2, r3, r12, lr}
+    add     sp, #4
+    pop     {pc}
+
+nmidi:                              /* chained at the MIDI CC post, before F */
+    push    {r0, r1, r2, r3, r12, lr}
+    mrs     r0, apsr
+    vmrs    r1, fpscr
+    push    {r0, r1}
+    vpush   {s0-s15}
+    ldr     r0, [sp, #224]          /* 96 + 0x80: MIDI channel, 0-15 */
+    ldr     r1, [sp, #228]          /* 96 + 0x84: CC number */
+    ldr     r2, [sp, #232]          /* 96 + 0x88: value, 7-bit << 7 */
+nmidi_c:
+    .short  0, 0                    /* bl chr_cc */
+    vpop    {s0-s15}
+    pop     {r0, r1}
+    msr     apsr_nzcvq, r0
+    vmsr    fpscr, r1
+    pop     {r0, r1, r2, r3, r12, lr}
+nmidi_next:
+    .short  0, 0                    /* b.w the next hook, as found */
+    .balign 4
+"""
+    code, syms = assemble("hookN", src)
+    code = bytearray(code)
+    for sym, target, call in (
+        ("nblock_orig", CHR_SITE_FN, True),
+        ("nblock_c", org + csyms["chr_block"], True),
+        ("nmidi_c", org + csyms["chr_cc"], True),
+        ("nmidi_next", midi_next, False),
+    ):
+        off = syms[sym]
+        code[off:off + 4] = enc_b_bl(sorg + off, target, call)
+    allsyms = {f"c_{k}": v for k, v in csyms.items()}
+    allsyms.update({k: len(ccode) + v for k, v in syms.items()})
+    return ccode + bytes(code), allsyms
+
+
+def apply_character(d, features=0):
+    """Guard N's sites, append the C object and the shims, install both."""
+    if bytes(d[CHR_SITE - BASE:CHR_SITE - BASE + 4]) != enc_b_bl(CHR_SITE, CHR_SITE_FN, True):
+        refuse(f"The master bus mix call at {CHR_SITE:#x} is not what it should be.")
+    _guard(d, *CHR_SITE_CONTEXT, "master bus mix set-up")
+    if struct.unpack_from("<I", d, CHR_EQ_HEAD_VA - BASE)[0] != CHR_EQ_HEAD:
+        refuse(f"The EQ chain literal at {CHR_EQ_HEAD_VA:#x} is not what it should be.")
+    midi_next = branch_target(d, MIDI_POST_CALL)
+    if midi_next == MIDI_POST_FN or midi_next < BASE + STOCK_SIZE:
+        refuse("The MIDI CC post call does not lead to the patch's CC hooks.")
+    org = BASE + len(d)
+    while org % 16:                       # the C object's constant pools align to 16
+        d += b"\0"
+        org += 1
+    code, syms = build_character_hook(org, midi_next, features)
+    org2 = _append(d, bytearray(code))
+    assert org2 == org
+    d[CHR_SITE - BASE:CHR_SITE - BASE + 4] = enc_b_bl(CHR_SITE, org + syms["nblock"], True)
+    d[MIDI_POST_CALL - BASE:MIDI_POST_CALL - BASE + 4] = enc_b_bl(
+        MIDI_POST_CALL, org + syms["nmidi"], True)
+    vprint(f"N Character {len(code)} bytes at {org:#010x}, ram {CHR_RAM:#x}")
+    return org, syms
+
+
+# --- O: OSD pop-up (opt-in test build) ------------------------------------------
+# A small centred box naming what a Character, EQ, compressor, pad-switch or
+# delay-switch CC just changed, or that an external clock let go or took
+# over; drawn on the UI tick into the TOP LCD layer with the firmware's own
+# 6x8 font drawn at 2x (the stock UI's size), gone 1.5 s after the last
+# change; plus an "OSD: OFF/ON" Settings row (id 0x14b, default ON), saved
+# like Clk Loss. chr6-8 had OFF/SMALL/LARGE and saved LARGE as 2, so every
+# non-zero value is ON. The drawing and the MIDI-side bookkeeping are C
+# in the Character object (character/chr_osd.h); this section adds the asm:
+# the registration, the global-store entry, the Settings wrapper, the UI-tick
+# shim, a recorder on the clock constructor (chained after J's, as L does),
+# and two head insertions in front of hooks A and B that note a pad voice
+# accepting one of the OSD's pad CCs. Every hook is a HEAD insertion: it takes
+# the site and branches on to whatever was installed there (A, B, J, K, L, M
+# or stock). See CHARACTER-DESIGN.md section 11 for the trace.
+OSD_VERSION = "2.3.9-ch12"   # "2.3.9-chr12" would be 11: past VER_DISPLAY_MAX
+RELEASE_VERSION = "2.3.9-mod"  # the default output (and --v239)
+PREVIOUS_VERSION = "2.3.8-mod"  # --v238: the published 2.3.8-mod, byte for byte
+PREVIOUS_SHA = "1ce1162229af75f0de5e95985e4805fbc795180d34cfc13cd08dd366ce3d93e6"
+# Single-feature TEST builds, layered on the 2.3.8-mod base. Never a release;
+# not in the usage text. Any of them switches the default (2.3.9-mod) off.
+TEST_FLAGS = ("--character", "--osd", "--cpu-meter", "--preset-bpm", "--clock-debug")
+OSD_ID = 0x14b                       # unregistered in stock; no immediate anywhere
+OSD_RAM_OFF = CHR_RAM + 0x100        # chr_osd_t.off: OFFMAGIC = Off
+OSD_OFFMAGIC = 0x4f53444f            # OFF; any other word = ON (the default)
+OSD_FONT_VA, OSD_FONT_A = 0x080bf664, "20508888f8888800"   # the 6x8 font's "A"
+OSD_FONT_LIT_VA = 0x080e3e64         # .data initialiser of the font descriptor
+OSD_CALLS = (                        # (site, stock target, entry, what)
+    (0x0806abbc, 0x08069ed4, "oreg", "the uiflip registration"),
+    (0x08089efe, 0x0808951e, "ostore", "the global store's 0xdc entry"),
+    (0x0807c5be, 0x080937f4, "opost", "the Settings apply-all post"),
+    (0x0807d51c, 0x080937f4, "opost", "the Settings live-edit post"),
+    (0x0805bbb4, 0x08042900, "odraw", "the UI present"),
+)
+OSD_CLK = OSD_RAM_OFF + 0x40         # chr_osd_t.clk: the clock object, from its ctor
+OSD_ACC = OSD_RAM_OFF + 0x44         # chr_osd_t.acc_seq, acc_cc, acc_val
+OSD_TEXT = OSD_RAM_OFF + 0x58        # chr_osd_t.text[2][28]: the lines on screen
+assert OSD_RAM_OFF + 0xb4 <= CHR_RAM + 0x200
+# The OSD's UI-side state (per-parameter last-shown text hashes, tempo
+# tracking, the box's one-bit mask: 3504 bytes). chr9-ch11 put it at
+# 0x24078c00, inside the stock pool's preset/stream buffer; ch12 puts it in the
+# free gap just above the stock main stack (character.c: CHR_OSD2_ADDR).
+OSD2_RAM = 0x24069400
+OSD2_BYTES = 0xe00
+# The pad voices' CC chains, where hooks A and B sit: a `cmp r3, #cc` then a
+# `bne.w` to the hook. O retargets each bne.w to a recorder that notes the
+# voice took a CC the OSD shows -- if that voice class supports it -- and
+# branches on to the hook. (site, class, value slot on the voice's frame,
+# CC mask from 86: bit n = CC 86+n)
+# ch11: every per-pad CC the patch adds, 79-93, as CC-REFERENCE's pad-type
+# table has them. Mask bit n = CC 79+n.
+OSD_PAD_SITES = (
+    (0x080b2316, 1, 0x40, 0x77ff),   # class A: 79-83 (Granular only), 84-89, 91-93
+    (0x080b7cd6, 2, 0x38, 0x7960),   # class B: 84, 85, 87, 90 (Slicer only), 91-93
+)
+OSD_SLICER_OFF = 0x254               # class B voice: 1 = Slicer (its setter: mode == 2)
+OSD_SLICER_GUARD = (0x080b742a, "85f85432")  # strb.w r3, [r5, #0x254]: (mode == 2)
+OSD_GRANULAR_OFF = 0x575             # class A voice: 1 = Granular (its setter: mode == 3)
+OSD_GRANULAR_GUARD = (0x080b27c2, "a3f10303b3fa83f35b0984f87535")  # sub #3; clz; lsrs; strb [r4,#0x575]
+# The firmware's own LFO Wave labels, indexed by the raw value hooks A/B give
+# the voice (0-9). chr_osd.h reads them from flash; the patcher checks them.
+# rc1 (--v239): the CPU meter's bar joins the OSD row, which becomes
+# OSD: OFF / POP-UP / CPU / BOTH under a NEW xml name, `osdmode`. A new name
+# because no value of the old `osd` can be told apart: chr6-8 saved LARGE as 2,
+# and 2 is now CPU. The loader reads only attributes the store names, so a
+# stale `osd` -- like a stale `cpumeter` -- is never read, and the row starts
+# at its default, POP-UP. A value above BOTH (a hand-edited file) behaves as
+# POP-UP and is written back into the store as POP-UP at the boot apply-all,
+# so the row never indexes past its four labels.
+OSD_MODES = ("OFF", "POP-UP", "CPU", "BOTH")   # stored 0..3; default 1
+OSD_MODE_XML = "osdmode"
+OSD_SETPARAM = 0x080894fa            # SetParam(store, id, value); L may sit on its entry
+OSD_LFO_LABELS = 0x080c478c
+OSD_LFO_NAMES = ("Saw", "Rev Saw", "Triangle", "Pos Tri", "Sine", "Pos Sine",
+                 "Square", "Pos Square", "Random", "None")
+
+
+def bne_target(d, at):
+    """Destination of the Thumb-2 bne.w at `at` (T3, cond NE)."""
+    hw1, hw2 = struct.unpack_from("<HH", d, at - BASE)
+    assert hw1 & 0xfbc0 == 0xf040 and hw2 & 0xd000 == 0x8000, f"no bne.w at {at:#x}"
+    s = (hw1 >> 10) & 1
+    imm = (s << 20) | (((hw2 >> 11) & 1) << 19) | (((hw2 >> 13) & 1) << 18) \
+        | ((hw1 & 0x3f) << 12) | ((hw2 & 0x7ff) << 1)
+    if s:
+        imm -= 1 << 21
+    return at + 4 + imm
+
+
+def _osd_pad_rec(tag, cls, vslot, mask, slicer, keep=False):
+    """A voice is about to take a CC (r3 = number, r4 = voice, value on the
+    frame). If its class supports that CC, bump the acceptance record. Saves
+    and restores every register it touches, and the flags. Writes exactly
+    three words, at OSD_ACC; no index of any kind."""
+    if slicer:
+        extra = f"""
+    cmp     r3, #90
+    bne     o{tag}_take
+    ldrb.w  r1, [r4, #{OSD_SLICER_OFF:#x}]
+    cbz     r1, o{tag}_out              /* Play Through on a Clip pad: ignored */"""
+    else:
+        extra = f"""
+    cmp     r3, #83
+    bhi     o{tag}_take
+    ldrb.w  r1, [r4, #{OSD_GRANULAR_OFF:#x}]
+    cbz     r1, o{tag}_out              /* granular CCs on a Sample pad: ignored */"""
+    return f"""
+opad{tag}:                              /* r3 = CC, r4 = voice; flags NE */
+    push    {{r0, r1, r2, r12}}
+    mrs     r12, apsr
+    sub.w   r0, r3, #79
+    cmp     r0, #14
+    bhi     o{tag}_out
+    movs    r1, #1
+    lsls    r1, r1, r0
+    movw    r2, #{mask:#x}
+    tst     r1, r2
+    beq     o{tag}_out{extra}
+o{tag}_take:{_keep_skip(tag) if keep else ""}
+    ldr     r2, [sp, #{vslot + 16:#x}]  /* the value, past our 16-byte push */
+    ldr     r0, =0x{OSD_ACC:08x}
+    movw    r1, #{cls << 8:#x}
+    orrs    r1, r3
+    str     r1, [r0, #4]
+    str     r2, [r0, #8]
+    ldr     r1, [r0]
+    adds    r1, #1
+    str     r1, [r0]                    /* last: the count says it is complete */
+o{tag}_out:
+    msr     apsr_nzcvq, r12
+    pop     {{r0, r1, r2, r12}}
+opad{tag}_next:
+    .short  0, 0
+"""
+
+
+def _osd_post(modes):
+    if not modes:
+        return f"""
+opost:                              /* PostSetParam(r0 mgr, r1 key, r2 id, r3 value) */
+    movw    r12, #0x{OSD_ID:x}
+    cmp     r2, r12
+    bne     opost_next
+    ldr     r12, =0x{OSD_RAM_OFF:08x}
+    cbz     r3, opost_off
+    movs    r3, #0                  /* ANY non-zero is ON: chr6-8 saved 2 (LARGE) */
+    str     r3, [r12]
+    bx      lr
+opost_off:
+    ldr     r3, =0x{OSD_OFFMAGIC:08x}
+    str     r3, [r12]
+    bx      lr
+opost_next:
+    .short  0, 0
+"""
+    return f"""
+opost:                              /* PostSetParam(r0 mgr, r1 key, r2 id, r3 value) */
+    movw    r12, #0x{OSD_ID:x}
+    cmp     r2, r12
+    bne     opost_next
+    push    {{r4, lr}}              /* ours: NOT posted to the engine */
+    cmp     r3, #3
+    bls     opost_mode
+    ldr     r0, =0x{GLOBAL_STORE:08x}   /* out of range: POP-UP, and in the store too */
+    mov     r1, r2
+    movs    r2, #1
+opost_set:
+    .short  0, 0                    /* bl SetParam */
+    movs    r3, #1
+opost_mode:                         /* 0 OFF, 1 POP-UP, 2 CPU, 3 BOTH */
+    movs    r1, #0
+    ldr     r0, =0x{OSD_OFFMAGIC:08x}
+    tst     r3, #1                  /* pop-ups in POP-UP and BOTH */
+    it      ne
+    movne   r0, r1
+    ldr     r12, =0x{OSD_RAM_OFF:08x}
+    str     r0, [r12]
+    ldr     r0, =0x{CLK_MAGIC:08x}
+    cmp     r3, #2                  /* the bar in CPU and BOTH */
+    it      lo
+    movlo   r0, r1
+    ldr     r12, =0x{K_MODE:08x}
+    str     r0, [r12]
+    pop     {{r4, pc}}
+opost_next:
+    .short  0, 0
+"""
+
+
+def _keep_skip(tag):
+    """rc1: while a Keep CCs replay is in flight (P sets KEEP_REPLAY on the
+    audio thread for the block it posts in), a voice taking a replayed CC is
+    not an acceptance: no pop-up can come of it."""
+    return f"""
+    ldr     r0, =0x{KEEP_RAM + KEEP_REPLAY_OFF:08x}
+    ldr     r0, [r0]
+    ldr     r1, =0x{KEEP_REPLAY_MAGIC:08x}
+    cmp     r0, r1
+    beq     o{tag}_out"""
+
+
+def build_osd_hook(org, nexts, tick_fn, modes=False):
+    """`modes` is the release row (rc1): four values under `osdmode`, the
+    CPU meter's bar switched from here, and pad recorders that ignore a Keep
+    CCs replay. Without it, the ch11 OFF/ON row."""
+    pads = "".join(_osd_pad_rec(t, c, v, m, c == 2, keep=modes)
+                   for t, (_, c, v, m) in zip("AB", OSD_PAD_SITES))
+    if modes:
+        tail = f"""
+ovalues:                            /* OFF is the firmware's own string */
+    .word   0x080c0030, 0, 0, 0     /* the rest: filled in per origin */
+    .balign 4
+ostr_popup:
+    .asciz  "POP-UP"
+    .balign 4
+ostr_cpu:
+    .asciz  "CPU"
+    .balign 4
+ostr_both:
+    .asciz  "BOTH"
+    .balign 4
+olabel:
+    .asciz  "OSD:"
+    .balign 4
+oxml:
+    .asciz  "{OSD_MODE_XML}"
+    .balign 4
+"""
+    else:
+        tail = """
+ovalues:                            /* two values; the third word is a spare */
+    .word   0x080c0030, 0x080c0034, 0x080c0034   /* "ON", so a stale 2 shows ON */
+    .balign 4
+olabel:
+    .asciz  "OSD:"
+    .balign 4
+oxml:
+    .asciz  "osd"
+    .balign 4
+"""
+    src = f"""
+.syntax unified
+.thumb
+.section .text
+.global _sO
+.thumb_func
+_sO:
+oreg:                               /* r0 = registry; [sp], [sp+4] = the uiflip call's args */
+    push    {{r0, r1, r2, r3, r4, r12, lr}}
+    sub     sp, #12
+    movw    r1, #0x{OSD_ID:x}
+    adr.w   r2, olabel
+    adr.w   r3, ovalues
+    movs    r4, #{len(OSD_MODES) if modes else 2}
+    str     r4, [sp]
+    adr.w   r4, oxml
+    str     r4, [sp, #4]
+oreg_call:
+    .short  0, 0                    /* enum registrar */
+    add     sp, #12
+    pop     {{r0, r1, r2, r3, r4, r12, lr}}
+oreg_next:
+    .short  0, 0
+
+ostore:                             /* r0 = the global store */
+    push    {{r0, r1, r2, r3, r12, lr}}
+    movw    r1, #0x{OSD_ID:x}
+    movs    r2, #1                  /* default ON (rc1: POP-UP) */
+ostore_call:
+    .short  0, 0                    /* AddParam */
+    pop     {{r0, r1, r2, r3, r12, lr}}
+ostore_next:
+    .short  0, 0
+{_osd_post(modes)}
+odraw:                              /* r0 = the display object, every UI tick */
+    push    {{r0, r1, r2, r3, r12, lr}}
+    mrs     r1, apsr
+    vmrs    r2, fpscr
+    push    {{r1, r2}}
+    vpush   {{s0-s15}}
+odraw_c:
+    .short  0, 0                    /* bl chr_osd_tick(display) */
+    vpop    {{s0-s15}}
+    pop     {{r1, r2}}
+    msr     apsr_nzcvq, r1
+    vmsr    fpscr, r2
+    pop     {{r0, r1, r2, r3, r12, lr}}
+odraw_next:
+    .short  0, 0
+
+octor:                              /* chained after J's jctor; r4 = the clock */
+    ldr     r12, =0x{OSD_CLK:08x}
+    str     r4, [r12]
+    mov.w   r12, #0                 /* as J leaves it: registers exactly as without O */
+octor_next:
+    .short  0, 0
+{pads}
+    .balign 4
+    .ltorg
+{tail}"""
+    code, syms = assemble("hookOm" if modes else "hookO", src)
+    code = bytearray(code)
+    if modes:
+        for k, sym in enumerate(("ostr_popup", "ostr_cpu", "ostr_both"), 1):
+            struct.pack_into("<I", code, syms["ovalues"] + 4 * k, org + syms[sym])
+        off = syms["opost_set"]
+        code[off:off + 4] = enc_b_bl(org + off, OSD_SETPARAM, True)
+    for sym, target, call in (
+        ("oreg_call", 0x08069e7c, True),
+        ("oreg_next", nexts["oreg"], False),
+        ("ostore_call", 0x0808951e, True),
+        ("ostore_next", nexts["ostore"], False),
+        ("opost_next", nexts["opost"], False),
+        ("odraw_c", tick_fn, True),
+        ("odraw_next", nexts["odraw"], False),
+        ("octor_next", nexts["octor"], False),
+        ("opadA_next", nexts["opadA"], False),
+        ("opadB_next", nexts["opadB"], False),
+    ):
+        off = syms[sym]
+        code[off:off + 4] = enc_b_bl(org + off, target, call)
+    return bytes(code), syms
+
+
+def _cstr(d, va):
+    o = va - BASE
+    if not 0 <= o < len(d):
+        return None
+    e = d.find(b"\0", o)
+    return bytes(d[o:e]).decode("latin1") if e > o else None
+
+
+def apply_osd(d, n_org, n_syms, j_org, j_syms, modes=False):
+    """Guard O's sites, the font and the labels, append O, take each site.
+    `modes`: the release row, which also switches K's bar (K must be in)."""
+    if bytes(d[OSD_FONT_VA + 33 * 8 - BASE:OSD_FONT_VA + 34 * 8 - BASE]).hex() != OSD_FONT_A:
+        refuse("The firmware's 6x8 font is not where the OSD expects it.")
+    for i, want in enumerate(OSD_LFO_NAMES):
+        if _cstr(d, struct.unpack_from("<I", d, OSD_LFO_LABELS + 4 * i - BASE)[0]) != want:
+            refuse("The LFO Wave labels are not where the OSD expects them.")
+    _guard(d, OSD_SLICER_GUARD[0], OSD_SLICER_GUARD[1], "class B mode setter")
+    _guard(d, OSD_GRANULAR_GUARD[0], OSD_GRANULAR_GUARD[1], "class A mode setter")
+    if struct.unpack_from("<I", d, OSD_FONT_LIT_VA - BASE)[0] != OSD_FONT_VA:
+        refuse("The font descriptor's initialiser is not what the OSD expects.")
+    _guard(d, CLK_REG_LIMIT_VA, CLK_REG_LIMIT, "parameter registry limit")
+    _guard(d, CLK_STORE_CAP_VA, CLK_STORE_CAP, "global settings capacity")
+    nexts = {}
+    for site, stock, entry, what in OSD_CALLS:
+        t = branch_target(d, site)
+        if t != stock and t < BASE + STOCK_SIZE:
+            refuse(f"The call at {site:#x} ({what}) is not what the OSD expects.")
+        if entry in nexts and nexts[entry] != t:
+            refuse("The two Settings post sites no longer lead to the same place.")
+        nexts[entry] = t
+    ctor_next = branch_target(d, j_org + j_syms["jctor_next"])
+    if ctor_next != 0x080a625c and ctor_next < BASE + STOCK_SIZE:   # stock, or L's lctor
+        refuse("Hook J's jctor_next is not what the OSD expects.")
+    nexts["octor"] = ctor_next
+    for (site, _, _, _), tag in zip(OSD_PAD_SITES, "AB"):
+        t = bne_target(d, site)
+        if t < BASE + STOCK_SIZE:
+            refuse(f"The pad CC chain at {site:#x} does not lead to hook {tag}.")
+        nexts[f"opad{tag}"] = t
+    org = BASE + len(d)
+    code, syms = build_osd_hook(org, nexts, n_org + n_syms["c_chr_osd_tick"], modes)
+    org2 = _append(d, bytearray(code))
+    assert org2 == org
+    for site, _, entry, _ in OSD_CALLS:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], True)
+    at = j_org + j_syms["jctor_next"]
+    d[at - BASE:at - BASE + 4] = enc_b_bl(at, org + syms["octor"], False)
+    for (site, _, _, _), tag in zip(OSD_PAD_SITES, "AB"):
+        d[site - BASE:site - BASE + 4] = enc_bne_w(site, org + syms[f"opad{tag}"])
+    vprint(f"O OSD {len(code)} bytes at {org:#010x}, id {OSD_ID:#x}, ram {OSD_RAM_OFF:#x}")
+    return org, syms
+
+
+# --- P: Keep CCs (rc1, --v239) ----------------------------------------------------
+# A "Keep CCs: OFF/ON" Settings row (id 0x166, default OFF, saved like Clk
+# Loss). ON: after a preset load completes, the last value of every patch pad
+# CC (79-93) received since power-on is sent again, per MIDI channel, so the
+# new preset's pads take the controller's positions. Untouched (channel, CC)
+# pairs are never sent, so they keep the preset's own values. Nothing else is
+# ever sent: no stop CCs (120/123), no Character, EQ, compressor or delay CC.
+#
+# THE PATH AND THE THREAD. A real CC is parsed AND queued on the audio task:
+# 0x08042464/0x08042480 call the per-block function 0x08093e48 (this =
+# MANAGER) once per DMA half; it builds a 24-byte type-7 event and posts it at
+# 0x08093f14 through the thunk 0x080950c0 into the key-0x400 queue at
+# *(MANAGER+0xa204) + 0x127dc (64 entries, count at +0x600). The append
+# (0x080a396c) has no lock, so the audio task is the only producer that cannot
+# race the dispatcher; the engine routine 0x08096530, later in the same call,
+# drains the UI's command ring (+0xdcd8 read / +0xdcdc write) and then
+# dispatches the queues to the pads. P posts the SAME event through the SAME
+# thunk from the block start (0x08093e72), before the MIDI loop and before any
+# DSP: the queue then carries it to every pad on that channel, exactly as a
+# live CC (two pads on a channel both take it; a pad type without that CC
+# ignores it, as it would a live one).
+#
+# WHEN. FinalizeBankLoading 0x0807aa9c (UI thread; its two callers are the
+# success paths of a load) ends by setting the engine's ready byte
+# MANAGER+0xae10 to 1 (0x0807af2c); LoadBank cleared it. P wraps both calls and,
+# with the row ON, bumps a load sequence. The block start then waits until the
+# engine is ready AND the UI's command ring is empty -- every parameter the
+# load posted has been applied -- and posts at most 16 events per block while
+# the queue holds no more than 16 (real CCs share it). A new load restarts the
+# replay; turning the row OFF stops it at the next block.
+#
+# NOTES ARE NOT CCs (rc3). Stock sends note-on/off and poly aftertouch through
+# the same post at 0x08093f14 (they share the CC tail 0x08093f0c), with the note
+# number in the CC slot and the raw velocity in the value slot. P's head there
+# checks the type byte ([sp,#0x78], 7 = CC) and sends anything else straight to
+# the stock post, so every CC hook behind it (P, N/O, F, D, C) sees CCs only.
+# rc2 recorded the sequencer's note 87 as "CC 87" and replayed it as Sustain.
+#
+# NO POP-UPS. Replayed events never pass 0x08093f14, so the OSD sees no
+# request; and while P has events in flight it sets KEEP_REPLAY, which O's pad
+# recorders (hookOm) treat as "not an acceptance". A live pad CC arriving in
+# that same 2.7 ms block loses only its pop-up.
+#
+# PRESET BPM IS A PRESET EDIT (rc2). Stock marks the preset unsaved
+# (SessionMgr+0x8004) on its own edit paths; the Settings live edit (handler B)
+# does not, because Settings rows are global. A Preset BPM edit there was only
+# marked by the engine's tempo echo (message 0x6f, 0x08076c8c), which never
+# comes when L parks the edit under a running clock: rc1's manual edits were
+# not saveable with a clock. P's head at the LIVE-EDIT post site (0x0807d51c,
+# only ever reached from handler B: a user's edit) sets the byte for id 0x66.
+# Preset loads post the song store elsewhere (0x0807ad0e-0x0807adec, straight
+# to PostSetParam) and the boot apply-all never carries 0x66 (not a global
+# store entry), so neither marks anything.
+KEEP_ID = 0x166                      # unregistered in stock, no immediate anywhere
+KEEP_RAM = 0x2406a400                # in the guarded gap; cleared by the clock ctor
+KEEP_BYTES = 0x220
+KEEP_MODE_OFF, KEEP_LOAD_OFF, KEEP_DONE_OFF, KEEP_IDX_OFF, KEEP_REPLAY_OFF = 0, 4, 8, 0xc, 0x10
+KEEP_BITS_OFF, KEEP_VALS_OFF = 0x20, 0x40   # u16 per channel; u16 per (channel, CC)
+KEEP_ON = 0x4b454550                 # "KEEP": the row is ON; any other word is OFF
+KEEP_REPLAY_MAGIC = 0x5245504c       # "REPL"
+KEEP_CC_FIRST, KEEP_CC_COUNT = 79, 15
+KEEP_SLOTS = 16 * KEEP_CC_COUNT      # 240
+KEEP_PER_BLOCK = 16
+assert KEEP_VALS_OFF + 2 * KEEP_SLOTS <= KEEP_BYTES
+FINALIZE_FN = 0x0807aa9c
+KEEP_FINAL_SITES = (0x0807c4e0, 0x0807f98c)
+ENG_X, ENG_READY = 0xa204, 0xae10
+RING_R, RING_W = 0xdcd8, 0xdcdc
+QUEUE_COUNT = 0x127d8 + 4 + 0x600    # the key-0x400 queue's count
+KEEP_GUARDS = (                      # (va, bytes, what): the facts P rests on
+    (0x08093e82, "4af6106314f80390", "the per-block function reads the ready byte"),
+    (0x0807af2c, "4af610630122f254", "FinalizeBankLoading sets the ready byte"),
+    (0x08093e94, "4af20427", "the dispatcher's engine pointer is this+0xa204"),
+    (0x08093f10, "38682293", "the dispatcher posts *(this+0xa204)"),
+    (0x08093ee6, "07232846cdf87c908df87830", "the dispatcher's event: type 7, +4 = 0"),
+    (0x080950c0, "034603484ff48062184413f06bb9", "the MIDI thunk, key 0x400"),
+    (0x080a83e2, "04221044fbf7c1ba", "key 0x400 is queue +4"),
+    (0x080a396c, "f0b4d0f800763f2f0ed807eb", "the queue append: count +0x600, 64 entries"),
+    (0x0809654e, "4df6dc434df6d842", "the engine routine's command ring indices"),
+    (0x08042488, "78290224", "the audio task's engine literal is MANAGER"),
+    (0x08097bdc, "49f23c73c35853b948f2d43248f2d833c3588058181ab0fa80f040097047",
+     "the loader-idle test: +0x973c == 0 and +0x83d4 == +0x83d8"),
+    (0x0807c26e, "b24817f05efd", "LoadBank asks it, with the literal at 0x0807c538"),
+    (0x08093d30, "03f054bf", "through this tail call"),
+    (0x08097b8c, "48f6e012034670b548f6e414045980588442", "the reply ring: +0x89e0 read, +0x89e4 write"),
+    (0x0807f892, "08a9284614f099f8", "the UI dispatcher reads it with r5 ..."),
+    (0x0807f874, "7f4d", "... = the literal at 0x0807fa74"),
+    (0x080939cc, "04f0deb8", "through this tail call"),
+    (0x08093eea, "cdf87c908df87830", "type 7 for a CC at +0x78 ..."),
+    (0x08093fea, "8df87830cdf87c90", "... type 5 for a note-on, into the same tail"),
+)
+KEEP_SETPARAM = 0x080894fa
+# rc3: the replay waits for the firmware's own "loader idle" test (0x08097bdc,
+# which LoadBank asks at 0x0807c270 with MANAGER), the streamer-to-UI reply
+# ring (read by 0x08097b8c with MANAGER, from the UI dispatcher at 0x0807f896)
+# being empty, plus rc2's ready byte and empty command ring -- all held for
+# KEEP_STEADY_BLOCKS consecutive blocks. If the loader never goes idle, it
+# replays anyway after KEEP_TIMEOUT_BLOCKS (but never without the ready byte
+# and an empty command ring).
+LOADER_BUSY, LOADER_R, LOADER_W = 0x973c, 0x83d4, 0x83d8
+REPLY_R, REPLY_W = 0x89e0, 0x89e4
+KEEP_STABLE_OFF, KEEP_AGE_OFF = 0x14, 0x18
+KEEP_STEADY_BLOCKS = 32              # ~85 ms
+KEEP_TIMEOUT_BLOCKS = 750            # ~2 s after the load finished
+MSG_TYPE_SP = 0x78                   # the event's type byte on the dispatcher's frame (7 = CC)
+
+# --- Auto makeup (CC 46, rc1): its own flag record -------------------------------
+# COMPRESSOR-DESIGN.md section 6 put the flag at the store's +0x18, which since
+# b5 is the checksum hook E verifies; by the user's decision (Option 1) it is a
+# record of its own and the 2.3.6-mod store format is untouched. ON is exactly
+# {AUTO_MAGIC, ~AUTO_MAGIC}; anything else is OFF. Cleared at boot with Keep
+# CCs' RAM (P's link after J's clock constructor): auto makeup starts OFF at
+# every power-on. Hook Dr reads and writes it; the OSD reads it.
+AUTO_RAM = KEEP_RAM + KEEP_BYTES     # 0x2406a620, 8 bytes
+AUTO_MAGIC = 0x4f545541              # "AUTO"
+KEEP_CLEAR = KEEP_BYTES + 8          # P's boot clear covers both
+CHR_FEATURE_AUTO = 1                 # chr_features bit: the OSD may show CC 46
+
+
+def build_keep_hook(org, nexts):
+    src = f"""
+.syntax unified
+.thumb
+.section .text
+.global _sP
+.thumb_func
+_sP:
+preg:                               /* r0 = registry; as O's oreg */
+    push    {{r0, r1, r2, r3, r4, r12, lr}}
+    sub     sp, #12
+    movw    r1, #0x{KEEP_ID:x}
+    adr.w   r2, plabel
+    adr.w   r3, pvalues
+    movs    r4, #2
+    str     r4, [sp]
+    adr.w   r4, pxml
+    str     r4, [sp, #4]
+preg_call:
+    .short  0, 0                    /* enum registrar */
+    add     sp, #12
+    pop     {{r0, r1, r2, r3, r4, r12, lr}}
+preg_next:
+    .short  0, 0
+
+pstore:                             /* r0 = the global store */
+    push    {{r0, r1, r2, r3, r12, lr}}
+    movw    r1, #0x{KEEP_ID:x}
+    movs    r2, #0                  /* default OFF */
+pstore_call:
+    .short  0, 0                    /* AddParam */
+    pop     {{r0, r1, r2, r3, r12, lr}}
+pstore_next:
+    .short  0, 0
+
+pedit:                              /* the LIVE-EDIT post only (0x0807d51c): a user's edit */
+    cmp     r2, #0x66
+    bne     ppost
+    ldr     r12, =0x{SESSION_DIRTY:08x}  /* Preset BPM: mark the preset unsaved, as */
+    push    {{r0}}                   /* stock edits do; L may park it (no echo) */
+    movs    r0, #1
+    strb    r0, [r12]
+    pop     {{r0}}
+ppost:                              /* PostSetParam(r0 mgr, r1 key, r2 id, r3 value) */
+    movw    r12, #0x{KEEP_ID:x}
+    cmp     r2, r12
+    bne     ppost_next
+    push    {{r4, lr}}              /* ours: NOT posted to the engine */
+    cmp     r3, #1
+    bls     ppost_mode
+    ldr     r0, =0x{GLOBAL_STORE:08x}   /* out of range: OFF, and in the store too */
+    mov     r1, r2
+    movs    r2, #0
+ppost_set:
+    .short  0, 0                    /* bl SetParam */
+    movs    r3, #0
+ppost_mode:
+    ldr     r12, =0x{KEEP_RAM:08x}
+    movs    r0, #0
+    cbz     r3, ppost_store
+    ldr     r0, =0x{KEEP_ON:08x}
+ppost_store:
+    str     r0, [r12, #{KEEP_MODE_OFF}]
+    pop     {{r4, pc}}
+ppost_next:
+    .short  0, 0
+
+pfinal:                             /* replaces bl FinalizeBankLoading (UI thread) */
+    push    {{r4, lr}}
+pfinal_call:
+    .short  0, 0                    /* bl FinalizeBankLoading, r0 as given */
+    push    {{r0, r1, r2, r3}}          /* as the original left them, flags too */
+    mrs     r3, apsr
+    ldr     r4, =0x{KEEP_RAM:08x}
+    ldr     r0, [r4, #{KEEP_MODE_OFF}]
+    ldr     r1, =0x{KEEP_ON:08x}
+    cmp     r0, r1
+    bne     pfinal_out
+    ldr     r0, [r4, #{KEEP_LOAD_OFF}]
+    adds    r0, #1
+    str     r0, [r4, #{KEEP_LOAD_OFF}]  /* the only writer of LOAD */
+pfinal_out:
+    msr     apsr_nzcvq, r3
+    pop     {{r0, r1, r2, r3}}
+    pop     {{r4, pc}}
+
+pctor:                              /* chained after J's jctor: boot, before audio */
+    push    {{r0, r1, r2, r3}}
+    mrs     r3, apsr
+    ldr     r0, =0x{KEEP_RAM:08x}
+    movs    r1, #0
+    movw    r2, #{KEEP_CLEAR:#x}       /* Keep CCs and the auto-makeup flag */
+pctor_clr:
+    subs    r2, #4
+    str     r1, [r0, r2]
+    bne     pctor_clr
+    movs    r1, #{KEEP_SLOTS}
+    str     r1, [r0, #{KEEP_IDX_OFF}]   /* nothing to replay */
+    msr     apsr_nzcvq, r3
+    pop     {{r0, r1, r2, r3}}
+    mov.w   r12, #0                 /* as J leaves it */
+pctor_next:
+    .short  0, 0
+
+pmidi:                              /* at 0x08093f14, before every other CC hook */
+    ldrb    r3, [sp, #{MSG_TYPE_SP:#x}]  /* THE TYPE GATE (rc3): 7 = a CC. r3 is dead: */
+    cmp     r3, #7                      /* the stock callee's first act is mov r3, r0 */
+    beq     pmidi_cc
+pmidi_stock:
+    .short  0, 0                        /* b.w 0x080950c0: a note or aftertouch, as stock */
+pmidi_cc:
+    push    {{r0, r1, r2, r3, r4, r12}}
+    mrs     r12, apsr
+    ldr     r0, [sp, #{MSG_CHAN_SP + 24:#x}]
+    cmp     r0, #15
+    bhi     pmidi_out
+    ldr     r1, [sp, #{MSG_CC_SP + 24:#x}]
+    subs    r1, #{KEEP_CC_FIRST}
+    cmp     r1, #{KEEP_CC_COUNT - 1}
+    bhi     pmidi_out
+    ldr     r2, [sp, #{MSG_VAL_SP + 24:#x}]
+    ldr     r3, =0x{KEEP_RAM:08x}
+    lsls    r4, r0, #4
+    subs    r4, r4, r0              /* channel x 15 */
+    adds    r4, r4, r1
+    add.w   r4, r3, r4, lsl #1
+    strh    r2, [r4, #{KEEP_VALS_OFF}]  /* the value first ... */
+    add.w   r4, r3, r0, lsl #1
+    ldrh    r0, [r4, #{KEEP_BITS_OFF}]
+    movs    r2, #1
+    lsls    r2, r1
+    orrs    r0, r2
+    strh    r0, [r4, #{KEEP_BITS_OFF}]  /* ... then the touched bit */
+pmidi_out:
+    msr     apsr_nzcvq, r12
+    pop     {{r0, r1, r2, r3, r4, r12}}
+pmidi_next:
+    .short  0, 0
+
+pblock:                             /* block start 0x08093e72; r0 = profiler */
+    push    {{r0, r1, r2, r3, r4, r5, r6, r7, r12, lr}}
+    mrs     r12, apsr
+    push    {{r12}}
+    sub     sp, #28                 /* the event, as the dispatcher builds it */
+    ldr     r4, =0x{KEEP_RAM:08x}
+    movs    r0, #0
+    str     r0, [r4, #{KEEP_REPLAY_OFF}]   /* last block's replays were dispatched */
+    ldr     r0, [r4, #{KEEP_MODE_OFF}]
+    ldr     r1, =0x{KEEP_ON:08x}
+    cmp     r0, r1
+    bne     pb_out
+    ldr     r0, [r4, #{KEEP_LOAD_OFF}]
+    ldr     r1, [r4, #{KEEP_DONE_OFF}]
+    cmp     r0, r1
+    beq     pb_have
+    str     r0, [r4, #{KEEP_DONE_OFF}]     /* a new load: from the top */
+    movs    r1, #0
+    str     r1, [r4, #{KEEP_IDX_OFF}]
+    str     r1, [r4, #{KEEP_STABLE_OFF}]
+    str     r1, [r4, #{KEEP_AGE_OFF}]
+pb_have:
+    ldr     r5, [r4, #{KEEP_IDX_OFF}]
+    cmp     r5, #{KEEP_SLOTS}
+    bhs     pb_out
+    ldr     r0, [r4, #{KEEP_AGE_OFF}]
+    adds    r0, #1
+    str     r0, [r4, #{KEEP_AGE_OFF}]   /* blocks since the load finished */
+    ldr     r7, =0x{MANAGER:08x}
+    movw    r0, #0x{ENG_READY:x}
+    ldrb    r0, [r7, r0]
+    cmp     r0, #0
+    beq     pb_unsteady             /* still loading */
+    movw    r0, #0x{ENG_X:x}
+    ldr     r6, [r7, r0]
+    sub.w   r0, r6, #0x24000000
+    cmp.w   r0, #0x50000
+    bhs     pb_unsteady             /* no engine object (yet) */
+    movw    r0, #0x{RING_R:x}
+    ldr     r0, [r6, r0]
+    movw    r1, #0x{RING_W:x}
+    ldr     r1, [r6, r1]
+    cmp     r0, r1
+    bne     pb_unsteady             /* the load's parameters not all applied yet */
+    movw    r0, #0x{LOADER_BUSY:x}      /* the firmware's own loader-idle test, */
+    ldr     r0, [r7, r0]            /* 0x08097bdc: +0x973c == 0 ... */
+    cbnz    r0, pb_busy
+    movw    r0, #0x{LOADER_R:x}
+    ldr     r0, [r7, r0]
+    movw    r1, #0x{LOADER_W:x}
+    ldr     r1, [r7, r1]
+    cmp     r0, r1                  /* ... and its ring +0x83d4 == +0x83d8 */
+    bne     pb_busy
+    movw    r0, #0x{REPLY_R:x}
+    ldr     r0, [r7, r0]
+    movw    r1, #0x{REPLY_W:x}
+    ldr     r1, [r7, r1]
+    cmp     r0, r1                  /* and nothing waiting for the UI (+0x89e0/4) */
+    bne     pb_busy
+    ldr     r0, [r4, #{KEEP_STABLE_OFF}]
+    adds    r0, #1
+    str     r0, [r4, #{KEEP_STABLE_OFF}]
+    cmp     r0, #{KEEP_STEADY_BLOCKS}
+    blo     pb_out                  /* idle, but not for long enough yet */
+    b       pb_ready
+pb_busy:
+    movs    r0, #0
+    str     r0, [r4, #{KEEP_STABLE_OFF}]
+    ldr     r0, [r4, #{KEEP_AGE_OFF}]
+    movw    r1, #{KEEP_TIMEOUT_BLOCKS}
+    cmp     r0, r1
+    blo     pb_out                  /* the loader is busy: wait (up to the timeout) */
+    b       pb_ready
+pb_unsteady:
+    movs    r0, #0
+    str     r0, [r4, #{KEEP_STABLE_OFF}]
+    b       pb_out                  /* never without a ready engine and an empty ring */
+pb_ready:
+    movw    r0, #0x{QUEUE_COUNT & 0xffff:x}
+    movt    r0, #0x{QUEUE_COUNT >> 16:x}
+    ldr     r0, [r6, r0]
+    cmp     r0, #{KEEP_PER_BLOCK}
+    bhi     pb_out                  /* leave room for live CCs */
+    movs    r7, #{KEEP_PER_BLOCK}
+pb_loop:
+    cmp     r5, #{KEEP_SLOTS}
+    bhs     pb_save
+    movs    r0, #{KEEP_CC_COUNT}
+    udiv    r1, r5, r0              /* channel */
+    mls     r2, r1, r0, r5          /* CC - 79 */
+    add.w   r3, r4, r1, lsl #1
+    ldrh    r3, [r3, #{KEEP_BITS_OFF}]
+    lsrs    r3, r2
+    lsls    r3, r3, #31
+    beq     pb_next                 /* never touched: the preset's value stands */
+    movs    r0, #7                  /* type 7, as 0x08093eee: a CC */
+    str     r0, [sp]
+    movs    r0, #0
+    str     r0, [sp, #4]
+    str     r0, [sp, #20]
+    str     r1, [sp, #8]
+    adds    r0, r2, #{KEEP_CC_FIRST}
+    str     r0, [sp, #12]
+    add.w   r0, r4, r5, lsl #1
+    ldrh    r0, [r0, #{KEEP_VALS_OFF}]
+    str     r0, [sp, #16]
+    ldr     r0, =0x{KEEP_REPLAY_MAGIC:08x}
+    str     r0, [r4, #{KEEP_REPLAY_OFF}]
+    mov     r0, r6
+    mov     r1, sp
+pb_post:
+    .short  0, 0                    /* bl 0x080950c0: the dispatcher's own post */
+    adds    r5, #1
+    subs    r7, #1
+    bne     pb_loop
+    b       pb_save
+pb_next:
+    adds    r5, #1
+    b       pb_loop
+pb_save:
+    str     r5, [r4, #{KEEP_IDX_OFF}]
+pb_out:
+    add     sp, #28
+    pop     {{r12}}
+    msr     apsr_nzcvq, r12
+    pop     {{r0, r1, r2, r3, r4, r5, r6, r7, r12, lr}}
+pblock_next:
+    .short  0, 0
+    .balign 4
+    .ltorg
+pvalues:
+    .word   0x080c0030, 0x080c0034  /* stock OFF / ON */
+    .balign 4
+plabel:
+    .asciz  "Keep CCs:"
+    .balign 4
+pxml:
+    .asciz  "keepccs"
+    .balign 4
+"""
+    code, syms = assemble("hookP", src)
+    code = bytearray(code)
+    for sym, target, call in (
+        ("preg_call", 0x08069e7c, True),
+        ("preg_next", nexts["preg"], False),
+        ("pstore_call", 0x0808951e, True),
+        ("pstore_next", nexts["pstore"], False),
+        ("ppost_set", KEEP_SETPARAM, True),
+        ("ppost_next", nexts["ppost"], False),
+        ("pfinal_call", FINALIZE_FN, True),
+        ("pctor_next", nexts["pctor"], False),
+        ("pmidi_next", nexts["pmidi"], False),
+        ("pb_post", MIDI_POST_FN, True),
+        ("pmidi_stock", MIDI_POST_FN, False),
+        ("pblock_next", nexts["pblock"], False),
+    ):
+        off = syms[sym]
+        code[off:off + 4] = enc_b_bl(org + off, target, call)
+    return bytes(code), syms
+
+
+KEEP_CALLS = (                       # (site, entry, what): head insertions
+    (0x0806abbc, "preg", "the uiflip registration"),
+    (0x08089efe, "pstore", "the global store's 0xdc entry"),
+    (0x0807c5be, "ppost", "the Settings apply-all post"),
+    (0x0807d51c, "pedit", "the Settings live-edit post"),
+    (MIDI_POST_CALL, "pmidi", "the MIDI CC post"),
+    (0x08093e72, "pblock", "the block start"),
+)
+
+
+def apply_keep_ccs(d, j_org, j_syms):
+    """Guard P's facts, append P, take each site at the head of its chain."""
+    for va, raw, what in KEEP_GUARDS:
+        _guard(d, va, raw, what)
+    for va in (0x08042488, 0x0807c538, 0x0807fa74):
+        if struct.unpack_from("<I", d, va - BASE)[0] != MANAGER:
+            refuse(f"The engine literal at {va:#x} is not where Keep CCs expects it.")
+    for site in KEEP_FINAL_SITES:
+        if branch_target(d, site) != FINALIZE_FN:
+            refuse(f"The preset-load finish at {site:#x} is not what Keep CCs expects.")
+    nexts = {}
+    for site, entry, what in KEEP_CALLS:
+        nexts[entry] = branch_target(d, site)
+    if nexts.pop("pedit") != nexts["ppost"]:   # pedit falls into ppost
+        refuse("The two Settings post sites no longer lead to the same place.")
+    at = j_org + j_syms["jctor_next"]
+    nexts["pctor"] = branch_target(d, at)
+    org = BASE + len(d)
+    code, syms = build_keep_hook(org, nexts)
+    org2 = _append(d, bytearray(code))
+    assert org2 == org
+    for site, entry, _ in KEEP_CALLS:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], True)
+    for site in KEEP_FINAL_SITES:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms["pfinal"], True)
+    d[at - BASE:at - BASE + 4] = enc_b_bl(at, org + syms["pctor"], False)
+    vprint(f"P Keep CCs {len(code)} bytes at {org:#010x}, id {KEEP_ID:#x}, ram {KEEP_RAM:#x}")
+    return org, syms
 
 
 def write_slot(d, va, expect, new, display_max=None):
@@ -4526,6 +7173,108 @@ def write_slot(d, va, expect, new, display_max=None):
     vprint(f"splash {va:#x} {cur!r} -> {new!r}")
 
 
+# --- The stock UNCACHED POOL, and where patch RAM may live ----------------------
+# 0x08046ba4 is a top-down bump allocator over the two uncached MPU regions
+# (0x24060000-0x2407ffff): its pointer is the .data word 0x240000b4, which the
+# startup copy fills from 0x080e3e4c with 0x24080000; its running total is
+# 0x24009e34 (.bss), capped at 0x20000; requests round up to 32 bytes; nothing
+# is ever freed ("Insufficient memory for request %d" past the cap). Exactly
+# eleven call sites (no pointer to it, no tail call), each a constant size,
+# each run once. Replayed in boot order (tests/test_firmware_memory.py):
+#
+#   0x2407e000-0x24080000  8192  SAI audio DMA buffer (+0x440), 0x08045b1c
+#   0x2407c000-0x2407e000  8192  SAI audio DMA buffer (+0x448)
+#   0x2407bdc0-0x2407c000   576  FatFs volume object (sector window), 0x08042efc
+#   0x2407bcc0-0x2407bdc0   256  0x080422e0's +0x608
+#   0x2406f8c0-0x2407bcc0 50176  engine +0x4f60 = PresetMgr +0x2b0: preset.xml is
+#                                read and parsed in it (0x0805bed8 at 0x0808ce30),
+#                                samples stream through it (0x08097d5c)
+#   0x2406f6c0-0x2406f8c0   512  0x080a26b8's singleton
+#   0x2406f4e0-0x2406f6c0   480  five 0x58 objects (engine, PresetMgr x2, two singletons)
+#
+# Up to ch11 the Character's slots 1-3 and the OSD's UI-side area lived inside
+# that 50 KB buffer, so live slots corrupted preset loads ("New Preset", some
+# pads silent) and file data corrupted the slots (a tone, a hiccup). Patch RAM
+# must sit in [STACK_TOP, POOL_FLOOR): above the main stack, below the pool.
+POOL_ALLOC = 0x08046ba4
+POOL_ALLOC_CODE = ("08b510f01f0f03d020f01f0101f12000094b1b680344b3f5003f06d8074a1168"
+                   "081a1060044a136008bd01460448fcf7f1f80020f8e700bf349e0024b4000024"
+                   "f0f40b08")      # the whole function and its pool: cap 0x20000, vars, message
+POOL_TOP_INIT_VA, POOL_TOP_INIT = 0x080e3e4c, 0x24080000   # .data image of 0x240000b4
+POOL_CAP = 0x20000
+POOL_CALLS = (                       # (first instruction, its bytes through the bl, size)
+    (0x08045b22, "4ff4005001f03df8", 0x2000),          # SAI buffer
+    (0x08045b38, "4ff4005001f032f8", 0x2000),          # SAI buffer
+    (0x08042f28, "4ff40f7003f03afe", 0x23c),           # FatFs volume
+    (0x0804231c, "4ff4807004f040fc", 0x100),
+    (0x08097598, "4ff4444044f6d429aff700fb", 0xc400),  # the preset/stream buffer
+    (0x080a26d0, "4ff40070a4f766fa", 0x200),
+    (0x0809764e, "582045f69c74aff7a6fa", 0x58),
+    (0x0808b486, "5820bbf78cfb", 0x58),
+    (0x0808b490, "5820bbf787fb", 0x58),
+    (0x080aa816, "58209cf7c4f9", 0x58),
+    (0x0808ed02, "5820b7f74eff", 0x58),
+)
+POOL_FLOOR = POOL_TOP_INIT - sum((n + 0x1f) & ~0x1f for _, _, n in POOL_CALLS)   # 0x2406f4e0
+assert POOL_FLOOR == 0x2406f4e0 and POOL_TOP_INIT - POOL_FLOOR <= POOL_CAP
+
+
+def patch_ram_ranges():
+    """Every byte of RAM any hook in this file writes: (what, lo, hi)."""
+    return [
+        ("D/E compressor store", PATCH_RAM, PATCH_RAM + PATCH_SUM + 4),
+        ("F/G EQ store", EQ_STORE, EQ_STORE_END),
+        ("H Program Change", PC_STATE, PC_STATE + 8),
+        ("J Clk Loss", CLK_MODE, CLK_HELD + 4),
+        ("K CPU meter", K_MODE, K_HOLD + 4),
+        ("L Preset BPM", L_CLOCK, L_PEND + 4),
+        ("N store and engine", CHR_RAM, CHR_RAM + 0x100),
+        ("O OSD state", OSD_RAM_OFF, OSD_RAM_OFF + 0xb4),
+        ("N dry buffers", CHR_WORK_DEFAULT, CHR_WORK_DEFAULT + 0x800),
+        *((f"N slot {k}", CHR_WORK_DEFAULT + o, CHR_WORK_DEFAULT + o + n)
+          for k, (o, n) in enumerate(CHR_SLOTS)),
+        ("O UI-side area", OSD2_RAM, OSD2_RAM + OSD2_BYTES),
+        ("P Keep CCs", KEEP_RAM, KEEP_RAM + KEEP_BYTES),
+        ("Dr auto makeup flag", AUTO_RAM, AUTO_RAM + 8),
+    ]
+
+
+def pool_callers(d):
+    """Every bl/b.w to the pool allocator in the stock part of the image."""
+    out = []
+    for o in range(0, STOCK_SIZE - 4, 2):
+        hw1, hw2 = struct.unpack_from("<HH", d, o)
+        if hw1 & 0xf800 == 0xf000 and hw2 & 0xd000 in (0xd000, 0x9000):   # bl, b.w
+            if branch_target(d, BASE + o) == POOL_ALLOC:
+                out.append(BASE + o)
+    return out
+
+
+def check_patch_ram(d):
+    """Refuse unless the stock pool is exactly as analysed and every byte of
+    patch RAM sits above the main stack and below the pool's floor."""
+    _guard(d, POOL_ALLOC, POOL_ALLOC_CODE, "uncached pool allocator")
+    if struct.unpack_from("<I", d, POOL_TOP_INIT_VA - BASE)[0] != POOL_TOP_INIT:
+        refuse("The uncached pool's top is not where the patcher expects it.")
+    sites = []
+    for va, raw, _ in POOL_CALLS:
+        _guard(d, va, raw, "uncached pool request")
+        sites.append(va + len(raw) // 2 - 4)
+    if sorted(pool_callers(d)) != sorted(sites):
+        refuse("The uncached pool has callers the patcher has not accounted for.")
+    rs = sorted(patch_ram_ranges(), key=lambda r: r[1])
+    for what, lo, hi in rs:
+        if lo < STACK_TOP or hi > POOL_FLOOR:
+            refuse(f"Patch RAM ({what}, {lo:#x}-{hi:#x}) is outside {STACK_TOP:#x}-{POOL_FLOOR:#x}.",
+                   "", "Below is the firmware's main stack; above is its uncached pool,",
+                   "where it reads presets and streams samples.")
+    for (w1, _, h1), (w2, l2, _) in zip(rs, rs[1:]):
+        if l2 < h1:
+            refuse(f"Patch RAM overlaps: {w1} and {w2}.")
+    vprint(f"patch RAM {rs[0][1]:#x}-{max(h for _, _, h in rs):#x}, "
+           f"stack top {STACK_TOP:#x}, pool floor {POOL_FLOOR:#x}")
+
+
 def main():
     global REASSEMBLE, VERBOSE, LEGACY_VERSION
     flags = sys.argv[1:]
@@ -4538,7 +7287,46 @@ def main():
         sys.exit(USAGE)
 
     inp, outp = argv[0], argv[1]
-    ver = argv[2] if len(argv) > 2 else "2.3.8-mod"
+    ver = argv[2] if len(argv) > 2 else "2.3.9-mod"
+    # The default output is 2.3.9-mod: everything below (Preset BPM, the
+    # Character chain, the OSD with the CPU bar, Keep CCs, auto makeup...).
+    # --v239 says the same thing explicitly. --v238 rebuilds the published
+    # 2.3.8-mod exactly. TEST_FLAGS build single features on the 2.3.8 base.
+    v238 = "--v238" in flags
+    test_build = any(f in flags for f in TEST_FLAGS)
+    if v238 and ("--v239" in flags or test_build):
+        refuse("--v238 rebuilds the published 2.3.8-mod exactly: no other options.")
+    if "--v239" in flags and test_build:
+        refuse("2.3.9-mod is the release set: no test options with it.")
+    v239 = not (v238 or test_build)
+    cpu_meter = v239 or "--cpu-meter" in flags     # opt-in test build, never a release
+    preset_bpm = v239 or "--preset-bpm" in flags   # opt-in test build, never a release
+    clock_debug = "--clock-debug" in flags # diagnostic build, needs --preset-bpm
+    character = v239 or "--character" in flags     # opt-in test build, never a release
+    osd = v239 or "--osd" in flags                 # opt-in test build, needs --character
+    if "--fast-ram" in flags:
+        refuse("--fast-ram was removed in 2.3.9-ch12.",
+               "It moved the Character's state to D2 SRAM and was never tested on",
+               "the module. The state now lives in checked patch RAM.")
+    if osd and not character:
+        refuse("--osd needs --character: the OSD's MIDI side lives in its C object.")
+    if len(argv) <= 2:
+        if v239:
+            ver = RELEASE_VERSION
+        elif v238:
+            ver = PREVIOUS_VERSION
+        elif osd:
+            ver = OSD_VERSION
+        elif character:
+            ver = CHARACTER_VERSION
+        elif cpu_meter and preset_bpm:
+            ver = "2.3.9-test"
+        elif cpu_meter:
+            ver = CPU_METER_VERSION
+        elif preset_bpm:
+            ver = "2.3.9-dbg1" if clock_debug else PRESET_BPM_VERSION
+        elif clock_debug:
+            ver = "2.3.8-dbg"
     # Program Change is standard from 2.3.8-mod. The flag is still accepted
     # so the beta's documented command keeps working; it changes nothing.
 
@@ -4691,7 +7479,7 @@ def main():
     # --- fourth block: the compressor, chained in FRONT of hook C ---------
     org = BASE + len(d)
     assert org % 4 == 0
-    code = build_comp_hook(org, hookc_org)
+    code = build_comp_hook(org, hookc_org, full_range=v239)
     if len(code) % 4:
         code += b"\x00" * (4 - len(code) % 4)
     d += code
@@ -4769,11 +7557,56 @@ def main():
 
     for what, cc in FEATURES:
         print(f"     ok   {what:<28} {cc}")
+    if v239:
+        print(f"     ok   {'Compressor auto makeup, ch 1':<28} CC 46")
 
+    check_patch_ram(d)
     apply_program_change(d)
-    apply_settings_page(d)
+    rows = [0xc3, 0xb5, CLK_ID, 0x17b, 0x78]
+    if preset_bpm:
+        rows.insert(rows.index(CLK_ID) + 1, 0x66)   # right after Clk Loss
+    if cpu_meter and not v239:          # rc1: the bar is a mode of the OSD row
+        rows += [CPU_ID_METER]
+    if osd:
+        rows.append(OSD_ID)
+    if v239:
+        rows.append(KEEP_ID)
+    if len(rows) > 8:
+        refuse("Settings page 2 has eight rows; this combination of options needs "
+               f"{len(rows)}.")
+    apply_settings_page(d, rows)
     apply_flip_ui(d)
-    apply_clock_hold(d)
+    j_org, j_syms = apply_clock_hold(d)
+    l_entries = ()
+    if preset_bpm:
+        l_org, l_syms = apply_preset_bpm(d, j_org, j_syms)
+        l_entries = (l_org + l_syms["lpost"], l_org + l_syms["ltick"],
+                     l_org + l_syms["lblock"])
+        print("     ok   Preset BPM, HOLD capture     TOOLS > Settings"
+              + ("" if v239 else " (TEST BUILD)"))
+    if clock_debug:
+        apply_clock_debug(d, l_entries, j_org, j_syms, own_ctor=not preset_bpm)
+        print("     ok   Clock diagnostic strips      (DEBUG BUILD)")
+    if cpu_meter:
+        m_entries = (apply_clock_debug.entry,) if clock_debug else ()
+        apply_cpu_meter(d, j_org, j_syms, chained=l_entries + m_entries, row=not v239)
+        if not v239:
+            print("     ok   CPU Meter                    TOOLS > Settings (TEST BUILD)")
+    if character:
+        n_org, n_syms = apply_character(d, CHR_FEATURE_AUTO if v239 else 0)
+        print(f"     ok   Character chain, ch 1        CC {CHR_CC_FIRST}-{CHR_CC_LAST}"
+              + ("" if v239 else " (TEST BUILD)"))
+        if osd:
+            apply_osd(d, n_org, n_syms, j_org, j_syms, modes=v239)
+            if v239:
+                print("     ok   OSD: pop-ups and CPU bar     TOOLS > Settings")
+            else:
+                print("     ok   OSD pop-up and OSD: row     TOOLS > Settings (TEST BUILD)")
+    if v239:
+        if not osd:
+            refuse("Keep CCs needs the OSD's release variant (its pad recorders).")
+        apply_keep_ccs(d, j_org, j_syms)
+        print("     ok   Keep CCs: OFF/ON             TOOLS > Settings")
     for what, where in SETTINGS_FEATURES:
         print(f"     ok   {what:<28} {where}")
 
@@ -4801,7 +7634,7 @@ def main():
     out_sha = hashlib.sha256(bytes(d)).hexdigest()
     print(f"\n  Done. {outp} is ready -- {len(d):,} bytes.\n")
     print(f"     Fingerprint  {out_sha}")
-    print( "     If that matches the one in the README, you have built exactly")
+    print( "     If that matches the one in the install guide, you have built exactly")
     print( "     the same firmware as everybody else, down to the byte.")
 
     print("\n  Getting it onto the module:\n")

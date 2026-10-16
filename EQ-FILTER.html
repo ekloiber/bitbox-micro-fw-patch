@@ -302,6 +302,7 @@
   .doc ul { margin: 0.75rem 0 0; padding-left: 1.1rem; max-width: var(--measure);
             display: flex; flex-direction: column; gap: 0.4rem; }
   .doc ul li::marker { color: var(--accent); }
+  .doc li > ul { margin-top: 0.4rem; list-style-type: circle; }
 
   /* numbered procedures: accent numeral in its own column */
   .doc ol { margin: 0.9rem 0 0; padding: 0; max-width: var(--measure); list-style: none;
@@ -322,6 +323,8 @@
 
   .doc img { display: block; width: 100%; max-width: var(--measure); height: auto;
              margin: 1.4rem 0 0; }
+  /* Screenshots of the module are pixel art: natural size, never blurred. */
+  .doc img[src$=".png"] { width: auto; max-width: 100%; image-rendering: pixelated; }
 
   .doc hr { border: 0; border-top: 1px solid var(--rule); margin: 2.2rem 0 0; }
 
@@ -420,7 +423,7 @@
 <div class="wrap">
   <aside class="side">
     <p class="brand">Bitbox Micro<br>community modification</p>
-    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html" aria-current="page">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
+    <nav class="nav"><a href="index.html">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="CHARACTER.html">Character</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html" aria-current="page">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
     <nav class="toc">
       <p class="toc-label">On this page</p>
       <a href="#centre-is-always-neutral"><span class="n">1</span><span>Centre Is Always Neutral</span></a><a href="#the-ten-modes"><span class="n">2</span><span>The Ten Modes</span></a><a href="#working-the-four-encoders"><span class="n">3</span><span>Working the Four Encoders</span></a><a href="#kill-open-and-slam"><span class="n">4</span><span>Kill, Open and Slam</span></a><a href="#bypass-and-slope"><span class="n">5</span><span>Bypass and Slope</span></a><a href="#how-the-eq-arrives"><span class="n">6</span><span>How the EQ Arrives</span></a>
@@ -433,23 +436,20 @@
       <p>The master EQ and filter, and its ten algorithms.</p>
     </header>
   <div class="doc">
-    <p>A multi-algorithm master EQ and filter across the whole mix. Ten algorithms on one encoder. See <a href="DEVICES.html">devices</a> for where it sits, and <a href="COMPRESSOR.html">the compressor</a> for the other one.</p>
-    <p>Where the compressor controls dynamics, this one controls tone and colour. Ten modes sit on one encoder: filters first, a DJ sweep and a dual cut and a band pass, then shelving and bell EQs, a notch, a phaser and a formant filter. One knob picks the character. Three more play it.</p>
-    <p>It runs on the sum of everything routed to Out 1 and 2, after the delay and reverb returns. So it takes the tails with it, which you hear and which is the point. Pads on Out 3–6 stay clean.</p>
-    <p>The module offers no EQ of any kind. No page, no menu, nothing in the manual, and nothing you can assign. Where the rest of this patch reaches controls the module already had, this one adds brand new features that have never been available on the hardware.</p>
+    <p>The patch adds a master EQ and filter across the whole mix, which the module never had. Ten modes sit on one encoder: a DJ sweep, a dual cut and a band pass, then shelving and bell EQs, a tilt, a notch, a phaser and a formant filter. One knob picks the mode. Three more play it.</p>
+    <p>It comes after the Character chain and before the compressor, so it shapes the delay and reverb tails too. Out 3–6 stay clean. See <a href="DEVICES.html#where-they-sit">where they sit</a>.</p>
   </div>
   <section class="section" id="centre-is-always-neutral">
   <h2 class="sec"><span class="n">1</span>Centre Is Always Neutral</h2>
   <div class="doc">
-    <p>One rule holds the whole design together, and it is worth knowing before you touch anything. <strong>Every control is neutral at its centre position, in every mode.</strong> Three knobs centred is an EQ doing nothing at all, whichever mode you are in.</p>
-    <p>That is what makes ten modes playable from one panel. You can sweep the mode dial with the controls centred and hear nothing from the EQ the whole way, then pick a mode and move one knob. It also means a control's own centre is a real bypass for that control, so you can back out of anything by returning it.</p>
-    <p>On a controller with endless encoders there are no detents to feel for, so give each of the three a centre-line LED style and a reset-to-middle gesture. You will use both constantly.</p>
+    <p>In every mode, every control is neutral at its centre. With all three knobs centred, the EQ does nothing.</p>
+    <p>You can sweep the mode dial with the controls centred and hear nothing, then pick a mode and move one knob. To back out of anything, return that knob to centre.</p>
+    <p>On a controller with endless encoders, give each of the three a centre-line LED style and a reset-to-middle gesture. You will use both constantly.</p>
   </div>
   </section>
   <section class="section" id="the-ten-modes">
   <h2 class="sec"><span class="n">2</span>The Ten Modes</h2>
   <div class="doc">
-    <p>Every mode has been heard and tested on hardware.</p>
   <div class="tablewrap">
   <table>
     <thead><tr>
@@ -533,15 +533,23 @@
     </tbody>
   </table>
   </div>
-    <p>The first five, briefly. <strong>DJ Filter</strong> is the classic one-knob sweep: anticlockwise closes to a dull thump, clockwise thins to hats. <strong>Dual Cut</strong> gives you both ends separately. <strong>Band Pass</strong> isolates a band you can move, narrow and lift. <strong>Mixer EQ</strong> is a three-band desk EQ. <strong>Tone + Filter</strong> puts two shelves and a filter on one panel.</p>
-    <p>Then the rest. <strong>Tilt</strong> is a see-saw, lifting the treble by exactly what it drops the bass. <strong>Notch</strong> and <strong>Peak</strong> are one surgical cut and one sweepable bell. <strong>Phaser</strong> sweeps four notches together as one body. <strong>Formant</strong> parks three bells on the resonances of a human vocal tract and morphs between vowels.</p>
-    <p>Ten algorithms across three encoders is an enormous amount of sound design to go at, and this guide stops at what each control does. What any of it does to your own material is the interesting part, and there is far more of it than could be written down. That is yours to explore.</p>
+    <ul>
+      <li><strong>DJ Filter</strong>: the one-knob sweep. Anticlockwise closes it to a dull thump, and clockwise thins it to hats.</li>
+      <li><strong>Dual Cut</strong>: a cut at each end, set separately.</li>
+      <li><strong>Band Pass</strong>: a band you can move, narrow and lift.</li>
+      <li><strong>Mixer EQ</strong>: a three-band desk EQ.</li>
+      <li><strong>Tone + Filter</strong>: two shelves and a filter on one panel.</li>
+      <li><strong>Tilt</strong>: a see-saw, lifting the treble by exactly what it drops the bass.</li>
+      <li><strong>Notch</strong> and <strong>Peak</strong>: one surgical cut and one sweepable bell.</li>
+      <li><strong>Phaser</strong>: four notches sweeping together as one body.</li>
+      <li><strong>Formant</strong>: three bells on the resonances of a human vocal tract, morphing between vowels.</li>
+    </ul>
   </div>
   </section>
   <section class="section" id="working-the-four-encoders">
   <h2 class="sec"><span class="n">3</span>Working the Four Encoders</h2>
   <div class="doc">
-    <p>Nine CCs, all on <strong>MIDI channel 1</strong>, like the compressor.</p>
+    <p>The EQ uses nine CCs, all on <strong>MIDI channel 1</strong>.</p>
   <div class="tablewrap">
   <table>
     <thead><tr>
@@ -578,15 +586,15 @@
     </tbody>
   </table>
   </div>
-    <p>Encoders 2, 3 and 4 want a plain linear encoder across the full range. The mode encoder is the fussy one. Set it to <strong>ten steps</strong> running from <strong>6 to 122</strong> rather than the full sweep. Ten windows across 128 values are about thirteen wide, and a full sweep lands a step within one value of a boundary, which makes dialling a mode unreliable. Starting at 6 and stopping at 122 centres every step with six values of margin.</p>
-    <p>Send CC 50 as plain 7-bit. A 14-bit pair would put its second half on CC 82, which is inside the per-pad range, and you would be moving a pad's granular window every time you changed mode.</p>
+    <p>Encoders 2, 3 and 4 should be plain linear encoders across the full range. Set the mode encoder to <strong>ten steps from 6 to 122</strong>, not the full sweep. Each click then lands in the middle of a mode, never on a boundary.</p>
+    <p>Send CC 50 as plain 7-bit. As a 14-bit pair it would also move a pad's granular window every time you changed mode.</p>
+    <p>The pop-up names the mode, and each control by that mode's name for it, with its value in hertz, decibels, octaves or a vowel. Pushes show too, such as <code>Kill High  On</code>.</p>
   </div>
   </section>
   <section class="section" id="kill-open-and-slam">
   <h2 class="sec"><span class="n">4</span>Kill, Open and Slam</h2>
   <div class="doc">
-    <p>The pushes are the performance controls, and they are all momentary. Hold to act. Release to return. What comes back is the encoder's own position, untouched, so nothing jumps.</p>
-    <p>Three different things, deliberately not sharing a word:</p>
+    <p>The pushes are momentary performance controls. Hold a push to act. Let go to return. The encoder's own position comes back untouched, so nothing jumps.</p>
   <div class="tablewrap">
   <table>
     <thead><tr>
@@ -613,21 +621,20 @@
     </tbody>
   </table>
   </div>
-    <p>Sixteen pushes do something across the ten modes. The rest are unassigned, and on those you are better off spending the push on a reset-to-centre gesture instead. Most controllers let you flip a push between sending its CC and centring the encoder locally, one setting, no re-entry. Expect to flip it.</p>
+    <p>Sixteen pushes do something across the ten modes. On the rest, spend the push on a reset-to-centre gesture instead. Most controllers switch a push between the two with one setting.</p>
   </div>
   </section>
   <section class="section" id="bypass-and-slope">
   <h2 class="sec"><span class="n">5</span>Bypass and Slope</h2>
   <div class="doc">
-    <p>CC 57 takes the whole EQ out. Press once and it is gone, press again and it is back. It is latching rather than momentary, and it is the one push on encoder 1 worth spending a CC on, because a mode dial has no meaningful middle to reset to.</p>
-    <p>CC 59 switches the filter slope between 12 and 24 dB per octave, on the modes that have one. Set it up as an on-off button. Band Pass is the exception: there its gain control needs the same bands, and gain wins.</p>
+    <p>CC 57 takes the whole EQ out. Press once and it is gone. Press again and it is back. Unlike the other pushes, it latches. Give it encoder 1's push.</p>
+    <p>CC 59 switches the filter slope between 12 and 24 dB per octave, on the modes that have one. Set it up as an on-off button. Band Pass ignores it, because its gain control needs the same bands and gain wins.</p>
   </div>
   </section>
   <section class="section" id="how-the-eq-arrives">
   <h2 class="sec"><span class="n">6</span>How the EQ Arrives</h2>
   <div class="doc">
-    <p>It powers on in <strong>DJ Filter</strong>, all three controls centred, bypass off and slope at 12 dB. So a freshly flashed module sounds exactly as it did before. Centred controls pass everything through.</p>
-    <p>Its settings behave like the compressor's. They survive a preset change, and a power cycle puts them back to the boot state above. See <a href="DEVICES.html#what-they-have-in-common">what they have in common</a>.</p>
+    <p>It powers on in <strong>DJ Filter</strong>, with all three controls centred, bypass off and the slope at 12 dB. Centred controls pass everything through, so a freshly flashed module sounds exactly as before. Like the other devices, its settings survive a preset change and reset at power-on. See <a href="DEVICES.html#what-they-have-in-common">what they have in common</a>.</p>
   </div>
   </section>
     <footer><span>Unofficial. Not endorsed by or affiliated with 1010music. Supplied as is, under the MIT licence in LICENSE.</span><span>Bitbox Micro Firmware: The Master EQ and Filter</span></footer>

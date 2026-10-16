@@ -1,55 +1,44 @@
 # Bitbox Micro Firmware: Devices
 
-A device acts on the whole mix rather than on one pad. It sits on the master
-bus, after everything has been summed and after the delay and reverb returns,
-so it hears the finished sound and not the parts. That is what separates these
-from the controls in [pad controls](PAD-CONTROLS.md), which are addressed per
-pad on that pad's own channel.
+Three devices act on the whole mix rather than on one pad. They sit on the
+master bus, after the delay and reverb returns, so they hear the finished sound.
 
-There are two.
+- **[The Character chain](CHARACTER.md)**: four Airwindows effect slots, from
+  bit crushing to tape, with sixteen effects to choose from.
+- **[The master EQ and filter](EQ-FILTER.md)**: tone and colour, with ten
+  algorithms on one encoder.
+- **[The compressor](COMPRESSOR.md)**: dynamics, set up as a glue compressor
+  when it arrives. All five of its parameters are on MIDI, with auto makeup.
 
-- **[The compressor](COMPRESSOR.md)**: dynamics. It arrives set up as a glue
-  compressor, and all five of its parameters are on MIDI.
-- **[The master EQ and filter](EQ-FILTER.md)**: tone and colour. Ten
-  algorithms on one encoder, and the larger of the two.
-
-Both answer on **MIDI channel 1**, unlike the per-pad controls, and both act on
+All three answer on **MIDI channel 1**, not on a pad's channel. They act on
 everything routed to Out 1 and Out 2. Pads on Out 3–6 skip them completely,
 which is your clean path when you want one.
 
-The module gives you no screen for any of it. Nothing on the display moves when
-a CC arrives, for either device, so your controller is the display and your
-ears are the test.
+Every change shows in the [pop-up](SETTINGS.md#the-pop-up).
 
 ## Where They Sit
 
 ![Signal chain: pads routed to Out 1 and 2 join the delay and reverb returns,
-then pass through the compressor, the master EQ and filter, a safety limiter
-and master volume before reaching the outputs.](signal-chain.svg)
+then pass through the Character chain, the master EQ and filter, the
+compressor, a safety limiter and master volume before reaching the
+outputs.](signal-chain.svg)
 
-1010music do not publish the order of the master bus, so this is reasonably
-deduced rather than documented. It is consistent with what both devices do to
-a mix.
+They hear everything. Every pad on Out 1/2 is in there, delay and reverb tails
+included. These are mix processors, not channel strips.
 
-Three things follow from that, and they apply to both devices.
+Each one feeds the next. A filter sweep after heavy drive is a filter on a
+distorted mix. An EQ boost makes the compressor work harder.
 
-They see everything. Each acts on the sum of every pad routed to Out 1/2,
-including the delay and reverb returns. These are mix processors, not channel
-strips, and they hear the whole thing at once.
+Master volume comes after all three. Turning the module down does not change
+how hard any of them works.
 
-Master volume is after both of them. So turning the module down does not change
-how hard either one works, which is what you want.
-
-Behind them sits a safety limiter this patch does not touch. It is the last
-thing before the outputs, it is not adjustable, and it is what stops a careless
-setting from reaching your speakers. You can push either device hard without
-worrying that you will damage anything.
+Behind them sits a safety limiter. You cannot adjust it. The patch does not
+touch it. It stops a careless setting from reaching your speakers, so push any
+of the three as hard as you like.
 
 ## What They Have in Common
 
-Neither is stored in a preset. Both keep their settings while the module is
-switched on, both **survive a preset change** when nothing else in this patch
-does, and a power cycle returns both to their starting values. There is no way
-to save either into a preset and no reset control for either.
-
-Every control on both devices has been heard and tested on hardware.
+None is stored in a preset. Their settings **survive a preset change** and last
+until you switch off. Power-on returns them to their starting values. There is
+no way to save them and no reset control. The compressor's on/off switch is the
+exception: the module keeps that with its own settings, as it always has.

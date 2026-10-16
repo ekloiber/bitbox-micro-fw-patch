@@ -302,6 +302,7 @@
   .doc ul { margin: 0.75rem 0 0; padding-left: 1.1rem; max-width: var(--measure);
             display: flex; flex-direction: column; gap: 0.4rem; }
   .doc ul li::marker { color: var(--accent); }
+  .doc li > ul { margin-top: 0.4rem; list-style-type: circle; }
 
   /* numbered procedures: accent numeral in its own column */
   .doc ol { margin: 0.9rem 0 0; padding: 0; max-width: var(--measure); list-style: none;
@@ -322,6 +323,8 @@
 
   .doc img { display: block; width: 100%; max-width: var(--measure); height: auto;
              margin: 1.4rem 0 0; }
+  /* Screenshots of the module are pixel art: natural size, never blurred. */
+  .doc img[src$=".png"] { width: auto; max-width: 100%; image-rendering: pixelated; }
 
   .doc hr { border: 0; border-top: 1px solid var(--rule); margin: 2.2rem 0 0; }
 
@@ -420,10 +423,10 @@
 <div class="wrap">
   <aside class="side">
     <p class="brand">Bitbox Micro<br>community modification</p>
-    <nav class="nav"><a href="index.html" aria-current="page">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
+    <nav class="nav"><a href="index.html" aria-current="page">Overview</a><a href="INSTALLING.html">Installing</a><a href="CC-REFERENCE.html">CC reference</a><a href="PAD-CONTROLS.html">Pad controls</a><a href="DEVICES.html">Devices</a><a href="CHARACTER.html">Character</a><a href="COMPRESSOR.html">Compressor</a><a href="EQ-FILTER.html">EQ and Filter</a><a href="SETTINGS.html">Settings</a><a href="LIMITATIONS.html">Limitations</a><a href="CHANGELOG.html">Changelog</a><a href="LICENSE.html">Licence</a></nav>
     <nav class="toc">
       <p class="toc-label">On this page</p>
-      <a href="#a-patcher-not-firmware"><span class="n">1</span><span>A Patcher, Not Firmware</span></a><a href="#requirements"><span class="n">2</span><span>Requirements</span></a><a href="#quick-start"><span class="n">3</span><span>Quick Start</span></a><a href="#read-next"><span class="n">4</span><span>Read Next</span></a><a href="#licence"><span class="n">5</span><span>Licence</span></a><a href="#ai-assistance"><span class="n">6</span><span>AI Assistance</span></a><a href="#if-youre-from-1010music"><span class="n">7</span><span>If You&#x27;re from 1010music</span></a><a href="#getting-help"><span class="n">8</span><span>Getting Help</span></a>
+      <a href="#a-patcher-not-firmware"><span class="n">1</span><span>A Patcher, Not Firmware</span></a><a href="#quick-start"><span class="n">2</span><span>Quick Start</span></a><a href="#read-next"><span class="n">3</span><span>Read Next</span></a><a href="#licence"><span class="n">4</span><span>Licence</span></a><a href="#ai-assistance"><span class="n">5</span><span>AI Assistance</span></a><a href="#if-youre-from-1010music"><span class="n">6</span><span>If You&#x27;re from 1010music</span></a><a href="#getting-help"><span class="n">7</span><span>Getting Help</span></a>
     </nav>
   </aside>
   <main class="main">
@@ -433,77 +436,70 @@
       <p>What this is, what you need, and where to go next.</p>
     </header>
   <div class="doc">
-    <p>The Bitbox Micro hides a long list of useful controls behind a screen, one knob at a time, and a compressor you can only switch on and off, with no adjustment at all. This patch puts every one of them on MIDI: delay and reverb sends, envelope, LFO, loop and granular controls per pad, and all five compressor parameters. It adds one thing the module never had at all, a multi-algorithm master EQ and filter across the whole mix. All live, while you play. Three new Settings rows turn the display upside down, hold the tempo when a clock drops out, and skip repeated Program Changes.</p>
-    <p>It is an unofficial modification. Nobody at 1010music wrote or endorsed it. The splash reads <code>community fw</code>, so a patched unit is never mistaken for one of theirs, and nobody should ask 1010music for support with it. Assume running it affects your warranty, though it <a href="INSTALLING.html#can-this-brick-my-module">cannot brick the module</a>.</p>
+    <p>The Bitbox Micro hides most of its controls behind the screen. This patch puts them on MIDI and adds what the module never had:</p>
+    <ul>
+      <li>Airwindows effects across the whole mix: four slots, sixteen effects.</li>
+      <li>A master EQ and filter, and full control of the compressor.</li>
+      <li>Per-pad sends, envelope, LFO, loop and granular controls.</li>
+      <li>A pop-up showing what every CC just changed.</li>
+    </ul>
+    <p>It all works live, while you play.</p>
+    <p>It is unofficial. Nobody at 1010music wrote or endorsed it, so do not ask them for support. The splash reads <code>community fw</code>, so a patched unit is never mistaken for theirs. Assume it affects your warranty. It <a href="INSTALLING.html#can-this-brick-my-module">cannot brick the module</a>, though.</p>
   </div>
   <section class="section" id="a-patcher-not-firmware">
   <h2 class="sec"><span class="n">1</span>A Patcher, Not Firmware</h2>
   <div class="doc">
-    <p>What you download is a script, not a build of the firmware. It edits a copy you already own, on your own machine, and that copy never leaves it. Nobody is distributing 1010music's code, because nobody here has it to distribute.</p>
-    <p>One rule holds the whole thing up: <strong>never pass a patched image on</strong>. You run this against firmware you downloaded yourself, under 1010music's terms.</p>
-    <p><code>patch_micro.py</code> reads your own copy of the stock 2.3.4 image and writes out a patched one. It refuses anything that is not exactly stock 2.3.4. The image is yours only because you supplied the firmware it came from. It stops with you. Send someone this page instead, and let them build their own.</p>
-  </div>
-  </section>
-  <section class="section" id="requirements">
-  <h2 class="sec"><span class="n">2</span>Requirements</h2>
-  <div class="doc">
-    <p>Five things, nothing exotic.</p>
-    <ul>
-      <li>A Bitbox Micro running firmware 2.3.4.</li>
-      <li><a href="patch_micro.py" download><code>patch_micro.py</code></a>, the patcher itself.</li>
-      <li>Your own copy of the stock 2.3.4 image, from 1010music's downloads page.</li>
-      <li>Python 3, any version from the last few years.</li>
-      <li>A microSD card the module can read.</li>
-    </ul>
-    <p>Where to get each one is in <a href="INSTALLING.html">installing</a>.</p>
+    <p>You download a script, not firmware. It edits your own copy of stock 2.3.4, on your own machine, and refuses anything else. Nobody here has 1010music's code to distribute.</p>
+    <p>There is one rule: <strong>never pass a patched image on</strong>. Send people this page instead, and let them build their own.</p>
   </div>
   </section>
   <section class="section" id="quick-start">
-  <h2 class="sec"><span class="n">3</span>Quick Start</h2>
+  <h2 class="sec"><span class="n">2</span>Quick Start</h2>
   <div class="doc">
-    <p>Get <a href="patch_micro.py" download><code>patch_micro.py</code></a> and <code>MICRO234.zip</code> from 1010music, run the one against the other, and copy the result to your card. Check the splash afterwards. It should read <code>community fw</code>. Full steps, and everything that can go wrong, are in <a href="INSTALLING.html">installing</a>.</p>
+    <p>You need a Bitbox Micro on firmware 2.3.4, Python 3 and a microSD card. Get <a href="patch_micro.py" download><code>patch_micro.py</code></a>, and <code>MICRO234.zip</code> from 1010music. Run the script on the zip and copy the result to your card. The splash should then read <code>community fw</code>. <a href="INSTALLING.html">Installing</a> has every step.</p>
   </div>
   </section>
   <section class="section" id="read-next">
-  <h2 class="sec"><span class="n">4</span>Read Next</h2>
+  <h2 class="sec"><span class="n">3</span>Read Next</h2>
   <div class="doc">
     <ul>
-      <li><a href="INSTALLING.html">Installing</a>: stock image to patched module, step by step.</li>
-      <li><a href="CC-REFERENCE.html">CC reference</a>: every number, its channel, which pads answer it, and what to check when one seems dead.</li>
-      <li><a href="PAD-CONTROLS.html">Pad controls</a>: what each pad parameter does. The module had these already; the patch reaches them.</li>
-      <li><a href="DEVICES.html">Devices</a>: the two that act on the whole mix, and where they sit.</li>
-      <li><a href="COMPRESSOR.html">The compressor</a>: bus glue, adjustable from there.</li>
+      <li><a href="INSTALLING.html">Installing</a>: from stock image to patched module, step by step.</li>
+      <li><a href="CC-REFERENCE.html">CC reference</a>: every number, its channel, and what to check when one seems dead.</li>
+      <li><a href="PAD-CONTROLS.html">Pad controls</a>: what each pad parameter does.</li>
+      <li><a href="DEVICES.html">Devices</a>: the three that act on the whole mix, and where they sit.</li>
+      <li><a href="CHARACTER.html">The Character chain</a>: sixteen Airwindows effects in four slots.</li>
       <li><a href="EQ-FILTER.html">The EQ and filter</a>: ten algorithms on one encoder.</li>
-      <li><a href="SETTINGS.html">Settings</a>: Clk Loss, Flip UI and ProgChange, on the module itself.</li>
-      <li><a href="LIMITATIONS.html">Limitations</a>: what it will not do, and why it refuses.</li>
-      <li><a href="CHANGELOG.html">Changelog</a>: what changed. Newest first.</li>
+      <li><a href="COMPRESSOR.html">The compressor</a>: bus glue to start, then every setting on MIDI.</li>
+      <li><a href="SETTINGS.html">Settings</a>: the pop-up, Preset BPM, Keep CCs and more.</li>
+      <li><a href="LIMITATIONS.html">Limitations</a>: what the patch will not do, and why.</li>
+      <li><a href="CHANGELOG.html">Changelog</a>: what changed, newest first.</li>
     </ul>
   </div>
   </section>
   <section class="section" id="licence">
-  <h2 class="sec"><span class="n">5</span>Licence</h2>
+  <h2 class="sec"><span class="n">4</span>Licence</h2>
   <div class="doc">
-    <p>This project is MIT-licensed, covering the patcher and this guide only. The firmware is 1010music's, and no permission over it is granted. Bitbox Micro is a product of 1010music LLC, named only to say what hardware this runs on. Meet this behind a paywall and somebody sold you something they did not write.</p>
-    <p>Flash stock before sending a unit for service. See <a href="LICENSE.html">LICENSE.html</a> for the rest.</p>
+    <p>The patcher and this guide are MIT-licensed. The firmware is 1010music's. No permission over it is granted. Bitbox Micro is a product of 1010music LLC, named only to say what hardware this runs on. The Character chain's effects are ports of Chris Johnson's Airwindows plugins, under their own MIT licence. If you paid for this, somebody sold you something they did not write.</p>
+    <p>Flash stock firmware back before you send a unit for service. See <a href="LICENSE.html">LICENSE.html</a> for the rest.</p>
   </div>
   </section>
   <section class="section" id="ai-assistance">
-  <h2 class="sec"><span class="n">6</span>AI Assistance</h2>
+  <h2 class="sec"><span class="n">5</span>AI Assistance</h2>
   <div class="doc">
-    <p>Yes, for the patch and this guide. It helped read the assembly and draft documentation that would otherwise have taken weeks. Hours not spent writing go into designing controls and testing them on hardware.</p>
-    <p>It could not decide whether any of it works. Every control was confirmed by ear, over many hours of building controller mappings and moving parameters. Judge it by whether it works and what it opens up for you, not by how it was made.</p>
+    <p>Yes, AI was used. It helped read the assembly for the patch and draft this guide, which left more hours for designing controls and testing them.</p>
+    <p>It could not decide whether any of it works. Every control was confirmed by ear, on hardware. Judge the patch by what it does for you.</p>
   </div>
   </section>
   <section class="section" id="if-youre-from-1010music">
-  <h2 class="sec"><span class="n">7</span>If You're from 1010music</h2>
+  <h2 class="sec"><span class="n">6</span>If You're from 1010music</h2>
   <div class="doc">
-    <p>Thank you for the Bitbox Micro. It is a wonderful little module, and this exists because it is worth spending time inside. No firmware of yours is included here, in any form. Everybody downloads the firmware from your site, under your terms, and the script refuses to run on anything else. What ships is one Python file, a guide, and an MIT licence covering only those. The patched image reads <code>community fw</code> on the splash, so it is never mistaken for your work. Anyone with a problem is told to flash your firmware back before contacting you.</p>
+    <p>Thank you for the Bitbox Micro. It is a wonderful little module, and worth the time spent inside it. No firmware of yours is included, in any form. Everybody downloads it from your site, under your terms, and the script refuses anything else. What ships is one Python file, a guide, and an MIT licence covering only those. The splash reads <code>community fw</code>, and anyone with a problem is told to flash your firmware back before contacting you.</p>
   </div>
   </section>
   <section class="section" id="getting-help">
-  <h2 class="sec"><span class="n">8</span>Getting Help</h2>
+  <h2 class="sec"><span class="n">7</span>Getting Help</h2>
   <div class="doc">
-    <p>There is no support for this: it is one person's patch, given away as is. Ask in <a href="https://www.modwiggler.com/forum/viewtopic.php?t=302078" rel="noreferrer noopener">the Mod Wiggler thread</a>, r/modular or r/eurorack. Other users run the same controls on the same numbers, so their answers transfer to you. Please do not take questions to 1010music's Discord. That is not their work, and the people there are helping with the actual product.</p>
+    <p>There is no support. It is one person's patch, given away as is. Ask in <a href="https://www.modwiggler.com/forum/viewtopic.php?t=302078" rel="noreferrer noopener">the Mod Wiggler thread</a>, r/modular or r/eurorack, where other users run the same controls on the same numbers. Please do not take questions to 1010music's Discord. It is not their work.</p>
   </div>
   </section>
     <footer><span>Unofficial. Not endorsed by or affiliated with 1010music. Supplied as is, under the MIT licence in LICENSE.</span><span>Bitbox Micro, Unlocked</span></footer>
