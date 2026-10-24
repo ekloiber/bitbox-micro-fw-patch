@@ -11,7 +11,7 @@ body:
     id: version
     attributes:
       label: Patch version
-      description: The splash screen's last line, for example 2.3.10-b26.
+      description: The splash screen's last line, for example 2.3.10.
     validations:
       required: true
   - type: textarea
