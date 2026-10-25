@@ -11,7 +11,7 @@ them on MIDI and adds what the module never had:
 - Per-pad sends, envelope, LFO, loop and granular controls.
 - A pop-up showing what every CC just changed, and screen themes.
 
-Everything works live.
+Help documentation: https://modularpatcher.github.io/bitbox-micro-fw-patch/index.html
 
 It is unofficial. Nobody at 1010music wrote or endorsed it, so do not ask them
 for support. The splash reads `community fw`, so a patched unit is never
