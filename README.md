@@ -1,100 +1,107 @@
-# Bitbox Micro, Unlocked
+# Bitbox Micro: Gate Record
 
-> **This is a fork** of
-> [modularpatcher/bitbox-micro-fw-patch](https://github.com/modularpatcher/bitbox-micro-fw-patch).
-> It adds Gate Rec and Gate Clr rows to the Settings screen, so a gate can
-> record into or clear the selected pad (see
-> [Settings](SETTINGS.md#gate-rec-and-gate-clr)). `--gate-rec` adds them to the
-> full patch; `--gate-only` adds them to stock 2.3.4 and nothing else. Without
-> either flag it builds exactly the same image as upstream. Questions about the fork's feature belong
-> here, not upstream and not with 1010music.
+This fork of
+[modularpatcher/bitbox-micro-fw-patch](https://github.com/modularpatcher/bitbox-micro-fw-patch)
+turns the Bitbox Micro's input jacks into a looper's foot switches. A gate can
+record into a pad, clear it, or do both, with no MIDI controller needed.
 
-The Bitbox Micro hides most of its controls behind the screen. This patch puts
-them on MIDI and adds what the module never had:
+It is unofficial. Nobody at 1010music, or at the original project, wrote or
+endorsed this fork's feature, so do not ask either of them for support.
 
-- A jungle toolkit for Clip pads: loops that stretch to your tempo with an
-  early-'90s sampler's grain, 24 Live Flip modes to re-cut them live, and turntable
-  moves on hold buttons.
-- Airwindows effects across the whole mix: four slots, sixteen effects.
-- A master EQ and filter, and four compressors, three of them Airwindows.
-- Per-pad sends, envelope, LFO, loop and granular controls.
-- A pop-up showing what every CC just changed, and screen themes.
+## What It Adds
 
-Help documentation: https://modularpatcher.github.io/bitbox-micro-fw-patch/index.html
+Three rows at the end of the Settings screen (press TOOLS). Each one is OFF,
+or one of the input jacks IN 1 to IN 8.
 
-It is unofficial. Nobody at 1010music wrote or endorsed it, so do not ask them
-for support. The splash reads `community fw`, so a patched unit is never
-mistaken for theirs. Assume it affects your warranty. It
-[cannot brick the module](INSTALLING.md#can-this-brick-my-module), though.
+| Row | What a gate on the chosen jack does |
+|---|---|
+| **Gate Rec** | Records into the selected pad, if it is empty. A second gate ends the take. |
+| **Gate Clr** | Clears the selected pad. The WAV file stays on the card. |
+| **Gate Loop** | Clears the selected pad and records into it. One gate records an empty pad, replaces a loaded one with a new take, or ends the take in progress. |
 
-## A Patcher, Not Firmware
+These gates do exactly what MIDI Rec's action notes do (103 record, 104 clear),
+so the manual's MIDI Triggered Recording section describes the behaviour. The
+pad's own record settings apply: Rec Input, Rec Quant, Length and RecToPlay.
+MIDI Rec does not need to be on.
 
-You download a script, not firmware. It edits your own copy of stock 2.3.4, on
-your own machine, and refuses anything else. Nobody here has 1010music's code
-to distribute.
+A jack you assign to a row stops triggering its own pad. Every other jack works
+exactly as stock. The settings are saved, so they survive power cycles.
 
-There is one rule: **never pass a patched image on**. Send people this page
-instead, and let them build their own.
+## Using It as a Looper
 
-## Quick Start
+1. On the Input screen, set inputs 1 and 2 to AUDIO and connect your source.
+   Leave the jack you will gate on in Gate mode, the default.
+2. Set **Gate Loop** to that jack.
+3. Select an empty pad on the Pads screen and open its record page. Set Rec
+   Input to In 1/2, Rec Quant to 1 bar and RecToPlay to ON. Set Length to a
+   number of bars, or to Custom to end each take with a gate.
+4. Send a gate to record. Send another to replace the loop with a new take.
 
-You need a Bitbox Micro on firmware 2.3.4, Python 3 and a microSD card. Get
-[`patch_micro.py`](patch_micro.py), and `MICRO234.zip` from 1010music. Run the
-script on the zip and copy the result to your card. The splash should then read
-`community fw`. [Installing](INSTALLING.md) has every step.
+With Length set to Custom, set the recorded pad's **Sync** to **None**
+(the pad's Pos page) for a clean loop. Otherwise the clip can rush towards its
+end as Sync pulls it into line with the clock. See
+[Clean Loops with a Custom Length](SETTINGS.md#clean-loops-with-a-custom-length).
 
-## Read Next
+## Building It
 
-- [Installing](INSTALLING.md): from stock image to patched module, step by step.
-- [CC reference](CC-REFERENCE.md): every number, its channel, and what to check
-  when one seems dead.
-- [Pad controls](PAD-CONTROLS.md): what each pad parameter does.
-- [Clip modes](CLIP-MODES.md): loops that follow your tempo, Live Flip modes and
-  hold buttons.
-- [Devices](DEVICES.md): the three that act on the whole mix, and where they sit.
-- [The Character chain](CHARACTER.md): sixteen Airwindows effects in four slots.
-- [The EQ and filter](EQ-FILTER.md): ten algorithms on one encoder.
-- [The compressor](COMPRESSOR.md): bus glue to start, then every setting on
-  MIDI.
-- [Settings](SETTINGS.md): the pop-up, Preset BPM, Keep CCs, themes and more.
-- [Limitations](LIMITATIONS.md): what the patch will not do, and why.
-- [Changelog](CHANGELOG.md): what changed, newest first.
+You need a Bitbox Micro on firmware 2.3.4, Python 3, a microSD card, and
+`MICRO234.zip` from [1010music's downloads page](https://1010music.com/downloads).
+Unzip it to get `MICRO.BIN`, then:
 
-## Licence
+```
+git clone https://github.com/ekloiber/bitbox-micro-fw-patch.git
+cd bitbox-micro-fw-patch
+mkdir patched
+python3 patch_micro.py MICRO.BIN patched/MICRO.BIN --gate-only
+```
 
-The patcher and this guide are MIT-licensed. The firmware is 1010music's. No
-permission over it is granted. Bitbox Micro is a product of 1010music LLC, named
-only to say what hardware this runs on. The Character chain's effects are ports
-of Chris Johnson's Airwindows plugins, under their own MIT licence. If you paid
-for this, somebody sold you something they did not write.
+On Windows, use `python` instead of `python3`. Copy `patched/MICRO.BIN` to the
+root of the card, hold the white right-arrow button and power on. Let go when
+it says Erasing.
 
-Flash stock firmware back before you send a unit for service. See
-[LICENSE](LICENSE) for the rest.
+There are two builds:
 
-## AI Assistance
+| Flag | What you get | Splash | Fingerprint begins | Tested |
+|---|---|---|---|---|
+| `--gate-only` | Stock 2.3.4 plus the three rows, nothing else. The rows follow SD Mode on Settings page 2. | `2.3.4-gr3` | `e187b8dc` | Yes, on a module |
+| `--gate-rec` | The original project's full 2.3.10 patch plus the three rows, after Theme on page 3. | `2.3.10-gr3` | `804ba422` | Not yet |
 
-Yes, AI was used. It helped read the assembly for the patch and draft this
-guide, which left more hours for designing controls and testing them.
+Start with `--gate-only`. With no flag, the script builds the original
+project's 2.3.10-mod unchanged; its features are documented in the guide pages
+in this folder and at the
+[original project](https://github.com/modularpatcher/bitbox-micro-fw-patch).
 
-It could not decide whether any of it works. Every control was confirmed by ear,
-on hardware. Judge the patch by what it does for you.
+Keep your stock `MICRO.BIN` safe: flashing it is how you go back.
 
-## If You're from 1010music
+## How It Works, Briefly
 
-Thank you for the Bitbox Micro. It is a wonderful little module, and worth the
-time spent inside it. No firmware of yours is included, in any form. Everybody
-downloads it from your site, under your terms, and the script refuses anything
-else. What ships is one Python file, a guide, and an MIT licence covering only
-those. The splash reads `community fw`, and anyone with a problem is told to
-flash your firmware back before contacting you.
+The script edits your own copy of stock 2.3.4 and refuses any other file. It
+adds the new code to the end of the image and points a few existing
+instructions at it. Nothing in the original is removed. A gate on an assigned
+jack sends the same internal event that MIDI Rec's action notes send, so the
+firmware's own record and clear code does the work.
 
-## Getting Help
+[Settings](SETTINGS.md#gate-rec-and-gate-clr) has the details and the
+hardware test results. [Changelog](CHANGELOG.md) lists each version.
 
-There is no support. It is one person's patch, given away as is. Ask
-questions in Discussions on the GitHub page you downloaded it from. Report a
-fault there as an issue, with the steps that cause it. Other users answer too.
-You can also ask in
-[the Mod Wiggler thread](https://www.modwiggler.com/forum/viewtopic.php?t=302078),
-r/modular or r/eurorack, where other users run the same controls on the same
-numbers. Please do not take questions to 1010music's Discord. It is not their
-work.
+## Rules
+
+- **Never pass a patched image on.** This repository contains no 1010music
+  firmware, stock or patched, and must not. Send people here to build their
+  own.
+- **Assume it affects your warranty.** Flash stock firmware back before you
+  send a unit for service.
+- **Support:** ask in this fork's GitHub Issues, not upstream and not with
+  1010music.
+
+## Licence and Credit
+
+Built on [modularpatcher/bitbox-micro-fw-patch](https://github.com/modularpatcher/bitbox-micro-fw-patch),
+which did the groundwork: the patcher, its safety checks, and the Settings
+mechanism these rows use. The patcher and this guide are MIT-licensed. See
+[LICENSE](LICENSE), which also covers the Airwindows effects in the full build.
+The firmware is 1010music's, and no permission over it is granted. Bitbox Micro
+is a product of 1010music LLC, named only to say what hardware this runs on.
+
+AI was used to read the firmware and write the patch. Every behaviour listed
+as tested was confirmed by hand on a module.
