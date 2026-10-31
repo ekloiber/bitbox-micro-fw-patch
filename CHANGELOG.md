@@ -10,8 +10,12 @@ the guide you are reading. None of them covers how any of it is built.
 - New: Gate Loop, a third row. One gate clears the selected pad and then
   records into it: an empty pad records, a loaded pad is replaced by a new
   take, and a gate during a take ends it. See
-  [Settings](SETTINGS.md#gate-rec-and-gate-clr). Not yet tried on a module.
+  [Settings](SETTINGS.md#gate-rec-and-gate-clr). Confirmed on a module with
+  `--gate-only`, with fixed and Custom lengths.
 - Gate Rec and Gate Clr are unchanged.
+- Guide: a take with a Custom length can rush towards its end on playback.
+  Set the pad's Sync to None for a clean loop. See
+  [Clean Loops with a Custom Length](SETTINGS.md#clean-loops-with-a-custom-length).
 
 ## 2.3.10-gr2 / 2.3.4-gr2 (fork) — October 2026
 

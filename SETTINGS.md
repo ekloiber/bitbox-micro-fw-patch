@@ -177,6 +177,22 @@ A jack given to any of the three rows stops triggering its own pad. Its pad
 still plays from the screen and from MIDI. Give two rows the same jack and the
 first in the list wins: Rec, then Clr, then Loop. OFF, the default, leaves every jack as stock.
 
+### Clean Loops with a Custom Length
+
+With Rec Quant set, a take becomes a Clip pad that follows the clock. A fixed
+Length always records a whole number of bars, so it loops cleanly. A take
+ended by a gate with Length set to Custom can rush towards its end on
+playback, as the clip's Sync keeps pulling it back into line with the clock.
+
+For a clean loop with a Custom length, set the recorded pad's **Sync** to
+**None** (the pad's Pos page). The loop then plays at the speed it was
+recorded. The trade-off is that it no longer corrects itself to the clock, so
+a loop recorded against a drifting or changing tempo can wander out of time.
+
+Clearing a pad keeps its parameters, so Sync should stay at None for the next
+take on the same pad. If the rushing comes back after a new take, check Sync
+again.
+
 ### Tested on Hardware
 
 `2.3.4-gr2` (`--gate-only`) has been confirmed on a module:
@@ -192,10 +208,9 @@ first in the list wins: Rec, then Clr, then Loop. OFF, the default, leaves every
 `2.3.10-gr2` (`--gate-rec`) carries the same code but has not been run on a
 module yet.
 
-Gate Loop is new in `gr3` and not yet tried on a module. The one open question
-is timing: whether the clear has finished by the time the record checks that
-the pad is empty. If a loaded pad clears but does not start recording, that is
-the cause.
+`2.3.4-gr3` adds Gate Loop, also confirmed on a module: one gate replaces a
+loaded pad with a new take, with both fixed and Custom lengths. With Custom,
+set Sync to None for a clean loop (see above).
 
 ## Clk Loss
 
