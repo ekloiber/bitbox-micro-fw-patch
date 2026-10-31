@@ -2,10 +2,11 @@
 
 > **This is a fork** of
 > [modularpatcher/bitbox-micro-fw-patch](https://github.com/modularpatcher/bitbox-micro-fw-patch).
-> It adds one opt-in feature, `--gate-rec`: Gate Rec and Gate Clr rows on the
-> Settings screen, so a gate can record into or clear the selected pad (see
-> [Settings](SETTINGS.md#gate-rec-and-gate-clr)). Without that flag it builds
-> exactly the same image as upstream. Questions about the fork's feature belong
+> It adds Gate Rec and Gate Clr rows to the Settings screen, so a gate can
+> record into or clear the selected pad (see
+> [Settings](SETTINGS.md#gate-rec-and-gate-clr)). `--gate-rec` adds them to the
+> full patch; `--gate-only` adds them to stock 2.3.4 and nothing else. Without
+> either flag it builds exactly the same image as upstream. Questions about the fork's feature belong
 > here, not upstream and not with 1010music.
 
 The Bitbox Micro hides most of its controls behind the screen. This patch puts

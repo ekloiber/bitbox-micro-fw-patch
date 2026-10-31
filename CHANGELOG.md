@@ -5,6 +5,17 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.10-gr2 / 2.3.4-gr2 (fork) — October 2026
+
+- Fixed: with gr1 flashed, gates on any input stopped triggering their pads,
+  even with Gate Rec and Gate Clr OFF. gr2 leaves every other gate exactly as
+  stock.
+- New `--gate-only`: stock 2.3.4 with Gate Rec and Gate Clr added and none of
+  the patch's other changes, for testing the gate controls on their own. Its
+  rows sit on Settings page 2, after SD Mode. Splash: `2.3.4-gr2`.
+- `--gate-rec` adds the same rows to the full 2.3.10 set, on page 3 beside
+  Theme. Splash: `2.3.10-gr2`.
+
 ## 2.3.10-gr1 (fork, --gate-rec) — October 2026
 
 - New in this fork, and only with `--gate-rec`: Gate Rec and Gate Clr on the
@@ -13,7 +24,6 @@ the guide you are reading. None of them covers how any of it is built.
   [Settings](SETTINGS.md#gate-rec-and-gate-clr).
 - Builds without `--gate-rec` are unchanged: same image, same fingerprint as
   2.3.10-mod.
-- Not yet confirmed on a module.
 
 ## 2.3.10-mod — October 2026
 

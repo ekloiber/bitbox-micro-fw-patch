@@ -18,8 +18,8 @@ Flip UI:     OFF / ON
 OSD:         OFF / POP-UP / CPU / BOTH
 Keep CCs:    OFF / ON
 Theme:       STOCK / AMBER / STAGE / CONTRAST / PHOSPHOR / SYNTHWAVE / CUSTOM
-Gate Rec:    OFF / IN 1 ... IN 8      (fork builds only: --gate-rec)
-Gate Clr:    OFF / IN 1 ... IN 8      (fork builds only: --gate-rec)
+Gate Rec:    OFF / IN 1 ... IN 8      (fork builds only)
+Gate Clr:    OFF / IN 1 ... IN 8      (fork builds only)
 ```
 
 ## OSD
@@ -143,8 +143,12 @@ OFF is the default: presets load exactly as saved.
 
 ## Gate Rec and Gate Clr
 
-These two rows exist only in builds made with `--gate-rec`, this fork's
-addition. They turn an input jack into a looper's foot switch.
+These two rows exist only in this fork's builds. They turn an input jack into
+a looper's foot switch.
+
+- `--gate-rec` adds them to the full patch, on page 3 beside Theme.
+- `--gate-only` adds them to stock 2.3.4 and changes nothing else. There they
+  sit on page 2, after SD Mode. Use it to try the gate controls on their own.
 
 - **Gate Rec** picks a jack whose gate records into the selected pad. The pad
   must be empty. The same gate again stops recording, as do the record
@@ -169,8 +173,9 @@ wins. OFF, the default, leaves every jack as stock.
 
 ### Not Yet Confirmed on Hardware
 
-The first build, `2.3.10-gr1`, was written from the firmware's own code and has
-not yet been run on a module. Check these first:
+Written from the firmware's own code. `gr1` broke ordinary gate triggers and
+`gr2` fixes that; the recording itself has not yet been confirmed on a module.
+Check these first:
 
 - Recording starts and stops from the gate, quantised as Rec Quant says.
 - If nothing happens, try MIDI Rec ON. The gate reuses MIDI Rec's action and

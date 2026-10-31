@@ -1043,7 +1043,9 @@ USAGE = f"""
     --v238             build 2.3.8-mod, exactly
     --gate-rec         also add Gate Rec and Gate Clr to Settings: a gate on
                        the chosen jack records into, or clears, the selected
-                       pad (this fork's feature; version 2.3.10-gr1)
+                       pad (this fork's feature; version 2.3.10-gr2)
+    --gate-only        stock 2.3.4 with ONLY Gate Rec and Gate Clr added,
+                       none of the other changes (version 2.3.4-gr2)
     -v                 show the addresses and opcodes as it works
     --reassemble       verify the frozen code against its sources
     --legacy-version   allow a version string too long for the panel, for
@@ -1254,7 +1256,7 @@ FROZEN = {
         {'treg': 0, '$t': 626, 'tlabel': 856, 'tvalues': 828, 'txml': 864, 'treg_call': 28, '$d': 644, 'tclabel0': 664, 'tcxml0': 676, 'treg_c0': 60, 'tclabel1': 688, 'tcxml1': 700, 'treg_c1': 92, 'tclabel2': 708, 'tcxml2': 720, 'treg_c2': 124, 'tclabel3': 728, 'tcxml3': 736, 'treg_c3': 156, 'tclabel4': 748, 'tcxml4': 756, 'treg_c4': 188, 'tclabel5': 768, 'tcxml5': 776, 'treg_c5': 220, 'tclabel6': 788, 'tcxml6': 796, 'treg_c6': 252, 'tclabel7': 808, 'tcxml7': 816, 'treg_c7': 284, 'treg_next': 294, 'tstore': 298, 'tstore_call': 308, 'tstore_c0': 322, 'tstore_c1': 334, 'tstore_c2': 348, 'tstore_c3': 360, 'tstore_c4': 372, 'tstore_c5': 384, 'tstore_c6': 398, 'tstore_c7': 412, 'tstore_next': 420, 'tpost': 424, 'tmine': 458, 'tchr': 500, 'tpost_next': 442, 'tedit': 446, 'tedit_next': 454, 'tpost_call': 478, 'tchr_call': 524, 'tload': 556, 'tload_call': 576, 'tload_next': 598, 'tsave': 602, 'tsave_call': 622, 'tsave_next': 644, 'tv0': 872, 'tv1': 880, 'tv2': 888, 'tv3': 896, 'tv4': 908, 'tv5': 920, 'tv6': 932, '_sT': 0}),
     "hookNc": ("01b5000000002de90f50eff30080f1ee101a03b42ded100a189800000000bdec100a03bc80f30088e1ee101abde80f5001b000bd2de90f50eff30080f1ee101a03b42ded100a389839993a9a000000003a90bdec100a03bc80f30088e1ee101abde80f5000000000dff88cc1dcf800c0624b9c4508d0dff888c1dcf800c0614b9c4501d0000000002de90f50eff30082f1ee103a0cb42ded100a00000000bdec100a0cbc82f30088e1ee103abde80f5070472de90f50eff30080f1ee101a03b42ded100a284621460000000010ee102abdec100a00ee102a03bc80f30088e1ee101abde80f5094ed068a70474e2b03d0662b19d3772b17d82de90f50eff30080f1ee101a03b42ded100a204649461a46269b00000000bdec100a03bc80f30088e1ee101abde80f50000000002de90f50eff30080f1ee101a03b42ded100a86b0ddf878c0cdf800c0ddf87cc0cdf804c0ddf880c0cdf808c0ddf884c0cdf80cc0ddf888c0cdf810c0ddf88cc0cdf814c0189819991a9a1b9b9ded060a0000000006b01290bdec100a03bc80f30088e1ee101abde80f5070472de90f50eff30080f1ee101a03b42ded100a50465946000000001590bdec100a03bc80f30088e1ee101abde80f50704710b5000000002de90f50eff30080f1ee101a03b42ded100a00000000bdec100a03bc80f30088e1ee101abde80f5010bd04a7062452504d4384a7062442504d43",
         {'nblock': 0, '$t': 484, 'nblock_orig': 2, '$d': 504, 'nblock_c': 26, 'nmidi': 52, 'nmidi_c': 76, 'nmidi_next': 100, 'ncomp': 104, 'ncomp_c': 136, 'ncomp_e': 132, 'ncomp_call': 154, 'nclip_rate': 178, 'nclip_rate_c': 200, 'nclip_cc': 236, 'nclip_cc_go': 248, 'nclip_cc_out': 296, 'nclip_cc_c': 274, 'njread': 300, 'njread_c': 380, 'nclip_beats': 408, 'nclip_beats_c': 430, 'nfinal': 456, 'nfinal_p': 458, 'nfinal_c': 480, '_sN': 0}),
-    "hookGR": ("2de91f5083b040f2a1110ff280120ff25813092400940ff28c14019400000000039840f2a3110ff270120ff23c13092400940ff27c1401940000000003b0bde81f50000000002de90f5040f2a111002200000000009840f2a311002200000000bde80f500000000040f2a11c62450fd040f2a31c62450bd00000000040f2a11c624505d040f2a31c624501d00000000010b51446082b05d9304811460022000000000023dff8b8c040f2a11084420cbf0021042140f20000c4f2417040ea03004cf8010010bd00f024f818b9b8f1130f0000000012a900220a604a608a60ca600a614a612d220a70079a4a60886045f28820c0f201003044000000000000000000f007f818b9b8f1130f0000000000000000dff84cc0134944f24173dcf80000020c9a4209d1c0b20138072805d851f82000404501d167207047dcf80400020c9a4209d1c0b20138072805d851f82000404501d1682070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf4761746520436c723a0000bf67617465726563696e0000bf67617465636c72696e0000bf4f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
+    "hookGR": ("2de91f5083b040f2a1110ff280120ff25813092400940ff28c14019400000000039840f2a3110ff270120ff23c13092400940ff27c1401940000000003b0bde81f50000000002de90f5040f2a111002200000000009840f2a311002200000000bde80f500000000040f2a11c62450fd040f2a31c62450bd00000000040f2a11c624505d040f2a31c624501d00000000010b51446082b05d9304811460022000000000023dff8b8c040f2a11084420cbf0021042140f20000c4f2417040ea03004cf8010010bd00f024f818b9b8f1130f0000000012a900220a604a608a60ca600a614a612d220a70079a4a60886045f28820c0f201003044000000000000000000f007f818b9b8f1130f0000000000000000dff84cc0134944f24173dcf80000b3eb104f09d1c0b20138072805d851f82000404501d167207047dcf80400b3eb104f09d1c0b20138072805d851f82000404501d1682070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf4761746520436c723a0000bf67617465726563696e0000bf67617465636c72696e0000bf4f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
         {'greg': 0, 'glabel_rec': 396, 'gvalues': 360, 'gxml_rec': 420, 'greg_call1': 28, 'glabel_clr': 408, 'gxml_clr': 432, 'greg_call2': 56, 'greg_next': 66, 'gstore': 70, 'gstore_call1': 80, 'gstore_call2': 92, 'gstore_next': 100, 'gpost': 104, 'gmine': 144, 'gpost_next': 120, 'gedit': 124, 'gedit_next': 140, 'gm_store': 164, 'gm_set': 158, 'gon': 198, 'gmatch': 274, 'gon_act': 212, 'gon_back': 208, 'gon_push': 248, 'gon_done': 252, 'goff': 256, 'goff_eat': 270, 'goff_back': 266, 'gm_clr': 314, 'gm_none': 344, 'gv0': 444, 'gv1': 448, 'gv2': 456, 'gv3': 464, 'gv4': 472, 'gv5': 480, 'gv6': 488, 'gv7': 496, 'gv8': 504, '_sGR': 0}),
 }
 
@@ -10065,7 +10067,7 @@ assert POOL_FLOOR == 0x2406f4e0 and POOL_TOP_INIT - POOL_FLOOR <= POOL_CAP
 # that keeps the value in patch RAM instead of posting it to the engine. The
 # words there carry a magic in the top half, so stale RAM after a reset reads
 # as OFF until the boot apply-all writes them.
-GATE_VERSION = "2.3.10-gr1"
+GATE_VERSION = "2.3.10-gr2"          # gr1 clobbered r2: every gate missed its pad
 assert GATE_VERSION in USAGE and len(GATE_VERSION) <= VER_DISPLAY_MAX
 GATE_REC_ID, GATE_CLR_ID = 0x1a1, 0x1a3
 GATE_RAM = 0x2406c3e0                # +0 Gate Rec, +4 Gate Clr: GATE_MAGIC | 0..8
@@ -10108,6 +10110,9 @@ GATE_SITES = (                       # (site, entry, what): GR's head insertions
     (0x0807d51c, "gedit", "the Settings live-edit post"),
 )
 GATE_ROW_SLOTS = (1, 2)              # Settings page 3: after Theme in slot 0
+GATE_ONLY_SLOTS = (3, 4)             # --gate-only: page 2, after stock's three rows
+GATE_ONLY_VERSION = "2.3.4-gr2"      # --gate-only: stock 2.3.4 plus GR, nothing else
+assert GATE_ONLY_VERSION in USAGE and len(GATE_ONLY_VERSION) <= VER_DISPLAY_MAX
 
 
 def build_gate_hook(org, nexts):
@@ -10242,13 +10247,16 @@ goff_back:
 goff_eat:
     .short  0, 0                    /* b.w the loop head: the jack is GR's */
 
-gmatch:                             /* r8 = cell -> r0 = note, or 0; r1-r3, r12 */
+gmatch:                             /* r8 = cell -> r0 = note, or 0 */
+    /* Uses r0, r1, r3, r12 ONLY. r2 is live: the router loads the event's
+       key into it at 0x080abd6a and both cases pass it, unset, into the
+       pad's trigger (bl 0x080aaf78) and release (bl 0x080ab118). gr1
+       clobbered it and every gate went to the wrong pad. */
     ldr     r12, =0x{GATE_RAM:08x}
     ldr     r1, =0x{GATE_JACKS:08x}
     movw    r3, #0x{GATE_MAGIC_HI:x}
     ldr     r0, [r12]               /* Gate Rec */
-    lsrs    r2, r0, #16
-    cmp     r2, r3
+    cmp.w   r3, r0, lsr #16
     bne     gm_clr
     uxtb    r0, r0
     subs    r0, #1                  /* OFF -> -1, out by the unsigned compare */
@@ -10261,8 +10269,7 @@ gmatch:                             /* r8 = cell -> r0 = note, or 0; r1-r3, r12 
     bx      lr
 gm_clr:
     ldr     r0, [r12, #4]           /* Gate Clr */
-    lsrs    r2, r0, #16
-    cmp     r2, r3
+    cmp.w   r3, r0, lsr #16
     bne     gm_none
     uxtb    r0, r0
     subs    r0, #1
@@ -10324,9 +10331,10 @@ gv{i}:
     return bytes(code), syms
 
 
-def apply_gate_rec(d):
+def apply_gate_rec(d, only=False):
     """Guard GR's facts, append GR, take its Settings sites at the head of their
-    chains, put b.w on the two router cases, and add the page-3 rows."""
+    chains, put b.w on the two router cases, and add the two rows: page 3 beside
+    Theme, or with `only` (stock 2.3.4 plus GR) page 2 after stock's rows."""
     _guard(d, CLK_REG_LIMIT_VA, CLK_REG_LIMIT, "parameter registry limit")
     _guard(d, CLK_STORE_CAP_VA, CLK_STORE_CAP, "global settings capacity")
     assert max(GATE_REC_ID, GATE_CLR_ID) <= 0x1d0
@@ -10337,10 +10345,15 @@ def apply_gate_rec(d):
             refuse(f"The call at {va:#x} is not what Gate Rec expects.")
     for site, stock, _, _ in GATE_ROUTER_SITES:
         _guard(d, site, stock, "pad router case")
-    row = THEME_ROW_VA - BASE
-    if struct.unpack_from("<H", d, row)[0] != THEME_ID:
-        refuse("Gate Rec goes on Settings page 3 beside Theme, and Theme is not there.")
-    for slot in GATE_ROW_SLOTS:
+    if only:
+        row, slots = SETTINGS_P2_VA - BASE, GATE_ONLY_SLOTS
+        if bytes(d[row:row + 16]) != SETTINGS_P2_OLD:
+            refuse("The Settings screen's second page is not what it should be.")
+    else:
+        row, slots = THEME_ROW_VA - BASE, GATE_ROW_SLOTS
+        if struct.unpack_from("<H", d, row)[0] != THEME_ID:
+            refuse("Gate Rec goes on Settings page 3 beside Theme, and Theme is not there.")
+    for slot in slots:
         if struct.unpack_from("<H", d, row + 2 * slot)[0] != 0:
             refuse(f"Settings page 3, slot {slot}, is not empty.")
     nexts = {entry: branch_target(d, site) for site, entry, _ in GATE_SITES}
@@ -10352,7 +10365,7 @@ def apply_gate_rec(d):
         d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], True)
     for site, _, entry, _ in GATE_ROUTER_SITES:
         d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], False)
-    for slot, gid in zip(GATE_ROW_SLOTS, (GATE_REC_ID, GATE_CLR_ID)):
+    for slot, gid in zip(slots, (GATE_REC_ID, GATE_CLR_ID)):
         struct.pack_into("<H", d, row + 2 * slot, gid)
     vprint(f"GR Gate Rec/Clr {len(code)} bytes at {org:#010x}, "
            f"ids {GATE_REC_ID:#x}/{GATE_CLR_ID:#x}, ram {GATE_RAM:#x}")
@@ -10463,6 +10476,11 @@ def main():
     gate_rec = "--gate-rec" in flags               # fork feature: rows beside Theme
     if gate_rec and not comp:
         refuse("--gate-rec builds on the default 2.3.10 set: no --v238, --v239 or test options with it.")
+    gate_only = "--gate-only" in flags             # fork: stock 2.3.4 plus GR alone
+    others = [f for f in flags if f.startswith("--") and f not in ("--gate-only", "--reassemble", "--verbose")]
+    if gate_only and others:
+        refuse("--gate-only builds stock 2.3.4 plus Gate Rec and Gate Clr, nothing else.",
+               f"Leave out: {' '.join(others)}")
     cpu_meter = v239 or "--cpu-meter" in flags     # opt-in test build, never a release
     preset_bpm = v239 or "--preset-bpm" in flags   # opt-in test build, never a release
     clock_debug = "--clock-debug" in flags # diagnostic build, needs --preset-bpm
@@ -10475,7 +10493,9 @@ def main():
     if osd and not character:
         refuse("--osd needs --character: the OSD's MIDI side lives in its C object.")
     if len(argv) <= 2:
-        if gate_rec:
+        if gate_only:
+            ver = GATE_ONLY_VERSION
+        elif gate_rec:
             ver = GATE_VERSION
         elif comp:
             ver = CMP_VERSION
@@ -10604,6 +10624,16 @@ def main():
         vprint(f"{nm} {va:#x} = {got:#010x}")
 
     print("     ok   The code is where the patch expects to find it")
+
+    if gate_only:
+        # Stock 2.3.4 plus GR and the splash: none of the hooks above, so a
+        # fault seen on this image can only be GR's (or stock's).
+        print("\n  Adding Gate Rec and Gate Clr to stock 2.3.4, and nothing else...")
+        check_patch_ram(d)
+        apply_gate_rec(d, only=True)
+        print(f"     ok   {'Gate Rec / Gate Clr: IN 1-8':<28} TOOLS > Settings (FORK)")
+        finish(d, outp, ver)
+        return
 
     print("\n  Embellishing your bitbox micro with community requests...")
 
@@ -10798,6 +10828,10 @@ def main():
     for what, where in SETTINGS_FEATURES:
         print(f"     ok   {what:<28} {where}")
 
+    finish(d, outp, ver)
+
+def finish(d, outp, ver):
+    """Splash, the length check, the write, and how to flash it."""
     # Splash: drop 1010music's attribution so the modifications are not
     # credited to them, and mark the version as a modified build.
     write_slot(d, ATTRIB_VA, ATTRIB_STOCK, ATTRIB_NEW)
