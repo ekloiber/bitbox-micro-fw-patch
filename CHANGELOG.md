@@ -15,6 +15,8 @@ the guide you are reading. None of them covers how any of it is built.
   rows sit on Settings page 2, after SD Mode. Splash: `2.3.4-gr2`.
 - `--gate-rec` adds the same rows to the full 2.3.10 set, on page 3 beside
   Theme. Splash: `2.3.10-gr2`.
+- Confirmed on a module with `--gate-only`: record, stop, clear and re-record
+  from gates all work, with MIDI Rec OFF. `--gate-rec` not yet tried.
 
 ## 2.3.10-gr1 (fork, --gate-rec) — October 2026
 

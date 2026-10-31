@@ -171,16 +171,20 @@ A jack given to Gate Rec or Gate Clr stops triggering its own pad. Its pad still
 plays from the screen and from MIDI. Choose the same jack for both and Gate Rec
 wins. OFF, the default, leaves every jack as stock.
 
-### Not Yet Confirmed on Hardware
+### Tested on Hardware
 
-Written from the firmware's own code. `gr1` broke ordinary gate triggers and
-`gr2` fixes that; the recording itself has not yet been confirmed on a module.
-Check these first:
+`2.3.4-gr2` (`--gate-only`) has been confirmed on a module:
 
-- Recording starts and stops from the gate, quantised as Rec Quant says.
-- If nothing happens, try MIDI Rec ON. The gate reuses MIDI Rec's action and
-  that path may still check the setting.
-- Clearing empties the selected pad and leaves the file on the card.
+- Unassigned jacks trigger their pads exactly as stock.
+- A gate records into the selected empty pad, quantised to Rec Quant, and stops
+  at Length; with RecToPlay on, the new loop then plays.
+- With Length set to Custom, a second gate stops the recording.
+- A gate on the Gate Clr jack empties the selected pad.
+- Clear then record again works every time; a loaded pad ignores Gate Rec.
+- MIDI Rec does not need to be ON.
+
+`2.3.10-gr2` (`--gate-rec`) carries the same code but has not been run on a
+module yet.
 
 ## Clk Loss
 
