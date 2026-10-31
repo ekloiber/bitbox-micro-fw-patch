@@ -5,6 +5,14 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.10-gr3 / 2.3.4-gr3 (fork) — October 2026
+
+- New: Gate Loop, a third row. One gate clears the selected pad and then
+  records into it: an empty pad records, a loaded pad is replaced by a new
+  take, and a gate during a take ends it. See
+  [Settings](SETTINGS.md#gate-rec-and-gate-clr). Not yet tried on a module.
+- Gate Rec and Gate Clr are unchanged.
+
 ## 2.3.10-gr2 / 2.3.4-gr2 (fork) — October 2026
 
 - Fixed: with gr1 flashed, gates on any input stopped triggering their pads,

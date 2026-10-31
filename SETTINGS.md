@@ -20,6 +20,7 @@ Keep CCs:    OFF / ON
 Theme:       STOCK / AMBER / STAGE / CONTRAST / PHOSPHOR / SYNTHWAVE / CUSTOM
 Gate Rec:    OFF / IN 1 ... IN 8      (fork builds only)
 Gate Clr:    OFF / IN 1 ... IN 8      (fork builds only)
+Gate Loop:   OFF / IN 1 ... IN 8      (fork builds only)
 ```
 
 ## OSD
@@ -156,9 +157,14 @@ a looper's foot switch.
   starts playing as soon as recording ends.
 - **Gate Clr** picks a jack whose gate clears the selected pad. The WAV file
   stays on the card; only the pad is emptied, ready to record again.
+- **Gate Loop** does both from one jack. Its gate clears the selected pad and
+  then records into it, so an empty pad records, a loaded pad is replaced by a
+  new take, and a gate during a take ends it (a clear is ignored while
+  recording, as MIDI's is).
 
 A gate on these jacks does exactly what MIDI Rec's action notes 103 and 104 do,
-so the manual's MIDI Triggered Recording section describes the behaviour. The
+so the manual's MIDI Triggered Recording section describes the behaviour.
+Gate Loop sends 104 and then 103. The
 pad's record settings (Rec Input, Rec Quant, Length) apply as they do there.
 
 ### Setting It Up
@@ -167,9 +173,9 @@ pad's record settings (Rec Input, Rec Quant, Length) apply as they do there.
 2. Set Gate Rec and Gate Clr to those jacks.
 3. Select the pad to loop on the Pads screen.
 
-A jack given to Gate Rec or Gate Clr stops triggering its own pad. Its pad still
-plays from the screen and from MIDI. Choose the same jack for both and Gate Rec
-wins. OFF, the default, leaves every jack as stock.
+A jack given to any of the three rows stops triggering its own pad. Its pad
+still plays from the screen and from MIDI. Give two rows the same jack and the
+first in the list wins: Rec, then Clr, then Loop. OFF, the default, leaves every jack as stock.
 
 ### Tested on Hardware
 
@@ -185,6 +191,11 @@ wins. OFF, the default, leaves every jack as stock.
 
 `2.3.10-gr2` (`--gate-rec`) carries the same code but has not been run on a
 module yet.
+
+Gate Loop is new in `gr3` and not yet tried on a module. The one open question
+is timing: whether the clear has finished by the time the record checks that
+the pad is empty. If a loaded pad clears but does not start recording, that is
+the cause.
 
 ## Clk Loss
 

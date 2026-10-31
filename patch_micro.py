@@ -1043,9 +1043,10 @@ USAGE = f"""
     --v238             build 2.3.8-mod, exactly
     --gate-rec         also add Gate Rec and Gate Clr to Settings: a gate on
                        the chosen jack records into, or clears, the selected
-                       pad (this fork's feature; version 2.3.10-gr2)
-    --gate-only        stock 2.3.4 with ONLY Gate Rec and Gate Clr added,
-                       none of the other changes (version 2.3.4-gr2)
+                       pad; Gate Loop clears then records with one gate
+                       (this fork's feature; version 2.3.10-gr3)
+    --gate-only        stock 2.3.4 with ONLY the Gate rows added, none of
+                       the other changes (version 2.3.4-gr3)
     -v                 show the addresses and opcodes as it works
     --reassemble       verify the frozen code against its sources
     --legacy-version   allow a version string too long for the panel, for
@@ -1256,8 +1257,8 @@ FROZEN = {
         {'treg': 0, '$t': 626, 'tlabel': 856, 'tvalues': 828, 'txml': 864, 'treg_call': 28, '$d': 644, 'tclabel0': 664, 'tcxml0': 676, 'treg_c0': 60, 'tclabel1': 688, 'tcxml1': 700, 'treg_c1': 92, 'tclabel2': 708, 'tcxml2': 720, 'treg_c2': 124, 'tclabel3': 728, 'tcxml3': 736, 'treg_c3': 156, 'tclabel4': 748, 'tcxml4': 756, 'treg_c4': 188, 'tclabel5': 768, 'tcxml5': 776, 'treg_c5': 220, 'tclabel6': 788, 'tcxml6': 796, 'treg_c6': 252, 'tclabel7': 808, 'tcxml7': 816, 'treg_c7': 284, 'treg_next': 294, 'tstore': 298, 'tstore_call': 308, 'tstore_c0': 322, 'tstore_c1': 334, 'tstore_c2': 348, 'tstore_c3': 360, 'tstore_c4': 372, 'tstore_c5': 384, 'tstore_c6': 398, 'tstore_c7': 412, 'tstore_next': 420, 'tpost': 424, 'tmine': 458, 'tchr': 500, 'tpost_next': 442, 'tedit': 446, 'tedit_next': 454, 'tpost_call': 478, 'tchr_call': 524, 'tload': 556, 'tload_call': 576, 'tload_next': 598, 'tsave': 602, 'tsave_call': 622, 'tsave_next': 644, 'tv0': 872, 'tv1': 880, 'tv2': 888, 'tv3': 896, 'tv4': 908, 'tv5': 920, 'tv6': 932, '_sT': 0}),
     "hookNc": ("01b5000000002de90f50eff30080f1ee101a03b42ded100a189800000000bdec100a03bc80f30088e1ee101abde80f5001b000bd2de90f50eff30080f1ee101a03b42ded100a389839993a9a000000003a90bdec100a03bc80f30088e1ee101abde80f5000000000dff88cc1dcf800c0624b9c4508d0dff888c1dcf800c0614b9c4501d0000000002de90f50eff30082f1ee103a0cb42ded100a00000000bdec100a0cbc82f30088e1ee103abde80f5070472de90f50eff30080f1ee101a03b42ded100a284621460000000010ee102abdec100a00ee102a03bc80f30088e1ee101abde80f5094ed068a70474e2b03d0662b19d3772b17d82de90f50eff30080f1ee101a03b42ded100a204649461a46269b00000000bdec100a03bc80f30088e1ee101abde80f50000000002de90f50eff30080f1ee101a03b42ded100a86b0ddf878c0cdf800c0ddf87cc0cdf804c0ddf880c0cdf808c0ddf884c0cdf80cc0ddf888c0cdf810c0ddf88cc0cdf814c0189819991a9a1b9b9ded060a0000000006b01290bdec100a03bc80f30088e1ee101abde80f5070472de90f50eff30080f1ee101a03b42ded100a50465946000000001590bdec100a03bc80f30088e1ee101abde80f50704710b5000000002de90f50eff30080f1ee101a03b42ded100a00000000bdec100a03bc80f30088e1ee101abde80f5010bd04a7062452504d4384a7062442504d43",
         {'nblock': 0, '$t': 484, 'nblock_orig': 2, '$d': 504, 'nblock_c': 26, 'nmidi': 52, 'nmidi_c': 76, 'nmidi_next': 100, 'ncomp': 104, 'ncomp_c': 136, 'ncomp_e': 132, 'ncomp_call': 154, 'nclip_rate': 178, 'nclip_rate_c': 200, 'nclip_cc': 236, 'nclip_cc_go': 248, 'nclip_cc_out': 296, 'nclip_cc_c': 274, 'njread': 300, 'njread_c': 380, 'nclip_beats': 408, 'nclip_beats_c': 430, 'nfinal': 456, 'nfinal_p': 458, 'nfinal_c': 480, '_sN': 0}),
-    "hookGR": ("2de91f5083b040f2a1110ff280120ff25813092400940ff28c14019400000000039840f2a3110ff270120ff23c13092400940ff27c1401940000000003b0bde81f50000000002de90f5040f2a111002200000000009840f2a311002200000000bde80f500000000040f2a11c62450fd040f2a31c62450bd00000000040f2a11c624505d040f2a31c624501d00000000010b51446082b05d9304811460022000000000023dff8b8c040f2a11084420cbf0021042140f20000c4f2417040ea03004cf8010010bd00f024f818b9b8f1130f0000000012a900220a604a608a60ca600a614a612d220a70079a4a60886045f28820c0f201003044000000000000000000f007f818b9b8f1130f0000000000000000dff84cc0134944f24173dcf80000b3eb104f09d1c0b20138072805d851f82000404501d167207047dcf80400b3eb104f09d1c0b20138072805d851f82000404501d1682070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf4761746520436c723a0000bf67617465726563696e0000bf67617465636c72696e0000bf4f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
-        {'greg': 0, 'glabel_rec': 396, 'gvalues': 360, 'gxml_rec': 420, 'greg_call1': 28, 'glabel_clr': 408, 'gxml_clr': 432, 'greg_call2': 56, 'greg_next': 66, 'gstore': 70, 'gstore_call1': 80, 'gstore_call2': 92, 'gstore_next': 100, 'gpost': 104, 'gmine': 144, 'gpost_next': 120, 'gedit': 124, 'gedit_next': 140, 'gm_store': 164, 'gm_set': 158, 'gon': 198, 'gmatch': 274, 'gon_act': 212, 'gon_back': 208, 'gon_push': 248, 'gon_done': 252, 'goff': 256, 'goff_eat': 270, 'goff_back': 266, 'gm_clr': 314, 'gm_none': 344, 'gv0': 444, 'gv1': 448, 'gv2': 456, 'gv3': 464, 'gv4': 472, 'gv5': 480, 'gv6': 488, 'gv7': 496, 'gv8': 504, '_sGR': 0}),
+    "hookGR": ("2de91f5083b0039840f2a1110ff2fc120ff2d413092400940ff2fc14019400000000039840f2a3110ff2f8120ff2b813092400940ff2f814019400000000039840f2a5110ff2f4120ff29c13092400940ff2f41401940000000003b0bde81f50000000002de90f50009840f2a111002200000000009840f2a311002200000000009840f2a511002200000000bde80f500000000040f2a11c624517d040f2a31c624513d040f2a51c62450fd00000000040f2a11c624509d040f2a31c624505d040f2a51c624501d00000000010b51446082b05d9414811460022000000000023002140f2a110844209d0042140f2a310844204d0082140f2a5108442ffd0dff8e0c040f20000c4f2417040ea03004cf8010010bd00f02ef818b9b8f1130f00000000012803d1682000f005f8672000f002f80000000010b514a900220a604a608a60ca600a614a612d220a70099a4a60886045f28820c0f2010030440000000010bd00f007f818b9b8f1130f0000000000000000dff868c01a4944f24173dcf80000b3eb104f09d1c0b20138072805d851f82000404501d167207047dcf80400b3eb104f09d1c0b20138072805d851f82000404501d168207047dcf80800b3eb104f09d1c0b20138072805d851f82000404501d1012070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf67617465726563696e0000bf4761746520436c723a0000bf67617465636c72696e0000bf47617465204c6f6f703a0000676174656c6f6f70696e00004f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
+        {'greg': 0, 'glabel0': 524, 'gvalues': 488, 'gxml0': 536, 'greg_call0': 30, 'glabel1': 548, 'gxml1': 560, 'greg_call1': 58, 'glabel2': 572, 'gxml2': 584, 'greg_call2': 86, 'greg_next': 96, 'gstore': 100, 'gstore_call0': 112, 'gstore_call1': 124, 'gstore_call2': 136, 'gstore_next': 144, 'gpost': 148, 'gmine': 204, 'gpost_next': 172, 'gedit': 176, 'gedit_next': 200, 'gm_store': 224, 'gm_set': 218, 'gm_put': 254, 'gon': 276, 'gmatch': 372, 'gon_act': 290, 'gon_back': 286, 'gon_one': 302, 'gsend': 310, 'gon_done': 306, 'gsend_push': 348, 'goff': 354, 'goff_eat': 368, 'goff_back': 364, 'gm_0': 382, 'gm_1': 412, 'gm_2': 442, 'gm_3': 472, 'gv0': 596, 'gv1': 600, 'gv2': 608, 'gv3': 616, 'gv4': 624, 'gv5': 632, 'gv6': 640, 'gv7': 648, 'gv8': 656, '_sGR': 0}),
 }
 
 # Reduced C objects (see "C hooks" below): compressed, origin-independent, and
@@ -10067,15 +10068,21 @@ assert POOL_FLOOR == 0x2406f4e0 and POOL_TOP_INIT - POOL_FLOOR <= POOL_CAP
 # that keeps the value in patch RAM instead of posting it to the engine. The
 # words there carry a magic in the top half, so stale RAM after a reset reads
 # as OFF until the boot apply-all writes them.
-GATE_VERSION = "2.3.10-gr2"          # gr1 clobbered r2: every gate missed its pad
+GATE_VERSION = "2.3.10-gr3"          # gr1 clobbered r2; gr3 adds Gate Loop
 assert GATE_VERSION in USAGE and len(GATE_VERSION) <= VER_DISPLAY_MAX
-GATE_REC_ID, GATE_CLR_ID = 0x1a1, 0x1a3
-GATE_RAM = 0x2406c3e0                # +0 Gate Rec, +4 Gate Clr: GATE_MAGIC | 0..8
+GATE_REC_ID, GATE_CLR_ID, GATE_LOOP_ID = 0x1a1, 0x1a3, 0x1a5
+GATE_RAM = 0x2406c3e0                # +0 Rec, +4 Clr, +8 Loop: GATE_MAGIC | 0..8
 GATE_MAGIC_HI = 0x4741               # "GA"; any other top half reads as OFF
 GATE_VALUES = ("OFF",) + tuple(f"IN {n}" for n in range(1, 9))
 GATE_JACKS = 0x2402df44              # stock: jack 0..7 -> pad cell, words
 GATE_QUEUE_OFF = 0x15288             # root + this: the queue MIDI Rec posts to
 GATE_NOTE_REC, GATE_NOTE_CLR = 103, 104
+GATE_LOOP = 1                        # gmatch's answer for Gate Loop: 104, then 103
+GATE_ROWS = (                        # (id, label, settings.tml key, gmatch's answer)
+    (GATE_REC_ID, "Gate Rec:", "gaterecin", GATE_NOTE_REC),
+    (GATE_CLR_ID, "Gate Clr:", "gateclrin", GATE_NOTE_CLR),
+    (GATE_LOOP_ID, "Gate Loop:", "gateloopin", GATE_LOOP),
+)
 GATE_LOOP_HEAD = 0x080abd58          # the router's next-event, where cases end
 GATE_PUSH_FN = 0x080a396c            # queue push (frame copy), as MIDI Rec calls it
 SETPARAM_FN_GS = 0x080894fa          # SetParam(store, id, value)
@@ -10109,14 +10116,64 @@ GATE_SITES = (                       # (site, entry, what): GR's head insertions
     (0x0807c5be, "gpost", "the Settings apply-all post"),
     (0x0807d51c, "gedit", "the Settings live-edit post"),
 )
-GATE_ROW_SLOTS = (1, 2)              # Settings page 3: after Theme in slot 0
-GATE_ONLY_SLOTS = (3, 4)             # --gate-only: page 2, after stock's three rows
-GATE_ONLY_VERSION = "2.3.4-gr2"      # --gate-only: stock 2.3.4 plus GR, nothing else
+GATE_ROW_SLOTS = (1, 2, 3)           # Settings page 3: after Theme in slot 0
+GATE_ONLY_SLOTS = (3, 4, 5)          # --gate-only: page 2, after stock's three rows
+GATE_ONLY_VERSION = "2.3.4-gr3"      # --gate-only: stock 2.3.4 plus GR, nothing else
 assert GATE_ONLY_VERSION in USAGE and len(GATE_ONLY_VERSION) <= VER_DISPLAY_MAX
 
 
 def build_gate_hook(org, nexts):
-    """GR: register, store and catch the two rows; route a gate to the action."""
+    """GR: register, store and catch the rows; route a gate to the action."""
+    rows = GATE_ROWS
+    reg = "".join(f"""
+    ldr     r0, [sp, #12]           /* the registry, as pushed */
+    movw    r1, #0x{gid:x}
+    adr.w   r2, glabel{i}
+    adr.w   r3, gvalues
+    movs    r4, #{len(GATE_VALUES)}
+    str     r4, [sp]
+    adr.w   r4, gxml{i}
+    str     r4, [sp, #4]
+greg_call{i}:
+    .short  0, 0                    /* enum registrar */
+""" for i, (gid, _, _, _) in enumerate(rows))
+    store = "".join(f"""
+    ldr     r0, [sp]
+    movw    r1, #0x{gid:x}
+    movs    r2, #0
+gstore_call{i}:
+    .short  0, 0                    /* AddParam, default OFF */
+""" for i, (gid, _, _, _) in enumerate(rows))
+    catch = "".join(f"""
+    movw    r12, #0x{gid:x}
+    cmp     r2, r12
+    beq     gmine""" for gid, _, _, _ in rows)
+    slot = "".join(f"""
+    movs    r1, #{4 * i}
+    movw    r0, #0x{gid:x}
+    cmp     r4, r0
+    beq     gm_put""" for i, (gid, _, _, _) in enumerate(rows))
+    match = "".join(f"""
+gm_{i}:                             /* {label} */
+    ldr     r0, [r12, #{4 * i}]
+    cmp.w   r3, r0, lsr #16
+    bne     gm_{i + 1}
+    uxtb    r0, r0
+    subs    r0, #1                  /* OFF -> -1, out by the unsigned compare */
+    cmp     r0, #7
+    bhi     gm_{i + 1}
+    ldr     r0, [r1, r0, lsl #2]
+    cmp     r0, r8
+    bne     gm_{i + 1}
+    movs    r0, #{note}
+    bx      lr""" for i, (_, label, _, note) in enumerate(rows))
+    strings = "".join(f"""    .balign 4
+glabel{i}:
+    .asciz  "{label}"
+    .balign 4
+gxml{i}:
+    .asciz  "{xml}"
+""" for i, (_, label, xml, _) in enumerate(rows))
     src = f"""
 .syntax unified
 .thumb
@@ -10124,65 +10181,25 @@ def build_gate_hook(org, nexts):
 .global _sGR
 .thumb_func
 _sGR:
-greg:                               /* r0 = registry: two enums, as P's preg */
+greg:                               /* r0 = registry: one enum a row, as P's preg */
     push    {{r0, r1, r2, r3, r4, r12, lr}}
-    sub     sp, #12
-    movw    r1, #0x{GATE_REC_ID:x}
-    adr.w   r2, glabel_rec
-    adr.w   r3, gvalues
-    movs    r4, #{len(GATE_VALUES)}
-    str     r4, [sp]
-    adr.w   r4, gxml_rec
-    str     r4, [sp, #4]
-greg_call1:
-    .short  0, 0                    /* enum registrar */
-    ldr     r0, [sp, #12]           /* the registry, as pushed */
-    movw    r1, #0x{GATE_CLR_ID:x}
-    adr.w   r2, glabel_clr
-    adr.w   r3, gvalues
-    movs    r4, #{len(GATE_VALUES)}
-    str     r4, [sp]
-    adr.w   r4, gxml_clr
-    str     r4, [sp, #4]
-greg_call2:
-    .short  0, 0                    /* enum registrar */
+    sub     sp, #12{reg}
     add     sp, #12
     pop     {{r0, r1, r2, r3, r4, r12, lr}}
 greg_next:
     .short  0, 0
 
-gstore:                             /* r0 = the global store: both default OFF */
-    push    {{r0, r1, r2, r3, r12, lr}}
-    movw    r1, #0x{GATE_REC_ID:x}
-    movs    r2, #0
-gstore_call1:
-    .short  0, 0                    /* AddParam */
-    ldr     r0, [sp]
-    movw    r1, #0x{GATE_CLR_ID:x}
-    movs    r2, #0
-gstore_call2:
-    .short  0, 0                    /* AddParam */
+gstore:                             /* r0 = the global store */
+    push    {{r0, r1, r2, r3, r12, lr}}{store}
     pop     {{r0, r1, r2, r3, r12, lr}}
 gstore_next:
     .short  0, 0
 
-gpost:                              /* PostSetParam(r0 mgr, r1 key, r2 id, r3 value) */
-    movw    r12, #0x{GATE_REC_ID:x}
-    cmp     r2, r12
-    beq     gmine
-    movw    r12, #0x{GATE_CLR_ID:x}
-    cmp     r2, r12
-    beq     gmine
+gpost:                              /* PostSetParam(r0 mgr, r1 key, r2 id, r3 value) */{catch}
 gpost_next:
     .short  0, 0
 
-gedit:                              /* the live-edit post: the same catch */
-    movw    r12, #0x{GATE_REC_ID:x}
-    cmp     r2, r12
-    beq     gmine
-    movw    r12, #0x{GATE_CLR_ID:x}
-    cmp     r2, r12
-    beq     gmine
+gedit:                              /* the live-edit post: the same catch */{catch}
 gedit_next:
     .short  0, 0
 
@@ -10197,13 +10214,9 @@ gmine:                              /* ours: kept here, NOT posted to the engine
 gm_set:
     .short  0, 0                    /* bl SetParam */
     movs    r3, #0
-gm_store:
+gm_store:{slot}
+gm_put:                             /* r1 = the row's word in GATE_RAM */
     ldr     r12, =0x{GATE_RAM:08x}
-    movw    r0, #0x{GATE_REC_ID:x}
-    cmp     r4, r0
-    ite     eq
-    moveq   r1, #0
-    movne   r1, #4
     movw    r0, #0
     movt    r0, #0x{GATE_MAGIC_HI:x}
     orr     r0, r0, r3
@@ -10216,8 +10229,20 @@ gon:                                /* router case 0x42 (gate on); r8 = cell */
     cmp.w   r8, #0x13               /* the instruction this replaced */
 gon_back:
     .short  0, 0                    /* b.w 0x080ac026: its bgt, flags intact */
-gon_act:                            /* r0 = the note: MIDI Rec's action event */
-    add     r1, sp, #0x48           /* case 0x42's own scratch frame */
+gon_act:                            /* r0 = a note, or GATE_LOOP: clear, then record */
+    cmp     r0, #{GATE_LOOP}
+    bne     gon_one
+    movs    r0, #{GATE_NOTE_CLR}    /* ignored while recording, as MIDI's 104 is */
+    bl      gsend
+    movs    r0, #{GATE_NOTE_REC}    /* records the now-empty pad, or ends a take */
+gon_one:
+    bl      gsend
+gon_done:
+    .short  0, 0                    /* b.w the loop head */
+
+gsend:                              /* r0 = note: MIDI Rec's action event, pushed */
+    push    {{r4, lr}}              /* sp is the router's - 8 from here */
+    add     r1, sp, #0x48 + 8       /* case 0x42's own scratch frame */
     movs    r2, #0
     str     r2, [r1]
     str     r2, [r1, #4]
@@ -10227,16 +10252,15 @@ gon_act:                            /* r0 = the note: MIDI Rec's action event */
     str     r2, [r1, #20]
     movs    r2, #0x2d
     strb    r2, [r1]
-    ldr     r2, [sp, #0x1c]         /* the incoming event's +4 word */
+    ldr     r2, [sp, #0x1c + 8]     /* the incoming event's +4 word */
     str     r2, [r1, #4]
     str     r0, [r1, #8]
     movw    r0, #0x{GATE_QUEUE_OFF & 0xffff:x}
     movt    r0, #0x{GATE_QUEUE_OFF >> 16:x}
     add     r0, r6                  /* root + 0x15288, as the router's r9 */
-gon_push:
-    .short  0, 0                    /* bl 0x080a396c */
-gon_done:
-    .short  0, 0                    /* b.w the loop head */
+gsend_push:
+    .short  0, 0                    /* bl 0x080a396c: copies the frame */
+    pop     {{r4, pc}}
 
 goff:                               /* router case 0x43 (gate off) */
     bl      gmatch
@@ -10247,40 +10271,15 @@ goff_back:
 goff_eat:
     .short  0, 0                    /* b.w the loop head: the jack is GR's */
 
-gmatch:                             /* r8 = cell -> r0 = note, or 0 */
+gmatch:                             /* r8 = cell -> r0 = note, GATE_LOOP, or 0 */
     /* Uses r0, r1, r3, r12 ONLY. r2 is live: the router loads the event's
        key into it at 0x080abd6a and both cases pass it, unset, into the
        pad's trigger (bl 0x080aaf78) and release (bl 0x080ab118). gr1
        clobbered it and every gate went to the wrong pad. */
     ldr     r12, =0x{GATE_RAM:08x}
     ldr     r1, =0x{GATE_JACKS:08x}
-    movw    r3, #0x{GATE_MAGIC_HI:x}
-    ldr     r0, [r12]               /* Gate Rec */
-    cmp.w   r3, r0, lsr #16
-    bne     gm_clr
-    uxtb    r0, r0
-    subs    r0, #1                  /* OFF -> -1, out by the unsigned compare */
-    cmp     r0, #7
-    bhi     gm_clr
-    ldr     r0, [r1, r0, lsl #2]
-    cmp     r0, r8
-    bne     gm_clr
-    movs    r0, #{GATE_NOTE_REC}
-    bx      lr
-gm_clr:
-    ldr     r0, [r12, #4]           /* Gate Clr */
-    cmp.w   r3, r0, lsr #16
-    bne     gm_none
-    uxtb    r0, r0
-    subs    r0, #1
-    cmp     r0, #7
-    bhi     gm_none
-    ldr     r0, [r1, r0, lsl #2]
-    cmp     r0, r8
-    bne     gm_none
-    movs    r0, #{GATE_NOTE_CLR}
-    bx      lr
-gm_none:
+    movw    r3, #0x{GATE_MAGIC_HI:x}{match}
+gm_{len(rows)}:
     movs    r0, #0
     bx      lr
 
@@ -10289,41 +10288,28 @@ gm_none:
 gvalues:
     .word   {", ".join("0" for _ in GATE_VALUES)}
     /* Every string label word aligned: see J's note on parse_elf32. */
-    .balign 4
-glabel_rec:
-    .asciz  "Gate Rec:"
-    .balign 4
-glabel_clr:
-    .asciz  "Gate Clr:"
-    .balign 4
-gxml_rec:
-    .asciz  "gaterecin"
-    .balign 4
-gxml_clr:
-    .asciz  "gateclrin"
-""" + "".join(f"""    .balign 4
+{strings}""" + "".join(f"""    .balign 4
 gv{i}:
     .asciz  "{v}"
 """ for i, v in enumerate(GATE_VALUES)) + """    .balign 4
 """
     code, syms = assemble("hookGR", src)
     code = bytearray(code)
-    for sym, target, call in (
-        ("greg_call1", 0x08069e7c, True),
-        ("greg_call2", 0x08069e7c, True),
+    fix = [(f"greg_call{i}", 0x08069e7c, True) for i in range(len(rows))]
+    fix += [(f"gstore_call{i}", 0x0808951e, True) for i in range(len(rows))]
+    fix += [
         ("greg_next", nexts["greg"], False),
-        ("gstore_call1", 0x0808951e, True),
-        ("gstore_call2", 0x0808951e, True),
         ("gstore_next", nexts["gstore"], False),
         ("gpost_next", nexts["gpost"], False),
         ("gedit_next", nexts["gedit"], False),
         ("gm_set", SETPARAM_FN_GS, True),
         ("gon_back", GATE_ROUTER_SITES[0][3], False),
-        ("gon_push", GATE_PUSH_FN, True),
+        ("gsend_push", GATE_PUSH_FN, True),
         ("gon_done", GATE_LOOP_HEAD, False),
         ("goff_back", GATE_ROUTER_SITES[1][3], False),
         ("goff_eat", GATE_LOOP_HEAD, False),
-    ):
+    ]
+    for sym, target, call in fix:
         off = syms[sym]
         code[off:off + 4] = enc_b_bl(org + off, target, call)
     struct.pack_into(f"<{len(GATE_VALUES)}I", code, syms["gvalues"],
@@ -10337,7 +10323,7 @@ def apply_gate_rec(d, only=False):
     Theme, or with `only` (stock 2.3.4 plus GR) page 2 after stock's rows."""
     _guard(d, CLK_REG_LIMIT_VA, CLK_REG_LIMIT, "parameter registry limit")
     _guard(d, CLK_STORE_CAP_VA, CLK_STORE_CAP, "global settings capacity")
-    assert max(GATE_REC_ID, GATE_CLR_ID) <= 0x1d0
+    assert max(gid for gid, _, _, _ in GATE_ROWS) <= 0x1d0
     for va, raw, what in GATE_GUARDS:
         _guard(d, va, raw, what)
     for va, target in GATE_CALLS:
@@ -10365,10 +10351,10 @@ def apply_gate_rec(d, only=False):
         d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], True)
     for site, _, entry, _ in GATE_ROUTER_SITES:
         d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], False)
-    for slot, gid in zip(slots, (GATE_REC_ID, GATE_CLR_ID)):
+    for slot, (gid, _, _, _) in zip(slots, GATE_ROWS):
         struct.pack_into("<H", d, row + 2 * slot, gid)
     vprint(f"GR Gate Rec/Clr {len(code)} bytes at {org:#010x}, "
-           f"ids {GATE_REC_ID:#x}/{GATE_CLR_ID:#x}, ram {GATE_RAM:#x}")
+           f"ids {'/'.join(hex(r[0]) for r in GATE_ROWS)}, ram {GATE_RAM:#x}")
     return org, syms
 
 
@@ -10400,7 +10386,7 @@ def patch_ram_ranges():
         ("R Theme", THEME_RAM, THEME_RAM + THEME_BYTES),
         ("T the master bus, saved", CHRSAVE_RAM, CHRSAVE_RAM + 36),
         ("T the patch's own colours", THEME_OSD_RAM, THEME_OSD_RAM + 32),
-        ("GR Gate Rec / Gate Clr", GATE_RAM, GATE_RAM + 8),
+        ("GR Gate Rec / Clr / Loop", GATE_RAM, GATE_RAM + 4 * len(GATE_ROWS)),
     ]
 
 
@@ -10631,7 +10617,7 @@ def main():
         print("\n  Adding Gate Rec and Gate Clr to stock 2.3.4, and nothing else...")
         check_patch_ram(d)
         apply_gate_rec(d, only=True)
-        print(f"     ok   {'Gate Rec / Gate Clr: IN 1-8':<28} TOOLS > Settings (FORK)")
+        print(f"     ok   {'Gate Rec / Clr / Loop':<28} TOOLS > Settings (FORK)")
         finish(d, outp, ver)
         return
 
@@ -10824,7 +10810,7 @@ def main():
         print(f"     ok   {'Hold buttons, per pad':<28} CC 78, 102, 104, 105, 107, 118, 119")
     if gate_rec:
         apply_gate_rec(d)
-        print(f"     ok   {'Gate Rec / Gate Clr: IN 1-8':<28} TOOLS > Settings (FORK)")
+        print(f"     ok   {'Gate Rec / Clr / Loop':<28} TOOLS > Settings (FORK)")
     for what, where in SETTINGS_FEATURES:
         print(f"     ok   {what:<28} {where}")
 
