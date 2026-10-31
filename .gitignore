@@ -1,0 +1,7 @@
+# 1010music's firmware is never part of this repository, stock or patched.
+*.bin
+*.BIN
+*.Bin
+MICRO*.zip
+patched/
+__pycache__/

@@ -1,7 +1,7 @@
 # Bitbox Micro Firmware: Settings
 
 Seven of the patch's additions live on the module's own Settings screen, not on
-a CC. Set them once and they stay set, through preset changes and power cycles.
+a CC (nine in this fork's `--gate-rec` builds). Set them once and they stay set, through preset changes and power cycles.
 Preset BPM is the exception: it belongs to each preset, and saves with it.
 
 Press TOOLS once to open Settings. Turn the top knob to pick a row and the
@@ -18,6 +18,8 @@ Flip UI:     OFF / ON
 OSD:         OFF / POP-UP / CPU / BOTH
 Keep CCs:    OFF / ON
 Theme:       STOCK / AMBER / STAGE / CONTRAST / PHOSPHOR / SYNTHWAVE / CUSTOM
+Gate Rec:    OFF / IN 1 ... IN 8      (fork builds only: --gate-rec)
+Gate Clr:    OFF / IN 1 ... IN 8      (fork builds only: --gate-rec)
 ```
 
 ## OSD
@@ -138,6 +140,42 @@ the loop, granular and LFO controls. Only the ones you have moved since
 power-on carry over. The rest load as saved.
 
 OFF is the default: presets load exactly as saved.
+
+## Gate Rec and Gate Clr
+
+These two rows exist only in builds made with `--gate-rec`, this fork's
+addition. They turn an input jack into a looper's foot switch.
+
+- **Gate Rec** picks a jack whose gate records into the selected pad. The pad
+  must be empty. The same gate again stops recording, as do the record
+  page's Length and STOP. With RecToPlay on and a Length set, the new loop
+  starts playing as soon as recording ends.
+- **Gate Clr** picks a jack whose gate clears the selected pad. The WAV file
+  stays on the card; only the pad is emptied, ready to record again.
+
+A gate on these jacks does exactly what MIDI Rec's action notes 103 and 104 do,
+so the manual's MIDI Triggered Recording section describes the behaviour. The
+pad's record settings (Rec Input, Rec Quant, Length) apply as they do there.
+
+### Setting It Up
+
+1. On the Input screen, keep the jacks you choose in Gate mode, the default.
+2. Set Gate Rec and Gate Clr to those jacks.
+3. Select the pad to loop on the Pads screen.
+
+A jack given to Gate Rec or Gate Clr stops triggering its own pad. Its pad still
+plays from the screen and from MIDI. Choose the same jack for both and Gate Rec
+wins. OFF, the default, leaves every jack as stock.
+
+### Not Yet Confirmed on Hardware
+
+The first build, `2.3.10-gr1`, was written from the firmware's own code and has
+not yet been run on a module. Check these first:
+
+- Recording starts and stops from the gate, quantised as Rec Quant says.
+- If nothing happens, try MIDI Rec ON. The gate reuses MIDI Rec's action and
+  that path may still check the setting.
+- Clearing empties the selected pad and leaves the file on the card.
 
 ## Clk Loss
 

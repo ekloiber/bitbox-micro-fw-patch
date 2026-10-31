@@ -5,6 +5,16 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.10-gr1 (fork, --gate-rec) — October 2026
+
+- New in this fork, and only with `--gate-rec`: Gate Rec and Gate Clr on the
+  Settings screen. A gate on the chosen jack records into, or clears, the
+  selected pad, as MIDI Rec's notes 103 and 104 do. See
+  [Settings](SETTINGS.md#gate-rec-and-gate-clr).
+- Builds without `--gate-rec` are unchanged: same image, same fingerprint as
+  2.3.10-mod.
+- Not yet confirmed on a module.
+
 ## 2.3.10-mod — October 2026
 
 - Loops that really follow your tempo, 24 Live Flip modes to re-cut a loop live, and
