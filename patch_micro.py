@@ -1047,6 +1047,10 @@ USAGE = f"""
                        (this fork's feature; version 2.3.10-gr3)
     --gate-only        stock 2.3.4 with ONLY the Gate rows added, none of
                        the other changes (version 2.3.4-gr3)
+    --comp-menu        stock 2.3.4 with the stock compressor's Threshold,
+                       Ratio, Attack, Release and Gain on the Settings
+                       screen, in dB and ms (version 2.3.4-cm1; with
+                       --gate-only as well, 2.3.4-gc1)
     -v                 show the addresses and opcodes as it works
     --reassemble       verify the frozen code against its sources
     --legacy-version   allow a version string too long for the panel, for
@@ -1259,6 +1263,8 @@ FROZEN = {
         {'nblock': 0, '$t': 484, 'nblock_orig': 2, '$d': 504, 'nblock_c': 26, 'nmidi': 52, 'nmidi_c': 76, 'nmidi_next': 100, 'ncomp': 104, 'ncomp_c': 136, 'ncomp_e': 132, 'ncomp_call': 154, 'nclip_rate': 178, 'nclip_rate_c': 200, 'nclip_cc': 236, 'nclip_cc_go': 248, 'nclip_cc_out': 296, 'nclip_cc_c': 274, 'njread': 300, 'njread_c': 380, 'nclip_beats': 408, 'nclip_beats_c': 430, 'nfinal': 456, 'nfinal_p': 458, 'nfinal_c': 480, '_sN': 0}),
     "hookGR": ("2de91f5083b0039840f2a1110ff2fc120ff2d413092400940ff2fc14019400000000039840f2a3110ff2f8120ff2b813092400940ff2f814019400000000039840f2a5110ff2f4120ff29c13092400940ff2f41401940000000003b0bde81f50000000002de90f50009840f2a111002200000000009840f2a311002200000000009840f2a511002200000000bde80f500000000040f2a11c624517d040f2a31c624513d040f2a51c62450fd00000000040f2a11c624509d040f2a31c624505d040f2a51c624501d00000000010b51446082b05d9414811460022000000000023002140f2a110844209d0042140f2a310844204d0082140f2a5108442ffd0dff8e0c040f20000c4f2417040ea03004cf8010010bd00f02ef818b9b8f1130f00000000012803d1682000f005f8672000f002f80000000010b514a900220a604a608a60ca600a614a612d220a70099a4a60886045f28820c0f2010030440000000010bd00f007f818b9b8f1130f0000000000000000dff868c01a4944f24173dcf80000b3eb104f09d1c0b20138072805d851f82000404501d167207047dcf80400b3eb104f09d1c0b20138072805d851f82000404501d168207047dcf80800b3eb104f09d1c0b20138072805d851f82000404501d1012070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf67617465726563696e0000bf4761746520436c723a0000bf67617465636c72696e0000bf47617465204c6f6f703a0000676174656c6f6f70696e00004f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
         {'greg': 0, 'glabel0': 524, 'gvalues': 488, 'gxml0': 536, 'greg_call0': 30, 'glabel1': 548, 'gxml1': 560, 'greg_call1': 58, 'glabel2': 572, 'gxml2': 584, 'greg_call2': 86, 'greg_next': 96, 'gstore': 100, 'gstore_call0': 112, 'gstore_call1': 124, 'gstore_call2': 136, 'gstore_next': 144, 'gpost': 148, 'gmine': 204, 'gpost_next': 172, 'gedit': 176, 'gedit_next': 200, 'gm_store': 224, 'gm_set': 218, 'gm_put': 254, 'gon': 276, 'gmatch': 372, 'gon_act': 290, 'gon_back': 286, 'gon_one': 302, 'gsend': 310, 'gon_done': 306, 'gsend_push': 348, 'goff': 354, 'goff_eat': 368, 'goff_back': 364, 'gm_0': 382, 'gm_1': 412, 'gm_2': 442, 'gm_3': 472, 'gv0': 596, 'gv1': 600, 'gv2': 608, 'gv3': 616, 'gv4': 624, 'gv5': 632, 'gv6': 640, 'gv7': 648, 'gv8': 656, '_sGR': 0}),
+    "hookCM": ("2de90f50009840f211114df22012cff6ff7200000000009840f2121140f20202c0f2000200000000009840f20f1140f22c12c0f2000200000000009840f2101140f6b832c0f2000200000000009840f21a1140f20002c0f2000200000000bde80f500000000040f2111c624529d040f2121c624525d040f20f1c624521d040f2101c62451dd040f21a1c624519d0ffe70000000040f2111c624512d040f2121c62450ed040f20f1c62450ad040f2101c624506d040f21a1c624502d0ffe700000000f0b52ded027a3f4c404f2568bd421bd040f20005ccf24015656040f20005c4f20005a56040f2a055c0f20005e56043f64005c0f20005256140f20005c0f200056561324da561276040f2111c624510d040f2121c624518d040f20f1c62451fd040f2101c624526d040f21a1c62452dd044e007ee903af8eee77a9fed217a67ee877a17ee905a65602ce0012bb8bf012307ee903af8eee77a17ee905aa56021e0052bb8bf0523182503fb05f50526b5fbf6f5e56016e0642bb8bf6423182503fb05f50526b5fbf6f525610be007ee903af8eee77a9fed0b7a67ee877a17ee905a6561ffe73d4666687540a6687540e66875402669754066697540a561bdec027af0bd6f12833a00c00624dec010103efd5091",
+        {'cstore': 0, 'cstore_call0': 18, 'cstore_call1': 36, 'cstore_call2': 54, 'cstore_call3': 72, 'cstore_call4': 90, 'cstore_next': 98, 'cpost': 102, 'cmine': 194, 'cpost_next': 144, 'cedit': 148, 'cedit_next': 190, 'cm_go': 266, 'cmc_0': 308, 'cmc_1': 332, 'cmc_2': 354, 'cmc_3': 376, 'cmc_4': 398, 'cmc_out': 446, 'cm_milli': 452, 'cmc_sum': 422, '_sCM': 0}),
 }
 
 # Reduced C objects (see "C hooks" below): compressed, origin-independent, and
@@ -10358,6 +10364,233 @@ def apply_gate_rec(d, only=False):
     return org, syms
 
 
+# --- CM: the stock compressor on the Settings screen (fork, --comp-menu) -------
+# Five rows on Settings page 3: C Thresh, C Ratio, C Attack, C Release, C Gain,
+# in real units (dB, N:1, ms). On/off is stock's own Compressor row, page 1.
+# Only the stock compressor: no types, no MIDI. Built on the minimal base (stock
+# 2.3.4, plus Gate Rec with --gate-only), never on the full 2.3.10 set, whose
+# compressor hooks own the same store.
+#
+# Stock already has these rows. The registry dump of 0x08069f00 shows them,
+# shared with 1010music's other modules and never put on a Micro screen:
+#   id     label        type  range            shown as
+#   0x111  C Thresh:     7    -48000 .. 0      -48.0 .. 0.0 dB  (milli-dB, 0.1 dB steps)
+#   0x112  C Ratio:     16    1 .. 100         1 .. 100         (plain, the N of N:1)
+#   0x10f  C Attack:    15    0 .. 10000       0 .. 1000 ms     (0.1 ms, 1 ms steps)
+#   0x110  C Release:   14    0 .. 10000       0 .. 1000 ms
+#   0x11a  C Gain:       7    -36000 .. 36000  -36.0 .. +36.0 dB
+# The units come from the Settings value widget: its formatter 0x0805eacc and
+# setter 0x0805ed24 switch on the type byte: 7 is milli-dB printed "%d.%01d dB"
+# in 100 steps; 14 and 15 print "%ld ms" of value/10; 16 prints the value.
+# Nothing applies them, though: none is in the global store (0x08089e04's 36
+# entries), the engine's settings switch (0x080ac0f0) stops at 0xed, and the
+# compressor object has no parameter handler at all (see hook D's notes).
+#
+# So CM gives them a store entry each (defaults = hook E's glue seed, so the
+# screen shows what is playing), catches their apply-all and live-edit posts,
+# converts the value to the field's own units and writes hook D/E's store at
+# PATCH_RAM, checksum and all; hook E stamps it onto the live compressor every
+# block, exactly as in the full build. Attack is clamped to 0.5 ms and release
+# to 10 ms, hook D's floors: 0 samples is not a time constant.
+CM_ROWS = (                          # (id, store offset, default, kind)
+    (0x111, 4, -12000, "db"),        # threshold -12.0 dB  -> float dB
+    (0x112, 8, 2, "ratio"),          # ratio 2:1           -> float
+    (0x10f, 12, 300, "time"),        # attack 30 ms        -> samples @ 48 k
+    (0x110, 16, 3000, "time"),       # release 300 ms      -> samples
+    (0x11a, 20, 0, "db"),            # makeup 0.0 dB       -> float dB
+)
+CM_TIME_MIN = {0x10f: 5, 0x110: 100} # 0.1 ms units: 0.5 ms, 10 ms
+CM_ROW_SLOTS = (0, 1, 2, 3, 4)       # Settings page 3
+CM_VERSION = "2.3.4-cm1"             # --comp-menu alone
+CM_GATE_VERSION = "2.3.4-gc1"        # --comp-menu with --gate-only
+assert CM_VERSION in USAGE and CM_GATE_VERSION in USAGE
+# The seed must agree with hook E's, or the screen would show one thing while
+# the compressor does another until the first edit.
+assert [round(struct.unpack("<f", struct.pack("<I", DEFAULTS[0][0]))[0] * 1000),
+        round(struct.unpack("<f", struct.pack("<I", DEFAULTS[1][0]))[0]),
+        DEFAULTS[2][0] * 10 // 48, DEFAULTS[3][0] * 10 // 48,
+        round(struct.unpack("<f", struct.pack("<I", DEFAULTS[4][0]))[0] * 1000)] \
+    == [d for _, _, d, _ in CM_ROWS], "CM's defaults no longer match hook E's seed"
+CM_GUARDS = (                        # (va, bytes, what)
+    (0x0806b51a, "40f21111", "C Thresh's registration id (movw r1, #0x111)"),
+    (0x0806b536, "4ff48971", "C Ratio's (mov.w r1, #0x112)"),
+    (0x0806b4ea, "40f20f11", "C Attack's (movw r1, #0x10f)"),
+    (0x0806b502, "4ff48871", "C Release's (mov.w r1, #0x110)"),
+    (0x0806b518, "0722", "... C Thresh is type 7, milli-dB"),
+    (0x0806b4e8, "0f22", "... C Attack is type 15, tenths of a ms"),
+    (0x0806b500, "0e22", "... C Release is type 14, tenths of a ms"),
+    (0x0806b72a, "4ff48d71", "C Gain's (mov.w r1, #0x11a)"),
+    (0x0806b728, "0722", "... C Gain is type 7, milli-dB"),
+    (0x0806b71c, "48f6a043", "... C Gain's max 36000 (movw r3, #0x8ca0)"),
+    (0x0805eae4, "90f83130", "the value widget's type byte at +0x31"),
+)
+CM_SITES = (                         # (site, entry, what): CM's head insertions
+    (0x08089efe, "cstore", "the global store's entries"),
+    (0x0807c5be, "cpost", "the Settings apply-all post"),
+    (0x0807d51c, "cedit", "the Settings live-edit post"),
+)
+
+
+def build_comp_menu_hook(org, nexts):
+    """CM: store entries for the five rows, and their posts -> hook E's store."""
+    store = "".join(f"""
+    ldr     r0, [sp]
+    movw    r1, #0x{gid:x}
+    movw    r2, #0x{default & 0xffff:x}
+    movt    r2, #0x{(default >> 16) & 0xffff:x}
+cstore_call{i}:
+    .short  0, 0                    /* AddParam */
+""" for i, (gid, _, default, _) in enumerate(CM_ROWS))
+
+    def match(hit, miss):
+        return "".join(f"""
+    movw    r12, #0x{gid:x}
+    cmp     r2, r12
+    beq     {hit}""" for gid, _, _, _ in CM_ROWS) + f"""
+    b       {miss}"""
+
+    seed = "".join(f"""
+    movw    r5, #0x{w & 0xffff:x}
+    movt    r5, #0x{w >> 16:x}
+    str     r5, [r4, #{4 + 4 * i}]""" for i, (w, _) in enumerate(DEFAULTS))
+    pick = "".join(f"""
+    movw    r12, #0x{gid:x}
+    cmp     r2, r12
+    beq     cmc_{i}""" for i, (gid, _, _, _) in enumerate(CM_ROWS))
+    cases = ""
+    for i, (gid, off, _, kind) in enumerate(CM_ROWS):
+        if kind == "db":                    # milli-dB -> float dB
+            body = """
+    vmov    s15, r3
+    vcvt.f32.s32 s15, s15
+    vldr    s14, cm_milli
+    vmul.f32 s15, s15, s14
+    vmov    r5, s15"""
+        elif kind == "ratio":               # N -> float N, at least 1
+            body = """
+    cmp     r3, #1
+    it      lt
+    movlt   r3, #1
+    vmov    s15, r3
+    vcvt.f32.s32 s15, s15
+    vmov    r5, s15"""
+        else:                               # tenths of a ms -> samples at 48 kHz
+            body = f"""
+    cmp     r3, #{CM_TIME_MIN[gid]}
+    it      lt
+    movlt   r3, #{CM_TIME_MIN[gid]}
+    movs    r5, #24
+    mul     r5, r3, r5
+    movs    r6, #5
+    udiv    r5, r5, r6"""
+        cases += f"""
+cmc_{i}:{body}
+    str     r5, [r4, #{off}]
+    b       cmc_sum"""
+
+    src = f"""
+.syntax unified
+.thumb
+.section .text
+.global _sCM
+.thumb_func
+_sCM:
+cstore:                             /* r0 = the global store */
+    push    {{r0, r1, r2, r3, r12, lr}}{store}
+    pop     {{r0, r1, r2, r3, r12, lr}}
+cstore_next:
+    .short  0, 0
+
+cpost:                              /* PostSetParam(r0 mgr, r1 key, r2 id, r3 value) */{match("cmine", "cpost_next")}
+cpost_next:
+    .short  0, 0
+
+cedit:                              /* the live-edit post: the same catch */{match("cmine", "cedit_next")}
+cedit_next:
+    .short  0, 0
+
+cmine:                              /* ours: kept in hook E's store, NOT posted */
+    push    {{r4, r5, r6, r7, lr}}
+    vpush   {{s14, s15}}
+    ldr     r4, =0x{PATCH_RAM:08x}
+    ldr     r7, =0x{PATCH_MAGIC:08x}
+    ldr     r5, [r4]
+    cmp     r5, r7
+    beq     cm_go                   /* not yet claimed: lay hook E's own seed */{seed}
+    ldr     r5, =0x{DEFAULT_SUM:08x}
+    str     r5, [r4, #{PATCH_SUM}]
+    str     r7, [r4]
+cm_go:{pick}
+    b       cmc_out
+{cases}
+cmc_sum:                            /* magic ^ the five, as hook E verifies */
+    mov     r5, r7
+    ldr     r6, [r4, #4]
+    eors    r5, r6
+    ldr     r6, [r4, #8]
+    eors    r5, r6
+    ldr     r6, [r4, #12]
+    eors    r5, r6
+    ldr     r6, [r4, #16]
+    eors    r5, r6
+    ldr     r6, [r4, #20]
+    eors    r5, r6
+    str     r5, [r4, #{PATCH_SUM}]
+cmc_out:
+    vpop    {{s14, s15}}
+    pop     {{r4, r5, r6, r7, pc}}
+
+    .balign 4
+cm_milli:
+    .float  0.001
+    .ltorg
+"""
+    code, syms = assemble("hookCM", src)
+    code = bytearray(code)
+    fix = [(f"cstore_call{i}", 0x0808951e, True) for i in range(len(CM_ROWS))]
+    fix += [("cstore_next", nexts["cstore"], False),
+            ("cpost_next", nexts["cpost"], False),
+            ("cedit_next", nexts["cedit"], False)]
+    for sym, target, call in fix:
+        off = syms[sym]
+        code[off:off + 4] = enc_b_bl(org + off, target, call)
+    return bytes(code), syms
+
+
+def apply_comp_menu(d):
+    """Guard CM's facts, install hook E at the compressor's DSP call, append CM,
+    take its Settings sites at the head of their chains, add the page-3 rows."""
+    _guard(d, CLK_STORE_CAP_VA, CLK_STORE_CAP, "global settings capacity")
+    for va, raw, what in CM_GUARDS:
+        _guard(d, va, raw, what)
+    for nm, va, expect in (("compressor field offset", COMP_INIT_VA, COMP_INIT),
+                           ("compressor default", COMP_DFLT_VA, COMP_DFLT),
+                           ("compressor DSP call", COMP_DSP_CALL, COMP_DSP_CALL_GUARD)):
+        if struct.unpack_from("<I", d, va - BASE)[0] != expect:
+            refuse(f"The {nm} at {va:#x} is not what the compressor menu expects.")
+    off = COMP_DSP_CALL - BASE
+    if bytes(d[off:off + 4]) != enc_b_bl(COMP_DSP_CALL, COMP_DSP_FN, True):
+        refuse(f"The compressor call at {COMP_DSP_CALL:#x} is not what it should be.")
+    row = THEME_ROW_VA - BASE
+    if bytes(d[row:row + 16]) != bytes(16):
+        refuse("Settings page 3 is not empty.")
+    e_org = BASE + len(d)
+    _append(d, bytearray(build_comp_dsp_hook(e_org)))
+    d[off:off + 4] = enc_b_bl(COMP_DSP_CALL, e_org, True)
+    nexts = {entry: branch_target(d, site) for site, entry, _ in CM_SITES}
+    org = BASE + len(d)
+    code, syms = build_comp_menu_hook(org, nexts)
+    org2 = _append(d, bytearray(code))
+    assert org2 == org
+    for site, entry, _ in CM_SITES:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], True)
+    for slot, (gid, _, _, _) in zip(CM_ROW_SLOTS, CM_ROWS):
+        struct.pack_into("<H", d, row + 2 * slot, gid)
+    vprint(f"E compressor DSP at {e_org:#010x}; CM {len(code)} bytes at {org:#010x}, "
+           f"rows {'/'.join(hex(r[0]) for r in CM_ROWS)}, store {PATCH_RAM:#x}")
+    return org, syms
+
+
 def patch_ram_ranges():
     """Every byte of RAM any hook in this file writes: (what, lo, hi)."""
     return [
@@ -10463,9 +10696,12 @@ def main():
     if gate_rec and not comp:
         refuse("--gate-rec builds on the default 2.3.10 set: no --v238, --v239 or test options with it.")
     gate_only = "--gate-only" in flags             # fork: stock 2.3.4 plus GR alone
-    others = [f for f in flags if f.startswith("--") and f not in ("--gate-only", "--reassemble", "--verbose")]
-    if gate_only and others:
-        refuse("--gate-only builds stock 2.3.4 plus Gate Rec and Gate Clr, nothing else.",
+    comp_menu = "--comp-menu" in flags             # fork: stock 2.3.4 plus CM (and GR)
+    minimal = gate_only or comp_menu
+    others = [f for f in flags if f.startswith("--") and
+              f not in ("--gate-only", "--comp-menu", "--reassemble", "--verbose")]
+    if minimal and others:
+        refuse("--gate-only and --comp-menu build on stock 2.3.4, with nothing else added.",
                f"Leave out: {' '.join(others)}")
     cpu_meter = v239 or "--cpu-meter" in flags     # opt-in test build, never a release
     preset_bpm = v239 or "--preset-bpm" in flags   # opt-in test build, never a release
@@ -10479,7 +10715,9 @@ def main():
     if osd and not character:
         refuse("--osd needs --character: the OSD's MIDI side lives in its C object.")
     if len(argv) <= 2:
-        if gate_only:
+        if comp_menu:
+            ver = CM_GATE_VERSION if gate_only else CM_VERSION
+        elif gate_only:
             ver = GATE_ONLY_VERSION
         elif gate_rec:
             ver = GATE_VERSION
@@ -10611,13 +10849,17 @@ def main():
 
     print("     ok   The code is where the patch expects to find it")
 
-    if gate_only:
-        # Stock 2.3.4 plus GR and the splash: none of the hooks above, so a
-        # fault seen on this image can only be GR's (or stock's).
-        print("\n  Adding Gate Rec and Gate Clr to stock 2.3.4, and nothing else...")
+    if minimal:
+        # Stock 2.3.4 plus GR and/or CM and the splash: none of the hooks
+        # above, so a fault seen on this image can only be theirs (or stock's).
+        print("\n  Adding this fork's features to stock 2.3.4, and nothing else...")
         check_patch_ram(d)
-        apply_gate_rec(d, only=True)
-        print(f"     ok   {'Gate Rec / Clr / Loop':<28} TOOLS > Settings (FORK)")
+        if gate_only:
+            apply_gate_rec(d, only=True)
+            print(f"     ok   {'Gate Rec / Clr / Loop':<28} TOOLS > Settings (FORK)")
+        if comp_menu:
+            apply_comp_menu(d)
+            print(f"     ok   {'Compressor, in dB and ms':<28} TOOLS > Settings (FORK)")
         finish(d, outp, ver)
         return
 

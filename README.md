@@ -3,7 +3,8 @@
 This fork of
 [modularpatcher/bitbox-micro-fw-patch](https://github.com/modularpatcher/bitbox-micro-fw-patch)
 turns the Bitbox Micro's input jacks into a looper's foot switches. A gate can
-record into a pad, clear it, or do both, with no MIDI controller needed.
+record into a pad, clear it, or do both, with no MIDI controller needed. It can
+also put the stock compressor's controls on the Settings screen.
 
 It is unofficial. Nobody at 1010music, or at the original project, wrote or
 endorsed this fork's feature, so do not ask either of them for support.
@@ -26,6 +27,15 @@ MIDI Rec does not need to be on.
 
 A jack you assign to a row stops triggering its own pad. Every other jack works
 exactly as stock. The settings are saved, so they survive power cycles.
+
+## The Compressor, by Menu
+
+`--comp-menu` adds the stock compressor's controls to the Settings screen, in
+real units: **C Thresh** (dB), **C Ratio** (N:1), **C Attack** and **C Release**
+(ms) and **C Gain** (makeup, dB). Stock's own Compressor row switches it on and
+off. It is the stock compressor only, with no compressor types and no MIDI. See
+[The Compressor, by Menu](SETTINGS.md#the-compressor-by-menu). Not yet tried on
+a module.
 
 ## Using It as a Looper
 
@@ -65,6 +75,8 @@ There are two builds:
 |---|---|---|---|---|
 | `--gate-only` | Stock 2.3.4 plus the three rows, nothing else. The rows follow SD Mode on Settings page 2. | `2.3.4-gr3` | `e187b8dc` | Yes, on a module |
 | `--gate-rec` | The original project's full 2.3.10 patch plus the three rows, after Theme on page 3. | `2.3.10-gr3` | `804ba422` | Not yet |
+| `--comp-menu` | Stock 2.3.4 plus the compressor rows on page 3. | `2.3.4-cm1` | `44da6f2e` | Not yet |
+| `--gate-only --comp-menu` | Stock 2.3.4 plus the gate rows and the compressor rows. | `2.3.4-gc1` | `4e1b11a6` | Not yet |
 
 Start with `--gate-only`. With no flag, the script builds the original
 project's 2.3.10-mod unchanged; its features are documented in the guide pages

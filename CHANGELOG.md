@@ -5,6 +5,16 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-cm1 / 2.3.4-gc1 (fork, --comp-menu) — November 2026
+
+- New: `--comp-menu` puts the stock compressor's Threshold, Ratio, Attack,
+  Release and Gain on the Settings screen, in dB, N:1 and ms. Stock only: no
+  compressor types and no MIDI. See
+  [Settings](SETTINGS.md#the-compressor-by-menu).
+- With `--gate-only` as well, one image has both features (`2.3.4-gc1`).
+- Every other build is unchanged, byte for byte.
+- Not yet confirmed on a module.
+
 ## 2.3.10-gr3 / 2.3.4-gr3 (fork) — October 2026
 
 - New: Gate Loop, a third row. One gate clears the selected pad and then

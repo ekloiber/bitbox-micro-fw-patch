@@ -21,6 +21,8 @@ Theme:       STOCK / AMBER / STAGE / CONTRAST / PHOSPHOR / SYNTHWAVE / CUSTOM
 Gate Rec:    OFF / IN 1 ... IN 8      (fork builds only)
 Gate Clr:    OFF / IN 1 ... IN 8      (fork builds only)
 Gate Loop:   OFF / IN 1 ... IN 8      (fork builds only)
+C Thresh, C Ratio, C Attack,
+C Release, C Gain                     (fork builds only: --comp-menu)
 ```
 
 ## OSD
@@ -211,6 +213,42 @@ module yet.
 `2.3.4-gr3` adds Gate Loop, also confirmed on a module: one gate replaces a
 loaded pad with a new take, with both fixed and Custom lengths. With Custom,
 set Sync to None for a clean loop (see above).
+
+## The Compressor, by Menu
+
+Builds made with `--comp-menu` put the stock compressor's controls on the
+Settings screen, in real units. It is the stock compressor only: no
+compressor types and no MIDI control. Use `--comp-menu` alone, or with
+`--gate-only` to have the gate rows as well.
+
+Switch the compressor on and off with stock's own **Compressor** row, near the
+top of Settings. The five controls are on the next page, after the gate rows:
+
+```text
+C Thresh:    -48.0 to 0.0 dB, in 0.1 dB steps     starts at -12.0 dB
+C Ratio:     1 to 100, the N of N:1               starts at 2
+C Attack:    0 to 1000 ms                         starts at 30 ms
+C Release:   0 to 1000 ms                         starts at 300 ms
+C Gain:      -36.0 to +36.0 dB makeup             starts at 0.0 dB
+```
+
+The labels and units are 1010music's own: the rows are in the stock firmware,
+unused on the Micro, and this build connects them to the compressor. The
+starting values are the glue setting described in
+[The compressor](COMPRESSOR.md#how-it-arrives). Every change is saved, so the
+compressor comes back as you left it after a power cycle.
+
+Attack below 0.5 ms and release below 10 ms act as 0.5 ms and 10 ms.
+
+### Not Yet Confirmed on Hardware
+
+`2.3.4-cm1` and `2.3.4-gc1` have not been run on a module yet. Check these first:
+
+- The five rows appear with the units and starting values above. If Attack
+  shows 300 ms instead of 30 ms, the unit is wrong. Report it.
+- Changing Threshold or Ratio audibly changes the compression on Outs 1 and 2,
+  with the Compressor row ON.
+- The values survive a power cycle.
 
 ## Clk Loss
 
