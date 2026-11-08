@@ -5,6 +5,13 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## Guide update (fork) — November 2026
+
+- New: [Recording to the Card](SETTINGS.md#recording-to-the-card). Format the
+  card exFAT: on FAT32, long takes can lose seconds of audio while recording,
+  which sounds like stutter or drift. Stock 2.3.4 does this too. No firmware
+  change.
+
 ## 2.3.10-gr3 / 2.3.4-gr3 (fork) — October 2026
 
 - New: Gate Loop, a third row. One gate clears the selected pad and then

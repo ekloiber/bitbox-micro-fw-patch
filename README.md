@@ -37,9 +37,15 @@ exactly as stock. The settings are saved, so they survive power cycles.
    number of bars, or to Custom to end each take with a gate.
 4. Send a gate to record. Send another to replace the loop with a new take.
 
-With Length set to Custom, set the recorded pad's **Sync** to **None**
-(the pad's Pos page) for a clean loop. Otherwise the clip can rush towards its
-end as Sync pulls it into line with the clock. See
+**Format the card exFAT.** On a FAT32 card, long takes can lose audio while
+they record: in testing, 8-bar takes at 130 BPM came out up to 3.9 seconds
+short and jumped where audio was missing. The same card formatted exFAT, with
+a 128 KB allocation unit, recorded every take to within a few milliseconds.
+Keep SD Mode on High Speed; Compatible made it worse. See
+[Recording to the Card](SETTINGS.md#recording-to-the-card).
+
+If a loop still rushes or stutters, set the recorded pad's **Sync** to
+**None** (the pad's Pos page). See
 [Clean Loops with a Custom Length](SETTINGS.md#clean-loops-with-a-custom-length).
 
 ## Building It
