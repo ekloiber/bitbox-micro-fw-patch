@@ -179,7 +179,39 @@ A jack given to any of the three rows stops triggering its own pad. Its pad
 still plays from the screen and from MIDI. Give two rows the same jack and the
 first in the list wins: Rec, then Clr, then Loop. OFF, the default, leaves every jack as stock.
 
+### Recording to the Card
+
+Format the microSD card **exFAT** before recording loops. On FAT32, a take can
+lose audio while it records, and the longer the take the more it loses. The
+recording still stops on time, so the WAV ends up shorter than its bars, and
+the loop jumps where audio is missing. On playback that sounds like stutter,
+or like drifting out of time and snapping back.
+
+Found on a SanDisk Ultra 16 GB A1 card, recording 8 bars at 130 BPM from
+MIDI clock. This happens on stock 2.3.4 too, not only on this fork:
+
+| Card format | 8-bar take (should be 14.769 s) |
+|---|---|
+| FAT32, SD Mode High Speed | 12.49 s and 13.19 s: 1.6 to 2.3 s missing |
+| FAT32, SD Mode Compatible | 10.85 s: 3.9 s missing |
+| exFAT, 128 KB allocation unit | 14.771, 14.769, 14.769 s |
+
+The likely reason: on FAT32 the card must keep updating its file allocation
+table as a recording grows, and those extra writes slow it down enough to
+overflow the recorder's buffer. exFAT mostly avoids them.
+
+- Back up the card, format it exFAT with a 128 KB allocation unit, and copy
+  your files back. The manual lists exFAT as a supported format, firmware
+  updates included.
+- Leave SD Mode on High Speed.
+- To check a card, record 8 bars and measure the WAV in an audio editor. The
+  expected length is 32 beats x 60 / BPM seconds.
+
 ### Clean Loops with a Custom Length
+
+If a loop rushes towards its end, first make sure the card is exFAT (above):
+a take that lost audio is shorter than its bars, and Sync stretching it back
+to length sounds like rushing.
 
 With Rec Quant set, a take becomes a Clip pad that follows the clock. A fixed
 Length always records a whole number of bars, so it loops cleanly. A take
