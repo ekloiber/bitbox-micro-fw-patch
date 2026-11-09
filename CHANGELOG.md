@@ -16,7 +16,8 @@ the guide you are reading. None of them covers how any of it is built.
   next restart. Slicer with PlayThru is unchanged.
 - Loop Mode on a CV (gs1) is unchanged. Confirmed on a module in Trigger and
   Gate launch modes.
-- Not yet tried on a module.
+- Confirmed on a module: Loop Len by hand and by CV, with Sync on and off,
+  saved with the preset, and together with Loop Mode on a CV.
 
 ## 2.3.4-gs1 (fork, experimental) — November 2026
 

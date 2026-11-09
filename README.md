@@ -48,6 +48,21 @@ If a loop still rushes or stutters, set the recorded pad's **Sync** to
 **None** (the pad's Pos page). See
 [Clean Loops with a Custom Length](SETTINGS.md#clean-loops-with-a-custom-length).
 
+## Slicer Pads: Loop Mode and Loop Len on a CV
+
+Built with `--slice-loop`. Both work only on Slicer pads with PlayThru off.
+
+| Control | What it does |
+|---|---|
+| **Loop Mode** on a CV | Assign EXT 1-8 to Loop Mode. While the CV is at 2.5 V or more, the current slice loops; when it drops, the slice plays out and the pad's own Loop Mode applies again. |
+| **Loop Len** | A new row on the Slicer page, after Slice Seq: how much of each slice plays, from its start, 1-100 % (default 100 %). Saved with the preset. |
+| **Loop Len** on a CV | Assign EXT 1-8 with Amount +100 %: 0 V leaves the length as set, 5 V takes it down to 1 %. |
+
+Changes land at the next restart of the slice, so they stay in time. Use
+Loop Mode and Loop Len together for rolls and stutters that open and close
+from a CV. Set the jack to CV on the Input screen first. The Amount box
+does nothing for Loop Mode. Only EXT sources reach these two targets.
+
 ## Building It
 
 You need a Bitbox Micro on firmware 2.3.4, Python 3, a microSD card, and
@@ -65,11 +80,12 @@ On Windows, use `python` instead of `python3`. Copy `patched/MICRO.BIN` to the
 root of the card, hold the white right-arrow button and power on. Let go when
 it says Erasing.
 
-There are two builds:
+The builds:
 
 | Flag | What you get | Splash | Fingerprint begins | Tested |
 |---|---|---|---|---|
 | `--gate-only` | Stock 2.3.4 plus the three rows, nothing else. The rows follow SD Mode on Settings page 2. | `2.3.4-gr3` | `e187b8dc` | Yes, on a module |
+| `--gate-only --slice-loop` | Stock 2.3.4 plus the three Gate rows and the Slicer controls. | `2.3.4-gs2` | `2a078db0` | Yes, on a module |
 | `--gate-rec` | The original project's full 2.3.10 patch plus the three rows, after Theme on page 3. | `2.3.10-gr3` | `804ba422` | Not yet |
 
 Start with `--gate-only`. With no flag, the script builds the original
