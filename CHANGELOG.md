@@ -5,6 +5,17 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs1 (fork, experimental) — November 2026
+
+- New, only with `--slice-loop`: Loop Mode on a Slicer pad takes a CV. Assign
+  EXT 1-8 to Loop Mode as you would any other target. While that CV is at
+  2.5 V or more, the current slice loops; when it drops, the slice plays out
+  and the pad's own Loop Mode setting applies again. The Amount box is
+  ignored. Slicer with PlayThru, and Clip pads, are unchanged.
+- 2.3.4-gs0 was a probe: Loop Mode got its modulation boxes, but a CV did
+  nothing.
+- Not yet tried on a module.
+
 ## Guide update (fork) — November 2026
 
 - New: [Recording to the Card](SETTINGS.md#recording-to-the-card). Format the

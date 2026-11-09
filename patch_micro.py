@@ -1047,9 +1047,9 @@ USAGE = f"""
                        (this fork's feature; version 2.3.10-gr3)
     --gate-only        stock 2.3.4 with ONLY the Gate rows added, none of
                        the other changes (version 2.3.4-gr3)
-    --slice-loop       EXPERIMENTAL: Loop Mode becomes a modulation target, so
-                       CV (EXT 1-8) can reach it on Slicer pads (2.3.4-s0;
-                       with --gate-only, 2.3.4-gs0)
+    --slice-loop       EXPERIMENTAL: Slicer Loop Mode on a CV. Assign EXT 1-8
+                       to Loop Mode; at 2.5 V or more the slice loops
+                       (2.3.4-s1; with --gate-only, 2.3.4-gs1)
     -v                 show the addresses and opcodes as it works
     --reassemble       verify the frozen code against its sources
     --legacy-version   allow a version string too long for the panel, for
@@ -1262,6 +1262,8 @@ FROZEN = {
         {'nblock': 0, '$t': 484, 'nblock_orig': 2, '$d': 504, 'nblock_c': 26, 'nmidi': 52, 'nmidi_c': 76, 'nmidi_next': 100, 'ncomp': 104, 'ncomp_c': 136, 'ncomp_e': 132, 'ncomp_call': 154, 'nclip_rate': 178, 'nclip_rate_c': 200, 'nclip_cc': 236, 'nclip_cc_go': 248, 'nclip_cc_out': 296, 'nclip_cc_c': 274, 'njread': 300, 'njread_c': 380, 'nclip_beats': 408, 'nclip_beats_c': 430, 'nfinal': 456, 'nfinal_p': 458, 'nfinal_c': 480, '_sN': 0}),
     "hookGR": ("2de91f5083b0039840f2a1110ff2fc120ff2d413092400940ff2fc14019400000000039840f2a3110ff2f8120ff2b813092400940ff2f814019400000000039840f2a5110ff2f4120ff29c13092400940ff2f41401940000000003b0bde81f50000000002de90f50009840f2a111002200000000009840f2a311002200000000009840f2a511002200000000bde80f500000000040f2a11c624517d040f2a31c624513d040f2a51c62450fd00000000040f2a11c624509d040f2a31c624505d040f2a51c624501d00000000010b51446082b05d9414811460022000000000023002140f2a110844209d0042140f2a310844204d0082140f2a5108442ffd0dff8e0c040f20000c4f2417040ea03004cf8010010bd00f02ef818b9b8f1130f00000000012803d1682000f005f8672000f002f80000000010b514a900220a604a608a60ca600a614a612d220a70099a4a60886045f28820c0f2010030440000000010bd00f007f818b9b8f1130f0000000000000000dff868c01a4944f24173dcf80000b3eb104f09d1c0b20138072805d851f82000404501d167207047dcf80400b3eb104f09d1c0b20138072805d851f82000404501d168207047dcf80800b3eb104f09d1c0b20138072805d851f82000404501d1012070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf67617465726563696e0000bf4761746520436c723a0000bf67617465636c72696e0000bf47617465204c6f6f703a0000676174656c6f6f70696e00004f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
         {'greg': 0, 'glabel0': 524, 'gvalues': 488, 'gxml0': 536, 'greg_call0': 30, 'glabel1': 548, 'gxml1': 560, 'greg_call1': 58, 'glabel2': 572, 'gxml2': 584, 'greg_call2': 86, 'greg_next': 96, 'gstore': 100, 'gstore_call0': 112, 'gstore_call1': 124, 'gstore_call2': 136, 'gstore_next': 144, 'gpost': 148, 'gmine': 204, 'gpost_next': 172, 'gedit': 176, 'gedit_next': 200, 'gm_store': 224, 'gm_set': 218, 'gm_put': 254, 'gon': 276, 'gmatch': 372, 'gon_act': 290, 'gon_back': 286, 'gon_one': 302, 'gsend': 310, 'gon_done': 306, 'gsend_push': 348, 'goff': 354, 'goff_eat': 368, 'goff_back': 364, 'gm_0': 382, 'gm_1': 412, 'gm_2': 442, 'gm_3': 472, 'gv0': 596, 'gv1': 600, 'gv2': 608, 'gv3': 616, 'gv4': 624, 'gv5': 632, 'gv6': 640, 'gv7': 648, 'gv8': 656, '_sGR': 0}),
+    "hookSL": ("6f2c0dd1022a09d82846002106b1012100f044f810b100eb8200466000000000842c01d000000000000000002de9075096f8f431c3b93046002100f02ff8002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f009f805b00000000010b5044600f002f80000000001b5002100f004f808b10021016001bd34b50d46dff858c0dcf80010154b99420ad0ccf8003000230cf104010cf2041241f8043b9142fbd10cf104010cf2041200240b6883420ed00bb904b90c4610319142f6d14db144b100236360a360e3602060204634bd084634bd002034bd000000f10624314f4c53",
+        {'sl_att': 0, 'sa_other': 32, 'sa_done': 28, 'sa_find': 16, 'sl_find': 156, 'sa_84': 40, 'sa_back': 36, 'sl_eos': 44, 'se_out': 104, 'se_t1': 80, 'se_on': 102, 'se_t2': 90, 'se_t3': 100, 'se_stop': 114, 'se_loop': 110, 'sl_ctor': 118, 'sl_drop': 140, 'sc_back': 124, 'sl_dtor': 128, 'sd_back': 136, 'sl_drop_out': 154, 'sf_scan': 196, 'sf_zero': 188, 'sf_loop': 206, 'sf_hit': 242, 'sf_next': 218, 'sf_none': 246, '_sSL': 0}),
 }
 
 # Reduced C objects (see "C hooks" below): compressed, origin-independent, and
@@ -3706,8 +3708,9 @@ def parse_elf32(e):
         for i in range(s["size"] // s["entsz"]):
             o = s["off"] + i * s["entsz"]
             n, val, _, _, _, shndx = struct.unpack_from("<IIIBBH", e, o)
-            if shndx == ti and n:
-                syms[e[st["off"] + n:e.index(b"\0", st["off"] + n)].decode()] = val & ~1
+            name = e[st["off"] + n:e.index(b"\0", st["off"] + n)].decode() if n else ""
+            if shndx == ti and name and not name.startswith("$"):   # ELF mapping symbols ($t, $d)
+                syms[name] = val & ~1
     return code, syms
 
 
@@ -10361,28 +10364,48 @@ def apply_gate_rec(d, only=False):
     return org, syms
 
 
-# --- SL: Slicer Loop Mode as a modulation target (fork, --slice-loop) ----------
-# PROBE (sl0): the smallest change that can tell how far stock goes on its own.
-# It adds Loop Mode (id 0x6f) to the firmware's list of modulation targets, so
-# its row should get the three modulation boxes and the right-arrow source
-# screen (EXT 1-8). Nothing else changes; the hardware test answers the rest.
+# --- SL: Slicer Loop Mode on a CV (fork, --slice-loop) ------------------------
+# Loop Mode (id 0x6f) becomes a modulation target on Slicer pads. Assign EXT 1-8
+# to it like any other target; while that CV is at or above 2.5 V the current
+# slice loops, below it the pad's own Loop Mode setting decides. The decision
+# is taken where stock takes it, at the end of each slice, so a CV held high
+# keeps the slice looping and letting it fall lets the slice finish (hold).
 #
 #   - The target list: 0x080c86f8, u16 parameter ids, 36 used then zeros. The
 #     UI's "is this a target?" scan (0x0809099c) walks 49 entries (add.w r6,
 #     r4, #0x62), and the page builder passes 49 (movs r2, #0x31 at
-#     0x080910f4), so slots 36-48 are free and read already.
-#   - Clip/Slicer voices: their setter (0x080b6ce8) has a case for 0x6f that
-#     stores voice+0x1f4 = (value != 0); the slicer's end-of-slice test
-#     (0x080b623e) restarts the slice when it is set. Clip pads test it with
-#     Launch Mode != Trigger as well (0x080b5f44, 0x080b618e).
-#   - Open: whether the modulation engine posts modulated values to that setter
-#     for any target id (only the UI reads the list, so it may), and where a CV
-#     lands on an on/off parameter. The 2.5 V threshold waits for that answer.
-SL_VERSION_TAG = "s0"                # appended to the minimal build's version
+#     0x080910f4), so slots 36-48 are free and read already. That alone (sl0,
+#     tested) gives the row its modulation boxes and EXT 1-8, but the CV did
+#     nothing: stock has no place to put a source for this target.
+#   - How an EXT source reaches a pad: the global router (0x080951e8) hands
+#     sources 0x0f-0x16 (EXT1-8) to the mod manager at root + 0xfaf8, which
+#     calls the pad engine's vtable +0x40 attach(this, src, target id, slot,
+#     amount). For Clip/Slicer (vtable 0x080de428) that is 0x080b3684; ids it
+#     does not know fall out at 0x080b36ee. Source "none" calls it with src 0.
+#     A source object's value is the float at src + 4 (the mod evaluator reads
+#     it there, 0x080a1a10), written as raw * 1000 >> 11 / 1000 (0x0804685e),
+#     so a full-scale input reads +-1.0 and 2.5 V on a +-5 V input reads 0.5.
+#   - SL catches 0x6f at 0x080b36ee and keeps each slot's source pointer in a
+#     small table in patch RAM keyed by the engine (16 engines x 3 slots).
+#     The engine's constructor and deleting destructor drop its entry, so a new
+#     pad never inherits an old one's sources.
+#   - The slicer's end-of-slice test (0x080b623e, no PlayThru) restarts the
+#     slice when voice+0x1f4 is set. SL replaces its load: set, or any of the
+#     engine's Loop Mode sources at or above 0.5 (compared as float bits, so no
+#     VFP register is touched), restarts it; otherwise the slice ends as stock.
+#   - Not touched: Clip pads, and Slicer with PlayThru (whose Loop Mode loops
+#     the whole file). The Amount box is ignored: the threshold is on the CV.
+SL_VERSION_TAG = "s1"                # appended to the minimal build's version
 SL_LIST = 0x080c86f8                 # modulation targets, u16 ids
 SL_LIST_USED = 36
 SL_LIST_CAP = 49
 SL_ADD = (0x6f,)                     # Loop Mode
+SL_LOOP_ID = 0x6f
+SL_RAM = 0x2406f100                  # +0 magic, then SL_ENGINES x {engine, src0, src1, src2}
+SL_MAGIC = 0x534c4f31                # "SLO1": anything else and the table is cleared first
+SL_ENGINES = 16
+SL_RAM_BYTES = 4 + 16 * SL_ENGINES
+SL_THRESH_BITS = 0x3f000000          # 0.5f: 2.5 V on a +-5 V input
 SL_GUARDS = (
     (SL_LIST, "040045003f00710072007300740031008400",
      "the modulation target list: Level, Pan, Pitch, Start ... Slice, Slice Seq"),
@@ -10390,11 +10413,177 @@ SL_GUARDS = (
     (0x080909b2, "34f8023b984203d0", "... ldrh r3, [r4], #2; cmp r0, r3; beq"),
     (0x080910f4, "3122", "the page builder's count: movs r2, #0x31 (49)"),
     (0x080b6ec0, "3369002b14bf0123002385f8", "the Clip/Slicer setter's Loop Mode case"),
+    (0x080de468, "85360b08", "the Clip/Slicer vtable's attach (+0x40)"),
+    (0x080de430, "79360b08", "... and its deleting destructor (+8)"),
+    (0x080b3c90, "28e40d08", "the Clip/Slicer constructor's vtable literal"),
+    (0x080b3684, "70b5144605461a460e46452c", "attach: r4 = id, r5 = this, r2 = slot, r6 = src"),
+    (0x080b373c, "02b0bdec028b70bd", "... its epilogue"),
+    (0x080b36ee, "842c00f0c080", "... cmp r4, #0x84; beq.w (ids above 0x45)"),
+    (0x080a1a10, "d2ed017a", "the mod evaluator reads a source at +4"),
+    (0x0804685e, "4ff47a7303fb06f6", "CV events: raw * 1000 ..."),
+    (0x0804686e, "f612", "... >> 11"),
+    (0x080b623e, "96f8f431002b3ff47cad", "the slicer's end-of-slice Loop Mode test"),
+    (0x080b6248, "39463046", "... its loop path: mov r1, r7; mov r0, r6"),
+    (0x080b5d40, "01236372", "... its stop path: movs r3, #1; strb r3, [r4, #9]"),
+    (0x080b3c8a, "05b010e0", "the constructor's exit: add sp, #0x14; b 0x080b3cb0"),
+    (0x080b3678, "10b50446", "the deleting destructor: push {r4, lr}; mov r4, r0"),
+)
+SL_SITES = (                         # (site, entry): b.w in
+    (0x080b36ee, "sl_att"),
+    (0x080b623e, "sl_eos"),
+    (0x080b3c8a, "sl_ctor"),
+    (0x080b3678, "sl_dtor"),
+)
+SL_FIX = (                           # (placeholder, target): b.w out
+    ("sa_done", 0x080b373c),
+    ("sa_back", 0x080b36f4),
+    ("sa_84", 0x080b3874),
+    ("se_loop", 0x080b6248),
+    ("se_stop", 0x080b5d40),
+    ("sc_back", 0x080b3cb0),
+    ("sd_back", 0x080b367c),
 )
 
 
+def build_slice_loop_hook():
+    """SL: keep Loop Mode's sources per engine; test them at the end of a slice."""
+    tests = "".join(f"""
+    ldr     r2, [r0, #{4 + 4 * k}]
+    cbz     r2, se_t{k + 1}
+    ldr     r2, [r2, #4]            /* the source's value, as float bits */
+    cmp     r2, r1
+    bge     se_on
+se_t{k + 1}:""" for k in range(3))
+    src = f"""
+.syntax unified
+.thumb
+.section .text
+.global _sSL
+.thumb_func
+_sSL:
+sl_att:                             /* attach, id > 0x45: r4 id, r5 this, r6 src, r2 slot */
+    cmp     r4, #0x{SL_LOOP_ID:x}
+    bne     sa_other
+    cmp     r2, #2
+    bhi     sa_done
+    mov     r0, r5
+    movs    r1, #0                  /* "none" never takes a table entry */
+    cbz     r6, sa_find
+    movs    r1, #1
+sa_find:
+    bl      sl_find
+    cbz     r0, sa_done
+    add.w   r0, r0, r2, lsl #2
+    str     r6, [r0, #4]
+sa_done:
+    .short  0, 0                    /* b.w the attach's epilogue */
+sa_other:
+    cmp     r4, #0x84               /* the instruction this replaced */
+    beq     sa_84
+sa_back:
+    .short  0, 0                    /* b.w on: cmp r4, #0xaa */
+sa_84:
+    .short  0, 0                    /* b.w Slice Seq's case */
+
+sl_eos:                             /* end of slice, no PlayThru: r6 = this */
+    push    {{r0, r1, r2, r12, lr}}
+    ldrb.w  r3, [r6, #0x1f4]        /* the instruction this replaced */
+    cbnz    r3, se_out
+    mov     r0, r6
+    movs    r1, #0
+    bl      sl_find
+    movs    r3, #0
+    cbz     r0, se_out
+    mov.w   r1, #0x{SL_THRESH_BITS:x}{tests}
+    b       se_out
+se_on:
+    movs    r3, #1
+se_out:
+    pop     {{r0, r1, r2, r12, lr}}
+    cbz     r3, se_stop
+se_loop:
+    .short  0, 0                    /* b.w restart the slice */
+se_stop:
+    .short  0, 0                    /* b.w the slice ends */
+
+sl_ctor:                            /* constructor exit: r0 = this, returned */
+    bl      sl_drop
+    add     sp, #0x14               /* the instruction this replaced */
+sc_back:
+    .short  0, 0                    /* b.w its vpop / pop */
+
+sl_dtor:                            /* deleting destructor: r0 = this */
+    push    {{r4, lr}}              /* the instructions this replaced */
+    mov     r4, r0
+    bl      sl_drop
+sd_back:
+    .short  0, 0                    /* b.w on to free() */
+
+sl_drop:                            /* r0 = engine: forget it. Keeps r0, r2. */
+    push    {{r0, lr}}
+    movs    r1, #0
+    bl      sl_find
+    cbz     r0, sl_drop_out
+    movs    r1, #0
+    str     r1, [r0]
+sl_drop_out:
+    pop     {{r0, pc}}
+
+sl_find:                            /* r0 = engine, r1 = 1 to add -> r0 = entry or 0 */
+    push    {{r2, r4, r5, lr}}      /* uses r1, r3, r12; keeps r2 */
+    mov     r5, r1
+    ldr     r12, =0x{SL_RAM:08x}
+    ldr     r1, [r12]
+    ldr     r3, =0x{SL_MAGIC:08x}
+    cmp     r1, r3
+    beq     sf_scan
+    str     r3, [r12]               /* stale RAM: start the table empty */
+    movs    r3, #0
+    add.w   r1, r12, #4
+    addw    r2, r12, #{SL_RAM_BYTES}
+sf_zero:
+    str     r3, [r1], #4
+    cmp     r1, r2
+    bne     sf_zero
+sf_scan:
+    add.w   r1, r12, #4
+    addw    r2, r12, #{SL_RAM_BYTES}
+    movs    r4, #0                  /* the first free entry */
+sf_loop:
+    ldr     r3, [r1]
+    cmp     r3, r0
+    beq     sf_hit
+    cbnz    r3, sf_next
+    cbnz    r4, sf_next
+    mov     r4, r1
+sf_next:
+    adds    r1, #16
+    cmp     r1, r2
+    bne     sf_loop
+    cbz     r5, sf_none
+    cbz     r4, sf_none
+    movs    r3, #0
+    str     r3, [r4, #4]
+    str     r3, [r4, #8]
+    str     r3, [r4, #12]
+    str     r0, [r4]                /* the owner last: a reader sees no stale source */
+    mov     r0, r4
+    pop     {{r2, r4, r5, pc}}
+sf_hit:
+    mov     r0, r1
+    pop     {{r2, r4, r5, pc}}
+sf_none:
+    movs    r0, #0
+    pop     {{r2, r4, r5, pc}}
+    .ltorg
+    .balign 4
+"""
+    return assemble("hookSL", src)
+
+
 def apply_slice_loop(d):
-    """Guard SL's facts and add Loop Mode to the modulation target list."""
+    """Guard SL's facts, add Loop Mode to the modulation targets, append SL and
+    put b.w on its four sites."""
     for va, raw, what in SL_GUARDS:
         _guard(d, va, raw, what)
     base = SL_LIST - BASE
@@ -10406,7 +10595,19 @@ def apply_slice_loop(d):
             refuse(f"Parameter {pid:#x} is already a modulation target.")
         struct.pack_into("<H", d, base + 2 * (SL_LIST_USED + i), pid)
     assert SL_LIST_USED + len(SL_ADD) < SL_LIST_CAP     # a zero still ends it
-    vprint(f"SL Loop Mode added to the modulation targets at {SL_LIST + 2 * SL_LIST_USED:#x}")
+    org = BASE + len(d)
+    code, syms = build_slice_loop_hook()
+    code = bytearray(code)
+    for sym, target in SL_FIX:
+        off = syms[sym]
+        assert code[off:off + 4] == b"\0\0\0\0", sym
+        code[off:off + 4] = enc_b_bl(org + off, target, False)
+    assert _append(d, code) == org
+    for site, entry in SL_SITES:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], False)
+    vprint(f"SL Loop Mode a mod target at {SL_LIST + 2 * SL_LIST_USED:#x}; "
+           f"{len(code)} bytes at {org:#010x}, ram {SL_RAM:#x}")
+    return org, syms
 
 
 def patch_ram_ranges():
@@ -10438,6 +10639,7 @@ def patch_ram_ranges():
         ("T the master bus, saved", CHRSAVE_RAM, CHRSAVE_RAM + 36),
         ("T the patch's own colours", THEME_OSD_RAM, THEME_OSD_RAM + 32),
         ("GR Gate Rec / Clr / Loop", GATE_RAM, GATE_RAM + 4 * len(GATE_ROWS)),
+        ("SL Loop Mode sources", SL_RAM, SL_RAM + SL_RAM_BYTES),
     ]
 
 
@@ -10677,7 +10879,7 @@ def main():
             print(f"     ok   {'Gate Rec / Clr / Loop':<28} TOOLS > Settings (FORK)")
         if slice_loop:
             apply_slice_loop(d)
-            print(f"     ok   {'Loop Mode, a mod target':<28} Slicer pads (FORK PROBE)")
+            print(f"     ok   {'Loop Mode on a CV':<28} Slicer pads (FORK)")
         finish(d, outp, ver)
         return
 
