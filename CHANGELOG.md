@@ -5,6 +5,31 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs2 (fork, experimental) — November 2026
+
+- New, only with `--slice-loop`: **Loop Len** on the Slicer page, after Slice
+  Seq. It sets how much of each slice plays, from its start: 1 to 100 %,
+  default 100 %, saved with the preset. Each restart of a looping slice plays
+  that length, so short settings give rolls and stutters.
+- Loop Len is a modulation target. Assign EXT 1-8 with Amount +100 %: 0 V
+  leaves the length as set, 5 V takes it down to 1 %. A change lands at the
+  next restart. Slicer with PlayThru is unchanged.
+- Loop Mode on a CV (gs1) is unchanged. Confirmed on a module in Trigger and
+  Gate launch modes.
+- Confirmed on a module: Loop Len by hand and by CV, with Sync on and off,
+  saved with the preset, and together with Loop Mode on a CV.
+
+## 2.3.4-gs1 (fork, experimental) — November 2026
+
+- New, only with `--slice-loop`: Loop Mode on a Slicer pad takes a CV. Assign
+  EXT 1-8 to Loop Mode as you would any other target. While that CV is at
+  2.5 V or more, the current slice loops; when it drops, the slice plays out
+  and the pad's own Loop Mode setting applies again. The Amount box is
+  ignored. Slicer with PlayThru, and Clip pads, are unchanged.
+- 2.3.4-gs0 was a probe: Loop Mode got its modulation boxes, but a CV did
+  nothing.
+- Confirmed on a module, in Trigger and Gate launch modes.
+
 ## Guide update (fork) — November 2026
 
 - New: [Recording to the Card](SETTINGS.md#recording-to-the-card). Format the
