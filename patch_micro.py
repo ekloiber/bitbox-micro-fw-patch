@@ -1047,6 +1047,9 @@ USAGE = f"""
                        (this fork's feature; version 2.3.10-gr3)
     --gate-only        stock 2.3.4 with ONLY the Gate rows added, none of
                        the other changes (version 2.3.4-gr3)
+    --slice-loop       EXPERIMENTAL: Loop Mode becomes a modulation target, so
+                       CV (EXT 1-8) can reach it on Slicer pads (2.3.4-s0;
+                       with --gate-only, 2.3.4-gs0)
     -v                 show the addresses and opcodes as it works
     --reassemble       verify the frozen code against its sources
     --legacy-version   allow a version string too long for the panel, for
@@ -10358,6 +10361,54 @@ def apply_gate_rec(d, only=False):
     return org, syms
 
 
+# --- SL: Slicer Loop Mode as a modulation target (fork, --slice-loop) ----------
+# PROBE (sl0): the smallest change that can tell how far stock goes on its own.
+# It adds Loop Mode (id 0x6f) to the firmware's list of modulation targets, so
+# its row should get the three modulation boxes and the right-arrow source
+# screen (EXT 1-8). Nothing else changes; the hardware test answers the rest.
+#
+#   - The target list: 0x080c86f8, u16 parameter ids, 36 used then zeros. The
+#     UI's "is this a target?" scan (0x0809099c) walks 49 entries (add.w r6,
+#     r4, #0x62), and the page builder passes 49 (movs r2, #0x31 at
+#     0x080910f4), so slots 36-48 are free and read already.
+#   - Clip/Slicer voices: their setter (0x080b6ce8) has a case for 0x6f that
+#     stores voice+0x1f4 = (value != 0); the slicer's end-of-slice test
+#     (0x080b623e) restarts the slice when it is set. Clip pads test it with
+#     Launch Mode != Trigger as well (0x080b5f44, 0x080b618e).
+#   - Open: whether the modulation engine posts modulated values to that setter
+#     for any target id (only the UI reads the list, so it may), and where a CV
+#     lands on an on/off parameter. The 2.5 V threshold waits for that answer.
+SL_VERSION_TAG = "s0"                # appended to the minimal build's version
+SL_LIST = 0x080c86f8                 # modulation targets, u16 ids
+SL_LIST_USED = 36
+SL_LIST_CAP = 49
+SL_ADD = (0x6f,)                     # Loop Mode
+SL_GUARDS = (
+    (SL_LIST, "040045003f00710072007300740031008400",
+     "the modulation target list: Level, Pan, Pitch, Start ... Slice, Slice Seq"),
+    (0x0809099c + 8, "04f16206", "the UI's target scan bound: add.w r6, r4, #0x62 (49)"),
+    (0x080909b2, "34f8023b984203d0", "... ldrh r3, [r4], #2; cmp r0, r3; beq"),
+    (0x080910f4, "3122", "the page builder's count: movs r2, #0x31 (49)"),
+    (0x080b6ec0, "3369002b14bf0123002385f8", "the Clip/Slicer setter's Loop Mode case"),
+)
+
+
+def apply_slice_loop(d):
+    """Guard SL's facts and add Loop Mode to the modulation target list."""
+    for va, raw, what in SL_GUARDS:
+        _guard(d, va, raw, what)
+    base = SL_LIST - BASE
+    ids = [struct.unpack_from("<H", d, base + 2 * i)[0] for i in range(SL_LIST_CAP)]
+    if 0 in ids[:SL_LIST_USED] or any(ids[SL_LIST_USED:]):
+        refuse("The modulation target list is not 36 entries and spare room.")
+    for i, pid in enumerate(SL_ADD):
+        if pid in ids:
+            refuse(f"Parameter {pid:#x} is already a modulation target.")
+        struct.pack_into("<H", d, base + 2 * (SL_LIST_USED + i), pid)
+    assert SL_LIST_USED + len(SL_ADD) < SL_LIST_CAP     # a zero still ends it
+    vprint(f"SL Loop Mode added to the modulation targets at {SL_LIST + 2 * SL_LIST_USED:#x}")
+
+
 def patch_ram_ranges():
     """Every byte of RAM any hook in this file writes: (what, lo, hi)."""
     return [
@@ -10463,9 +10514,12 @@ def main():
     if gate_rec and not comp:
         refuse("--gate-rec builds on the default 2.3.10 set: no --v238, --v239 or test options with it.")
     gate_only = "--gate-only" in flags             # fork: stock 2.3.4 plus GR alone
-    others = [f for f in flags if f.startswith("--") and f not in ("--gate-only", "--reassemble", "--verbose")]
-    if gate_only and others:
-        refuse("--gate-only builds stock 2.3.4 plus Gate Rec and Gate Clr, nothing else.",
+    slice_loop = "--slice-loop" in flags           # fork: Loop Mode as a mod target
+    minimal = gate_only or slice_loop
+    others = [f for f in flags if f.startswith("--") and
+              f not in ("--gate-only", "--slice-loop", "--reassemble", "--verbose")]
+    if minimal and others:
+        refuse("--gate-only and --slice-loop build on stock 2.3.4, with nothing else added.",
                f"Leave out: {' '.join(others)}")
     cpu_meter = v239 or "--cpu-meter" in flags     # opt-in test build, never a release
     preset_bpm = v239 or "--preset-bpm" in flags   # opt-in test build, never a release
@@ -10479,7 +10533,9 @@ def main():
     if osd and not character:
         refuse("--osd needs --character: the OSD's MIDI side lives in its C object.")
     if len(argv) <= 2:
-        if gate_only:
+        if slice_loop:
+            ver = "2.3.4-" + ("g" if gate_only else "") + SL_VERSION_TAG
+        elif gate_only:
             ver = GATE_ONLY_VERSION
         elif gate_rec:
             ver = GATE_VERSION
@@ -10611,13 +10667,17 @@ def main():
 
     print("     ok   The code is where the patch expects to find it")
 
-    if gate_only:
-        # Stock 2.3.4 plus GR and the splash: none of the hooks above, so a
-        # fault seen on this image can only be GR's (or stock's).
-        print("\n  Adding Gate Rec and Gate Clr to stock 2.3.4, and nothing else...")
+    if minimal:
+        # Stock 2.3.4 plus the fork's own features and the splash: none of the
+        # hooks above, so a fault seen on this image can only be theirs (or stock's).
+        print("\n  Adding this fork's features to stock 2.3.4, and nothing else...")
         check_patch_ram(d)
-        apply_gate_rec(d, only=True)
-        print(f"     ok   {'Gate Rec / Clr / Loop':<28} TOOLS > Settings (FORK)")
+        if gate_only:
+            apply_gate_rec(d, only=True)
+            print(f"     ok   {'Gate Rec / Clr / Loop':<28} TOOLS > Settings (FORK)")
+        if slice_loop:
+            apply_slice_loop(d)
+            print(f"     ok   {'Loop Mode, a mod target':<28} Slicer pads (FORK PROBE)")
         finish(d, outp, ver)
         return
 
