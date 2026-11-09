@@ -1048,8 +1048,8 @@ USAGE = f"""
     --gate-only        stock 2.3.4 with ONLY the Gate rows added, none of
                        the other changes (version 2.3.4-gr3)
     --slice-loop       EXPERIMENTAL: Slicer Loop Mode, Loop Len and Reverse on
-                       a CV (EXT 1-8): 2.5 V loops or reverses the slice, and
-                       Loop Len shortens it (2.3.4-s3; with --gate-only, gs3)
+                       a CV (EXT 1-8), and Sustain as a modulation target on
+                       Sample and Clip/Slicer pads (2.3.4-s4; --gate-only: gs4)
     -v                 show the addresses and opcodes as it works
     --reassemble       verify the frozen code against its sources
     --legacy-version   allow a version string too long for the panel, for
@@ -1262,8 +1262,8 @@ FROZEN = {
         {'nblock': 0, '$t': 484, 'nblock_orig': 2, '$d': 504, 'nblock_c': 26, 'nmidi': 52, 'nmidi_c': 76, 'nmidi_next': 100, 'ncomp': 104, 'ncomp_c': 136, 'ncomp_e': 132, 'ncomp_call': 154, 'nclip_rate': 178, 'nclip_rate_c': 200, 'nclip_cc': 236, 'nclip_cc_go': 248, 'nclip_cc_out': 296, 'nclip_cc_c': 274, 'njread': 300, 'njread_c': 380, 'nclip_beats': 408, 'nclip_beats_c': 430, 'nfinal': 456, 'nfinal_p': 458, 'nfinal_c': 480, '_sN': 0}),
     "hookGR": ("2de91f5083b0039840f2a1110ff2fc120ff2d413092400940ff2fc14019400000000039840f2a3110ff2f8120ff2b813092400940ff2f814019400000000039840f2a5110ff2f4120ff29c13092400940ff2f41401940000000003b0bde81f50000000002de90f50009840f2a111002200000000009840f2a311002200000000009840f2a511002200000000bde80f500000000040f2a11c624517d040f2a31c624513d040f2a51c62450fd00000000040f2a11c624509d040f2a31c624505d040f2a51c624501d00000000010b51446082b05d9414811460022000000000023002140f2a110844209d0042140f2a310844204d0082140f2a5108442ffd0dff8e0c040f20000c4f2417040ea03004cf8010010bd00f02ef818b9b8f1130f00000000012803d1682000f005f8672000f002f80000000010b514a900220a604a608a60ca600a614a612d220a70099a4a60886045f28820c0f2010030440000000010bd00f007f818b9b8f1130f0000000000000000dff868c01a4944f24173dcf80000b3eb104f09d1c0b20138072805d851f82000404501d167207047dcf80400b3eb104f09d1c0b20138072805d851f82000404501d168207047dcf80800b3eb104f09d1c0b20138072805d851f82000404501d1012070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf67617465726563696e0000bf4761746520436c723a0000bf67617465636c72696e0000bf47617465204c6f6f703a0000676174656c6f6f70696e00004f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
         {'greg': 0, 'glabel0': 524, 'gvalues': 488, 'gxml0': 536, 'greg_call0': 30, 'glabel1': 548, 'gxml1': 560, 'greg_call1': 58, 'glabel2': 572, 'gxml2': 584, 'greg_call2': 86, 'greg_next': 96, 'gstore': 100, 'gstore_call0': 112, 'gstore_call1': 124, 'gstore_call2': 136, 'gstore_next': 144, 'gpost': 148, 'gmine': 204, 'gpost_next': 172, 'gedit': 176, 'gedit_next': 200, 'gm_store': 224, 'gm_set': 218, 'gm_put': 254, 'gon': 276, 'gmatch': 372, 'gon_act': 290, 'gon_back': 286, 'gon_one': 302, 'gsend': 310, 'gon_done': 306, 'gsend_push': 348, 'goff': 354, 'goff_eat': 368, 'goff_back': 364, 'gm_0': 382, 'gm_1': 412, 'gm_2': 442, 'gm_3': 472, 'gv0': 596, 'gv1': 600, 'gv2': 608, 'gv3': 616, 'gv4': 624, 'gv5': 632, 'gv6': 640, 'gv7': 648, 'gv8': 656, '_sGR': 0}),
-    "hookSL": ("40f2a7139c4219d040f2a9139c4225d06f2c0dd1022a09d82846002106b1012100f03efa10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f02afa0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f01afa0028ddd000eb82000663d9e740f2a9139c4210d040f2a7139c4218d1284632690021b2f57a7f18bf012100f003fa00b102610000000028463269111e18bf01210a4600f0f7f90028f3d0c262f1e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a91100220000000001bd2de91f5083b040f2a71108220ff228430a24009440f2e83401940ff22844029400000000039840f2a91104220ff2244300240094012401940ff2244402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f0aff9002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f071f905b00000000010b5044600f06af9000000002de90f50dff898c1ccf808000021ccf8101090f85532002b40f09880002100f077f9002800f092802ded046b016907ee901af8eee77a9fed5b7ac7ee877a42694ab192ed017ad0ed066a27ee267a77eec77a77eec77ac2694ab192ed017ad0ed086a27ee267a77eec77a77eec77a426a4ab192ed017ad0ed0a6a27ee267a77eec77a77eec77ab7ee007af4ee477af1ee10fa33da9fed447ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e92c36a8bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff804c1dcf80000404b98420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f01cf808b1002101600098dff89cc0dcf80010264a91420fd10cf114010cf2341200f6a0340b68834203d3a34201d200230b600c319142f5d115bd34b50d46dff870c0dcf80010194b99420ad0ccf8003000230cf104010cf2444241f8043b9142fbd10cf104010cf2444200240b68834216d00bb904b90c4640319142f6d18db184b1002304f1040104f1400241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd0000c0920624334f4c5380f006244c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf00",
-        {'sl_att': 0, 'sa_len': 60, 'sa_rev': 92, 'sa_other': 48, 'sa_done': 44, 'sa_find': 32, 'sl_find': 1184, 'sa_84': 56, 'sa_back': 52, 'sa_lfind': 72, 'sa_rfind': 104, 'sl_set': 120, 'ss_rev': 162, 'ss_other': 186, 'ss_done': 158, 'ss_back': 190, 'sl_store': 194, 'st_add0': 196, 'st_add1': 210, 'st_add2': 222, 'sl_reg': 228, 'sr_label': 1308, 'sr_xml': 1320, 'sr_call': 260, 'sr_rlabel': 1336, 'sr_rxml': 1348, 'sr_call2': 290, 'sr_next': 300, 'sl_eos': 304, 'se_out': 364, 'se_t1': 340, 'se_on': 362, 'se_t2': 350, 'se_t3': 360, 'se_stop': 374, 'se_loop': 370, 'sl_ctor': 378, 'sl_drop': 1120, 'sc_back': 384, 'sl_dtor': 388, 'sd_back': 396, 'sl_seg': 400, 'sg_out': 732, 'sg_k1000': 820, 'sg_m1': 486, 'sg_m2': 510, 'sg_m3': 534, 'sg_scaled': 652, 'sg_kmin': 824, 'sg_sync': 588, 'sg_len': 620, 'rv_on': 692, 'rv_t1': 670, 'rv_t2': 680, 'rv_t3': 690, 'sg_vdone': 728, 'rv_sync': 704, 'rv_set': 712, 'sg_ret': 760, 'sg_back': 756, 'sr_done': 802, 'sl_segfind': 1030, 'sl_read': 828, 'sv_plain': 988, 'sv_call': 952, 'sv_ret': 984, 'sl_flip': 996, 'sv_pass': 992, 'sf_flipped': 1028, 'sf_swap': 1008, 'sgf_scan': 1068, 'sgf_zero': 1060, 'sgf_loop': 1078, 'sgf_hit': 1114, 'sgf_next': 1090, 'sgf_none': 1116, 'sgf_use': 1104, 'sl_drop_seg': 1134, 'sl_drop_out': 1182, 'sd_loop': 1162, 'sd_next': 1176, 'sf_scan': 1224, 'sf_zero': 1216, 'sf_loop': 1234, 'sf_hit': 1286, 'sf_next': 1246, 'sf_none': 1290, 'sf_clear': 1266, '_sSL': 0}),
+    "hookSL": ("40f2a7139c4219d040f2a9139c4225d06f2c0dd1022a09d82846002106b1012100f0dafb10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f0c6fb0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f0b6fb0028ddd000eb82000663d9e740f2a9139c4210d040f2a7139c4218d1284632690021b2f57a7f18bf012100f09ffb00b102610000000028463269111e18bf01210a4600f093fb0028f3d0c262f1e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a91100220000000001bd2de91f5083b040f2a71108220ff25c730a24009440f2e83401940ff25c74029400000000039840f2a91104220ff2587300240094012401940ff2587402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f04bfb002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f06bf905b00000000010b5044600f064f9000000002de90f50dff88cc1ccf808000021ccf8101090f85532002b40f09280002100f013fb002800f08c802ded046b016907ee901af8eee77a9fed587ac7ee877a42693ab192ed017ad0ed066a27ee267a77eec77ac2693ab192ed017ad0ed086a27ee267a77eec77a426a3ab192ed017ad0ed0a6a27ee267a77eec77ab7ee007af4ee477af1ee10fa33da9fed447ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e92c36a8bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff8c8c3dcf80000f14b98420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f0bef908b100210160009800f6a034dff85cc3dcf80010d64a91420dd10cf114010cf234120b68834203d3a34201d200230b600c319142f5d1dff83cc3dcf80010cc4a91420dd10cf108010cf208320b68834203d3a34201d200230b6020319142f5d115bd222a03d070b514460000000010b504460a46194604f2f04000f09af804f6001000f096f810bd222a03d070b514460000000010b50a46194600f26c3000f088f810bdb1f80cc0bcf1220f03d02de9f04300000000f0b5044600f032f80ff29a0c00f03bf81f4602b12244314604f2f04000f06ef800220fb104eb0702314604f6001000f065f8f0bdb1f80cc0bcf1220f03d02de9f84300000000f0b5044600f00ff80ff27e0c00f018f81ab112f0010f08bf2244314604f26c3000f049f8f0bdb1f9163000ee103ab8eec00a5fed990a80ee200a8d8a0e8a704700220023bcf8000040b1a84202d00cf1060cf7e7bcf80220bcf8043070470d00a802b8060400880398070e00b002c0061a00480b480b1c00500b500b1d00580b580b1900600b600b00000d00810000000e00890000000400190500001a00240100001c002c0100001d003401000019003c010000000002290ed816b5002102b1012100f07ff830b1009900ebc100019a426080ed020a16bd704793ed068a2de90f5018460021002200f06cf860b9039800f087f8002842d0039aa2f55872002100f060f800283ad02ded046bf0ee487a416859b111f0010f1cbf21f00101114491ed017ad0ed026ae7ee267ac16859b111f0010f1cbf21f00101114491ed017ad0ed046ae7ee267a416959b111f0010f1cbf21f00101114491ed017ad0ed066ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee678abdec046bbde80f50000000002de907500bf5587007f55b7100f049f8bde80750d7f8843300000000dcf80000334b98420ad0ccf8003000230cf104000cf2085140f8043b8842fbd1704734b50d460446dff8acc0fff7e8ff0cf108000cf2083100220368a3420ed00bb902b9024620308842f6d1002035b12ab100235360d36053611460104634bd14b50446dff870c0fff7caff1b4800f200210368a34204d008308842f9d1002014bd406814bd30b504460d46dff848c0fff7b6ff114800f2002100220368a34211d00bb902b9024608308842f6d1104648b9dcf80420531c03f03f03ccf80430064800ebc2004560046030bd0000c0920624334f4c5300a7062408aa062434b50d46dff868c0dcf80010194b99420ad0ccf8003000230cf104010cf2444241f8043b9142fbd10cf104010cf2444200240b68834216d00bb904b90c4640319142f6d18db184b1002304f1040104f1400241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd000080f00624334f4c534c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf00",
+        {'sl_att': 0, 'sa_len': 60, 'sa_rev': 92, 'sa_other': 48, 'sa_done': 44, 'sa_find': 32, 'sl_find': 2008, 'sa_84': 56, 'sa_back': 52, 'sa_lfind': 72, 'sa_rfind': 104, 'sl_set': 120, 'ss_rev': 162, 'ss_other': 186, 'ss_done': 158, 'ss_back': 190, 'sl_store': 194, 'st_add0': 196, 'st_add1': 210, 'st_add2': 222, 'sl_reg': 228, 'sr_label': 2128, 'sr_xml': 2140, 'sr_call': 260, 'sr_rlabel': 2156, 'sr_rxml': 2168, 'sr_call2': 290, 'sr_next': 300, 'sl_eos': 304, 'se_out': 364, 'se_t1': 340, 'se_on': 362, 'se_t2': 350, 'se_t3': 360, 'se_stop': 374, 'se_loop': 370, 'sl_ctor': 378, 'sl_drop': 1108, 'sc_back': 384, 'sl_dtor': 388, 'sd_back': 396, 'sl_seg': 400, 'sg_out': 720, 'sg_k1000': 808, 'sg_m1': 482, 'sg_m2': 502, 'sg_m3': 522, 'sg_scaled': 640, 'sg_kmin': 812, 'sg_sync': 576, 'sg_len': 608, 'rv_on': 680, 'rv_t1': 658, 'rv_t2': 668, 'rv_t3': 678, 'sg_vdone': 716, 'rv_sync': 692, 'rv_set': 700, 'sg_ret': 748, 'sg_back': 744, 'sr_done': 790, 'sl_segfind': 1018, 'sl_read': 816, 'sv_plain': 976, 'sv_call': 940, 'sv_ret': 972, 'sl_flip': 984, 'sv_pass': 980, 'sf_flipped': 1016, 'sf_swap': 996, 'sgf_scan': 1056, 'sgf_zero': 1048, 'sgf_loop': 1066, 'sgf_hit': 1102, 'sgf_next': 1078, 'sgf_none': 1104, 'sgf_use': 1092, 'sl_drop_seg': 1122, 'sl_drop_out': 1170, 'sd_loop': 1150, 'sd_next': 1164, 'sl_drop_done': 1212, 'sd_sus': 1192, 'sd_snext': 1206, 'sl_batt': 1214, 'ba_sus': 1226, 'ba_back': 1222, 'sus_set': 1550, 'sl_satt': 1252, 'sa2_sus': 1264, 'sb_back': 1260, 'sl_bloc': 1280, 'bl_sus': 1298, 'bl_back': 1294, 'sus_amount': 1406, 'map_b': 1462, 'sus_map': 1432, 'bl_s0': 1320, 'bl_s1': 1338, 'sl_sloc': 1350, 'ls_sus': 1368, 'ls_back': 1364, 'map_s': 1506, 'ls_set': 1394, 'sm_loop': 1436, 'sm_out': 1460, 'sm_hit': 1452, 'sus_set_ret': 1584, 'sus_set_f': 1562, 'sus_find': 1820, 'sus_set_out': 1582, 'sl_sus': 1586, 'su_have': 1632, 'map_get': 1882, 'su_out': 1750, 'su_t1': 1668, 'su_t2': 1696, 'su_t3': 1724, 'su_back': 1754, 'sl_non': 1758, 'map_set': 1920, 'no_back': 1782, 'sus_init': 1786, 'si_out': 1818, 'si_zero': 1810, 'suf_loop': 1844, 'suf_out': 1880, 'suf_next': 1856, 'mg_loop': 1900, 'mg_hit': 1916, 'ms_loop': 1942, 'ms_put': 1984, 'ms_next': 1954, 'sf_scan': 2048, 'sf_zero': 2040, 'sf_loop': 2058, 'sf_hit': 2110, 'sf_next': 2070, 'sf_none': 2114, 'sf_clear': 2090, '_sSL': 0}),
 }
 
 # Reduced C objects (see "C hooks" below): compressed, origin-independent, and
@@ -10383,6 +10383,23 @@ def apply_gate_rec(d, only=False):
 # Amount +100 % a CV from 0 V to 5 V takes a 100 % slice down to the 1 %
 # floor. Never longer than the slice. A change lands at the next restart.
 #
+# SUSTAIN (s4). Sustain (id 0x22) becomes a modulation target on Sample and
+# Clip/Slicer pads, from every source: EXT 1-8, VEL, LFO, PTCH, MODW, MVOL,
+# MPAN (TRIG and CC reach no envelope target in stock, so not this one).
+# Sustain = setting + source x Amount per slot, clamped 0-100 %, read every
+# block, so a held note follows the CV.
+#   - The envelope (0x080b8980, shared) reads Sustain from its settings at
+#     +0x18 once a block (0x080b89ba); SL replaces that load.
+#   - Settings: Clip/Slicer engines have two, at +0x4f0 and +0x900; a Sample
+#     engine has one at +0x36c, which each voice copies to voice + 0x360 at
+#     note-on (0x080ae1b4). SL notes {voice copy -> pad settings} there.
+#   - Sources: EXT through each engine's attach (catch id 0x22 at entry);
+#     the rest through each engine's local-source handler (catch at entry),
+#     mapped to the source objects stock binds for Release. A Sample pad's
+#     VEL, LFO and source 0xe are the voice's own, kept as an odd offset and
+#     resolved against the voice when read.
+#   - Patch RAM for this lives where full-build-only patches keep theirs:
+#     --slice-loop builds are minimal, so none of those is present.
 # REVERSE (s3, a test build). A new on/off pad parameter, Reverse (id 0x1a9),
 # after Loop Len, saved with the preset and a modulation target (2.5 V, held,
 # as Loop Mode). Decided when a slice starts or restarts. The slice plays from
@@ -10433,14 +10450,15 @@ def apply_gate_rec(d, only=False):
 #     VFP register is touched), restarts it; otherwise the slice ends as stock.
 #   - Not touched: Clip pads, and Slicer with PlayThru (whose Loop Mode loops
 #     the whole file). The Amount box is ignored: the threshold is on the CV.
-SL_VERSION_TAG = "s3"                # appended to the minimal build's version
+SL_VERSION_TAG = "s4"                # appended to the minimal build's version
 SL_LIST = 0x080c86f8                 # modulation targets, u16 ids
 SL_LIST_USED = 36
 SL_LIST_CAP = 49
 SL_LOOP_ID = 0x6f                    # Loop Mode
 SL_LEN_ID = 0x1a7                    # Loop Len: unregistered in stock, no immediate anywhere
 SL_REV_ID = 0x1a9                    # Reverse: unregistered in stock, no immediate anywhere
-SL_ADD = (SL_LOOP_ID, SL_LEN_ID, SL_REV_ID)
+SL_SUS_ID = 0x22                     # Sustain: a stock pad parameter, not a stock target
+SL_ADD = (SL_LOOP_ID, SL_LEN_ID, SL_REV_ID, SL_SUS_ID)
 SL_REV_LABEL, SL_REV_XML = "Reverse:", "slicereverse"
 SL_LEN_LABEL, SL_LEN_XML = "Loop Len:", "slicelooplen"
 SL_LEN_TYPE = 8                      # per mille, shown as a percentage
@@ -10457,6 +10475,16 @@ SL_SEGS = 24
 SL_SEG_BYTES = SL_SEG_HDR + 12 * SL_SEGS
 SL_ENGINE_BYTES = 0xba0              # a Clip/Slicer engine (0x080b3cba: mov.w r0, #0xba0)
 SL_READ_SITE, SL_READ_FN = 0x080b58fc, 0x080b55ac
+# Sustain: records keyed by an envelope's settings, and the Sample voices' map.
+SL_SUS_RAM = 0x2406a700              # +0 magic, +4 next map slot to reuse, then
+SL_SUS_HDR = 8                       # SL_SUS_RECS x {settings, 3 x {source, amount}, 0}
+SL_SUS_RECS, SL_SUS_REC = 24, 32     # then SL_SUS_MAPS x {voice settings, pad settings}
+SL_SUS_MAPS = 64
+SL_SUS_MAP = SL_SUS_RAM + SL_SUS_HDR + SL_SUS_RECS * SL_SUS_REC
+SL_SUS_BYTES = SL_SUS_HDR + SL_SUS_RECS * SL_SUS_REC + SL_SUS_MAPS * 8
+SL_ENV_B = (0x4f0, 0x900)            # a Clip/Slicer engine's two envelopes' settings
+SL_ENV_S, SL_VOICE_ENV_S = 0x36c, 0x360    # a Sample engine's, and each voice's copy
+SL_SUS_READ = 0x080b89ba             # the envelope's vldr s16, [settings, #24]
 SL_RAM_BYTES = 4 + SL_ENTRY * SL_ENGINES
 SL_THRESH_BITS = 0x3f000000          # 0.5f: 2.5 V on a +-5 V input
 SL_PAGES = (0x080c7edc, 0x080c80f8)  # the Slicer page's row list, in both page tables
@@ -10507,6 +10535,36 @@ SL_GUARDS = (
     (0x080b4696, "c5ebc50a", "... rsb r10, r5, r5, lsl #3"),
     (0x080b46a2, "4fea0a1a", "... lsl.w r10, r10, #4"),
     (0x080b4688, "284603b0bdec028bbde8f08f", "the segment builder returns the slot (r5)"),
+    (0x080b89b8, "a36893ed068a0528", "the envelope: ldr r3, [r4, #8]; vldr s16, [r3, #24]; cmp r0, #5"),
+    (0x080b87d6, "00f12008", "its settings: A, D, R modulators at +0x20 ..."),
+    (0x080b7034, "05f5a163", "Clip/Slicer Sustain at +0x508 ..."),
+    (0x080b703c, "05f61815", "... and +0x918: two envelopes, at +0x4f0 and +0x900"),
+    (0x080acf18, "70b5144682b005461a46", "the Sample engine's attach"),
+    (0x080ad01a, "00f56370", "... Attack at +0x38c: its envelope at +0x36c"),
+    (0x080ad208, "04f55b70", "the Sample engine builds its envelope at +0x36c"),
+    (0x080ae19c, "d7f87033cbf86433", "a Sample voice copies it to +0x360 at note-on ..."),
+    (0x080ae1b4, "d7f88433cbf87833", "... Sustain included"),
+    (0x080b63d8, "2de9f0432ded028bb1f91630", "the Clip/Slicer local-source handler"),
+    (0x080b63e6, "8d8a", "... source at msg +0x14"),
+    (0x080b63f8, "d1e90387", "... target and slot at msg +12, +16"),
+    (0x080ae5ec, "2de9f843b1f91630", "the Sample local-source handler"),
+    (0x080b6c18, "00f52a71", "Clip/Slicer VEL: +0x2a8 ..."),
+    (0x080b6c30, "06f5d761", "... and +0x6b8"),
+    (0x080b6b48, "06f56279", "Clip/Slicer LFO: +0x388 ..."),
+    (0x080b6b5c, "06f5f369", "... and +0x798"),
+    (0x080b641a, "06f52c79", "Clip/Slicer source 0xe: +0x2b0 ..."),
+    (0x080b6c5a, "06f5d869", "... and +0x6c0"),
+    (0x080b6a80, "06f64833", "Clip/Slicer MODW: +0xb48"),
+    (0x080b6590, "06f53563", "Clip/Slicer MVOL: +0xb50"),
+    (0x080b673c, "06f65833", "Clip/Slicer MPAN: +0xb58"),
+    (0x080b692e, "06f53663", "Clip/Slicer PTCH: +0xb60"),
+    (0x080ae30a, "0bf18001", "Sample VEL: the voice + 0x80"),
+    (0x080ae2ce, "0bf18803", "Sample source 0xe: the voice + 0x88"),
+    (0x080ae2e2, "0bf5a365", "Sample LFO: the voice + 0x518"),
+    (0x080ae9b8, "04f59271", "Sample MODW: +0x124"),
+    (0x080ae910, "04f59671", "Sample MVOL: +0x12c"),
+    (0x080ae6e4, "04f59a71", "Sample MPAN: +0x134"),
+    (0x080ae726, "04f59e71", "Sample PTCH: +0x13c"),
 )
 SL_SITES = (                         # (site, entry, bl?): b.w or bl in
     (0x080b36ee, "sl_att", False),
@@ -10518,6 +10576,12 @@ SL_SITES = (                         # (site, entry, bl?): b.w or bl in
     (SL_STORE_SITE, "sl_store", True),
     (SL_REG_SITE, "sl_reg", True),
     (SL_READ_SITE, "sl_read", True),
+    (0x080b3684, "sl_batt", False),
+    (0x080acf18, "sl_satt", False),
+    (0x080b63d8, "sl_bloc", False),
+    (0x080ae5ec, "sl_sloc", False),
+    (SL_SUS_READ, "sl_sus", False),
+    (0x080ae1b4, "sl_non", False),
 )
 SL_FIX = (                           # (placeholder, target, bl?): b.w or bl out
     ("sa_done", 0x080b373c, False),
@@ -10537,6 +10601,12 @@ SL_FIX = (                           # (placeholder, target, bl?): b.w or bl out
     ("sr_call2", SL_REGISTRAR, True),
     ("sv_call", SL_READ_FN, True),
     ("sv_pass", SL_READ_FN, False),
+    ("ba_back", 0x080b3688, False),
+    ("sb_back", 0x080acf1c, False),
+    ("bl_back", 0x080b63dc, False),
+    ("ls_back", 0x080ae5f0, False),
+    ("su_back", SL_SUS_READ + 4, False),
+    ("no_back", 0x080ae1b8, False),
 )
 
 
@@ -10549,6 +10619,17 @@ def build_slice_loop_hook():
     cmp     r2, r1
     bge     se_on
 se_t{k + 1}:""" for k in range(3))
+    susterms = "".join(f"""
+    ldr     r1, [r0, #{4 + 8 * k}]
+    cbz     r1, su_t{k + 1}
+    tst     r1, #1
+    itt     ne
+    bicne   r1, r1, #1
+    addne   r1, r2              /* a voice's own source */
+    vldr    s14, [r1, #4]
+    vldr    s13, [r0, #{8 + 8 * k}]
+    vfma.f32 s15, s14, s13
+su_t{k + 1}:""" for k in range(3))
     rtests = "".join(f"""
     ldr     r2, [r0, #{48 + 4 * k}]
     cbz     r2, rv_t{k + 1}
@@ -10559,11 +10640,10 @@ rv_t{k + 1}:""" for k in range(3))
     mods = "".join(f"""
     ldr     r2, [r0, #{20 + 8 * k}]
     cbz     r2, sg_m{k + 1}
-    vldr    s14, [r2, #4]           /* the CV: 0.5 at 5 V */
+    vldr    s14, [r2, #4]           /* the CV: 1.0 at 5 V */
     vldr    s13, [r0, #{24 + 8 * k}]
     vmul.f32 s14, s14, s13
-    vsub.f32 s15, s15, s14
-    vsub.f32 s15, s15, s14          /* twice: 0-5 V spans the whole Amount; + shortens */
+    vsub.f32 s15, s15, s14          /* 5 V reads 1.0: 0-5 V spans the whole Amount; + shortens */
 sg_m{k + 1}:""" for k in range(3))
     src = f"""
 .syntax unified
@@ -11008,6 +11088,7 @@ sl_drop:                            /* r0 = engine: forget it and its segments. 
     str     r1, [r0]
 sl_drop_seg:
     ldr     r0, [sp]
+    addw    r4, r0, #0x{SL_ENGINE_BYTES:x}
     ldr     r12, =0x{SL_SEG_RAM:08x}
     ldr     r1, [r12]
     ldr     r2, =0x{SL_MAGIC:08x}
@@ -11015,7 +11096,6 @@ sl_drop_seg:
     bne     sl_drop_out
     add.w   r1, r12, #{SL_SEG_HDR}
     addw    r2, r12, #{SL_SEG_BYTES}
-    addw    r4, r0, #0x{SL_ENGINE_BYTES:x}
 sd_loop:
     ldr     r3, [r1]
     cmp     r3, r0
@@ -11028,8 +11108,325 @@ sd_next:
     adds    r1, #12
     cmp     r1, r2
     bne     sd_loop
-sl_drop_out:
+sl_drop_out:                        /* and its Sustain records */
+    ldr     r12, =0x{SL_SUS_RAM:08x}
+    ldr     r1, [r12]
+    ldr     r2, =0x{SL_MAGIC:08x}
+    cmp     r1, r2
+    bne     sl_drop_done
+    add.w   r1, r12, #{SL_SUS_HDR}
+    addw    r2, r12, #{SL_SUS_HDR + SL_SUS_RECS * SL_SUS_REC}
+sd_sus:
+    ldr     r3, [r1]
+    cmp     r3, r0
+    blo     sd_snext
+    cmp     r3, r4
+    bhs     sd_snext
+    movs    r3, #0
+    str     r3, [r1]
+sd_snext:
+    adds    r1, #{SL_SUS_REC}
+    cmp     r1, r2
+    bne     sd_sus
+sl_drop_done:
     pop     {{r0, r2, r4, pc}}
+
+sl_batt:                            /* Clip/Slicer attach (r0 this, r1 src, r2 id, r3 slot, s0 amount) */
+    cmp     r2, #0x{SL_SUS_ID:x}
+    beq     ba_sus
+    push    {{r4, r5, r6, lr}}      /* the instructions this replaced */
+    mov     r4, r2
+ba_back:
+    .short  0, 0                    /* b.w on: mov r5, r0 */
+ba_sus:                             /* Sustain, on both of the engine's envelopes */
+    push    {{r4, lr}}
+    mov     r4, r0
+    mov     r2, r1
+    mov     r1, r3
+    addw    r0, r4, #0x{SL_ENV_B[0]:x}
+    bl      sus_set
+    addw    r0, r4, #0x{SL_ENV_B[1]:x}
+    bl      sus_set
+    pop     {{r4, pc}}
+
+sl_satt:                            /* Sample attach, the same arguments */
+    cmp     r2, #0x{SL_SUS_ID:x}
+    beq     sa2_sus
+    push    {{r4, r5, r6, lr}}
+    mov     r4, r2
+sb_back:
+    .short  0, 0                    /* b.w on: sub sp, #8 */
+sa2_sus:
+    push    {{r4, lr}}
+    mov     r2, r1
+    mov     r1, r3
+    addw    r0, r0, #0x{SL_ENV_S:x}
+    bl      sus_set
+    pop     {{r4, pc}}
+
+sl_bloc:                            /* Clip/Slicer local source (r0 this, r1 msg) */
+    ldrh    r12, [r1, #12]
+    cmp     r12, #0x{SL_SUS_ID:x}
+    beq     bl_sus
+    push.w  {{r4, r5, r6, r7, r8, r9, lr}}   /* the instruction this replaced */
+bl_back:
+    .short  0, 0                    /* b.w on: vpush {{d8}} */
+bl_sus:
+    push    {{r4, r5, r6, r7, lr}}
+    mov     r4, r0
+    bl      sus_amount              /* s0 = amount, r5 = source, r6 = slot */
+    adr.w   r12, map_b
+    bl      sus_map                 /* r2, r3 = the two envelopes' source offsets */
+    mov     r7, r3
+    cbz     r2, bl_s0
+    add     r2, r4
+bl_s0:
+    mov     r1, r6
+    addw    r0, r4, #0x{SL_ENV_B[0]:x}
+    bl      sus_set
+    movs    r2, #0
+    cbz     r7, bl_s1
+    add.w   r2, r4, r7
+bl_s1:
+    mov     r1, r6
+    addw    r0, r4, #0x{SL_ENV_B[1]:x}
+    bl      sus_set
+    pop     {{r4, r5, r6, r7, pc}}
+
+sl_sloc:                            /* Sample local source (r0 this, r1 msg) */
+    ldrh    r12, [r1, #12]
+    cmp     r12, #0x{SL_SUS_ID:x}
+    beq     ls_sus
+    push.w  {{r3, r4, r5, r6, r7, r8, r9, lr}}   /* the instruction this replaced */
+ls_back:
+    .short  0, 0                    /* b.w on: ldrsh.w r3, [r1, #0x16] */
+ls_sus:
+    push    {{r4, r5, r6, r7, lr}}
+    mov     r4, r0
+    bl      sus_amount
+    adr.w   r12, map_s
+    bl      sus_map
+    cbz     r2, ls_set
+    tst     r2, #1                  /* odd: the voice's own source, found at read time */
+    it      eq
+    addeq   r2, r4
+ls_set:
+    mov     r1, r6
+    addw    r0, r4, #0x{SL_ENV_S:x}
+    bl      sus_set
+    pop     {{r4, r5, r6, r7, pc}}
+
+sus_amount:                         /* r1 msg -> s0 amount, r5 source, r6 slot */
+    ldrsh.w r3, [r1, #0x16]
+    vmov    s0, r3
+    vcvt.f32.s32 s0, s0
+    vldr    s1, sg_k1000
+    vdiv.f32 s0, s0, s1
+    ldrh    r5, [r1, #0x14]
+    ldrh    r6, [r1, #0x10]
+    bx      lr
+
+sus_map:                            /* r5 source, r12 table -> r2, r3 offsets (0: none) */
+    movs    r2, #0
+    movs    r3, #0
+sm_loop:
+    ldrh    r0, [r12]
+    cbz     r0, sm_out
+    cmp     r0, r5
+    beq     sm_hit
+    add     r12, r12, #6
+    b       sm_loop
+sm_hit:
+    ldrh    r2, [r12, #2]
+    ldrh    r3, [r12, #4]
+sm_out:
+    bx      lr
+    .balign 2
+map_b:                              /* source, envelope 0's, envelope 1's */
+    .short  0x0d, 0x2a8, 0x6b8      /* VEL */
+    .short  0x04, 0x388, 0x798      /* LFO */
+    .short  0x0e, 0x2b0, 0x6c0
+    .short  0x1a, 0xb48, 0xb48      /* MODW */
+    .short  0x1c, 0xb50, 0xb50      /* MVOL */
+    .short  0x1d, 0xb58, 0xb58      /* MPAN */
+    .short  0x19, 0xb60, 0xb60      /* PTCH */
+    .short  0
+map_s:                              /* source, offset (odd: from the voice) */
+    .short  0x0d, 0x081, 0          /* VEL */
+    .short  0x0e, 0x089, 0
+    .short  0x04, 0x519, 0          /* LFO */
+    .short  0x1a, 0x124, 0          /* MODW */
+    .short  0x1c, 0x12c, 0          /* MVOL */
+    .short  0x1d, 0x134, 0          /* MPAN */
+    .short  0x19, 0x13c, 0          /* PTCH */
+    .short  0
+    .balign 2
+
+sus_set:                            /* r0 settings, r1 slot, r2 source or 0, s0 amount */
+    cmp     r1, #2
+    bhi     sus_set_ret
+    push    {{r1, r2, r4, lr}}
+    movs    r1, #0
+    cbz     r2, sus_set_f
+    movs    r1, #1
+sus_set_f:
+    bl      sus_find
+    cbz     r0, sus_set_out
+    ldr     r1, [sp]
+    add.w   r0, r0, r1, lsl #3
+    ldr     r2, [sp, #4]
+    str     r2, [r0, #4]
+    vstr    s0, [r0, #8]
+sus_set_out:
+    pop     {{r1, r2, r4, pc}}
+sus_set_ret:
+    bx      lr
+
+sl_sus:                             /* the envelope's Sustain: r3 = its settings */
+    vldr    s16, [r3, #24]          /* the instruction this replaced */
+    push    {{r0, r1, r2, r3, r12, lr}}
+    mov     r0, r3
+    movs    r1, #0
+    movs    r2, #0
+    bl      sus_find
+    cbnz    r0, su_have
+    ldr     r0, [sp, #12]
+    bl      map_get                 /* a Sample voice's copy -> its pad's settings */
+    cmp     r0, #0
+    beq     su_out
+    ldr     r2, [sp, #12]
+    sub     r2, r2, #0x{SL_VOICE_ENV_S:x}   /* the voice */
+    movs    r1, #0
+    bl      sus_find
+    cmp     r0, #0
+    beq     su_out
+su_have:
+    vpush   {{d6, d7}}
+    vmov.f32 s15, s16{susterms}
+    movs    r1, #0
+    vmov    s14, r1                 /* 0.0 */
+    vmaxnm.f32 s15, s15, s14
+    vmov.f32 s14, #1.0
+    vminnm.f32 s15, s15, s14
+    vmov.f32 s16, s15
+    vpop    {{d6, d7}}
+su_out:
+    pop     {{r0, r1, r2, r3, r12, lr}}
+su_back:
+    .short  0, 0                    /* b.w on: cmp r0, #5 */
+
+sl_non:                             /* a Sample voice starts: r11 voice, r7 engine */
+    push    {{r0, r1, r2, r12, lr}}
+    add.w   r0, r11, #0x{SL_VOICE_ENV_S:x}
+    add.w   r1, r7, #0x{SL_ENV_S:x}
+    bl      map_set
+    pop     {{r0, r1, r2, r12, lr}}
+    ldr.w   r3, [r7, #0x384]        /* the instruction this replaced */
+no_back:
+    .short  0, 0                    /* b.w on: str.w r3, [r11, #0x378] */
+
+sus_init:                           /* r12 = the table: clear it if RAM is stale. Uses r0, r1, r3 */
+    ldr     r0, [r12]
+    ldr     r3, =0x{SL_MAGIC:08x}
+    cmp     r0, r3
+    beq     si_out
+    str     r3, [r12]
+    movs    r3, #0
+    add.w   r0, r12, #4
+    addw    r1, r12, #{SL_SUS_BYTES}
+si_zero:
+    str     r3, [r0], #4
+    cmp     r0, r1
+    bne     si_zero
+si_out:
+    bx      lr
+
+sus_find:                           /* r0 settings, r1 = 1 to add -> r0 record or 0. Keeps r2 */
+    push    {{r2, r4, r5, lr}}
+    mov     r5, r1
+    mov     r4, r0
+    ldr     r12, =0x{SL_SUS_RAM:08x}
+    bl      sus_init
+    add.w   r0, r12, #{SL_SUS_HDR}
+    addw    r1, r12, #{SL_SUS_HDR + SL_SUS_RECS * SL_SUS_REC}
+    movs    r2, #0
+suf_loop:
+    ldr     r3, [r0]
+    cmp     r3, r4
+    beq     suf_out
+    cbnz    r3, suf_next
+    cbnz    r2, suf_next
+    mov     r2, r0
+suf_next:
+    adds    r0, #{SL_SUS_REC}
+    cmp     r0, r1
+    bne     suf_loop
+    movs    r0, #0
+    cbz     r5, suf_out
+    cbz     r2, suf_out
+    movs    r3, #0
+    str     r3, [r2, #4]
+    str     r3, [r2, #12]
+    str     r3, [r2, #20]
+    str     r4, [r2]
+    mov     r0, r2
+suf_out:
+    pop     {{r2, r4, r5, pc}}
+
+map_get:                            /* r0 voice settings -> r0 pad settings or 0. Keeps r2 */
+    push    {{r2, r4, lr}}
+    mov     r4, r0
+    ldr     r12, =0x{SL_SUS_RAM:08x}
+    bl      sus_init
+    ldr     r0, =0x{SL_SUS_MAP:08x}
+    addw    r1, r0, #{SL_SUS_MAPS * 8}
+mg_loop:
+    ldr     r3, [r0]
+    cmp     r3, r4
+    beq     mg_hit
+    adds    r0, #8
+    cmp     r0, r1
+    bne     mg_loop
+    movs    r0, #0
+    pop     {{r2, r4, pc}}
+mg_hit:
+    ldr     r0, [r0, #4]
+    pop     {{r2, r4, pc}}
+
+map_set:                            /* r0 voice settings, r1 pad settings */
+    push    {{r4, r5, lr}}
+    mov     r4, r0
+    mov     r5, r1
+    ldr     r12, =0x{SL_SUS_RAM:08x}
+    bl      sus_init
+    ldr     r0, =0x{SL_SUS_MAP:08x}
+    addw    r1, r0, #{SL_SUS_MAPS * 8}
+    movs    r2, #0
+ms_loop:
+    ldr     r3, [r0]
+    cmp     r3, r4
+    beq     ms_put
+    cbnz    r3, ms_next
+    cbnz    r2, ms_next
+    mov     r2, r0
+ms_next:
+    adds    r0, #8
+    cmp     r0, r1
+    bne     ms_loop
+    mov     r0, r2
+    cbnz    r0, ms_put
+    ldr     r2, [r12, #4]           /* full: reuse the slots in turn */
+    adds    r3, r2, #1
+    and     r3, r3, #{SL_SUS_MAPS - 1}
+    str     r3, [r12, #4]
+    ldr     r0, =0x{SL_SUS_MAP:08x}
+    add.w   r0, r0, r2, lsl #3
+ms_put:
+    str     r5, [r0, #4]
+    str     r4, [r0]
+    pop     {{r4, r5, pc}}
+    .ltorg
+    .balign 4
 
 sl_find:                            /* r0 = engine, r1 = 1 to add -> r0 = entry or 0 */
     push    {{r2, r4, r5, lr}}      /* uses r1, r3, r12; keeps r2 */
@@ -11178,6 +11575,7 @@ def patch_ram_ranges():
         ("GR Gate Rec / Clr / Loop", GATE_RAM, GATE_RAM + 4 * len(GATE_ROWS)),
         ("SL Loop Mode sources", SL_RAM, SL_RAM + SL_RAM_BYTES),
         ("SL Reverse segments", SL_SEG_RAM, SL_SEG_RAM + SL_SEG_BYTES),
+        ("SL Sustain sources (minimal builds only)", SL_SUS_RAM, SL_SUS_RAM + SL_SUS_BYTES),
     ]
 
 
@@ -11210,9 +11608,12 @@ def check_patch_ram(d):
             refuse(f"Patch RAM ({what}, {lo:#x}-{hi:#x}) is outside {STACK_TOP:#x}-{POOL_FLOOR:#x}.",
                    "", "Below is the firmware's main stack; above is its uncached pool,",
                    "where it reads presets and streams samples.")
-    for (w1, _, h1), (w2, l2, _) in zip(rs, rs[1:]):
-        if l2 < h1:
-            refuse(f"Patch RAM overlaps: {w1} and {w2}.")
+    def minimal(w):                  # GR and SL are the only patches in minimal builds
+        return w.startswith(("GR ", "SL "))
+    for i, (w1, l1, h1) in enumerate(rs):
+        for w2, l2, h2 in rs[i + 1:]:
+            if l2 < h1 and l1 < h2 and minimal(w1) == minimal(w2):
+                refuse(f"Patch RAM overlaps: {w1} and {w2}.")
     vprint(f"patch RAM {rs[0][1]:#x}-{max(h for _, _, h in rs):#x}, "
            f"stack top {STACK_TOP:#x}, pool floor {POOL_FLOOR:#x}")
 
@@ -11417,7 +11818,7 @@ def main():
             print(f"     ok   {'Gate Rec / Clr / Loop':<28} TOOLS > Settings (FORK)")
         if slice_loop:
             apply_slice_loop(d)
-            print(f"     ok   {'Loop, Loop Len, Reverse':<28} Slicer pads (FORK)")
+            print(f"     ok   {'Slicer, Sustain targets':<28} Slicer pads (FORK)")
         finish(d, outp, ver)
         return
 

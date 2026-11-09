@@ -5,6 +5,17 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs4 (fork, test build) — November 2026
+
+- New, only with `--slice-loop`: **Sustain is a modulation target** on Sample
+  and Clip/Slicer pads, from any source: EXT 1-8, VEL, LFO, PTCH, MODW, MVOL
+  and MPAN. Sustain = your setting + source x Amount, kept within 0-100 %.
+  With Amount +100 %, +5 V adds 100 % and -5 V takes 100 % away. It follows
+  the source live, during a held note.
+- Fixed: Loop Len reached its full Amount at 2.5 V, not 5 V. 0-5 V now spans
+  the whole Amount, as intended.
+- Not yet tried on a module.
+
 ## 2.3.4-gs3 (fork, test build) — November 2026
 
 - New, only with `--slice-loop`: **Reverse** on the Slicer page, after Loop
@@ -23,7 +34,7 @@ the guide you are reading. None of them covers how any of it is built.
   default 100 %, saved with the preset. Each restart of a looping slice plays
   that length, so short settings give rolls and stutters.
 - Loop Len is a modulation target. Assign EXT 1-8 with Amount +100 %: 0 V
-  leaves the length as set, 5 V takes it down to 1 %. A change lands at the
+  leaves the length as set, 5 V takes it down to 1 % (2.5 V until gs4). A change lands at the
   next restart. Slicer with PlayThru is unchanged.
 - Loop Mode on a CV (gs1) is unchanged. Confirmed on a module in Trigger and
   Gate launch modes.
