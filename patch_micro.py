@@ -1047,9 +1047,9 @@ USAGE = f"""
                        (this fork's feature; version 2.3.10-gr3)
     --gate-only        stock 2.3.4 with ONLY the Gate rows added, none of
                        the other changes (version 2.3.4-gr3)
-    --slice-loop       EXPERIMENTAL: Slicer Loop Mode and a new Loop Len on a
-                       CV (EXT 1-8); 2.5 V or more loops the slice, and Loop
-                       Len shortens it (2.3.4-s2; with --gate-only, 2.3.4-gs2)
+    --slice-loop       EXPERIMENTAL: Slicer Loop Mode, Loop Len and Reverse on
+                       a CV (EXT 1-8): 2.5 V loops or reverses the slice, and
+                       Loop Len shortens it (2.3.4-s3; with --gate-only, gs3)
     -v                 show the addresses and opcodes as it works
     --reassemble       verify the frozen code against its sources
     --legacy-version   allow a version string too long for the panel, for
@@ -1262,8 +1262,8 @@ FROZEN = {
         {'nblock': 0, '$t': 484, 'nblock_orig': 2, '$d': 504, 'nblock_c': 26, 'nmidi': 52, 'nmidi_c': 76, 'nmidi_next': 100, 'ncomp': 104, 'ncomp_c': 136, 'ncomp_e': 132, 'ncomp_call': 154, 'nclip_rate': 178, 'nclip_rate_c': 200, 'nclip_cc': 236, 'nclip_cc_go': 248, 'nclip_cc_out': 296, 'nclip_cc_c': 274, 'njread': 300, 'njread_c': 380, 'nclip_beats': 408, 'nclip_beats_c': 430, 'nfinal': 456, 'nfinal_p': 458, 'nfinal_c': 480, '_sN': 0}),
     "hookGR": ("2de91f5083b0039840f2a1110ff2fc120ff2d413092400940ff2fc14019400000000039840f2a3110ff2f8120ff2b813092400940ff2f814019400000000039840f2a5110ff2f4120ff29c13092400940ff2f41401940000000003b0bde81f50000000002de90f50009840f2a111002200000000009840f2a311002200000000009840f2a511002200000000bde80f500000000040f2a11c624517d040f2a31c624513d040f2a51c62450fd00000000040f2a11c624509d040f2a31c624505d040f2a51c624501d00000000010b51446082b05d9414811460022000000000023002140f2a110844209d0042140f2a310844204d0082140f2a5108442ffd0dff8e0c040f20000c4f2417040ea03004cf8010010bd00f02ef818b9b8f1130f00000000012803d1682000f005f8672000f002f80000000010b514a900220a604a608a60ca600a614a612d220a70099a4a60886045f28820c0f2010030440000000010bd00f007f818b9b8f1130f0000000000000000dff868c01a4944f24173dcf80000b3eb104f09d1c0b20138072805d851f82000404501d167207047dcf80400b3eb104f09d1c0b20138072805d851f82000404501d168207047dcf80800b3eb104f09d1c0b20138072805d851f82000404501d1012070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf67617465726563696e0000bf4761746520436c723a0000bf67617465636c72696e0000bf47617465204c6f6f703a0000676174656c6f6f70696e00004f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
         {'greg': 0, 'glabel0': 524, 'gvalues': 488, 'gxml0': 536, 'greg_call0': 30, 'glabel1': 548, 'gxml1': 560, 'greg_call1': 58, 'glabel2': 572, 'gxml2': 584, 'greg_call2': 86, 'greg_next': 96, 'gstore': 100, 'gstore_call0': 112, 'gstore_call1': 124, 'gstore_call2': 136, 'gstore_next': 144, 'gpost': 148, 'gmine': 204, 'gpost_next': 172, 'gedit': 176, 'gedit_next': 200, 'gm_store': 224, 'gm_set': 218, 'gm_put': 254, 'gon': 276, 'gmatch': 372, 'gon_act': 290, 'gon_back': 286, 'gon_one': 302, 'gsend': 310, 'gon_done': 306, 'gsend_push': 348, 'goff': 354, 'goff_eat': 368, 'goff_back': 364, 'gm_0': 382, 'gm_1': 412, 'gm_2': 442, 'gm_3': 472, 'gv0': 596, 'gv1': 600, 'gv2': 608, 'gv3': 616, 'gv4': 624, 'gv5': 632, 'gv6': 640, 'gv7': 648, 'gv8': 656, '_sGR': 0}),
-    "hookSL": ("40f2a7139c4215d06f2c0dd1022a09d82846002106b1012100f00cf910b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f0f8f80028edd000ebc200466180ed068ae7e740f2a7139c420cd1284632690021b2f57a7f18bf012100f0e3f800b102610000000040f23f130000000001b500000000009840f2a71140f2e8320000000001bd2de91f5083b040f2a71108220ff208230a24009440f2e83401940ff2082402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f0b0f8002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f08af805b00000000010b5044600f083f8000000002de90f5090f85532002b70d1002100f080f800286bd02ded046b016907ee901af8eee77a9fed357ac7ee877a42694ab192ed017ad0ed066a27ee267a77eec77a77eec77ac2694ab192ed017ad0ed086a27ee267a77eec77a77eec77a426a4ab192ed017ad0ed0a6a27ee267a77eec77a77eec77ab7ee007af4ee477af1ee10fa33da9fed1e7ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e92bdec046bbde80f502de9f04f0000000000007a440ad7233c01b5002100f004f808b10021016001bd34b50d46dff868c0dcf80010194b99420ad0ccf8003000230cf104010cf2c43241f8043b9142fbd10cf104010cf2c43200240b68834216d00bb904b90c4630319142f6d18db184b1002304f1040104f1300241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd000000f10624324f4c534c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00",
-        {'sl_att': 0, 'sa_len': 52, 'sa_other': 40, 'sa_done': 36, 'sa_find': 24, 'sl_find': 564, 'sa_84': 48, 'sa_back': 44, 'sa_lfind': 64, 'sl_set': 84, 'ss_other': 118, 'ss_done': 114, 'ss_back': 122, 'sl_store': 126, 'st_add0': 128, 'st_add1': 142, 'sl_reg': 148, 'sr_label': 684, 'sr_xml': 696, 'sr_call': 180, 'sr_next': 190, 'sl_eos': 194, 'se_out': 254, 'se_t1': 230, 'se_on': 252, 'se_t2': 240, 'se_t3': 250, 'se_stop': 264, 'se_loop': 260, 'sl_ctor': 268, 'sl_drop': 548, 'sc_back': 274, 'sl_dtor': 278, 'sd_back': 286, 'sl_seg': 290, 'sg_out': 528, 'sg_k1000': 540, 'sg_m1': 358, 'sg_m2': 382, 'sg_m3': 406, 'sg_done': 524, 'sg_kmin': 544, 'sg_sync': 460, 'sg_len': 492, 'sg_back': 536, 'sl_drop_out': 562, 'sf_scan': 604, 'sf_zero': 596, 'sf_loop': 614, 'sf_hit': 666, 'sf_next': 626, 'sf_none': 670, 'sf_clear': 646, '_sSL': 0}),
+    "hookSL": ("40f2a7139c4219d040f2a9139c4225d06f2c0dd1022a09d82846002106b1012100f03efa10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f02afa0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f01afa0028ddd000eb82000663d9e740f2a9139c4210d040f2a7139c4218d1284632690021b2f57a7f18bf012100f003fa00b102610000000028463269111e18bf01210a4600f0f7f90028f3d0c262f1e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a91100220000000001bd2de91f5083b040f2a71108220ff228430a24009440f2e83401940ff22844029400000000039840f2a91104220ff2244300240094012401940ff2244402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f0aff9002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f071f905b00000000010b5044600f06af9000000002de90f50dff898c1ccf808000021ccf8101090f85532002b40f09880002100f077f9002800f092802ded046b016907ee901af8eee77a9fed5b7ac7ee877a42694ab192ed017ad0ed066a27ee267a77eec77a77eec77ac2694ab192ed017ad0ed086a27ee267a77eec77a77eec77a426a4ab192ed017ad0ed0a6a27ee267a77eec77a77eec77ab7ee007af4ee477af1ee10fa33da9fed447ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e92c36a8bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff804c1dcf80000404b98420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f01cf808b1002101600098dff89cc0dcf80010264a91420fd10cf114010cf2341200f6a0340b68834203d3a34201d200230b600c319142f5d115bd34b50d46dff870c0dcf80010194b99420ad0ccf8003000230cf104010cf2444241f8043b9142fbd10cf104010cf2444200240b68834216d00bb904b90c4640319142f6d18db184b1002304f1040104f1400241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd0000c0920624334f4c5380f006244c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf00",
+        {'sl_att': 0, 'sa_len': 60, 'sa_rev': 92, 'sa_other': 48, 'sa_done': 44, 'sa_find': 32, 'sl_find': 1184, 'sa_84': 56, 'sa_back': 52, 'sa_lfind': 72, 'sa_rfind': 104, 'sl_set': 120, 'ss_rev': 162, 'ss_other': 186, 'ss_done': 158, 'ss_back': 190, 'sl_store': 194, 'st_add0': 196, 'st_add1': 210, 'st_add2': 222, 'sl_reg': 228, 'sr_label': 1308, 'sr_xml': 1320, 'sr_call': 260, 'sr_rlabel': 1336, 'sr_rxml': 1348, 'sr_call2': 290, 'sr_next': 300, 'sl_eos': 304, 'se_out': 364, 'se_t1': 340, 'se_on': 362, 'se_t2': 350, 'se_t3': 360, 'se_stop': 374, 'se_loop': 370, 'sl_ctor': 378, 'sl_drop': 1120, 'sc_back': 384, 'sl_dtor': 388, 'sd_back': 396, 'sl_seg': 400, 'sg_out': 732, 'sg_k1000': 820, 'sg_m1': 486, 'sg_m2': 510, 'sg_m3': 534, 'sg_scaled': 652, 'sg_kmin': 824, 'sg_sync': 588, 'sg_len': 620, 'rv_on': 692, 'rv_t1': 670, 'rv_t2': 680, 'rv_t3': 690, 'sg_vdone': 728, 'rv_sync': 704, 'rv_set': 712, 'sg_ret': 760, 'sg_back': 756, 'sr_done': 802, 'sl_segfind': 1030, 'sl_read': 828, 'sv_plain': 988, 'sv_call': 952, 'sv_ret': 984, 'sl_flip': 996, 'sv_pass': 992, 'sf_flipped': 1028, 'sf_swap': 1008, 'sgf_scan': 1068, 'sgf_zero': 1060, 'sgf_loop': 1078, 'sgf_hit': 1114, 'sgf_next': 1090, 'sgf_none': 1116, 'sgf_use': 1104, 'sl_drop_seg': 1134, 'sl_drop_out': 1182, 'sd_loop': 1162, 'sd_next': 1176, 'sf_scan': 1224, 'sf_zero': 1216, 'sf_loop': 1234, 'sf_hit': 1286, 'sf_next': 1246, 'sf_none': 1290, 'sf_clear': 1266, '_sSL': 0}),
 }
 
 # Reduced C objects (see "C hooks" below): compressed, origin-independent, and
@@ -10383,6 +10383,18 @@ def apply_gate_rec(d, only=False):
 # Amount +100 % a CV from 0 V to 5 V takes a 100 % slice down to the 1 %
 # floor. Never longer than the slice. A change lands at the next restart.
 #
+# REVERSE (s3, a test build). A new on/off pad parameter, Reverse (id 0x1a9),
+# after Loop Len, saved with the preset and a modulation target (2.5 V, held,
+# as Loop Mode). Decided when a slice starts or restarts. The slice plays from
+# its end (after Loop Len) back to its start. PlayThru pads are left as stock.
+#   - sl_seg notes the direction and the mirror (start + end + 1) and sends
+#     the segment builder's return through sg_ret, which learns the slot it
+#     picked (r0) and keeps {segment, mirror, reverse} in a small table.
+#   - sl_read sits on the renderer's read (0x080b58fc). For a reversed segment
+#     it reads forward from mirror - pos - frames-used, then flips the frames
+#     it made in place (float, one buffer a channel; R only when the buffer
+#     says stereo, +0x11). The card is read ahead forwards only, so reading
+#     backwards may wait on it: the test is whether that is heard.
 #   - Loop Len, the parameter: registered in the registrar chain at
 #     0x0806abbc (after GR's catch; numeric registrar 0x08069ed4: r1 id, r2
 #     type, r3 label, [sp] min, [sp+4] max, [sp+8] xml), added to the pad
@@ -10421,25 +10433,34 @@ def apply_gate_rec(d, only=False):
 #     VFP register is touched), restarts it; otherwise the slice ends as stock.
 #   - Not touched: Clip pads, and Slicer with PlayThru (whose Loop Mode loops
 #     the whole file). The Amount box is ignored: the threshold is on the CV.
-SL_VERSION_TAG = "s2"                # appended to the minimal build's version
+SL_VERSION_TAG = "s3"                # appended to the minimal build's version
 SL_LIST = 0x080c86f8                 # modulation targets, u16 ids
 SL_LIST_USED = 36
 SL_LIST_CAP = 49
 SL_LOOP_ID = 0x6f                    # Loop Mode
 SL_LEN_ID = 0x1a7                    # Loop Len: unregistered in stock, no immediate anywhere
-SL_ADD = (SL_LOOP_ID, SL_LEN_ID)
+SL_REV_ID = 0x1a9                    # Reverse: unregistered in stock, no immediate anywhere
+SL_ADD = (SL_LOOP_ID, SL_LEN_ID, SL_REV_ID)
+SL_REV_LABEL, SL_REV_XML = "Reverse:", "slicereverse"
 SL_LEN_LABEL, SL_LEN_XML = "Loop Len:", "slicelooplen"
 SL_LEN_TYPE = 8                      # per mille, shown as a percentage
 SL_LEN_MIN, SL_LEN_MAX, SL_LEN_DEFAULT = 10, 1000, 1000
-SL_RAM = 0x2406f100                  # +0 magic, then SL_ENGINES entries of SL_ENTRY bytes
-SL_MAGIC = 0x534c4f32                # "SLO2": anything else and the table is cleared first
-SL_ENTRY = 48                        # +0 engine; +4/+8/+12 Loop Mode sources;
+SL_RAM = 0x2406f080                  # +0 magic, then SL_ENGINES entries of SL_ENTRY bytes
+SL_MAGIC = 0x534c4f33                # "SLO3": anything else and the table is cleared first
+SL_ENTRY = 64                        # +0 engine; +4/+8/+12 Loop Mode sources;
                                      # +16 Loop Len (per mille); +20.. 3 x {source, amount}
-SL_ENGINES = 20
+                                     # +44 Reverse (0/1); +48/+52/+56 Reverse sources
+SL_ENGINES = 17
+SL_SEG_RAM = 0x240692c0              # +0 magic, +4 caller's lr, +8 engine, +12 mirror, +16 reverse,
+SL_SEG_HDR = 20                      # then SL_SEGS records {segment, mirror, reverse}
+SL_SEGS = 24
+SL_SEG_BYTES = SL_SEG_HDR + 12 * SL_SEGS
+SL_ENGINE_BYTES = 0xba0              # a Clip/Slicer engine (0x080b3cba: mov.w r0, #0xba0)
+SL_READ_SITE, SL_READ_FN = 0x080b58fc, 0x080b55ac
 SL_RAM_BYTES = 4 + SL_ENTRY * SL_ENGINES
 SL_THRESH_BITS = 0x3f000000          # 0.5f: 2.5 V on a +-5 V input
 SL_PAGES = (0x080c7edc, 0x080c80f8)  # the Slicer page's row list, in both page tables
-SL_PAGE_IDS = (0x6f, 0xd3, 0xb4, 0xd4, 0xd5, 0x31, 0x84)
+SL_PAGE_IDS = (0x6f, 0xd3, 0xb4, 0xd4, 0xd5, 0x31, 0x84)   # then Loop Len, Reverse
 SL_STORE_CASE = (0x080895f6, 0x08089850)   # the pad store's type-3 case
 SL_STORE_USED, SL_STORE_CAP = 58, 0x40
 SL_STORE_SITE = 0x0808984c           # its last AddParam (id 0xbd): bl -> sl_store
@@ -10477,6 +10498,15 @@ SL_GUARDS = (
     (0x08089848, "bd212046fff767febee2", "... type 3's last AddParam (0xbd) and its exit"),
     (0x080770f0, "287e0c08", "the first page table"),
     (0x080770dc, "44800c08", "the second page table"),
+    (0x080b58f8, "d4e90223fff756fe8146", "the renderer's read: ldrd r2, r3, [r4, #8]; bl; mov r9, r0"),
+    (0x080b58dc, "04f11c03", "... its frac pointer: add.w r3, r4, #0x1c (the segment + 0x1c)"),
+    (0x080b55ac, "f0b50446406a1546", "the read's entry"),
+    (0x080a32d4, "0346012030b49d68", "a stereo buffer: L at +8, R at +12"),
+    (0x080a321c, "0368002243600282", "a mono buffer: data at +8, +16 cleared"),
+    (0x080b46b2, "0af13001", "a segment is the engine + slot x 0x70 + 0x30 ..."),
+    (0x080b4696, "c5ebc50a", "... rsb r10, r5, r5, lsl #3"),
+    (0x080b46a2, "4fea0a1a", "... lsl.w r10, r10, #4"),
+    (0x080b4688, "284603b0bdec028bbde8f08f", "the segment builder returns the slot (r5)"),
 )
 SL_SITES = (                         # (site, entry, bl?): b.w or bl in
     (0x080b36ee, "sl_att", False),
@@ -10487,6 +10517,7 @@ SL_SITES = (                         # (site, entry, bl?): b.w or bl in
     (0x080b4644, "sl_seg", False),
     (SL_STORE_SITE, "sl_store", True),
     (SL_REG_SITE, "sl_reg", True),
+    (SL_READ_SITE, "sl_read", True),
 )
 SL_FIX = (                           # (placeholder, target, bl?): b.w or bl out
     ("sa_done", 0x080b373c, False),
@@ -10501,7 +10532,11 @@ SL_FIX = (                           # (placeholder, target, bl?): b.w or bl out
     ("sg_back", 0x080b4648, False),
     ("st_add0", SL_ADDPARAM, True),
     ("st_add1", SL_ADDPARAM, True),
+    ("st_add2", SL_ADDPARAM, True),
     ("sr_call", SL_REGISTRAR, True),
+    ("sr_call2", SL_REGISTRAR, True),
+    ("sv_call", SL_READ_FN, True),
+    ("sv_pass", SL_READ_FN, False),
 )
 
 
@@ -10514,6 +10549,13 @@ def build_slice_loop_hook():
     cmp     r2, r1
     bge     se_on
 se_t{k + 1}:""" for k in range(3))
+    rtests = "".join(f"""
+    ldr     r2, [r0, #{48 + 4 * k}]
+    cbz     r2, rv_t{k + 1}
+    ldr     r2, [r2, #4]
+    cmp     r2, r1
+    bge     rv_on
+rv_t{k + 1}:""" for k in range(3))
     mods = "".join(f"""
     ldr     r2, [r0, #{20 + 8 * k}]
     cbz     r2, sg_m{k + 1}
@@ -10534,6 +10576,9 @@ sl_att:                             /* attach, id > 0x45: r4 id, r5 this, r6 src
     movw    r3, #0x{SL_LEN_ID:x}
     cmp     r4, r3
     beq     sa_len
+    movw    r3, #0x{SL_REV_ID:x}
+    cmp     r4, r3
+    beq     sa_rev
     cmp     r4, #0x{SL_LOOP_ID:x}
     bne     sa_other
     cmp     r2, #2
@@ -10571,8 +10616,25 @@ sa_lfind:
     str     r6, [r0, #20]
     vstr    s16, [r0, #24]
     b       sa_done
+sa_rev:                             /* Reverse: keep the slot's source */
+    cmp     r2, #2
+    bhi     sa_done
+    mov     r0, r5
+    movs    r1, #0
+    cbz     r6, sa_rfind
+    movs    r1, #1
+sa_rfind:
+    bl      sl_find
+    cmp     r0, #0
+    beq     sa_done
+    add.w   r0, r0, r2, lsl #2
+    str     r6, [r0, #48]
+    b       sa_done
 
 sl_set:                             /* setter, id > 0xd5: r4 id, r5 this, r6 msg */
+    movw    r3, #0x{SL_REV_ID:x}
+    cmp     r4, r3
+    beq     ss_rev
     movw    r3, #0x{SL_LEN_ID:x}
     cmp     r4, r3
     bne     ss_other
@@ -10587,6 +10649,18 @@ sl_set:                             /* setter, id > 0xd5: r4 id, r5 this, r6 msg
     str     r2, [r0, #16]
 ss_done:
     .short  0, 0                    /* b.w the setter's epilogue */
+ss_rev:
+    mov     r0, r5
+    ldr     r2, [r6, #16]
+    subs    r1, r2, #0
+    it      ne
+    movne   r1, #1                  /* OFF never takes a table entry */
+    mov     r2, r1
+    bl      sl_find
+    cmp     r0, #0
+    beq     ss_done
+    str     r2, [r0, #44]
+    b       ss_done
 ss_other:
     movw    r3, #0x13f              /* the instruction this replaced */
 ss_back:
@@ -10600,6 +10674,11 @@ st_add0:
     movw    r1, #0x{SL_LEN_ID:x}
     movw    r2, #{SL_LEN_DEFAULT}
 st_add1:
+    .short  0, 0                    /* bl AddParam */
+    ldr     r0, [sp]
+    movw    r1, #0x{SL_REV_ID:x}
+    movs    r2, #0
+st_add2:
     .short  0, 0                    /* bl AddParam */
     pop     {{r0, pc}}
 
@@ -10616,6 +10695,18 @@ sl_reg:                             /* a registrar call: register Loop Len first
     adr.w   r4, sr_xml
     str     r4, [sp, #8]
 sr_call:
+    .short  0, 0                    /* bl the numeric registrar */
+    ldr     r0, [sp, #12]           /* the registry, as pushed */
+    movw    r1, #0x{SL_REV_ID:x}
+    movs    r2, #4                  /* on/off, as PlayThru */
+    adr.w   r3, sr_rlabel
+    movs    r4, #0
+    str     r4, [sp]
+    movs    r4, #1
+    str     r4, [sp, #4]
+    adr.w   r4, sr_rxml
+    str     r4, [sp, #8]
+sr_call2:
     .short  0, 0                    /* bl the numeric registrar */
     add     sp, #12
     pop     {{r0, r1, r2, r3, r4, r12, lr}}
@@ -10658,6 +10749,10 @@ sd_back:
 
 sl_seg:                             /* a slice's segment: r0 this; its args at [sp] */
     push    {{r0, r1, r2, r3, r12, lr}}
+    ldr     r12, =0x{SL_SEG_RAM:08x}
+    str     r0, [r12, #8]           /* for sg_ret: the engine, and no reverse yet */
+    movs    r1, #0
+    str     r1, [r12, #16]
     ldrb.w  r3, [r0, #0x255]        /* PlayThru: as stock */
     cmp     r3, #0
     bne     sg_out
@@ -10674,7 +10769,7 @@ sl_seg:                             /* a slice's segment: r0 this; its args at [
     vmov.f32 s14, #1.0
     vcmp.f32 s15, s14
     vmrs    APSR_nzcv, fpscr
-    bge     sg_done                 /* the whole slice: nothing to change */
+    bge     sg_scaled                /* the whole slice: nothing to change */
     vldr    s14, sg_kmin
     vmaxnm.f32 s15, s15, s14
     ldr     r1, [sp, #40]           /* start */
@@ -10702,7 +10797,7 @@ sg_sync:
     str     r2, [sp, #44]
 sg_len:
     ldr     r2, [sp, #56]           /* its source length, or 0 */
-    cbz     r2, sg_done
+    cbz     r2, sg_scaled
     vmov    s14, r2
     vcvt.f32.s32 s14, s14
     vmul.f32 s14, s14, s15
@@ -10712,28 +10807,229 @@ sg_len:
     it      lt
     movlt   r2, #1
     str     r2, [sp, #56]
-sg_done:
+sg_scaled:                          /* Reverse: the setting, or a source at 2.5 V */
+    ldr     r3, [r0, #44]
+    cbnz    r3, rv_on
+    mov.w   r1, #0x{SL_THRESH_BITS:x}{rtests}
+    b       sg_vdone
+rv_on:                              /* the mirror: one past the segment's last frame */
+    ldr     r1, [sp, #40]           /* start */
+    ldr     r2, [sp, #52]           /* inclusive end (Sync off) */
+    cmp     r2, r1
+    ble     rv_sync
+    adds    r2, #1
+    b       rv_set
+rv_sync:
+    ldr     r2, [sp, #56]           /* source length (Sync on) */
+    cmp     r2, #0
+    ble     sg_vdone
+    add     r2, r1
+rv_set:                             /* store start + one-past-end: frame p mirrors to it - 1 - p */
+    add     r2, r1
+    ldr     r12, =0x{SL_SEG_RAM:08x}
+    str     r2, [r12, #12]
+    movs    r3, #1
+    str     r3, [r12, #16]
+sg_vdone:
     vpop    {{d6, d7}}
 sg_out:
     pop     {{r0, r1, r2, r3, r12, lr}}
+    ldr     r12, =0x{SL_SEG_RAM:08x}
+    str     lr, [r12, #4]           /* the caller's return; the builder returns to sg_ret */
+    adr.w   lr, sg_ret
+    orr     lr, lr, #1
     push.w  {{r4, r5, r6, r7, r8, r9, r10, r11, lr}}   /* the instruction this replaced */
 sg_back:
     .short  0, 0                    /* b.w on: vpush {{d8}} */
+sg_ret:                             /* r0 = the slot, or -1: note this segment's direction */
+    push    {{r0, r4, r5, r6}}
+    ldr     r12, =0x{SL_SEG_RAM:08x}
+    cmp     r0, #8
+    bhs     sr_done
+    ldr     r1, [r12, #8]
+    movs    r2, #0x70
+    mla     r1, r0, r2, r1
+    adds    r1, #0x30               /* the segment the renderer is handed */
+    ldr     r5, [r12, #12]
+    ldr     r6, [r12, #16]
+    mov     r2, r6                  /* only a reversed segment takes a record */
+    bl      sl_segfind
+    cbz     r0, sr_done
+    str     r5, [r0, #4]
+    str     r6, [r0, #8]
+sr_done:
+    pop     {{r0, r4, r5, r6}}
+    ldr     r12, =0x{SL_SEG_RAM:08x}
+    ldr     r12, [r12, #4]
+    bx      r12
+    .ltorg
     .balign 4
 sg_k1000:
     .float  1000.0
 sg_kmin:
     .float  {SL_LEN_MIN / 1000}
 
-sl_drop:                            /* r0 = engine: forget it. Keeps r0, r2. */
-    push    {{r0, lr}}
+sl_read:                            /* the renderer's read: (r0 voice, r1, r2:r3 pos, s0 rate; 6 args) */
+    push    {{r0, r1, r2, r3, lr}}
+    ldr     r1, [sp, #28]           /* &frac: the segment + 0x1c */
+    subs    r1, #0x1c
+    movs    r2, #0
+    bl      sl_segfind
+    cmp     r0, #0
+    beq     sv_plain
+    ldr     r3, [r0, #8]
+    cmp     r3, #0
+    beq     sv_plain
+    mov     r12, r0
+    pop     {{r0, r1, r2, r3, lr}}
+    push    {{r4, r5, r6, r7, r8, r9, r10, r11, lr}}   /* the args are now at sp + 36 */
+    mov     r4, r12
+    mov     r5, r0
+    mov     r8, r1
+    mov     r6, r2
+    vmov    r11, s0
+    ldr     r7, [sp, #36]           /* frames to make */
+    ldr     r3, [sp, #44]
+    vldr    s15, [r3]               /* frac */
+    vmov    s14, r7
+    vcvt.f32.s32 s14, s14
+    vmul.f32 s14, s14, s0
+    vadd.f32 s14, s14, s15
+    vcvt.s32.f32 s14, s14
+    vmov    r9, s14                 /* frames it will use */
+    ldr     r2, [r4, #4]
+    subs    r2, r2, r6
+    subs    r2, r2, r9              /* read forward from (start + end + 1) - pos - used */
+    bic     r2, r2, r2, asr #31
+    sub     sp, #24
+    ldr     r3, [sp, #60]
+    str     r3, [sp]
+    ldr     r3, [sp, #64]
+    str     r3, [sp, #4]
+    ldr     r3, [sp, #68]
+    str     r3, [sp, #8]
+    ldr     r3, [sp, #72]
+    str     r3, [sp, #12]
+    ldr     r3, [sp, #76]
+    str     r3, [sp, #16]
+    ldr     r3, [sp, #80]
+    str     r3, [sp, #20]
+    mov     r0, r5
+    mov     r1, r8
+    movs    r3, #0
+    vmov    s0, r11
+sv_call:
+    .short  0, 0                    /* bl the read */
+    add     sp, #24
+    cbz     r0, sv_ret
+    ldr     r1, [sp, #56]           /* &out */
+    ldr     r1, [r1]                /* ... the buffer it filled: then play it backwards */
+    ldr     r2, [r1, #8]
+    mov     r3, r7
+    bl      sl_flip
+    ldrb    r2, [r1, #0x11]
+    cbz     r2, sv_ret
+    ldr     r2, [r1, #12]
+    mov     r3, r7
+    bl      sl_flip
+sv_ret:
+    pop     {{r4, r5, r6, r7, r8, r9, r10, r11, pc}}
+sv_plain:
+    pop     {{r0, r1, r2, r3, lr}}
+sv_pass:
+    .short  0, 0                    /* b.w the read, untouched */
+
+sl_flip:                            /* r2 = floats, r3 = count: reverse in place (r9, r10, r12) */
+    cmp     r3, #2
+    blt     sf_flipped
+    sub     r3, r3, #1
+    add.w   r9, r2, r3, lsl #2
+sf_swap:
+    ldr     r10, [r2]
+    ldr     r12, [r9]
+    str     r12, [r2], #4
+    str     r10, [r9], #-4
+    cmp     r2, r9
+    blo     sf_swap
+sf_flipped:
+    bx      lr
+
+sl_segfind:                         /* r1 = segment, r2 = 1 to add -> r0 = record or 0 */
+    push    {{r4, r5, lr}}          /* uses r0, r3, r12 */
+    ldr     r12, =0x{SL_SEG_RAM:08x}
+    ldr     r0, [r12]
+    ldr     r3, =0x{SL_MAGIC:08x}
+    cmp     r0, r3
+    beq     sgf_scan
+    str     r3, [r12]               /* stale RAM: the records start empty (not the header) */
+    movs    r3, #0
+    add.w   r0, r12, #{SL_SEG_HDR}
+    addw    r4, r12, #{SL_SEG_BYTES}
+sgf_zero:
+    str     r3, [r0], #4
+    cmp     r0, r4
+    bne     sgf_zero
+sgf_scan:
+    add.w   r0, r12, #{SL_SEG_HDR}
+    addw    r4, r12, #{SL_SEG_BYTES}
+    movs    r5, #0
+sgf_loop:
+    ldr     r3, [r0]
+    cmp     r3, r1
+    beq     sgf_hit
+    cbnz    r3, sgf_next
+    cbnz    r5, sgf_next
+    mov     r5, r0
+sgf_next:
+    adds    r0, #12
+    cmp     r0, r4
+    bne     sgf_loop
+    cbz     r2, sgf_none
+    cbnz    r5, sgf_use
+    add.w   r5, r12, #{SL_SEG_HDR}  /* full: the first record goes */
+sgf_use:
+    movs    r3, #0
+    str     r3, [r5, #4]
+    str     r3, [r5, #8]
+    str     r1, [r5]
+    mov     r0, r5
+sgf_hit:
+    pop     {{r4, r5, pc}}
+sgf_none:
+    movs    r0, #0
+    pop     {{r4, r5, pc}}
+
+sl_drop:                            /* r0 = engine: forget it and its segments. Keeps r0, r2. */
+    push    {{r0, r2, r4, lr}}
     movs    r1, #0
     bl      sl_find
-    cbz     r0, sl_drop_out
+    cbz     r0, sl_drop_seg
     movs    r1, #0
     str     r1, [r0]
+sl_drop_seg:
+    ldr     r0, [sp]
+    ldr     r12, =0x{SL_SEG_RAM:08x}
+    ldr     r1, [r12]
+    ldr     r2, =0x{SL_MAGIC:08x}
+    cmp     r1, r2
+    bne     sl_drop_out
+    add.w   r1, r12, #{SL_SEG_HDR}
+    addw    r2, r12, #{SL_SEG_BYTES}
+    addw    r4, r0, #0x{SL_ENGINE_BYTES:x}
+sd_loop:
+    ldr     r3, [r1]
+    cmp     r3, r0
+    blo     sd_next
+    cmp     r3, r4
+    bhs     sd_next
+    movs    r3, #0
+    str     r3, [r1]
+sd_next:
+    adds    r1, #12
+    cmp     r1, r2
+    bne     sd_loop
 sl_drop_out:
-    pop     {{r0, pc}}
+    pop     {{r0, r2, r4, pc}}
 
 sl_find:                            /* r0 = engine, r1 = 1 to add -> r0 = entry or 0 */
     push    {{r2, r4, r5, lr}}      /* uses r1, r3, r12; keeps r2 */
@@ -10794,6 +11090,12 @@ sr_label:
 sr_xml:
     .asciz  "{SL_LEN_XML}"
     .balign 4
+sr_rlabel:
+    .asciz  "{SL_REV_LABEL}"
+    .balign 4
+sr_rxml:
+    .asciz  "{SL_REV_XML}"
+    .balign 4
 """
     return assemble("hookSL", src)
 
@@ -10839,7 +11141,7 @@ def apply_slice_loop(d):
     for site, entry, call in SL_SITES:
         d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], call)
     for page in SL_PAGES:
-        struct.pack_into("<H", d, page - BASE + 2 * len(SL_PAGE_IDS), SL_LEN_ID)
+        struct.pack_into("<2H", d, page - BASE + 2 * len(SL_PAGE_IDS), SL_LEN_ID, SL_REV_ID)
     vprint(f"SL Loop Mode a mod target at {SL_LIST + 2 * SL_LIST_USED:#x}; "
            f"{len(code)} bytes at {org:#010x}, ram {SL_RAM:#x}")
     return org, syms
@@ -10875,6 +11177,7 @@ def patch_ram_ranges():
         ("T the patch's own colours", THEME_OSD_RAM, THEME_OSD_RAM + 32),
         ("GR Gate Rec / Clr / Loop", GATE_RAM, GATE_RAM + 4 * len(GATE_ROWS)),
         ("SL Loop Mode sources", SL_RAM, SL_RAM + SL_RAM_BYTES),
+        ("SL Reverse segments", SL_SEG_RAM, SL_SEG_RAM + SL_SEG_BYTES),
     ]
 
 
@@ -11114,7 +11417,7 @@ def main():
             print(f"     ok   {'Gate Rec / Clr / Loop':<28} TOOLS > Settings (FORK)")
         if slice_loop:
             apply_slice_loop(d)
-            print(f"     ok   {'Loop Mode, Loop Len on CV':<28} Slicer pads (FORK)")
+            print(f"     ok   {'Loop, Loop Len, Reverse':<28} Slicer pads (FORK)")
         finish(d, outp, ver)
         return
 

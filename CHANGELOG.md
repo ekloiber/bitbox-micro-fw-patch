@@ -5,6 +5,17 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs3 (fork, test build) — November 2026
+
+- New, only with `--slice-loop`: **Reverse** on the Slicer page, after Loop
+  Len. ON plays each slice from its end back to its start. Saved with the
+  preset, and a modulation target: EXT 1-8 at 2.5 V or more reverses, held,
+  like Loop Mode. Taken at each start or restart of a slice. Works with Loop
+  Len (the shortened slice plays backwards) and Loop Mode.
+- Not with PlayThru yet: a PlayThru pad plays forwards as before.
+- A test build: the card is read ahead forwards only, so a slice that has not
+  played yet may drop out when reversed. Not yet tried on a module.
+
 ## 2.3.4-gs2 (fork, experimental) — November 2026
 
 - New, only with `--slice-loop`: **Loop Len** on the Slicer page, after Slice
