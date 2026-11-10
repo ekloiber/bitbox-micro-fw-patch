@@ -5,6 +5,12 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs5 (fork, test build) — November 2026
+
+- Fixed: Sustain ignored EXT 1-8 in gs4 (LFO and the other internal sources
+  worked). A slot set to an EXT source was cleared again straight after.
+- Loop Len's fix from gs4 confirmed on a module.
+
 ## 2.3.4-gs4 (fork, test build) — November 2026
 
 - New, only with `--slice-loop`: **Sustain is a modulation target** on Sample
