@@ -57,11 +57,18 @@ Built with `--slice-loop`. Both work only on Slicer pads with PlayThru off.
 | **Loop Mode** on a CV | Assign EXT 1-8 to Loop Mode. While the CV is at 2.5 V or more, the current slice loops; when it drops, the slice plays out and the pad's own Loop Mode applies again. |
 | **Loop Len** | A new row on the Slicer page, after Slice Seq: how much of each slice plays, from its start, 1-100 % (default 100 %). Saved with the preset. |
 | **Loop Len** on a CV | Assign EXT 1-8 with Amount +100 %: 0 V leaves the length as set, 5 V takes it down to 1 %. |
+| **Reverse** | A new on/off row after Loop Len: plays each slice from its end back to its start. Saved with the preset; EXT 1-8 at 2.5 V or more reverses, held. Not with PlayThru yet. |
 
 Changes land at the next restart of the slice, so they stay in time. Use
 Loop Mode and Loop Len together for rolls and stutters that open and close
 from a CV. Set the jack to CV on the Input screen first. The Amount box
 does nothing for Loop Mode. Only EXT sources reach these two targets.
+
+**Sustain on a CV** (same builds): Sustain is a modulation target on Sample
+and Clip/Slicer pads, from EXT 1-8, VEL, LFO, PTCH, MODW, MVOL or MPAN.
+Sustain = your setting + source x Amount, within 0-100 %; with Amount
++100 %, +5 V adds 100 % and -5 V takes 100 % away. It follows the source
+during a held note. The inputs take -5 V to +5 V.
 
 ## Building It
 

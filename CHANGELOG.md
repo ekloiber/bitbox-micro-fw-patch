@@ -9,7 +9,8 @@ the guide you are reading. None of them covers how any of it is built.
 
 - Fixed: Sustain ignored EXT 1-8 in gs4 (LFO and the other internal sources
   worked). A slot set to an EXT source was cleared again straight after.
-- Loop Len's fix from gs4 confirmed on a module.
+- Confirmed on a module: Sustain from EXT and from LFO, on Sample and Slicer
+  pads, and Loop Len's 0-5 V fix.
 
 ## 2.3.4-gs4 (fork, test build) — November 2026
 
