@@ -5,6 +5,18 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs6 (fork, test build) — November 2026
+
+- Changed, only with `--slice-loop`: a looping slice is **held until Loop
+  Mode turns off**. While a Slicer pad (PlayThru off) loops, it ignores new
+  notes and gates, and gate releases, and keeps the same slice even if Slice,
+  its CV or Slice Seq would pick another. When Loop Mode (its setting, or its
+  CV) goes off, the slice plays to its end and stops; the next trigger then
+  works as normal.
+- In Gate launch mode a loop no longer ends when the gate falls: only Loop
+  Mode ends it.
+- Not yet tried on a module.
+
 ## 2.3.4-gs5 (fork, test build) — November 2026
 
 - Fixed: Sustain ignored EXT 1-8 in gs4 (LFO and the other internal sources

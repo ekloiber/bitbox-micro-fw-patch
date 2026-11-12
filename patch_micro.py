@@ -1262,8 +1262,8 @@ FROZEN = {
         {'nblock': 0, '$t': 484, 'nblock_orig': 2, '$d': 504, 'nblock_c': 26, 'nmidi': 52, 'nmidi_c': 76, 'nmidi_next': 100, 'ncomp': 104, 'ncomp_c': 136, 'ncomp_e': 132, 'ncomp_call': 154, 'nclip_rate': 178, 'nclip_rate_c': 200, 'nclip_cc': 236, 'nclip_cc_go': 248, 'nclip_cc_out': 296, 'nclip_cc_c': 274, 'njread': 300, 'njread_c': 380, 'nclip_beats': 408, 'nclip_beats_c': 430, 'nfinal': 456, 'nfinal_p': 458, 'nfinal_c': 480, '_sN': 0}),
     "hookGR": ("2de91f5083b0039840f2a1110ff2fc120ff2d413092400940ff2fc14019400000000039840f2a3110ff2f8120ff2b813092400940ff2f814019400000000039840f2a5110ff2f4120ff29c13092400940ff2f41401940000000003b0bde81f50000000002de90f50009840f2a111002200000000009840f2a311002200000000009840f2a511002200000000bde80f500000000040f2a11c624517d040f2a31c624513d040f2a51c62450fd00000000040f2a11c624509d040f2a31c624505d040f2a51c624501d00000000010b51446082b05d9414811460022000000000023002140f2a110844209d0042140f2a310844204d0082140f2a5108442ffd0dff8e0c040f20000c4f2417040ea03004cf8010010bd00f02ef818b9b8f1130f00000000012803d1682000f005f8672000f002f80000000010b514a900220a604a608a60ca600a614a612d220a70099a4a60886045f28820c0f2010030440000000010bd00f007f818b9b8f1130f0000000000000000dff868c01a4944f24173dcf80000b3eb104f09d1c0b20138072805d851f82000404501d167207047dcf80400b3eb104f09d1c0b20138072805d851f82000404501d168207047dcf80800b3eb104f09d1c0b20138072805d851f82000404501d1012070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf67617465726563696e0000bf4761746520436c723a0000bf67617465636c72696e0000bf47617465204c6f6f703a0000676174656c6f6f70696e00004f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
         {'greg': 0, 'glabel0': 524, 'gvalues': 488, 'gxml0': 536, 'greg_call0': 30, 'glabel1': 548, 'gxml1': 560, 'greg_call1': 58, 'glabel2': 572, 'gxml2': 584, 'greg_call2': 86, 'greg_next': 96, 'gstore': 100, 'gstore_call0': 112, 'gstore_call1': 124, 'gstore_call2': 136, 'gstore_next': 144, 'gpost': 148, 'gmine': 204, 'gpost_next': 172, 'gedit': 176, 'gedit_next': 200, 'gm_store': 224, 'gm_set': 218, 'gm_put': 254, 'gon': 276, 'gmatch': 372, 'gon_act': 290, 'gon_back': 286, 'gon_one': 302, 'gsend': 310, 'gon_done': 306, 'gsend_push': 348, 'goff': 354, 'goff_eat': 368, 'goff_back': 364, 'gm_0': 382, 'gm_1': 412, 'gm_2': 442, 'gm_3': 472, 'gv0': 596, 'gv1': 600, 'gv2': 608, 'gv3': 616, 'gv4': 624, 'gv5': 632, 'gv6': 640, 'gv7': 648, 'gv8': 656, '_sGR': 0}),
-    "hookSL": ("40f2a7139c4219d040f2a9139c4225d06f2c0dd1022a09d82846002106b1012100f0e2fb10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f0cefb0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f0befb0028ddd000eb82000663d9e740f2a9139c4210d040f2a7139c4218d1284632690021b2f57a7f18bf012100f0a7fb00b102610000000028463269111e18bf01210a4600f09bfb0028f3d0c262f1e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a91100220000000001bd2de91f5083b040f2a71108220ff26c730a24009440f2e83401940ff26c74029400000000039840f2a91104220ff2687300240094012401940ff2687402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f053fb002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f06bf905b00000000010b5044600f064f9000000002de90f50dff88cc1ccf808000021ccf8101090f85532002b40f09280002100f01bfb002800f08c802ded046b016907ee901af8eee77a9fed587ac7ee877a42693ab192ed017ad0ed066a27ee267a77eec77ac2693ab192ed017ad0ed086a27ee267a77eec77a426a3ab192ed017ad0ed0a6a27ee267a77eec77ab7ee007af4ee477af1ee10fa33da9fed447ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e92c36a8bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff8d8c3dcf80000f54b98420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f0c6f908b100210160009800f6a034dff86cc3dcf80010da4a91420dd10cf114010cf234120b68834203d3a34201d200230b600c319142f5d1dff84cc3dcf80010d04a91420dd10cf108010cf208320b68834203d3a34201d200230b6020319142f5d115bd222a03d070b514460000000010b504460a46194604f2f04000f0a2f804f6001000f09ef810bd222a03d070b514460000000010b50a46194600f26c3000f090f810bdb1f80cc0bcf1220f03d02de9f04300000000f0b5044600f03af8a5f10f03072b14d90ff2a20c00f03ff81f4602b12244314604f2f04000f072f800220fb104eb0702314604f6001000f069f8f0bdb1f80cc0bcf1220f03d02de9f84300000000f0b5044600f013f8a5f10f03072b0dd90ff27e0c00f018f81ab112f0010f08bf2244314604f26c3000f049f8f0bdb1f9163000ee103ab8eec00a5fed9d0a80ee200a8d8a0e8a704700220023bcf8000040b1a84202d00cf1060cf7e7bcf80220bcf8043070470d00a802b8060400880398070e00b002c0061a00480b480b1c00500b500b1d00580b580b1900600b600b00000d00810000000e00890000000400190500001a00240100001c002c0100001d003401000019003c010000000002290ed816b5002102b1012100f07ff830b1009900ebc100019a426080ed020a16bd704793ed068a2de90f5018460021002200f06cf860b9039800f087f8002842d0039aa2f55872002100f060f800283ad02ded046bf0ee487a416859b111f0010f1cbf21f00101114491ed017ad0ed026ae7ee267ac16859b111f0010f1cbf21f00101114491ed017ad0ed046ae7ee267a416959b111f0010f1cbf21f00101114491ed017ad0ed066ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee678abdec046bbde80f50000000002de907500bf5587007f55b7100f049f8bde80750d7f8843300000000dcf80000334b98420ad0ccf8003000230cf104000cf2085140f8043b8842fbd1704734b50d460446dff8acc0fff7e8ff0cf108000cf2083100220368a3420ed00bb902b9024620308842f6d1002035b12ab100235360d36053611460104634bd14b50446dff870c0fff7caff1b4800f200210368a34204d008308842f9d1002014bd406814bd30b504460d46dff848c0fff7b6ff114800f2002100220368a34211d00bb902b9024608308842f6d1104648b9dcf80420531c03f03f03ccf80430064800ebc2004560046030bd0000c0920624334f4c5300a7062408aa062434b50d46dff868c0dcf80010194b99420ad0ccf8003000230cf104010cf2444241f8043b9142fbd10cf104010cf2444200240b68834216d00bb904b90c4640319142f6d18db184b1002304f1040104f1400241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd000080f00624334f4c534c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf00",
-        {'sl_att': 0, 'sa_len': 60, 'sa_rev': 92, 'sa_other': 48, 'sa_done': 44, 'sa_find': 32, 'sl_find': 2024, 'sa_84': 56, 'sa_back': 52, 'sa_lfind': 72, 'sa_rfind': 104, 'sl_set': 120, 'ss_rev': 162, 'ss_other': 186, 'ss_done': 158, 'ss_back': 190, 'sl_store': 194, 'st_add0': 196, 'st_add1': 210, 'st_add2': 222, 'sl_reg': 228, 'sr_label': 2144, 'sr_xml': 2156, 'sr_call': 260, 'sr_rlabel': 2172, 'sr_rxml': 2184, 'sr_call2': 290, 'sr_next': 300, 'sl_eos': 304, 'se_out': 364, 'se_t1': 340, 'se_on': 362, 'se_t2': 350, 'se_t3': 360, 'se_stop': 374, 'se_loop': 370, 'sl_ctor': 378, 'sl_drop': 1108, 'sc_back': 384, 'sl_dtor': 388, 'sd_back': 396, 'sl_seg': 400, 'sg_out': 720, 'sg_k1000': 808, 'sg_m1': 482, 'sg_m2': 502, 'sg_m3': 522, 'sg_scaled': 640, 'sg_kmin': 812, 'sg_sync': 576, 'sg_len': 608, 'rv_on': 680, 'rv_t1': 658, 'rv_t2': 668, 'rv_t3': 678, 'sg_vdone': 716, 'rv_sync': 692, 'rv_set': 700, 'sg_ret': 748, 'sg_back': 744, 'sr_done': 790, 'sl_segfind': 1018, 'sl_read': 816, 'sv_plain': 976, 'sv_call': 940, 'sv_ret': 972, 'sl_flip': 984, 'sv_pass': 980, 'sf_flipped': 1016, 'sf_swap': 996, 'sgf_scan': 1056, 'sgf_zero': 1048, 'sgf_loop': 1066, 'sgf_hit': 1102, 'sgf_next': 1078, 'sgf_none': 1104, 'sgf_use': 1092, 'sl_drop_seg': 1122, 'sl_drop_out': 1170, 'sd_loop': 1150, 'sd_next': 1164, 'sl_drop_done': 1212, 'sd_sus': 1192, 'sd_snext': 1206, 'sl_batt': 1214, 'ba_sus': 1226, 'ba_back': 1222, 'sus_set': 1566, 'sl_satt': 1252, 'sa2_sus': 1264, 'sb_back': 1260, 'sl_bloc': 1280, 'bl_sus': 1298, 'bl_back': 1294, 'sus_amount': 1422, 'bl_ext': 1356, 'map_b': 1478, 'sus_map': 1448, 'bl_s0': 1328, 'bl_s1': 1346, 'sl_sloc': 1358, 'ls_sus': 1376, 'ls_back': 1372, 'ls_ext': 1420, 'map_s': 1522, 'ls_set': 1410, 'sm_loop': 1452, 'sm_out': 1476, 'sm_hit': 1468, 'sus_set_ret': 1600, 'sus_set_f': 1578, 'sus_find': 1836, 'sus_set_out': 1598, 'sl_sus': 1602, 'su_have': 1648, 'map_get': 1898, 'su_out': 1766, 'su_t1': 1684, 'su_t2': 1712, 'su_t3': 1740, 'su_back': 1770, 'sl_non': 1774, 'map_set': 1936, 'no_back': 1798, 'sus_init': 1802, 'si_out': 1834, 'si_zero': 1826, 'suf_loop': 1860, 'suf_out': 1896, 'suf_next': 1872, 'mg_loop': 1916, 'mg_hit': 1932, 'ms_loop': 1958, 'ms_put': 2000, 'ms_next': 1970, 'sf_scan': 2064, 'sf_zero': 2056, 'sf_loop': 2074, 'sf_hit': 2126, 'sf_next': 2086, 'sf_none': 2130, 'sf_clear': 2106, '_sSL': 0}),
+    "hookSL": ("40f2a7139c4219d040f2a9139c4225d06f2c0dd1022a09d82846002106b1012100f03dfc10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f029fc0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f019fc0028ddd000eb82000663d9e740f2a9139c4210d040f2a7139c4218d1284632690021b2f57a7f18bf012100f002fc00b102610000000028463269111e18bf01210a4600f0f6fb0028f3d0c262f1e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a91100220000000001bd2de91f5083b040f2a71108220ff620030a24009440f2e83401940ff62004029400000000039840f2a91104220ff61c0300240094012401940ff61c0402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f0aefb002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f06df905b00000000010b5044600f066f9000000002de90f50dff890c1ccf808000021ccf8101090f85532002b40f09480012100f076fb002800f08e80039bc3632ded046b016907ee901af8eee77a9fed587ac7ee877a42693ab192ed017ad0ed066a27ee267a77eec77ac2693ab192ed017ad0ed086a27ee267a77eec77a426a3ab192ed017ad0ed0a6a27ee267a77eec77ab7ee007af4ee477af1ee10fa33da9fed447ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e92c36a8bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff8d8c3dcf80000f54b98420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f01ffa08b100210160009800f6a034dff86cc3dcf80010da4a91420dd10cf114010cf234120b68834203d3a34201d200230b600c319142f5d1dff84cc3dcf80010d04a91420dd10cf108010cf208320b68834203d3a34201d200230b6020319142f5d115bd222a03d070b514460000000010b504460a46194604f2f04000f0a2f804f6001000f09ef810bd222a03d070b514460000000010b50a46194600f26c3000f090f810bdb1f80cc0bcf1220f03d02de9f04300000000f0b5044600f03af8a5f10f03072b14d90ff2a20c00f03ff81f4602b12244314604f2f04000f072f800220fb104eb0702314604f6001000f069f8f0bdb1f80cc0bcf1220f03d02de9f84300000000f0b5044600f013f8a5f10f03072b0dd90ff27e0c00f018f81ab112f0010f08bf2244314604f26c3000f049f8f0bdb1f9163000ee103ab8eec00a5fed9d0a80ee200a8d8a0e8a704700220023bcf8000040b1a84202d00cf1060cf7e7bcf80220bcf8043070470d00a802b8060400880398070e00b002c0061a00480b480b1c00500b500b1d00580b580b1900600b600b00000d00810000000e00890000000400190500001a00240100001c002c0100001d003401000019003c010000000002290ed816b5002102b1012100f07ff830b1009900ebc100019a426080ed020a16bd704793ed068a2de90f5018460021002200f06cf860b9039800f087f8002842d0039aa2f55872002100f060f800283ad02ded046bf0ee487a416859b111f0010f1cbf21f00101114491ed017ad0ed026ae7ee267ac16859b111f0010f1cbf21f00101114491ed017ad0ed046ae7ee267a416959b111f0010f1cbf21f00101114491ed017ad0ed066ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee678abdec046bbde80f50000000002de907500bf5587007f55b7100f049f8bde80750d7f8843300000000dcf80000334b98420ad0ccf8003000230cf104000cf2085140f8043b8842fbd1704734b50d460446dff8acc0fff7e8ff0cf108000cf2083100220368a3420ed00bb902b9024620308842f6d1002035b12ab100235360d36053611460104634bd14b50446dff870c0fff7caff1b4800f200210368a34204d008308842f9d1002014bd406814bd30b504460d46dff848c0fff7b6ff114800f2002100220368a34211d00bb902b9024608308842f6d1104648b9dcf80420531c03f03f03ccf80430064800ebc2004560046030bd0000c0920624334f4c5300a7062408aa062410b50446002094f8541271b3d4f8501259b394f8551241bb94f8601211b194f8691229b104f270621178f1b1517ae1b9012094f8f411c1b92046002100f039f898b1034601204ff07c5c596811b1496861450ada996811b14968614505dad96811b14968614500da002010bd1fb5fff7c7ff0028bde81f4018bf70472de9f04f000000001fb5fff7bbff0028bde81f4018bf704790f860120000000007b5002100f007f808b1c06b0ebdbde807400000000034b50d46dff868c0dcf80010194b99420ad0ccf8003000230cf104010cf2444241f8043b9142fbd10cf104010cf2444200240b68834216d00bb904b90c4640319142f6d18db184b1002304f1040104f1400241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd80f00624334f4c534c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf00",
+        {'sl_att': 0, 'sa_len': 60, 'sa_rev': 92, 'sa_other': 48, 'sa_done': 44, 'sa_find': 32, 'sl_find': 2206, 'sa_84': 56, 'sa_back': 52, 'sa_lfind': 72, 'sa_rfind': 104, 'sl_set': 120, 'ss_rev': 162, 'ss_other': 186, 'ss_done': 158, 'ss_back': 190, 'sl_store': 194, 'st_add0': 196, 'st_add1': 210, 'st_add2': 222, 'sl_reg': 228, 'sr_label': 2324, 'sr_xml': 2336, 'sr_call': 260, 'sr_rlabel': 2352, 'sr_rxml': 2364, 'sr_call2': 290, 'sr_next': 300, 'sl_eos': 304, 'se_out': 364, 'se_t1': 340, 'se_on': 362, 'se_t2': 350, 'se_t3': 360, 'se_stop': 374, 'se_loop': 370, 'sl_ctor': 378, 'sl_drop': 1112, 'sc_back': 384, 'sl_dtor': 388, 'sd_back': 396, 'sl_seg': 400, 'sg_out': 724, 'sg_k1000': 812, 'sg_m1': 486, 'sg_m2': 506, 'sg_m3': 526, 'sg_scaled': 644, 'sg_kmin': 816, 'sg_sync': 580, 'sg_len': 612, 'rv_on': 684, 'rv_t1': 662, 'rv_t2': 672, 'rv_t3': 682, 'sg_vdone': 720, 'rv_sync': 696, 'rv_set': 704, 'sg_ret': 752, 'sg_back': 748, 'sr_done': 794, 'sl_segfind': 1022, 'sl_read': 820, 'sv_plain': 980, 'sv_call': 944, 'sv_ret': 976, 'sl_flip': 988, 'sv_pass': 984, 'sf_flipped': 1020, 'sf_swap': 1000, 'sgf_scan': 1060, 'sgf_zero': 1052, 'sgf_loop': 1070, 'sgf_hit': 1106, 'sgf_next': 1082, 'sgf_none': 1108, 'sgf_use': 1096, 'sl_drop_seg': 1126, 'sl_drop_out': 1174, 'sd_loop': 1154, 'sd_next': 1168, 'sl_drop_done': 1216, 'sd_sus': 1196, 'sd_snext': 1210, 'sl_batt': 1218, 'ba_sus': 1230, 'ba_back': 1226, 'sus_set': 1570, 'sl_satt': 1256, 'sa2_sus': 1268, 'sb_back': 1264, 'sl_bloc': 1284, 'bl_sus': 1302, 'bl_back': 1298, 'sus_amount': 1426, 'bl_ext': 1360, 'map_b': 1482, 'sus_map': 1452, 'bl_s0': 1332, 'bl_s1': 1350, 'sl_sloc': 1362, 'ls_sus': 1380, 'ls_back': 1376, 'ls_ext': 1424, 'map_s': 1526, 'ls_set': 1414, 'sm_loop': 1456, 'sm_out': 1480, 'sm_hit': 1472, 'sus_set_ret': 1604, 'sus_set_f': 1582, 'sus_find': 1840, 'sus_set_out': 1602, 'sl_sus': 1606, 'su_have': 1652, 'map_get': 1902, 'su_out': 1770, 'su_t1': 1688, 'su_t2': 1716, 'su_t3': 1744, 'su_back': 1774, 'sl_non': 1778, 'map_set': 1940, 'no_back': 1802, 'sus_init': 1806, 'si_out': 1838, 'si_zero': 1830, 'suf_loop': 1864, 'suf_out': 1900, 'suf_next': 1876, 'mg_loop': 1920, 'mg_hit': 1936, 'ms_loop': 1962, 'ms_put': 2004, 'ms_next': 1974, 'sl_held': 2028, 'hd_out': 2134, 'hd_v1': 2064, 'hd_loop': 2076, 'hd_s1': 2112, 'hd_s2': 2122, 'hd_no': 2132, 'sl_hon': 2136, 'ho_back': 2156, 'sl_hoff': 2160, 'hf_back': 2180, 'sl_pick': 2184, 'pk_stock': 2198, 'pk_orig': 2202, 'sf_scan': 2246, 'sf_zero': 2238, 'sf_loop': 2256, 'sf_hit': 2308, 'sf_next': 2268, 'sf_none': 2312, 'sf_clear': 2288, '_sSL': 0}),
 }
 
 # Reduced C objects (see "C hooks" below): compressed, origin-independent, and
@@ -10383,6 +10383,13 @@ def apply_gate_rec(d, only=False):
 # Amount +100 % a CV from 0 V to 5 V takes a 100 % slice down to the 1 %
 # floor. Never longer than the slice. A change lands at the next restart.
 #
+# LOOP HOLD (s6). While a Slicer pad (PlayThru off) is playing and Loop Mode
+# is on (its setting, or a Loop Mode source at 2.5 V), the looping slice is
+# held: note-ons and note-offs to the engine are ignored (0x080b4cc0,
+# 0x080b3dfc), and each restart reuses the slice it was playing instead of
+# picking again from the note, Slice and Slice Seq (0x080b3f80 at 0x080b624c).
+# sl_seg notes the slice each segment plays in the engine's entry (+60).
+# When Loop Mode goes off the slice plays out and stops, as before.
 # SUSTAIN (s4). Sustain (id 0x22) becomes a modulation target on Sample and
 # Clip/Slicer pads, from every source: EXT 1-8, VEL, LFO, PTCH, MODW, MVOL,
 # MPAN (TRIG and CC reach no envelope target in stock, so not this one).
@@ -10450,7 +10457,7 @@ def apply_gate_rec(d, only=False):
 #     VFP register is touched), restarts it; otherwise the slice ends as stock.
 #   - Not touched: Clip pads, and Slicer with PlayThru (whose Loop Mode loops
 #     the whole file). The Amount box is ignored: the threshold is on the CV.
-SL_VERSION_TAG = "s5"                # appended to the minimal build's version
+SL_VERSION_TAG = "s6"                # appended to the minimal build's version
 SL_LIST = 0x080c86f8                 # modulation targets, u16 ids
 SL_LIST_USED = 36
 SL_LIST_CAP = 49
@@ -10535,6 +10542,14 @@ SL_GUARDS = (
     (0x080b4696, "c5ebc50a", "... rsb r10, r5, r5, lsl #3"),
     (0x080b46a2, "4fea0a1a", "... lsl.w r10, r10, #4"),
     (0x080b4688, "284603b0bdec028bbde8f08f", "the segment builder returns the slot (r5)"),
+    (0x080b4cc0, "2de9f04f90f8798b", "Clip/Slicer note-on: push.w; ldrb.w r8, [r0, #0xb79]"),
+    (0x080b3dfc, "90f86012f0b5", "Clip/Slicer note-off: ldrb.w r1, [r0, #0x260]; push"),
+    (0x080b624c, "fdf798fe0546", "the loop's restart picks its slice: bl; mov r5, r0"),
+    (0x080b3f86, "71b1", "... from the note if there is one, else Slice and Slice Seq"),
+    (0x080b7dbe, "04f51872", "the engine's voices: +0x260 ..."),
+    (0x080b7fa4, "04f5ce62", "... and +0x670"),
+    (0x080b5ab6, "1378", "a voice plays while its first byte is set ..."),
+    (0x080b5cf6, "627a", "... and +9 says it is ending"),
     (0x080b89b8, "a36893ed068a0528", "the envelope: ldr r3, [r4, #8]; vldr s16, [r3, #24]; cmp r0, #5"),
     (0x080b87d6, "00f12008", "its settings: A, D, R modulators at +0x20 ..."),
     (0x080b7034, "05f5a163", "Clip/Slicer Sustain at +0x508 ..."),
@@ -10582,6 +10597,9 @@ SL_SITES = (                         # (site, entry, bl?): b.w or bl in
     (0x080ae5ec, "sl_sloc", False),
     (SL_SUS_READ, "sl_sus", False),
     (0x080ae1b4, "sl_non", False),
+    (0x080b4cc0, "sl_hon", False),
+    (0x080b3dfc, "sl_hoff", False),
+    (0x080b624c, "sl_pick", True),
 )
 SL_FIX = (                           # (placeholder, target, bl?): b.w or bl out
     ("sa_done", 0x080b373c, False),
@@ -10607,6 +10625,9 @@ SL_FIX = (                           # (placeholder, target, bl?): b.w or bl out
     ("ls_back", 0x080ae5f0, False),
     ("su_back", SL_SUS_READ + 4, False),
     ("no_back", 0x080ae1b8, False),
+    ("ho_back", 0x080b4cc4, False),
+    ("hf_back", 0x080b3e00, False),
+    ("pk_orig", 0x080b3f80, False),
 )
 
 
@@ -10836,10 +10857,12 @@ sl_seg:                             /* a slice's segment: r0 this; its args at [
     ldrb.w  r3, [r0, #0x255]        /* PlayThru: as stock */
     cmp     r3, #0
     bne     sg_out
-    movs    r1, #0
+    movs    r1, #1                  /* every looping-capable slicer keeps an entry */
     bl      sl_find
     cmp     r0, #0
     beq     sg_out
+    ldr     r3, [sp, #12]           /* the slice this segment plays: the loop holds it */
+    str     r3, [r0, #60]
     vpush   {{d6, d7}}              /* from here the args are at sp + 40 */
     ldr     r1, [r0, #16]
     vmov    s15, r1
@@ -11435,6 +11458,93 @@ ms_put:
     pop     {{r4, r5, pc}}
     .ltorg
     .balign 4
+
+sl_held:                            /* r0 engine -> r0 = 1 if a slicer is looping a slice now */
+    push    {{r4, lr}}
+    mov     r4, r0
+    movs    r0, #0
+    ldrb.w  r1, [r4, #0x254]        /* a slicer, with slices, no PlayThru */
+    cbz     r1, hd_out
+    ldr.w   r1, [r4, #0x250]
+    cbz     r1, hd_out
+    ldrb.w  r1, [r4, #0x255]
+    cbnz    r1, hd_out
+    ldrb.w  r1, [r4, #0x260]        /* a voice playing and not ending */
+    cbz     r1, hd_v1
+    ldrb.w  r1, [r4, #0x269]
+    cbz     r1, hd_loop
+hd_v1:
+    addw    r2, r4, #0x670
+    ldrb    r1, [r2]
+    cbz     r1, hd_out
+    ldrb    r1, [r2, #9]
+    cbnz    r1, hd_out
+hd_loop:                            /* and Loop Mode on: the setting, or a source at 2.5 V */
+    movs    r0, #1
+    ldrb.w  r1, [r4, #0x1f4]
+    cbnz    r1, hd_out
+    mov     r0, r4
+    movs    r1, #0
+    bl      sl_find
+    cbz     r0, hd_out
+    mov     r3, r0
+    movs    r0, #1
+    mov.w   r12, #0x{SL_THRESH_BITS:x}
+    ldr     r1, [r3, #4]
+    cbz     r1, hd_s1
+    ldr     r1, [r1, #4]
+    cmp     r1, r12
+    bge     hd_out
+hd_s1:
+    ldr     r1, [r3, #8]
+    cbz     r1, hd_s2
+    ldr     r1, [r1, #4]
+    cmp     r1, r12
+    bge     hd_out
+hd_s2:
+    ldr     r1, [r3, #12]
+    cbz     r1, hd_no
+    ldr     r1, [r1, #4]
+    cmp     r1, r12
+    bge     hd_out
+hd_no:
+    movs    r0, #0
+hd_out:
+    pop     {{r4, pc}}
+
+sl_hon:                             /* note-on: ignored while a slice is held looping */
+    push    {{r0, r1, r2, r3, r4, lr}}
+    bl      sl_held
+    cmp     r0, #0
+    pop     {{r0, r1, r2, r3, r4, lr}}
+    it      ne
+    bxne    lr
+    push.w  {{r4, r5, r6, r7, r8, r9, r10, r11, lr}}   /* the instruction this replaced */
+ho_back:
+    .short  0, 0                    /* b.w on: ldrb.w r8, [r0, #0xb79] */
+
+sl_hoff:                            /* note-off: the same */
+    push    {{r0, r1, r2, r3, r4, lr}}
+    bl      sl_held
+    cmp     r0, #0
+    pop     {{r0, r1, r2, r3, r4, lr}}
+    it      ne
+    bxne    lr
+    ldrb.w  r1, [r0, #0x260]        /* the instruction this replaced */
+hf_back:
+    .short  0, 0                    /* b.w on: push {{r4-r7, lr}} */
+
+sl_pick:                            /* the loop restarts: the slice it was playing, held */
+    push    {{r0, r1, r2, lr}}
+    movs    r1, #0
+    bl      sl_find
+    cbz     r0, pk_stock
+    ldr     r0, [r0, #60]
+    pop     {{r1, r2, r3, pc}}
+pk_stock:
+    pop     {{r0, r1, r2, lr}}
+pk_orig:
+    .short  0, 0                    /* b.w the stock pick */
 
 sl_find:                            /* r0 = engine, r1 = 1 to add -> r0 = entry or 0 */
     push    {{r2, r4, r5, lr}}      /* uses r1, r3, r12; keeps r2 */
