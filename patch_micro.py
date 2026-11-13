@@ -1049,7 +1049,8 @@ USAGE = f"""
                        the other changes (version 2.3.4-gr3)
     --slice-loop       EXPERIMENTAL: Slicer Loop Mode, Loop Len and Reverse on
                        a CV (EXT 1-8), and Sustain as a modulation target on
-                       Sample and Clip/Slicer pads (2.3.4-s4; --gate-only: gs4)
+                       Sample and Clip/Slicer pads, and Loop Hold
+                       (2.3.4-s7; with --gate-only, 2.3.4-gs7)
     -v                 show the addresses and opcodes as it works
     --reassemble       verify the frozen code against its sources
     --legacy-version   allow a version string too long for the panel, for
@@ -1262,8 +1263,8 @@ FROZEN = {
         {'nblock': 0, '$t': 484, 'nblock_orig': 2, '$d': 504, 'nblock_c': 26, 'nmidi': 52, 'nmidi_c': 76, 'nmidi_next': 100, 'ncomp': 104, 'ncomp_c': 136, 'ncomp_e': 132, 'ncomp_call': 154, 'nclip_rate': 178, 'nclip_rate_c': 200, 'nclip_cc': 236, 'nclip_cc_go': 248, 'nclip_cc_out': 296, 'nclip_cc_c': 274, 'njread': 300, 'njread_c': 380, 'nclip_beats': 408, 'nclip_beats_c': 430, 'nfinal': 456, 'nfinal_p': 458, 'nfinal_c': 480, '_sN': 0}),
     "hookGR": ("2de91f5083b0039840f2a1110ff2fc120ff2d413092400940ff2fc14019400000000039840f2a3110ff2f8120ff2b813092400940ff2f814019400000000039840f2a5110ff2f4120ff29c13092400940ff2f41401940000000003b0bde81f50000000002de90f50009840f2a111002200000000009840f2a311002200000000009840f2a511002200000000bde80f500000000040f2a11c624517d040f2a31c624513d040f2a51c62450fd00000000040f2a11c624509d040f2a31c624505d040f2a51c624501d00000000010b51446082b05d9414811460022000000000023002140f2a110844209d0042140f2a310844204d0082140f2a5108442ffd0dff8e0c040f20000c4f2417040ea03004cf8010010bd00f02ef818b9b8f1130f00000000012803d1682000f005f8672000f002f80000000010b514a900220a604a608a60ca600a614a612d220a70099a4a60886045f28820c0f2010030440000000010bd00f007f818b9b8f1130f0000000000000000dff868c01a4944f24173dcf80000b3eb104f09d1c0b20138072805d851f82000404501d167207047dcf80400b3eb104f09d1c0b20138072805d851f82000404501d168207047dcf80800b3eb104f09d1c0b20138072805d851f82000404501d1012070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf67617465726563696e0000bf4761746520436c723a0000bf67617465636c72696e0000bf47617465204c6f6f703a0000676174656c6f6f70696e00004f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
         {'greg': 0, 'glabel0': 524, 'gvalues': 488, 'gxml0': 536, 'greg_call0': 30, 'glabel1': 548, 'gxml1': 560, 'greg_call1': 58, 'glabel2': 572, 'gxml2': 584, 'greg_call2': 86, 'greg_next': 96, 'gstore': 100, 'gstore_call0': 112, 'gstore_call1': 124, 'gstore_call2': 136, 'gstore_next': 144, 'gpost': 148, 'gmine': 204, 'gpost_next': 172, 'gedit': 176, 'gedit_next': 200, 'gm_store': 224, 'gm_set': 218, 'gm_put': 254, 'gon': 276, 'gmatch': 372, 'gon_act': 290, 'gon_back': 286, 'gon_one': 302, 'gsend': 310, 'gon_done': 306, 'gsend_push': 348, 'goff': 354, 'goff_eat': 368, 'goff_back': 364, 'gm_0': 382, 'gm_1': 412, 'gm_2': 442, 'gm_3': 472, 'gv0': 596, 'gv1': 600, 'gv2': 608, 'gv3': 616, 'gv4': 624, 'gv5': 632, 'gv6': 640, 'gv7': 648, 'gv8': 656, '_sGR': 0}),
-    "hookSL": ("40f2a7139c4219d040f2a9139c4225d06f2c0dd1022a09d82846002106b1012100f03dfc10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f029fc0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f019fc0028ddd000eb82000663d9e740f2a9139c4210d040f2a7139c4218d1284632690021b2f57a7f18bf012100f002fc00b102610000000028463269111e18bf01210a4600f0f6fb0028f3d0c262f1e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a91100220000000001bd2de91f5083b040f2a71108220ff620030a24009440f2e83401940ff62004029400000000039840f2a91104220ff61c0300240094012401940ff61c0402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f0aefb002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f06df905b00000000010b5044600f066f9000000002de90f50dff890c1ccf808000021ccf8101090f85532002b40f09480012100f076fb002800f08e80039bc3632ded046b016907ee901af8eee77a9fed587ac7ee877a42693ab192ed017ad0ed066a27ee267a77eec77ac2693ab192ed017ad0ed086a27ee267a77eec77a426a3ab192ed017ad0ed0a6a27ee267a77eec77ab7ee007af4ee477af1ee10fa33da9fed447ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e92c36a8bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff8d8c3dcf80000f54b98420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f01ffa08b100210160009800f6a034dff86cc3dcf80010da4a91420dd10cf114010cf234120b68834203d3a34201d200230b600c319142f5d1dff84cc3dcf80010d04a91420dd10cf108010cf208320b68834203d3a34201d200230b6020319142f5d115bd222a03d070b514460000000010b504460a46194604f2f04000f0a2f804f6001000f09ef810bd222a03d070b514460000000010b50a46194600f26c3000f090f810bdb1f80cc0bcf1220f03d02de9f04300000000f0b5044600f03af8a5f10f03072b14d90ff2a20c00f03ff81f4602b12244314604f2f04000f072f800220fb104eb0702314604f6001000f069f8f0bdb1f80cc0bcf1220f03d02de9f84300000000f0b5044600f013f8a5f10f03072b0dd90ff27e0c00f018f81ab112f0010f08bf2244314604f26c3000f049f8f0bdb1f9163000ee103ab8eec00a5fed9d0a80ee200a8d8a0e8a704700220023bcf8000040b1a84202d00cf1060cf7e7bcf80220bcf8043070470d00a802b8060400880398070e00b002c0061a00480b480b1c00500b500b1d00580b580b1900600b600b00000d00810000000e00890000000400190500001a00240100001c002c0100001d003401000019003c010000000002290ed816b5002102b1012100f07ff830b1009900ebc100019a426080ed020a16bd704793ed068a2de90f5018460021002200f06cf860b9039800f087f8002842d0039aa2f55872002100f060f800283ad02ded046bf0ee487a416859b111f0010f1cbf21f00101114491ed017ad0ed026ae7ee267ac16859b111f0010f1cbf21f00101114491ed017ad0ed046ae7ee267a416959b111f0010f1cbf21f00101114491ed017ad0ed066ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee678abdec046bbde80f50000000002de907500bf5587007f55b7100f049f8bde80750d7f8843300000000dcf80000334b98420ad0ccf8003000230cf104000cf2085140f8043b8842fbd1704734b50d460446dff8acc0fff7e8ff0cf108000cf2083100220368a3420ed00bb902b9024620308842f6d1002035b12ab100235360d36053611460104634bd14b50446dff870c0fff7caff1b4800f200210368a34204d008308842f9d1002014bd406814bd30b504460d46dff848c0fff7b6ff114800f2002100220368a34211d00bb902b9024608308842f6d1104648b9dcf80420531c03f03f03ccf80430064800ebc2004560046030bd0000c0920624334f4c5300a7062408aa062410b50446002094f8541271b3d4f8501259b394f8551241bb94f8601211b194f8691229b104f270621178f1b1517ae1b9012094f8f411c1b92046002100f039f898b1034601204ff07c5c596811b1496861450ada996811b14968614505dad96811b14968614500da002010bd1fb5fff7c7ff0028bde81f4018bf70472de9f04f000000001fb5fff7bbff0028bde81f4018bf704790f860120000000007b5002100f007f808b1c06b0ebdbde807400000000034b50d46dff868c0dcf80010194b99420ad0ccf8003000230cf104010cf2444241f8043b9142fbd10cf104010cf2444200240b68834216d00bb904b90c4640319142f6d18db184b1002304f1040104f1400241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd80f00624334f4c534c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf00",
-        {'sl_att': 0, 'sa_len': 60, 'sa_rev': 92, 'sa_other': 48, 'sa_done': 44, 'sa_find': 32, 'sl_find': 2206, 'sa_84': 56, 'sa_back': 52, 'sa_lfind': 72, 'sa_rfind': 104, 'sl_set': 120, 'ss_rev': 162, 'ss_other': 186, 'ss_done': 158, 'ss_back': 190, 'sl_store': 194, 'st_add0': 196, 'st_add1': 210, 'st_add2': 222, 'sl_reg': 228, 'sr_label': 2324, 'sr_xml': 2336, 'sr_call': 260, 'sr_rlabel': 2352, 'sr_rxml': 2364, 'sr_call2': 290, 'sr_next': 300, 'sl_eos': 304, 'se_out': 364, 'se_t1': 340, 'se_on': 362, 'se_t2': 350, 'se_t3': 360, 'se_stop': 374, 'se_loop': 370, 'sl_ctor': 378, 'sl_drop': 1112, 'sc_back': 384, 'sl_dtor': 388, 'sd_back': 396, 'sl_seg': 400, 'sg_out': 724, 'sg_k1000': 812, 'sg_m1': 486, 'sg_m2': 506, 'sg_m3': 526, 'sg_scaled': 644, 'sg_kmin': 816, 'sg_sync': 580, 'sg_len': 612, 'rv_on': 684, 'rv_t1': 662, 'rv_t2': 672, 'rv_t3': 682, 'sg_vdone': 720, 'rv_sync': 696, 'rv_set': 704, 'sg_ret': 752, 'sg_back': 748, 'sr_done': 794, 'sl_segfind': 1022, 'sl_read': 820, 'sv_plain': 980, 'sv_call': 944, 'sv_ret': 976, 'sl_flip': 988, 'sv_pass': 984, 'sf_flipped': 1020, 'sf_swap': 1000, 'sgf_scan': 1060, 'sgf_zero': 1052, 'sgf_loop': 1070, 'sgf_hit': 1106, 'sgf_next': 1082, 'sgf_none': 1108, 'sgf_use': 1096, 'sl_drop_seg': 1126, 'sl_drop_out': 1174, 'sd_loop': 1154, 'sd_next': 1168, 'sl_drop_done': 1216, 'sd_sus': 1196, 'sd_snext': 1210, 'sl_batt': 1218, 'ba_sus': 1230, 'ba_back': 1226, 'sus_set': 1570, 'sl_satt': 1256, 'sa2_sus': 1268, 'sb_back': 1264, 'sl_bloc': 1284, 'bl_sus': 1302, 'bl_back': 1298, 'sus_amount': 1426, 'bl_ext': 1360, 'map_b': 1482, 'sus_map': 1452, 'bl_s0': 1332, 'bl_s1': 1350, 'sl_sloc': 1362, 'ls_sus': 1380, 'ls_back': 1376, 'ls_ext': 1424, 'map_s': 1526, 'ls_set': 1414, 'sm_loop': 1456, 'sm_out': 1480, 'sm_hit': 1472, 'sus_set_ret': 1604, 'sus_set_f': 1582, 'sus_find': 1840, 'sus_set_out': 1602, 'sl_sus': 1606, 'su_have': 1652, 'map_get': 1902, 'su_out': 1770, 'su_t1': 1688, 'su_t2': 1716, 'su_t3': 1744, 'su_back': 1774, 'sl_non': 1778, 'map_set': 1940, 'no_back': 1802, 'sus_init': 1806, 'si_out': 1838, 'si_zero': 1830, 'suf_loop': 1864, 'suf_out': 1900, 'suf_next': 1876, 'mg_loop': 1920, 'mg_hit': 1936, 'ms_loop': 1962, 'ms_put': 2004, 'ms_next': 1974, 'sl_held': 2028, 'hd_out': 2134, 'hd_v1': 2064, 'hd_loop': 2076, 'hd_s1': 2112, 'hd_s2': 2122, 'hd_no': 2132, 'sl_hon': 2136, 'ho_back': 2156, 'sl_hoff': 2160, 'hf_back': 2180, 'sl_pick': 2184, 'pk_stock': 2198, 'pk_orig': 2202, 'sf_scan': 2246, 'sf_zero': 2238, 'sf_loop': 2256, 'sf_hit': 2308, 'sf_next': 2268, 'sf_none': 2312, 'sf_clear': 2288, '_sSL': 0}),
+    "hookSL": ("40f2a7139c4219d040f2a9139c4225d06f2c0dd1022a09d82846002106b1012100f06afc10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f056fc0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f046fc0028ddd000eb82000663d9e740f2a9139c4214d040f2ab139c421dd040f2a7139c4226d1284632690021b2f57a7f18bf012100f02bfc00b102610000000028463269111e18bf01210a4600f01ffc0028f3d080f82c20f0e728463269111e18bf01210a4600f012fc0028e6d080f82d20e3e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a911002200000000009840f2ab1100220000000001bd2de91f5083b040f2a71108220ff64c030a24009440f2e83401940ff64c04029400000000039840f2a91104220ff6480300240094012401940ff64804029400000000039840f2ab1104220ff6480300240094012401940ff6480402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f0b4fb002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f06ef905b00000000010b5044600f067f9000000002de90f50dff894c1ccf808000021ccf8101090f85532002b40f09580012100f07cfb002800f08f80039bc3632ded046b016907ee901af8eee77a9fed587ac7ee877a42693ab192ed017ad0ed066a27ee267a77eec77ac2693ab192ed017ad0ed086a27ee267a77eec77a426a3ab192ed017ad0ed0a6a27ee267a77eec77ab7ee007af4ee477af1ee10fa33da9fed457ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e9290f82c308bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff8d8c3dcf80000f54b98420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f024fa08b100210160009800f6a034dff86cc3dcf80010da4a91420dd10cf114010cf234120b68834203d3a34201d200230b600c319142f5d1dff84cc3dcf80010d04a91420dd10cf108010cf208320b68834203d3a34201d200230b6020319142f5d115bd222a03d070b514460000000010b504460a46194604f2f04000f0a2f804f6001000f09ef810bd222a03d070b514460000000010b50a46194600f26c3000f090f810bdb1f80cc0bcf1220f03d02de9f04300000000f0b5044600f03af8a5f10f03072b14d90ff2a20c00f03ff81f4602b12244314604f2f04000f072f800220fb104eb0702314604f6001000f069f8f0bdb1f80cc0bcf1220f03d02de9f84300000000f0b5044600f013f8a5f10f03072b0dd90ff27e0c00f018f81ab112f0010f08bf2244314604f26c3000f049f8f0bdb1f9163000ee103ab8eec00a5fed9d0a80ee200a8d8a0e8a704700220023bcf8000040b1a84202d00cf1060cf7e7bcf80220bcf8043070470d00a802b8060400880398070e00b002c0061a00480b480b1c00500b500b1d00580b580b1900600b600b00000d00810000000e00890000000400190500001a00240100001c002c0100001d003401000019003c010000000002290ed816b5002102b1012100f07ff830b1009900ebc100019a426080ed020a16bd704793ed068a2de90f5018460021002200f06cf860b9039800f087f8002842d0039aa2f55872002100f060f800283ad02ded046bf0ee487a416859b111f0010f1cbf21f00101114491ed017ad0ed026ae7ee267ac16859b111f0010f1cbf21f00101114491ed017ad0ed046ae7ee267a416959b111f0010f1cbf21f00101114491ed017ad0ed066ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee678abdec046bbde80f50000000002de907500bf5587007f55b7100f049f8bde80750d7f8843300000000dcf80000334b98420ad0ccf8003000230cf104000cf2085140f8043b8842fbd1704734b50d460446dff8acc0fff7e8ff0cf108000cf2083100220368a3420ed00bb902b9024620308842f6d1002035b12ab100235360d36053611460104634bd14b50446dff870c0fff7caff1b4800f200210368a34204d008308842f9d1002014bd406814bd30b504460d46dff848c0fff7b6ff114800f2002100220368a34211d00bb902b9024608308842f6d1104648b9dcf80420531c03f03f03ccf80430064800ebc2004560046030bd0000c0920624334f4c5300a7062408aa062410b50446002094f8541281b3d4f8501269b394f8551251bb94f8601211b194f8691229b104f27062117801b3517af1b92046002100f042f8c8b1034693f82d00a8b1012094f8f41189b94ff07c5c596811b1496861450ada996811b14968614505dad96811b14968614500da002010bd1fb5fff7c5ff0028bde81f4018bf70472de9f04f000000001fb5fff7b9ff0028bde81f4018bf704790f860120000000007b5002100f00af820b190f82d1009b1c06b0ebdbde807400000000034b50d46dff868c0dcf80010194b99420ad0ccf8003000230cf104010cf2444241f8043b9142fbd10cf104010cf2444200240b68834216d00bb904b90c4640319142f6d18db184b1002304f1040104f1400241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd000080f00624334f4c534c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf004c6f6f7020486f6c643a0000736c6963656c6f6f70686f6c640000bf",
+        {'sl_att': 0, 'sa_len': 60, 'sa_rev': 92, 'sa_other': 48, 'sa_done': 44, 'sa_find': 32, 'sl_find': 2296, 'sa_84': 56, 'sa_back': 52, 'sa_lfind': 72, 'sa_rfind': 104, 'sl_set': 120, 'ss_rev': 170, 'ss_hold': 196, 'ss_other': 222, 'ss_done': 166, 'ss_back': 226, 'sl_store': 230, 'st_add0': 232, 'st_add1': 246, 'st_add2': 258, 'st_add3': 270, 'sl_reg': 276, 'sr_label': 2416, 'sr_xml': 2428, 'sr_call': 308, 'sr_rlabel': 2444, 'sr_rxml': 2456, 'sr_call2': 338, 'sr_hlabel': 2472, 'sr_hxml': 2484, 'sr_call3': 368, 'sr_next': 378, 'sl_eos': 382, 'se_out': 442, 'se_t1': 418, 'se_on': 440, 'se_t2': 428, 'se_t3': 438, 'se_stop': 452, 'se_loop': 448, 'sl_ctor': 456, 'sl_drop': 1192, 'sc_back': 462, 'sl_dtor': 466, 'sd_back': 474, 'sl_seg': 478, 'sg_out': 804, 'sg_k1000': 892, 'sg_m1': 564, 'sg_m2': 584, 'sg_m3': 604, 'sg_scaled': 722, 'sg_kmin': 896, 'sg_sync': 658, 'sg_len': 690, 'rv_on': 764, 'rv_t1': 742, 'rv_t2': 752, 'rv_t3': 762, 'sg_vdone': 800, 'rv_sync': 776, 'rv_set': 784, 'sg_ret': 832, 'sg_back': 828, 'sr_done': 874, 'sl_segfind': 1102, 'sl_read': 900, 'sv_plain': 1060, 'sv_call': 1024, 'sv_ret': 1056, 'sl_flip': 1068, 'sv_pass': 1064, 'sf_flipped': 1100, 'sf_swap': 1080, 'sgf_scan': 1140, 'sgf_zero': 1132, 'sgf_loop': 1150, 'sgf_hit': 1186, 'sgf_next': 1162, 'sgf_none': 1188, 'sgf_use': 1176, 'sl_drop_seg': 1206, 'sl_drop_out': 1254, 'sd_loop': 1234, 'sd_next': 1248, 'sl_drop_done': 1296, 'sd_sus': 1276, 'sd_snext': 1290, 'sl_batt': 1298, 'ba_sus': 1310, 'ba_back': 1306, 'sus_set': 1650, 'sl_satt': 1336, 'sa2_sus': 1348, 'sb_back': 1344, 'sl_bloc': 1364, 'bl_sus': 1382, 'bl_back': 1378, 'sus_amount': 1506, 'bl_ext': 1440, 'map_b': 1562, 'sus_map': 1532, 'bl_s0': 1412, 'bl_s1': 1430, 'sl_sloc': 1442, 'ls_sus': 1460, 'ls_back': 1456, 'ls_ext': 1504, 'map_s': 1606, 'ls_set': 1494, 'sm_loop': 1536, 'sm_out': 1560, 'sm_hit': 1552, 'sus_set_ret': 1684, 'sus_set_f': 1662, 'sus_find': 1920, 'sus_set_out': 1682, 'sl_sus': 1686, 'su_have': 1732, 'map_get': 1982, 'su_out': 1850, 'su_t1': 1768, 'su_t2': 1796, 'su_t3': 1824, 'su_back': 1854, 'sl_non': 1858, 'map_set': 2020, 'no_back': 1882, 'sus_init': 1886, 'si_out': 1918, 'si_zero': 1910, 'suf_loop': 1944, 'suf_out': 1980, 'suf_next': 1956, 'mg_loop': 2000, 'mg_hit': 2016, 'ms_loop': 2042, 'ms_put': 2084, 'ms_next': 2054, 'sl_held': 2108, 'hd_out': 2218, 'hd_v1': 2144, 'hd_loop': 2156, 'hd_s1': 2196, 'hd_s2': 2206, 'hd_no': 2216, 'sl_hon': 2220, 'ho_back': 2240, 'sl_hoff': 2244, 'hf_back': 2264, 'sl_pick': 2268, 'pk_stock': 2288, 'pk_orig': 2292, 'sf_scan': 2336, 'sf_zero': 2328, 'sf_loop': 2346, 'sf_hit': 2398, 'sf_next': 2358, 'sf_none': 2402, 'sf_clear': 2378, '_sSL': 0}),
 }
 
 # Reduced C objects (see "C hooks" below): compressed, origin-independent, and
@@ -10383,7 +10384,9 @@ def apply_gate_rec(d, only=False):
 # Amount +100 % a CV from 0 V to 5 V takes a 100 % slice down to the 1 %
 # floor. Never longer than the slice. A change lands at the next restart.
 #
-# LOOP HOLD (s6). While a Slicer pad (PlayThru off) is playing and Loop Mode
+# LOOP HOLD (s6, a row since s7: Loop Hold, id 0x1ab, on/off, default OFF, right
+# under Loop Mode, saved with the preset; kept as a byte at entry +45, beside
+# Reverse's at +44). With it ON, while a Slicer pad (PlayThru off) is playing and Loop Mode
 # is on (its setting, or a Loop Mode source at 2.5 V), the looping slice is
 # held: note-ons and note-offs to the engine are ignored (0x080b4cc0,
 # 0x080b3dfc), and each restart reuses the slice it was playing instead of
@@ -10457,7 +10460,7 @@ def apply_gate_rec(d, only=False):
 #     VFP register is touched), restarts it; otherwise the slice ends as stock.
 #   - Not touched: Clip pads, and Slicer with PlayThru (whose Loop Mode loops
 #     the whole file). The Amount box is ignored: the threshold is on the CV.
-SL_VERSION_TAG = "s6"                # appended to the minimal build's version
+SL_VERSION_TAG = "s7"                # appended to the minimal build's version
 SL_LIST = 0x080c86f8                 # modulation targets, u16 ids
 SL_LIST_USED = 36
 SL_LIST_CAP = 49
@@ -10467,6 +10470,8 @@ SL_REV_ID = 0x1a9                    # Reverse: unregistered in stock, no immedi
 SL_SUS_ID = 0x22                     # Sustain: a stock pad parameter, not a stock target
 SL_ADD = (SL_LOOP_ID, SL_LEN_ID, SL_REV_ID, SL_SUS_ID)
 SL_REV_LABEL, SL_REV_XML = "Reverse:", "slicereverse"
+SL_HOLD_ID = 0x1ab                   # Loop Hold: unregistered in stock, no immediate anywhere
+SL_HOLD_LABEL, SL_HOLD_XML = "Loop Hold:", "sliceloophold"
 SL_LEN_LABEL, SL_LEN_XML = "Loop Len:", "slicelooplen"
 SL_LEN_TYPE = 8                      # per mille, shown as a percentage
 SL_LEN_MIN, SL_LEN_MAX, SL_LEN_DEFAULT = 10, 1000, 1000
@@ -10495,7 +10500,8 @@ SL_SUS_READ = 0x080b89ba             # the envelope's vldr s16, [settings, #24]
 SL_RAM_BYTES = 4 + SL_ENTRY * SL_ENGINES
 SL_THRESH_BITS = 0x3f000000          # 0.5f: 2.5 V on a +-5 V input
 SL_PAGES = (0x080c7edc, 0x080c80f8)  # the Slicer page's row list, in both page tables
-SL_PAGE_IDS = (0x6f, 0xd3, 0xb4, 0xd4, 0xd5, 0x31, 0x84)   # then Loop Len, Reverse
+SL_PAGE_IDS = (0x6f, 0xd3, 0xb4, 0xd4, 0xd5, 0x31, 0x84)
+SL_PAGE_NEW = (0x6f, SL_HOLD_ID, 0xd3, 0xb4, 0xd4, 0xd5, 0x31, 0x84, SL_LEN_ID, SL_REV_ID)
 SL_STORE_CASE = (0x080895f6, 0x08089850)   # the pad store's type-3 case
 SL_STORE_USED, SL_STORE_CAP = 58, 0x40
 SL_STORE_SITE = 0x0808984c           # its last AddParam (id 0xbd): bl -> sl_store
@@ -10615,8 +10621,10 @@ SL_FIX = (                           # (placeholder, target, bl?): b.w or bl out
     ("st_add0", SL_ADDPARAM, True),
     ("st_add1", SL_ADDPARAM, True),
     ("st_add2", SL_ADDPARAM, True),
+    ("st_add3", SL_ADDPARAM, True),
     ("sr_call", SL_REGISTRAR, True),
     ("sr_call2", SL_REGISTRAR, True),
+    ("sr_call3", SL_REGISTRAR, True),
     ("sv_call", SL_READ_FN, True),
     ("sv_pass", SL_READ_FN, False),
     ("ba_back", 0x080b3688, False),
@@ -10736,6 +10744,9 @@ sl_set:                             /* setter, id > 0xd5: r4 id, r5 this, r6 msg
     movw    r3, #0x{SL_REV_ID:x}
     cmp     r4, r3
     beq     ss_rev
+    movw    r3, #0x{SL_HOLD_ID:x}
+    cmp     r4, r3
+    beq     ss_hold
     movw    r3, #0x{SL_LEN_ID:x}
     cmp     r4, r3
     bne     ss_other
@@ -10760,7 +10771,19 @@ ss_rev:
     bl      sl_find
     cmp     r0, #0
     beq     ss_done
-    str     r2, [r0, #44]
+    strb    r2, [r0, #44]
+    b       ss_done
+ss_hold:
+    mov     r0, r5
+    ldr     r2, [r6, #16]
+    subs    r1, r2, #0
+    it      ne
+    movne   r1, #1                  /* OFF never takes a table entry */
+    mov     r2, r1
+    bl      sl_find
+    cmp     r0, #0
+    beq     ss_done
+    strb    r2, [r0, #45]
     b       ss_done
 ss_other:
     movw    r3, #0x13f              /* the instruction this replaced */
@@ -10780,6 +10803,11 @@ st_add1:
     movw    r1, #0x{SL_REV_ID:x}
     movs    r2, #0
 st_add2:
+    .short  0, 0                    /* bl AddParam */
+    ldr     r0, [sp]
+    movw    r1, #0x{SL_HOLD_ID:x}
+    movs    r2, #0
+st_add3:
     .short  0, 0                    /* bl AddParam */
     pop     {{r0, pc}}
 
@@ -10808,6 +10836,18 @@ sr_call:
     adr.w   r4, sr_rxml
     str     r4, [sp, #8]
 sr_call2:
+    .short  0, 0                    /* bl the numeric registrar */
+    ldr     r0, [sp, #12]
+    movw    r1, #0x{SL_HOLD_ID:x}
+    movs    r2, #4
+    adr.w   r3, sr_hlabel
+    movs    r4, #0
+    str     r4, [sp]
+    movs    r4, #1
+    str     r4, [sp, #4]
+    adr.w   r4, sr_hxml
+    str     r4, [sp, #8]
+sr_call3:
     .short  0, 0                    /* bl the numeric registrar */
     add     sp, #12
     pop     {{r0, r1, r2, r3, r4, r12, lr}}
@@ -10911,7 +10951,7 @@ sg_len:
     movlt   r2, #1
     str     r2, [sp, #56]
 sg_scaled:                          /* Reverse: the setting, or a source at 2.5 V */
-    ldr     r3, [r0, #44]
+    ldrb    r3, [r0, #44]
     cbnz    r3, rv_on
     mov.w   r1, #0x{SL_THRESH_BITS:x}{rtests}
     b       sg_vdone
@@ -11479,16 +11519,17 @@ hd_v1:
     cbz     r1, hd_out
     ldrb    r1, [r2, #9]
     cbnz    r1, hd_out
-hd_loop:                            /* and Loop Mode on: the setting, or a source at 2.5 V */
-    movs    r0, #1
-    ldrb.w  r1, [r4, #0x1f4]
-    cbnz    r1, hd_out
+hd_loop:                            /* Loop Hold on, and Loop Mode on: the setting or a source at 2.5 V */
     mov     r0, r4
     movs    r1, #0
     bl      sl_find
     cbz     r0, hd_out
     mov     r3, r0
+    ldrb    r0, [r3, #45]
+    cbz     r0, hd_out
     movs    r0, #1
+    ldrb.w  r1, [r4, #0x1f4]
+    cbnz    r1, hd_out
     mov.w   r12, #0x{SL_THRESH_BITS:x}
     ldr     r1, [r3, #4]
     cbz     r1, hd_s1
@@ -11539,6 +11580,8 @@ sl_pick:                            /* the loop restarts: the slice it was playi
     movs    r1, #0
     bl      sl_find
     cbz     r0, pk_stock
+    ldrb    r1, [r0, #45]           /* Loop Hold off: as stock */
+    cbz     r1, pk_stock
     ldr     r0, [r0, #60]
     pop     {{r1, r2, r3, pc}}
 pk_stock:
@@ -11611,6 +11654,12 @@ sr_rlabel:
 sr_rxml:
     .asciz  "{SL_REV_XML}"
     .balign 4
+sr_hlabel:
+    .asciz  "{SL_HOLD_LABEL}"
+    .balign 4
+sr_hxml:
+    .asciz  "{SL_HOLD_XML}"
+    .balign 4
 """
     return assemble("hookSL", src)
 
@@ -11638,7 +11687,7 @@ def apply_slice_loop(d):
                if struct.unpack_from("<H", d, va - BASE)[0] & 0xf800 == 0xf000
                and struct.unpack_from("<H", d, va + 2 - BASE)[0] & 0xd000 == 0xd000
                and branch_target(d, va) == SL_ADDPARAM)
-    if adds != SL_STORE_USED or adds >= SL_STORE_CAP:
+    if adds != SL_STORE_USED or adds + 4 >= SL_STORE_CAP:     # + Loop Len, Reverse, Loop Hold, a spare
         refuse(f"The pad store's slicer case adds {adds} parameters, not {SL_STORE_USED}.")
     for page in SL_PAGES:
         row = struct.unpack_from("<16H", d, page - BASE)
@@ -11656,7 +11705,7 @@ def apply_slice_loop(d):
     for site, entry, call in SL_SITES:
         d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], call)
     for page in SL_PAGES:
-        struct.pack_into("<2H", d, page - BASE + 2 * len(SL_PAGE_IDS), SL_LEN_ID, SL_REV_ID)
+        struct.pack_into(f"<{len(SL_PAGE_NEW)}H", d, page - BASE, *SL_PAGE_NEW)
     vprint(f"SL Loop Mode a mod target at {SL_LIST + 2 * SL_LIST_USED:#x}; "
            f"{len(code)} bytes at {org:#010x}, ram {SL_RAM:#x}")
     return org, syms

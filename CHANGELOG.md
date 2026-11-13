@@ -5,6 +5,14 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs7 (fork, test build) — November 2026
+
+- Loop Hold is now a setting: a **Loop Hold** row (ON/OFF, default OFF) right
+  under Loop Mode on the Slicer page, saved with the preset. ON holds a
+  looping slice until Loop Mode turns off, as gs6 always did; OFF loops as
+  stock, so a new trigger or slice change still takes over.
+- Not yet tried on a module.
+
 ## 2.3.4-gs6 (fork, test build) — November 2026
 
 - Changed, only with `--slice-loop`: a looping slice is **held until Loop
