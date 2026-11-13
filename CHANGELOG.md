@@ -5,6 +5,15 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs8 (fork, test build) — November 2026
+
+- New, only with `--slice-loop`: a pad with its own **MIDI In** channel
+  ignores the MIDI Pads channel. Its Pad Note, and its default note (C2-G2),
+  no longer trigger or release it from another channel; it plays only from
+  its own MIDI In channel. Pads with MIDI In set to None behave as stock. If a
+  pad's MIDI In is the MIDI Pads channel, it still answers to its Pad Note.
+- Not yet tried on a module.
+
 ## 2.3.4-gs7 (fork, test build) — November 2026
 
 - Loop Hold is now a setting: a **Loop Hold** row (ON/OFF, default OFF) right
