@@ -5,6 +5,13 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs9 (fork, test build) — November 2026
+
+- Fixed: with Loop Hold ON, a new trigger during a held loop silenced the pad
+  until Loop Hold was turned off. The trigger is now ignored completely, so
+  the held slice keeps looping.
+- Not yet tried on a module.
+
 ## 2.3.4-gs8 (fork, test build) — November 2026
 
 - New, only with `--slice-loop`: a pad with its own **MIDI In** channel
