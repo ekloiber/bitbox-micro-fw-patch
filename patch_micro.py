@@ -10472,7 +10472,10 @@ def apply_gate_rec(d, only=False):
 SL_VERSION_TAG = "s9"
 # Diagnostics: SL_DIAG=A leaves Loop Hold's slice pick stock (holds triggers
 # only); SL_DIAG=B leaves its trigger blocking stock (holds the slice only).
-SL_DIAG = {"A": ("sl_pick",), "B": ("sl_hon", "sl_hoff", "sl_prep")}                # appended to the minimal build's version
+# SL_DIAG=C leaves both stock (the Loop Hold row does nothing); SL_DIAG=D keeps
+# both but puts the Loop Hold row at the end of the Slicer page, after Reverse.
+SL_DIAG = {"A": ("sl_pick",), "B": ("sl_hon", "sl_hoff", "sl_prep"),
+           "C": ("sl_pick", "sl_hon", "sl_hoff", "sl_prep"), "D": ()}                # appended to the minimal build's version
 SL_LIST = 0x080c86f8                 # modulation targets, u16 ids
 SL_LIST_USED = 36
 SL_LIST_CAP = 49
@@ -11816,7 +11819,10 @@ def apply_slice_loop(d):
             continue
         d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], call)
     for page in SL_PAGES:
-        struct.pack_into(f"<{len(SL_PAGE_NEW)}H", d, page - BASE, *SL_PAGE_NEW)
+        rows = SL_PAGE_NEW
+        if os.environ.get("SL_DIAG", "") == "D":
+            rows = tuple(r for r in rows if r != SL_HOLD_ID) + (SL_HOLD_ID,)
+        struct.pack_into(f"<{len(rows)}H", d, page - BASE, *rows)
     vprint(f"SL Loop Mode a mod target at {SL_LIST + 2 * SL_LIST_USED:#x}; "
            f"{len(code)} bytes at {org:#010x}, ram {SL_RAM:#x}")
     return org, syms
