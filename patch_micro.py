@@ -10469,7 +10469,10 @@ def apply_gate_rec(d, only=False):
 #     VFP register is touched), restarts it; otherwise the slice ends as stock.
 #   - Not touched: Clip pads, and Slicer with PlayThru (whose Loop Mode loops
 #     the whole file). The Amount box is ignored: the threshold is on the CV.
-SL_VERSION_TAG = "s9"                # appended to the minimal build's version
+SL_VERSION_TAG = "s9"
+# Diagnostics: SL_DIAG=A leaves Loop Hold's slice pick stock (holds triggers
+# only); SL_DIAG=B leaves its trigger blocking stock (holds the slice only).
+SL_DIAG = {"A": ("sl_pick",), "B": ("sl_hon", "sl_hoff", "sl_prep")}                # appended to the minimal build's version
 SL_LIST = 0x080c86f8                 # modulation targets, u16 ids
 SL_LIST_USED = 36
 SL_LIST_CAP = 49
@@ -11807,7 +11810,10 @@ def apply_slice_loop(d):
         assert code[off:off + 4] == b"\0\0\0\0", sym
         code[off:off + 4] = enc_b_bl(org + off, target, call)
     assert _append(d, code) == org
+    diag = SL_DIAG.get(os.environ.get("SL_DIAG", ""), ())
     for site, entry, call in SL_SITES:
+        if entry in diag:            # a diagnostic build leaves this site stock
+            continue
         d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], call)
     for page in SL_PAGES:
         struct.pack_into(f"<{len(SL_PAGE_NEW)}H", d, page - BASE, *SL_PAGE_NEW)
@@ -11948,6 +11954,8 @@ def main():
     if len(argv) <= 2:
         if slice_loop:
             ver = "2.3.4-" + ("g" if gate_only else "") + SL_VERSION_TAG
+            if os.environ.get("SL_DIAG", "") in SL_DIAG:
+                ver += os.environ["SL_DIAG"]   # e.g. 2.3.4-gs9A: the splash takes ten characters
         elif gate_only:
             ver = GATE_ONLY_VERSION
         elif gate_rec:
