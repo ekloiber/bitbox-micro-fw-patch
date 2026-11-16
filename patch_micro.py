@@ -1050,7 +1050,7 @@ USAGE = f"""
     --slice-loop       EXPERIMENTAL: Slicer Loop Mode, Loop Len and Reverse on
                        a CV (EXT 1-8), and Sustain as a modulation target on
                        Sample and Clip/Slicer pads, and Loop Hold
-                       (2.3.4-s7; with --gate-only, 2.3.4-gs7)
+                       (2.3.4-s10; with --gate-only, 2.3.4-gs10)
     -v                 show the addresses and opcodes as it works
     --reassemble       verify the frozen code against its sources
     --legacy-version   allow a version string too long for the panel, for
@@ -1263,8 +1263,8 @@ FROZEN = {
         {'nblock': 0, '$t': 484, 'nblock_orig': 2, '$d': 504, 'nblock_c': 26, 'nmidi': 52, 'nmidi_c': 76, 'nmidi_next': 100, 'ncomp': 104, 'ncomp_c': 136, 'ncomp_e': 132, 'ncomp_call': 154, 'nclip_rate': 178, 'nclip_rate_c': 200, 'nclip_cc': 236, 'nclip_cc_go': 248, 'nclip_cc_out': 296, 'nclip_cc_c': 274, 'njread': 300, 'njread_c': 380, 'nclip_beats': 408, 'nclip_beats_c': 430, 'nfinal': 456, 'nfinal_p': 458, 'nfinal_c': 480, '_sN': 0}),
     "hookGR": ("2de91f5083b0039840f2a1110ff2fc120ff2d413092400940ff2fc14019400000000039840f2a3110ff2f8120ff2b813092400940ff2f814019400000000039840f2a5110ff2f4120ff29c13092400940ff2f41401940000000003b0bde81f50000000002de90f50009840f2a111002200000000009840f2a311002200000000009840f2a511002200000000bde80f500000000040f2a11c624517d040f2a31c624513d040f2a51c62450fd00000000040f2a11c624509d040f2a31c624505d040f2a51c624501d00000000010b51446082b05d9414811460022000000000023002140f2a110844209d0042140f2a310844204d0082140f2a5108442ffd0dff8e0c040f20000c4f2417040ea03004cf8010010bd00f02ef818b9b8f1130f00000000012803d1682000f005f8672000f002f80000000010b514a900220a604a608a60ca600a614a612d220a70099a4a60886045f28820c0f2010030440000000010bd00f007f818b9b8f1130f0000000000000000dff868c01a4944f24173dcf80000b3eb104f09d1c0b20138072805d851f82000404501d167207047dcf80400b3eb104f09d1c0b20138072805d851f82000404501d168207047dcf80800b3eb104f09d1c0b20138072805d851f82000404501d1012070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf67617465726563696e0000bf4761746520436c723a0000bf67617465636c72696e0000bf47617465204c6f6f703a0000676174656c6f6f70696e00004f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
         {'greg': 0, 'glabel0': 524, 'gvalues': 488, 'gxml0': 536, 'greg_call0': 30, 'glabel1': 548, 'gxml1': 560, 'greg_call1': 58, 'glabel2': 572, 'gxml2': 584, 'greg_call2': 86, 'greg_next': 96, 'gstore': 100, 'gstore_call0': 112, 'gstore_call1': 124, 'gstore_call2': 136, 'gstore_next': 144, 'gpost': 148, 'gmine': 204, 'gpost_next': 172, 'gedit': 176, 'gedit_next': 200, 'gm_store': 224, 'gm_set': 218, 'gm_put': 254, 'gon': 276, 'gmatch': 372, 'gon_act': 290, 'gon_back': 286, 'gon_one': 302, 'gsend': 310, 'gon_done': 306, 'gsend_push': 348, 'goff': 354, 'goff_eat': 368, 'goff_back': 364, 'gm_0': 382, 'gm_1': 412, 'gm_2': 442, 'gm_3': 472, 'gv0': 596, 'gv1': 600, 'gv2': 608, 'gv3': 616, 'gv4': 624, 'gv5': 632, 'gv6': 640, 'gv7': 648, 'gv8': 656, '_sGR': 0}),
-    "hookSL": ("40f2a7139c4219d040f2a9139c4225d06f2c0dd1022a09d82846002106b1012100f0abfc10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f097fc0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f087fc0028ddd000eb82000663d9e740f2a9139c4214d040f2ab139c421dd040f2a7139c4226d1284632690021b2f57a7f18bf012100f06cfc00b102610000000028463269111e18bf01210a4600f060fc0028f3d080f82c20f0e728463269111e18bf01210a4600f053fc0028e6d080f82d20e3e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a911002200000000009840f2ab1100220000000001bd2de91f5083b040f2a71108220ff6cc030a24009440f2e83401940ff6cc04029400000000039840f2a91104220ff6c80300240094012401940ff6c804029400000000039840f2ab1104220ff6c80300240094012401940ff6c80402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f0f5fb002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f06ef905b00000000010b5044600f067f9000000002de90f50dff894c1ccf808000021ccf8101090f85532002b40f09580012100f0bdfb002800f08f80039bc3632ded046b016907ee901af8eee77a9fed587ac7ee877a42693ab192ed017ad0ed066a27ee267a77eec77ac2693ab192ed017ad0ed086a27ee267a77eec77a426a3ab192ed017ad0ed0a6a27ee267a77eec77ab7ee007af4ee477af1ee10fa33da9fed457ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e9290f82c308bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff8d8c3dcf80000f54b98420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f065fa08b100210160009800f6a034dff86cc3dcf80010da4a91420dd10cf114010cf234120b68834203d3a34201d200230b600c319142f5d1dff84cc3dcf80010d04a91420dd10cf108010cf208320b68834203d3a34201d200230b6020319142f5d115bd222a03d070b514460000000010b504460a46194604f2f04000f0a2f804f6001000f09ef810bd222a03d070b514460000000010b50a46194600f26c3000f090f810bdb1f80cc0bcf1220f03d02de9f04300000000f0b5044600f03af8a5f10f03072b14d90ff2a20c00f03ff81f4602b12244314604f2f04000f072f800220fb104eb0702314604f6001000f069f8f0bdb1f80cc0bcf1220f03d02de9f84300000000f0b5044600f013f8a5f10f03072b0dd90ff27e0c00f018f81ab112f0010f08bf2244314604f26c3000f049f8f0bdb1f9163000ee103ab8eec00a5fed9d0a80ee200a8d8a0e8a704700220023bcf8000040b1a84202d00cf1060cf7e7bcf80220bcf8043070470d00a802b8060400880398070e00b002c0061a00480b480b1c00500b500b1d00580b580b1900600b600b00000d00810000000e00890000000400190500001a00240100001c002c0100001d003401000019003c010000000002290ed816b5002102b1012100f07ff830b1009900ebc100019a426080ed020a16bd704793ed068a2de90f5018460021002200f06cf860b9039800f087f8002842d0039aa2f55872002100f060f800283ad02ded046bf0ee487a416859b111f0010f1cbf21f00101114491ed017ad0ed026ae7ee267ac16859b111f0010f1cbf21f00101114491ed017ad0ed046ae7ee267a416959b111f0010f1cbf21f00101114491ed017ad0ed066ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee678abdec046bbde80f50000000002de907500bf5587007f55b7100f049f8bde80750d7f8843300000000dcf80000334b98420ad0ccf8003000230cf104000cf2085140f8043b8842fbd1704734b50d460446dff8acc0fff7e8ff0cf108000cf2083100220368a3420ed00bb902b9024620308842f6d1002035b12ab100235360d36053611460104634bd14b50446dff870c0fff7caff1b4800f200210368a34204d008308842f9d1002014bd406814bd30b504460d46dff848c0fff7b6ff114800f2002100220368a34211d00bb902b9024608308842f6d1104648b9dcf80420531c03f03f03ccf80430064800ebc2004560046030bd0000c0920624334f4c5300a7062408aa062410b50446002094f8541281b3d4f8501269b394f8551251bb94f8601211b194f8691229b104f27062117801b3517af1b92046002100f083f8c8b1034693f82d00a8b1012094f8f41189b94ff07c5c596811b1496861450ada996811b14968614505dad96811b14968614500da002010bd13b5fff7c5ff0028bde8134001d000000000000000001fb5fff7baff0028bde81f4018bf70472de9f04f000000001fb5fff7aeff0028bde81f4018bf704790f860120000000007b5002100f040f820b190f82d1009b1c06b0ebdbde8074000000000bb6a4b4508d17b6a23b1013bd6f808c0634501d100000000fb6a534507d17b6a3bb1013bd6f808c0634502d000220000000000000000bb6a4b4508d17b6a23b1013bd6f808c0634501d100000000fb6a534507d17b6a3bb1013bd6f808c0634502d00022000000000000000034b50d46dff868c0dcf80010194b99420ad0ccf8003000230cf104010cf2444241f8043b9142fbd10cf104010cf2444200240b68834216d00bb904b90c4640319142f6d18db184b1002304f1040104f1400241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd80f00624334f4c534c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf004c6f6f7020486f6c643a0000736c6963656c6f6f70686f6c640000bf",
-        {'sl_att': 0, 'sa_len': 60, 'sa_rev': 92, 'sa_other': 48, 'sa_done': 44, 'sa_find': 32, 'sl_find': 2426, 'sa_84': 56, 'sa_back': 52, 'sa_lfind': 72, 'sa_rfind': 104, 'sl_set': 120, 'ss_rev': 170, 'ss_hold': 196, 'ss_other': 222, 'ss_done': 166, 'ss_back': 226, 'sl_store': 230, 'st_add0': 232, 'st_add1': 246, 'st_add2': 258, 'st_add3': 270, 'sl_reg': 276, 'sr_label': 2544, 'sr_xml': 2556, 'sr_call': 308, 'sr_rlabel': 2572, 'sr_rxml': 2584, 'sr_call2': 338, 'sr_hlabel': 2600, 'sr_hxml': 2612, 'sr_call3': 368, 'sr_next': 378, 'sl_eos': 382, 'se_out': 442, 'se_t1': 418, 'se_on': 440, 'se_t2': 428, 'se_t3': 438, 'se_stop': 452, 'se_loop': 448, 'sl_ctor': 456, 'sl_drop': 1192, 'sc_back': 462, 'sl_dtor': 466, 'sd_back': 474, 'sl_seg': 478, 'sg_out': 804, 'sg_k1000': 892, 'sg_m1': 564, 'sg_m2': 584, 'sg_m3': 604, 'sg_scaled': 722, 'sg_kmin': 896, 'sg_sync': 658, 'sg_len': 690, 'rv_on': 764, 'rv_t1': 742, 'rv_t2': 752, 'rv_t3': 762, 'sg_vdone': 800, 'rv_sync': 776, 'rv_set': 784, 'sg_ret': 832, 'sg_back': 828, 'sr_done': 874, 'sl_segfind': 1102, 'sl_read': 900, 'sv_plain': 1060, 'sv_call': 1024, 'sv_ret': 1056, 'sl_flip': 1068, 'sv_pass': 1064, 'sf_flipped': 1100, 'sf_swap': 1080, 'sgf_scan': 1140, 'sgf_zero': 1132, 'sgf_loop': 1150, 'sgf_hit': 1186, 'sgf_next': 1162, 'sgf_none': 1188, 'sgf_use': 1176, 'sl_drop_seg': 1206, 'sl_drop_out': 1254, 'sd_loop': 1234, 'sd_next': 1248, 'sl_drop_done': 1296, 'sd_sus': 1276, 'sd_snext': 1290, 'sl_batt': 1298, 'ba_sus': 1310, 'ba_back': 1306, 'sus_set': 1650, 'sl_satt': 1336, 'sa2_sus': 1348, 'sb_back': 1344, 'sl_bloc': 1364, 'bl_sus': 1382, 'bl_back': 1378, 'sus_amount': 1506, 'bl_ext': 1440, 'map_b': 1562, 'sus_map': 1532, 'bl_s0': 1412, 'bl_s1': 1430, 'sl_sloc': 1442, 'ls_sus': 1460, 'ls_back': 1456, 'ls_ext': 1504, 'map_s': 1606, 'ls_set': 1494, 'sm_loop': 1536, 'sm_out': 1560, 'sm_hit': 1552, 'sus_set_ret': 1684, 'sus_set_f': 1662, 'sus_find': 1920, 'sus_set_out': 1682, 'sl_sus': 1686, 'su_have': 1732, 'map_get': 1982, 'su_out': 1850, 'su_t1': 1768, 'su_t2': 1796, 'su_t3': 1824, 'su_back': 1854, 'sl_non': 1858, 'map_set': 2020, 'no_back': 1882, 'sus_init': 1886, 'si_out': 1918, 'si_zero': 1910, 'suf_loop': 1944, 'suf_out': 1980, 'suf_next': 1956, 'mg_loop': 2000, 'mg_hit': 2016, 'ms_loop': 2042, 'ms_put': 2084, 'ms_next': 2054, 'sl_held': 2108, 'hd_out': 2218, 'hd_v1': 2144, 'hd_loop': 2156, 'hd_s1': 2196, 'hd_s2': 2206, 'hd_no': 2216, 'sl_prep': 2220, 'pp_prep': 2238, 'pp_skip': 2234, 'sl_hon': 2242, 'ho_back': 2262, 'sl_hoff': 2266, 'hf_back': 2286, 'sl_pick': 2290, 'pk_stock': 2310, 'pk_orig': 2314, 'mi_na': 2318, 'mi_nb': 2342, 'na_hit': 2338, 'nb_next': 2364, 'nb_orig': 2368, 'mi_fa': 2372, 'mi_fb': 2396, 'fa_hit': 2392, 'fb_next': 2418, 'fb_orig': 2422, 'sf_scan': 2466, 'sf_zero': 2458, 'sf_loop': 2476, 'sf_hit': 2528, 'sf_next': 2488, 'sf_none': 2532, 'sf_clear': 2508, '_sSL': 0}),
+    "hookSL": ("40f2a7139c421dd040f2a9139c4237d040f2ab139c4225d06f2c0dd1022a09d82846002106b1012100f0d3fc10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f0bffc0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f0affc0028ddd000eb82000664d9e7022ad7d82846002106b1012100f0a1fc0028cfd000eb82000663cbe740f2a9139c4214d040f2ab139c421dd040f2a7139c4226d1284632690021b2f57a7f18bf012100f086fc00b102610000000028463269111e18bf01210a4600f07afc0028f3d080f82c20f0e728463269111e18bf01210a4600f06dfc0028e6d080f82d20e3e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a911002200000000009840f2ab1100220000000001bd2de91f5083b040f2a71108220ff600130a24009440f2e83401940ff60014029400000000039840f2a91104220ff6fc0300240094012401940ff6fc04029400000000039840f2ab1104220ff6fc0300240094012401940ff6fc0402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f00ffc002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f06ef905b00000000010b5044600f067f9000000002de90f50dff894c1ccf808000021ccf8101090f85532002b40f09580012100f0d7fb002800f08f80039bc3632ded046b016907ee901af8eee77a9fed587ac7ee877a42693ab192ed017ad0ed066a27ee267a77eec77ac2693ab192ed017ad0ed086a27ee267a77eec77a426a3ab192ed017ad0ed0a6a27ee267a77eec77ab7ee007af4ee477af1ee10fa33da9fed457ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e9290f82c308bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff8d8c3dcf80000f54b98420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f07ffa08b100210160009800f6a034dff86cc3dcf80010da4a91420dd10cf114010cf234120b68834203d3a34201d200230b600c319142f5d1dff84cc3dcf80010d04a91420dd10cf108010cf208320b68834203d3a34201d200230b6020319142f5d115bd222a03d070b514460000000010b504460a46194604f2f04000f0a2f804f6001000f09ef810bd222a03d070b514460000000010b50a46194600f26c3000f090f810bdb1f80cc0bcf1220f03d02de9f04300000000f0b5044600f03af8a5f10f03072b14d90ff2a20c00f03ff81f4602b12244314604f2f04000f072f800220fb104eb0702314604f6001000f069f8f0bdb1f80cc0bcf1220f03d02de9f84300000000f0b5044600f013f8a5f10f03072b0dd90ff27e0c00f018f81ab112f0010f08bf2244314604f26c3000f049f8f0bdb1f9163000ee103ab8eec00a5fed9d0a80ee200a8d8a0e8a704700220023bcf8000040b1a84202d00cf1060cf7e7bcf80220bcf8043070470d00a802b8060400880398070e00b002c0061a00480b480b1c00500b500b1d00580b580b1900600b600b00000d00810000000e00890000000400190500001a00240100001c002c0100001d003401000019003c010000000002290ed816b5002102b1012100f07ff830b1009900ebc100019a426080ed020a16bd704793ed068a2de90f5018460021002200f06cf860b9039800f087f8002842d0039aa2f55872002100f060f800283ad02ded046bf0ee487a416859b111f0010f1cbf21f00101114491ed017ad0ed026ae7ee267ac16859b111f0010f1cbf21f00101114491ed017ad0ed046ae7ee267a416959b111f0010f1cbf21f00101114491ed017ad0ed066ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee678abdec046bbde80f50000000002de907500bf5587007f55b7100f049f8bde80750d7f8843300000000dcf80000334b98420ad0ccf8003000230cf104000cf2085140f8043b8842fbd1704734b50d460446dff8acc0fff7e8ff0cf108000cf2083100220368a3420ed00bb902b9024620308842f6d1002035b12ab100235360d36053611460104634bd14b50446dff870c0fff7caff1b4800f200210368a34204d008308842f9d1002014bd406814bd30b504460d46dff848c0fff7b6ff114800f2002100220368a34211d00bb902b9024608308842f6d1104648b9dcf80420531c03f03f03ccf80430064800ebc2004560046030bd0000c0920624344f4c5300a7062408aa062410b50446002094f8541289b3d4f8501271b394f8551259bb94f8601211b194f8691229b104f27062117809b3517af9b92046002100f09df8d0b1034600f03cf80846a8b1012094f8f41189b94ff07c5c596811b1496861450ada996811b14968614505dad96811b14968614500da002010bd13b5fff7c4ff0028bde8134001d000000000000000001fb5fff7b9ff0028bde81f4018bf70472de9f04f000000001fb5fff7adff0028bde81f4018bf704790f860120000000093f82d1091b94ff07c5c1a6c12b1526862450bda5a6c12b15268624506da9a6c12b15268624501da002170470121704707b5002100f041f828b10346fff7e0ff09b1d86b0ebdbde8074000000000bb6a4b4508d17b6a23b1013bd6f808c0634501d100000000fb6a534507d17b6a3bb1013bd6f808c0634502d000220000000000000000bb6a4b4508d17b6a23b1013bd6f808c0634501d100000000fb6a534507d17b6a3bb1013bd6f808c0634502d00022000000000000000034b50d46dff868c0dcf80010194b99420ad0ccf8003000230cf104010cf2847241f8043b9142fbd10cf104010cf2847200240b68834216d00bb904b90c4650319142f6d18db184b1002304f1040104f1500241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd80ac0624344f4c534c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf004c6f6f7020486f6c643a0000736c6963656c6f6f70686f6c640000bf",
+        {'sl_att': 0, 'sa_len': 68, 'sa_rev': 128, 'sa_hold': 100, 'sa_other': 56, 'sa_done': 52, 'sa_find': 40, 'sl_find': 2514, 'sa_84': 64, 'sa_back': 60, 'sa_lfind': 80, 'sa_hfind': 112, 'sa_rfind': 140, 'sl_set': 156, 'ss_rev': 206, 'ss_hold': 232, 'ss_other': 258, 'ss_done': 202, 'ss_back': 262, 'sl_store': 266, 'st_add0': 268, 'st_add1': 282, 'st_add2': 294, 'st_add3': 306, 'sl_reg': 312, 'sr_label': 2632, 'sr_xml': 2644, 'sr_call': 344, 'sr_rlabel': 2660, 'sr_rxml': 2672, 'sr_call2': 374, 'sr_hlabel': 2688, 'sr_hxml': 2700, 'sr_call3': 404, 'sr_next': 414, 'sl_eos': 418, 'se_out': 478, 'se_t1': 454, 'se_on': 476, 'se_t2': 464, 'se_t3': 474, 'se_stop': 488, 'se_loop': 484, 'sl_ctor': 492, 'sl_drop': 1228, 'sc_back': 498, 'sl_dtor': 502, 'sd_back': 510, 'sl_seg': 514, 'sg_out': 840, 'sg_k1000': 928, 'sg_m1': 600, 'sg_m2': 620, 'sg_m3': 640, 'sg_scaled': 758, 'sg_kmin': 932, 'sg_sync': 694, 'sg_len': 726, 'rv_on': 800, 'rv_t1': 778, 'rv_t2': 788, 'rv_t3': 798, 'sg_vdone': 836, 'rv_sync': 812, 'rv_set': 820, 'sg_ret': 868, 'sg_back': 864, 'sr_done': 910, 'sl_segfind': 1138, 'sl_read': 936, 'sv_plain': 1096, 'sv_call': 1060, 'sv_ret': 1092, 'sl_flip': 1104, 'sv_pass': 1100, 'sf_flipped': 1136, 'sf_swap': 1116, 'sgf_scan': 1176, 'sgf_zero': 1168, 'sgf_loop': 1186, 'sgf_hit': 1222, 'sgf_next': 1198, 'sgf_none': 1224, 'sgf_use': 1212, 'sl_drop_seg': 1242, 'sl_drop_out': 1290, 'sd_loop': 1270, 'sd_next': 1284, 'sl_drop_done': 1332, 'sd_sus': 1312, 'sd_snext': 1326, 'sl_batt': 1334, 'ba_sus': 1346, 'ba_back': 1342, 'sus_set': 1686, 'sl_satt': 1372, 'sa2_sus': 1384, 'sb_back': 1380, 'sl_bloc': 1400, 'bl_sus': 1418, 'bl_back': 1414, 'sus_amount': 1542, 'bl_ext': 1476, 'map_b': 1598, 'sus_map': 1568, 'bl_s0': 1448, 'bl_s1': 1466, 'sl_sloc': 1478, 'ls_sus': 1496, 'ls_back': 1492, 'ls_ext': 1540, 'map_s': 1642, 'ls_set': 1530, 'sm_loop': 1572, 'sm_out': 1596, 'sm_hit': 1588, 'sus_set_ret': 1720, 'sus_set_f': 1698, 'sus_find': 1956, 'sus_set_out': 1718, 'sl_sus': 1722, 'su_have': 1768, 'map_get': 2018, 'su_out': 1886, 'su_t1': 1804, 'su_t2': 1832, 'su_t3': 1860, 'su_back': 1890, 'sl_non': 1894, 'map_set': 2056, 'no_back': 1918, 'sus_init': 1922, 'si_out': 1954, 'si_zero': 1946, 'suf_loop': 1980, 'suf_out': 2016, 'suf_next': 1992, 'mg_loop': 2036, 'mg_hit': 2052, 'ms_loop': 2078, 'ms_put': 2120, 'ms_next': 2090, 'sl_held': 2144, 'hd_out': 2256, 'hd_v1': 2180, 'hd_loop': 2192, 'hold_on': 2328, 'hd_s1': 2234, 'hd_s2': 2244, 'hd_no': 2254, 'sl_prep': 2258, 'pp_prep': 2276, 'pp_skip': 2272, 'sl_hon': 2280, 'ho_back': 2300, 'sl_hoff': 2304, 'hf_back': 2324, 'ho_yes': 2372, 'ho_s1': 2348, 'ho_s2': 2358, 'ho_no': 2368, 'sl_pick': 2376, 'pk_stock': 2398, 'pk_orig': 2402, 'mi_na': 2406, 'mi_nb': 2430, 'na_hit': 2426, 'nb_next': 2452, 'nb_orig': 2456, 'mi_fa': 2460, 'mi_fb': 2484, 'fa_hit': 2480, 'fb_next': 2506, 'fb_orig': 2510, 'sf_scan': 2554, 'sf_zero': 2546, 'sf_loop': 2564, 'sf_hit': 2616, 'sf_next': 2576, 'sf_none': 2620, 'sf_clear': 2596, '_sSL': 0}),
 }
 
 # Reduced C objects (see "C hooks" below): compressed, origin-independent, and
@@ -10390,7 +10390,9 @@ def apply_gate_rec(d, only=False):
 # 12-byte entry; note-on (0x080ab8f6, 0x080ab8e2) and note-off (0x080abcd2,
 # 0x080abcbe) skip such a pad, its Pad Note and its default note alike.
 # Pads with MIDI In none behave as stock.
-# LOOP HOLD (s6, a row since s7: Loop Hold, id 0x1ab, on/off, default OFF, right
+# LOOP HOLD (s6, a row since s7, a modulation target since s10 like Loop Mode,
+# its sources kept at entry +64/+68/+72; the table moved to minimal-only RAM to
+# make room: Loop Hold, id 0x1ab, on/off, default OFF, right
 # under Loop Mode, saved with the preset; kept as a byte at entry +45, beside
 # Reverse's at +44). With it ON, while a Slicer pad (PlayThru off) is playing and Loop Mode
 # is on (its setting, or a Loop Mode source at 2.5 V), the looping slice is
@@ -10469,13 +10471,7 @@ def apply_gate_rec(d, only=False):
 #     VFP register is touched), restarts it; otherwise the slice ends as stock.
 #   - Not touched: Clip pads, and Slicer with PlayThru (whose Loop Mode loops
 #     the whole file). The Amount box is ignored: the threshold is on the CV.
-SL_VERSION_TAG = "s9"
-# Diagnostics: SL_DIAG=A leaves Loop Hold's slice pick stock (holds triggers
-# only); SL_DIAG=B leaves its trigger blocking stock (holds the slice only).
-# SL_DIAG=C leaves both stock (the Loop Hold row does nothing); SL_DIAG=D keeps
-# both but puts the Loop Hold row at the end of the Slicer page, after Reverse.
-SL_DIAG = {"A": ("sl_pick",), "B": ("sl_hon", "sl_hoff", "sl_prep"),
-           "C": ("sl_pick", "sl_hon", "sl_hoff", "sl_prep"), "D": ()}                # appended to the minimal build's version
+SL_VERSION_TAG = "s10"               # appended to the minimal build's version
 SL_LIST = 0x080c86f8                 # modulation targets, u16 ids
 SL_LIST_USED = 36
 SL_LIST_CAP = 49
@@ -10483,19 +10479,21 @@ SL_LOOP_ID = 0x6f                    # Loop Mode
 SL_LEN_ID = 0x1a7                    # Loop Len: unregistered in stock, no immediate anywhere
 SL_REV_ID = 0x1a9                    # Reverse: unregistered in stock, no immediate anywhere
 SL_SUS_ID = 0x22                     # Sustain: a stock pad parameter, not a stock target
-SL_ADD = (SL_LOOP_ID, SL_LEN_ID, SL_REV_ID, SL_SUS_ID)
-SL_REV_LABEL, SL_REV_XML = "Reverse:", "slicereverse"
 SL_HOLD_ID = 0x1ab                   # Loop Hold: unregistered in stock, no immediate anywhere
+SL_ADD = (SL_LOOP_ID, SL_LEN_ID, SL_REV_ID, SL_SUS_ID, SL_HOLD_ID)
+SL_REV_LABEL, SL_REV_XML = "Reverse:", "slicereverse"
 SL_HOLD_LABEL, SL_HOLD_XML = "Loop Hold:", "sliceloophold"
 SL_LEN_LABEL, SL_LEN_XML = "Loop Len:", "slicelooplen"
 SL_LEN_TYPE = 8                      # per mille, shown as a percentage
 SL_LEN_MIN, SL_LEN_MAX, SL_LEN_DEFAULT = 10, 1000, 1000
-SL_RAM = 0x2406f080                  # +0 magic, then SL_ENGINES entries of SL_ENTRY bytes
-SL_MAGIC = 0x534c4f33                # "SLO3": anything else and the table is cleared first
-SL_ENTRY = 64                        # +0 engine; +4/+8/+12 Loop Mode sources;
+SL_RAM = 0x2406ac80                  # +0 magic, then SL_ENGINES entries of SL_ENTRY bytes
+                                     # (minimal builds only: beside the Sustain table)
+SL_MAGIC = 0x534c4f34                # "SLO4": anything else and the table is cleared first
+SL_ENTRY = 80                        # +0 engine; +4/+8/+12 Loop Mode sources;
                                      # +16 Loop Len (per mille); +20.. 3 x {source, amount}
-                                     # +44 Reverse (0/1); +48/+52/+56 Reverse sources
-SL_ENGINES = 17
+                                     # +44 Reverse, +45 Loop Hold (bytes); +48/+52/+56 Reverse
+                                     # sources; +60 the slice playing; +64/+68/+72 Loop Hold sources
+SL_ENGINES = 24
 SL_SEG_RAM = 0x240692c0              # +0 magic, +4 caller's lr, +8 engine, +12 mirror, +16 reverse,
 SL_SEG_HDR = 20                      # then SL_SEGS records {segment, mirror, reverse}
 SL_SEGS = 24
@@ -10732,6 +10730,9 @@ sl_att:                             /* attach, id > 0x45: r4 id, r5 this, r6 src
     movw    r3, #0x{SL_REV_ID:x}
     cmp     r4, r3
     beq     sa_rev
+    movw    r3, #0x{SL_HOLD_ID:x}
+    cmp     r4, r3
+    beq     sa_hold
     cmp     r4, #0x{SL_LOOP_ID:x}
     bne     sa_other
     cmp     r2, #2
@@ -10768,6 +10769,20 @@ sa_lfind:
     add.w   r0, r0, r2, lsl #3
     str     r6, [r0, #20]
     vstr    s16, [r0, #24]
+    b       sa_done
+sa_hold:                            /* Loop Hold: keep the slot's source */
+    cmp     r2, #2
+    bhi     sa_done
+    mov     r0, r5
+    movs    r1, #0
+    cbz     r6, sa_hfind
+    movs    r1, #1
+sa_hfind:
+    bl      sl_find
+    cmp     r0, #0
+    beq     sa_done
+    add.w   r0, r0, r2, lsl #2
+    str     r6, [r0, #64]
     b       sa_done
 sa_rev:                             /* Reverse: keep the slot's source */
     cmp     r2, #2
@@ -11569,7 +11584,8 @@ hd_loop:                            /* Loop Hold on, and Loop Mode on: the setti
     bl      sl_find
     cbz     r0, hd_out
     mov     r3, r0
-    ldrb    r0, [r3, #45]
+    bl      hold_on                 /* Loop Hold: the setting, or a source at 2.5 V */
+    mov     r0, r1
     cbz     r0, hd_out
     movs    r0, #1
     ldrb.w  r1, [r4, #0x1f4]
@@ -11630,14 +11646,43 @@ sl_hoff:                            /* note-off: the same */
 hf_back:
     .short  0, 0                    /* b.w on: push {{r4-r7, lr}} */
 
+hold_on:                            /* r3 entry -> r1 = Loop Hold on. Uses r2, r12; keeps r3 */
+    ldrb    r1, [r3, #45]
+    cbnz    r1, ho_yes
+    mov.w   r12, #0x{SL_THRESH_BITS:x}
+    ldr     r2, [r3, #64]
+    cbz     r2, ho_s1
+    ldr     r2, [r2, #4]
+    cmp     r2, r12
+    bge     ho_yes
+ho_s1:
+    ldr     r2, [r3, #68]
+    cbz     r2, ho_s2
+    ldr     r2, [r2, #4]
+    cmp     r2, r12
+    bge     ho_yes
+ho_s2:
+    ldr     r2, [r3, #72]
+    cbz     r2, ho_no
+    ldr     r2, [r2, #4]
+    cmp     r2, r12
+    bge     ho_yes
+ho_no:
+    movs    r1, #0
+    bx      lr
+ho_yes:
+    movs    r1, #1
+    bx      lr
+
 sl_pick:                            /* the loop restarts: the slice it was playing, held */
     push    {{r0, r1, r2, lr}}
     movs    r1, #0
     bl      sl_find
     cbz     r0, pk_stock
-    ldrb    r1, [r0, #45]           /* Loop Hold off: as stock */
+    mov     r3, r0
+    bl      hold_on                 /* Loop Hold off: as stock */
     cbz     r1, pk_stock
-    ldr     r0, [r0, #60]
+    ldr     r0, [r3, #60]
     pop     {{r1, r2, r3, pc}}
 pk_stock:
     pop     {{r0, r1, r2, lr}}
@@ -11813,16 +11858,10 @@ def apply_slice_loop(d):
         assert code[off:off + 4] == b"\0\0\0\0", sym
         code[off:off + 4] = enc_b_bl(org + off, target, call)
     assert _append(d, code) == org
-    diag = SL_DIAG.get(os.environ.get("SL_DIAG", ""), ())
     for site, entry, call in SL_SITES:
-        if entry in diag:            # a diagnostic build leaves this site stock
-            continue
         d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], call)
     for page in SL_PAGES:
-        rows = SL_PAGE_NEW
-        if os.environ.get("SL_DIAG", "") == "D":
-            rows = tuple(r for r in rows if r != SL_HOLD_ID) + (SL_HOLD_ID,)
-        struct.pack_into(f"<{len(rows)}H", d, page - BASE, *rows)
+        struct.pack_into(f"<{len(SL_PAGE_NEW)}H", d, page - BASE, *SL_PAGE_NEW)
     vprint(f"SL Loop Mode a mod target at {SL_LIST + 2 * SL_LIST_USED:#x}; "
            f"{len(code)} bytes at {org:#010x}, ram {SL_RAM:#x}")
     return org, syms
@@ -11857,7 +11896,7 @@ def patch_ram_ranges():
         ("T the master bus, saved", CHRSAVE_RAM, CHRSAVE_RAM + 36),
         ("T the patch's own colours", THEME_OSD_RAM, THEME_OSD_RAM + 32),
         ("GR Gate Rec / Clr / Loop", GATE_RAM, GATE_RAM + 4 * len(GATE_ROWS)),
-        ("SL Loop Mode sources", SL_RAM, SL_RAM + SL_RAM_BYTES),
+        ("SL Slicer settings (minimal builds only)", SL_RAM, SL_RAM + SL_RAM_BYTES),
         ("SL Reverse segments", SL_SEG_RAM, SL_SEG_RAM + SL_SEG_BYTES),
         ("SL Sustain sources (minimal builds only)", SL_SUS_RAM, SL_SUS_RAM + SL_SUS_BYTES),
     ]
@@ -11960,8 +11999,6 @@ def main():
     if len(argv) <= 2:
         if slice_loop:
             ver = "2.3.4-" + ("g" if gate_only else "") + SL_VERSION_TAG
-            if os.environ.get("SL_DIAG", "") in SL_DIAG:
-                ver += os.environ["SL_DIAG"]   # e.g. 2.3.4-gs9A: the splash takes ten characters
         elif gate_only:
             ver = GATE_ONLY_VERSION
         elif gate_rec:

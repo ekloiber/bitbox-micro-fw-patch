@@ -5,6 +5,17 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs10 (fork, test build) — November 2026
+
+- New: **Loop Hold is a modulation target**, like Loop Mode. Assign EXT 1-8 to
+  it: while the CV is at 2.5 V or more the loop is held, as if Loop Hold were
+  ON; below that the row's own setting decides. The Amount box is ignored.
+- Loop Hold (gs9) confirmed on a module. A held loop keeps the envelope its
+  trigger started, so with a low Sustain it fades after the first pass:
+  triggers during a hold are ignored and do not restart it.
+- The diagnostic builds (SL_DIAG) are gone.
+- Not yet tried on a module.
+
 ## 2.3.4-gs9 (fork, test build) — November 2026
 
 - Fixed: with Loop Hold ON, a new trigger during a held loop silenced the pad

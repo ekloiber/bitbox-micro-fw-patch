@@ -57,6 +57,7 @@ Built with `--slice-loop`. Both work only on Slicer pads with PlayThru off.
 | **Loop Mode** on a CV | Assign EXT 1-8 to Loop Mode. While the CV is at 2.5 V or more, the current slice loops; when it drops, the slice plays out and the pad's own Loop Mode applies again. |
 | **Loop Len** | A new row on the Slicer page, after Slice Seq: how much of each slice plays, from its start, 1-100 % (default 100 %). Saved with the preset. |
 | **Loop Len** on a CV | Assign EXT 1-8 with Amount +100 %: 0 V leaves the length as set, 5 V takes it down to 1 %. |
+| **Loop Hold** | A new on/off row right under Loop Mode (default OFF), saved with the preset. ON: while a slice loops it ignores new triggers, gate releases and slice changes, and keeps its slice until Loop Mode goes off. EXT 1-8 at 2.5 V or more holds, as Loop Mode does. A held loop keeps the envelope its trigger started, so keep Sustain up. |
 | **Reverse** | A new on/off row after Loop Len: plays each slice from its end back to its start. Saved with the preset; EXT 1-8 at 2.5 V or more reverses, held. Not with PlayThru yet. |
 
 Changes land at the next restart of the slice, so they stay in time. Use
