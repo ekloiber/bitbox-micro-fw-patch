@@ -10471,7 +10471,7 @@ def apply_gate_rec(d, only=False):
 #     VFP register is touched), restarts it; otherwise the slice ends as stock.
 #   - Not touched: Clip pads, and Slicer with PlayThru (whose Loop Mode loops
 #     the whole file). The Amount box is ignored: the threshold is on the CV.
-SL_VERSION_TAG = "s11"               # appended to the minimal build's version
+SL_VERSION_TAG = "s12"               # appended to the minimal build's version
 SL_LIST = 0x080c86f8                 # modulation targets, u16 ids
 SL_LIST_USED = 36
 SL_LIST_CAP = 49
@@ -10525,6 +10525,14 @@ SL_THRESH_BITS = 0x3f000000          # 0.5f: 2.5 V on a +-5 V input
 SL_PAGES = (0x080c7edc, 0x080c80f8)  # the Slicer page's row list, in both page tables
 SL_PAGE_IDS = (0x6f, 0xd3, 0xb4, 0xd4, 0xd5, 0x31, 0x84)
 SL_PAGE_NEW = (0x6f, SL_HOLD_ID, 0xd3, 0xb4, 0xd4, 0xd5, 0x31, 0x84, SL_LEN_ID, SL_REV_ID)
+# The Main page (Level, Pitch, Filter, Res, Pan) of every pad mode whose engine has
+# sends: Sample, Granular and Multisample (class A), Clip and Slicer (class B).
+# Each table is 6 pages of 45 ids; page 0 is Main. The record/input screens
+# (0x40-0x42) and the sequencer's tables are left alone.
+SL_MAIN_PAGES = (0x080c76c0, 0x080c78dc, 0x080c7108, 0x080c6eec, 0x080c7af8,
+                 0x080c6c38, 0x080c6a1c, 0x080c7e28, 0x080c8044)
+SL_MAIN_IDS = (0x04, 0x3f, 0xaa, 0x11, 0x45)
+SL_MAIN_NEW = SL_MAIN_IDS + SL_FX_IDS
 SL_STORE_CASE = (0x080895f6, 0x08089850)   # the pad store's type-3 case
 SL_STORE_USED, SL_STORE_CAP = 58, 0x40
 SL_STORE_SITE = 0x0808984c           # its last AddParam (id 0xbd): bl -> sl_store
@@ -12188,6 +12196,10 @@ def apply_slice_loop(d):
         row = struct.unpack_from("<16H", d, page - BASE)
         if row[:len(SL_PAGE_IDS)] != SL_PAGE_IDS or any(row[len(SL_PAGE_IDS):]):
             refuse(f"The Slicer page at {page:#x} is not what Loop Len expects.")
+    for page in SL_MAIN_PAGES:
+        row = struct.unpack_from("<45H", d, page - BASE)
+        if row[:len(SL_MAIN_IDS)] != SL_MAIN_IDS or any(row[len(SL_MAIN_IDS):]):
+            refuse(f"The Main page at {page:#x} is not what the sends expect.")
     sr_next = branch_target(d, SL_REG_SITE)        # GR's catch if it is in, else the registrar
     org = BASE + len(d)
     code, syms = build_slice_loop_hook()
@@ -12201,6 +12213,8 @@ def apply_slice_loop(d):
         d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], call)
     for page in SL_PAGES:
         struct.pack_into(f"<{len(SL_PAGE_NEW)}H", d, page - BASE, *SL_PAGE_NEW)
+    for page in SL_MAIN_PAGES:
+        struct.pack_into(f"<{len(SL_MAIN_NEW)}H", d, page - BASE, *SL_MAIN_NEW)
     vprint(f"SL Loop Mode a mod target at {SL_LIST + 2 * SL_LIST_USED:#x}; "
            f"{len(code)} bytes at {org:#010x}, ram {SL_RAM:#x}")
     return org, syms

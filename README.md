@@ -71,8 +71,11 @@ Sustain = your setting + source x Amount, within 0-100 %; with Amount
 +100 %, +5 V adds 100 % and -5 V takes 100 % away. It follows the source
 during a held note. The inputs take -5 V to +5 V.
 
-**Sends on a CV** (same builds): FX1 Send (delay) and FX2 Send (reverb) are
-modulation targets on Sample and Clip/Slicer pads, from the same sources.
+**Sends on a CV** (same builds): FX1 Send (delay) and FX2 Send (reverb) get
+their own rows on each pad's Main page, after Pan (Sample, Granular,
+Multisample, Clip and Slicer pads; stock firmware keeps them off the screen).
+They are saved with the preset as before, and are modulation targets from
+the same sources: select the row and push the right arrow.
 Send = your setting + source x Amount, within 0-100 %, worked out every audio
 block. VEL and LFO follow the voice that is playing (on a Sample pad, the
 note that started last). With no source assigned the send is stock.
