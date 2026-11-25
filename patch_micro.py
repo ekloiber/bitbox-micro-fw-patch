@@ -1049,8 +1049,15 @@ USAGE = f"""
                        the other changes (version 2.3.4-gr3)
     --slice-loop       EXPERIMENTAL: Slicer Loop Mode, Loop Len and Reverse on
                        a CV (EXT 1-8), and Sustain as a modulation target on
-                       Sample and Clip/Slicer pads, and Loop Hold
-                       (2.3.4-s10; with --gate-only, 2.3.4-gs10)
+                       Sample and Clip/Slicer pads, Loop Hold, and the
+                       Delay/Reverb Sends on the Main page and as targets
+                       (2.3.4-s13; with --gate-only, 2.3.4-gs13; with
+                       --comp-menu as well, 2.3.4-cs13, or 2.3.4-xs13 with
+                       all three)
+    --comp-menu        stock 2.3.4 with the stock compressor's Threshold,
+                       Ratio, Attack, Release and Gain on the Settings
+                       screen right under Compressor, in dB and ms (version 2.3.4-cm1; with
+                       --gate-only as well, 2.3.4-gc1)
     -v                 show the addresses and opcodes as it works
     --reassemble       verify the frozen code against its sources
     --legacy-version   allow a version string too long for the panel, for
@@ -1265,6 +1272,8 @@ FROZEN = {
         {'greg': 0, 'glabel0': 524, 'gvalues': 488, 'gxml0': 536, 'greg_call0': 30, 'glabel1': 548, 'gxml1': 560, 'greg_call1': 58, 'glabel2': 572, 'gxml2': 584, 'greg_call2': 86, 'greg_next': 96, 'gstore': 100, 'gstore_call0': 112, 'gstore_call1': 124, 'gstore_call2': 136, 'gstore_next': 144, 'gpost': 148, 'gmine': 204, 'gpost_next': 172, 'gedit': 176, 'gedit_next': 200, 'gm_store': 224, 'gm_set': 218, 'gm_put': 254, 'gon': 276, 'gmatch': 372, 'gon_act': 290, 'gon_back': 286, 'gon_one': 302, 'gsend': 310, 'gon_done': 306, 'gsend_push': 348, 'goff': 354, 'goff_eat': 368, 'goff_back': 364, 'gm_0': 382, 'gm_1': 412, 'gm_2': 442, 'gm_3': 472, 'gv0': 596, 'gv1': 600, 'gv2': 608, 'gv3': 616, 'gv4': 624, 'gv5': 632, 'gv6': 640, 'gv7': 648, 'gv8': 656, '_sGR': 0}),
     "hookSL": ("40f2a7139c421dd040f2a9139c4237d040f2ab139c4225d06f2c0dd1022a09d82846002106b1012100f062fe10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f04efe0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f03efe0028ddd000eb82000664d9e7022ad7d82846002106b1012100f030fe0028cfd000eb82000663cbe740f2a9139c4214d040f2ab139c421dd040f2a7139c4226d1284632690021b2f57a7f18bf012100f015fe00b102610000000028463269111e18bf01210a4600f009fe0028f3d080f82c20f0e728463269111e18bf01210a4600f0fcfd0028e6d080f82d20e3e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a911002200000000009840f2ab1100220000000001bd2de91f5083b040f2a71108220ff620430a24009440f2e83401940ff62044029400000000039840f2a91104220ff61c4300240094012401940ff61c44029400000000039840f2ab1104220ff61c4300240094012401940ff61c4402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f09efd002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f06ff905b00000000010b5044600f068f9000000002de90f50dff894c1ccf808000021ccf8101090f85532002b40f09580012100f066fd002800f08f80039bc3632ded046b016907ee901af8eee77a9fed587ac7ee877a42693ab192ed017ad0ed066a27ee267a77eec77ac2693ab192ed017ad0ed086a27ee267a77eec77a426a3ab192ed017ad0ed0a6a27ee267a77eec77ab7ee007af4ee477af1ee10fa33da9fed457ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e9290f82c308bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff8c0c4dcf80000dff8bc3498420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f00dfc08b100210160009800f6a034dff854c4dcf80010dff8502491420dd10cf114010cf234120b68834203d3a34201d200230b600c319142f5d1dff830c4dcf80010dff8242491420dd10cf108010cf208320b68834203d3a34201d200230b6020319142f5d1009800f6843000f084fb009800f6883000f07ffb15bd222a08d0a2f1bb0cbcf1010f10d970b514460000000010b504460a46194604f2f04000f0faf804f6001000f0f6f810bd00f6843010b500eb8c000a46194600f0dbfa10bd222a0bd0a2f1bb0cbcf1010f02d800f25850ede770b514460000000010b50a46194600f26c3000f0d6f810bdb1f80cc0bcf1220f08d0acf1bb0cbcf1010f46d92de9f04300000000f0b5044600f065f8a5f10f03072b14d90ff2f60c00f06af81f4602b12244314604f2f04000f0b3f800220fb104eb0702314604f6001000f0aaf8f0bdb1f80cc0bcf1220f08d0acf1bb0cbcf1010f20d92de9f84300000000f0b5044600f039f8a5f10f03072b0dd90ff2f60c00f03ef81ab112f0010f08bf2244314604f26c3000f085f8f0bdf0b500f684340ff2a60704e0f0b500f258540ff2c60704eb8c04a4eb000411b400f014f8a5f10f03072b0dd9bc4600f01af800981ab112f0010f08bf024401990844314600f04ffa02b0f0bdb1f9163000ee103ab8eec00a5fedc70a80ee200a8d8a0e8a704700220023bcf8000040b1a84202d00cf1060cf7e7bcf80220bcf8043070470d00a802b8060400880398070e00b002c0061a00480b480b1c00500b500b1d00580b580b1900600b600b00000d00490000000400290100000e00510000001a00480b00001c00500b00001d00580b00001900600b000000000d00810000000e00890000000400190500001a00240100001c002c0100001d003401000019003c010000000002290ed816b5002102b1012100f089f830b1009900ebc100019a426080ed020a16bd704793ed068a2de90f5018460021002200f076f860b9039800f091f8002842d0039aa2f55872002100f06af800283ad02ded046bf0ee487a416859b111f0010f1cbf21f00101114491ed017ad0ed026ae7ee267ac16859b111f0010f1cbf21f00101114491ed017ad0ed046ae7ee267a416959b111f0010f1cbf21f00101114491ed017ad0ed066ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee678abdec046bbde80f50000000002de907500bf5587007f55b7100f053f807f5ab60594600f0f4f907f25c50594600f0eff9bde80750d7f8843300000000dcf80000334b98420ad0ccf8003000230cf104000cf2085140f8043b8842fbd1704734b50d460446dff8acc0fff7e8ff0cf108000cf2083100220368a3420ed00bb902b9024620308842f6d1002035b12ab100235360d36053611460104634bd14b50446dff870c0fff7caff1b4800f200210368a34204d008308842f9d1002014bd406814bd30b504460d46dff848c0fff7b6ff114800f2002100220368a34211d00bb902b9024608308842f6d1104648b9dcf80420531c03f03f03ccf80430064800ebc2004560046030bd0000c0920624344f4c5300a7062408aa062410b50446002094f8541289b3d4f8501271b394f8551259bb94f8601211b194f8691229b104f27062117809b3517af9b92046002100f0b8f9d0b1034600f03cf80846a8b1012094f8f41189b94ff07c5c596811b1496861450ada996811b14968614505dad96811b14968614500da002010bd13b5fff7c4ff0028bde8134001d000000000000000001fb5fff7b9ff0028bde81f4018bf70472de9f04f000000001fb5fff7adff0028bde81f4018bf704790f860120000000093f82d1091b94ff07c5c1a6c12b1526862450bda5a6c12b15268624506da9a6c12b15268624501da002170470121704707b5002100f05cf928b10346fff7e0ff09b1d86b0ebdbde8074000000000bb6a4b4508d17b6a23b1013bd6f808c0634501d100000000fb6a534507d17b6a3bb1013bd6f808c0634502d000220000000000000000bb6a4b4508d17b6a23b1013bd6f808c0634501d100000000fb6a534507d17b6a3bb1013bd6f808c0634502d0002200000000000000002de90f50284607e02de90f50504603e02de90f5004f5ab60012100f007f808b180ed010abde80f500000000030b50d460446dff8f8c1dcf800007d4b98420ad0ccf8003000230cf104000cf2847140f8043b8842fbd10cf104000cf2847100220368a34212d00bb902b9024628308842f6d1002055b14ab14ff0ff33536000239360d3605361d3611460104630bd022923d870b50d461646111e18bf0121fff7c5ffc8b1044600ebc501ce6081ed040ae16862691143e26911430dd161684a1c0ad02ded100b00ee101a00000000206880ed000abdec100b70bd704770b50d460021fff7a3ff00284ad00446e16862691143e269114343d061684a1c40d005b9a568d4ed017ae16861b111f0010f03d045b121f00101294491ed017ad4ed046ae7ee267a616961b111f0010f03d045b121f00101294491ed017ad4ed066ae7ee267ae16961b111f0010f03d045b121f00101294491ed017ad4ed086ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee670a00000000206880ed000a70bd10b50c460021fff750ff00b1846010bd10b50021fff749ff08b10021016010bd2de90f502ded100b04f518710a780ab14a7a22b104f5ce62137803b1114606b404f68430fff789ff009904f68830fff784ff02b0bdec100bbde80f5004f6843b000000002de90f502ded100b04f5ab600021fff772ff04f25c500021fff76dffbdec100bbde80f5004f5ab660000000010b5044604f5ab60fff7baff04f25c50fff7b6ff204600000000000040b40624344f4c5334b50d46dff868c0dcf80010194b99420ad0ccf8003000230cf104010cf2847241f8043b9142fbd10cf104010cf2847200240b68834216d00bb904b90c4650319142f6d18db184b1002304f1040104f1500241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd000080ac0624344f4c534c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf004c6f6f7020486f6c643a0000736c6963656c6f6f70686f6c640000bf44656c61792053656e643a005265766572622053656e643a0000bf00",
         {'sl_att': 0, 'sa_len': 68, 'sa_rev': 128, 'sa_hold': 100, 'sa_other': 56, 'sa_done': 52, 'sa_find': 40, 'sl_find': 3312, 'sa_84': 64, 'sa_back': 60, 'sa_lfind': 80, 'sa_hfind': 112, 'sa_rfind': 140, 'sl_set': 156, 'ss_rev': 206, 'ss_hold': 232, 'ss_other': 258, 'ss_done': 202, 'ss_back': 262, 'sl_store': 266, 'st_add0': 268, 'st_add1': 282, 'st_add2': 294, 'st_add3': 306, 'sl_reg': 312, 'sr_label': 3432, 'sr_xml': 3444, 'sr_call': 344, 'sr_rlabel': 3460, 'sr_rxml': 3472, 'sr_call2': 374, 'sr_hlabel': 3488, 'sr_hxml': 3500, 'sr_call3': 404, 'sr_next': 414, 'sl_eos': 418, 'se_out': 478, 'se_t1': 454, 'se_on': 476, 'se_t2': 464, 'se_t3': 474, 'se_stop': 488, 'se_loop': 484, 'sl_ctor': 492, 'sl_drop': 1230, 'sc_back': 498, 'sl_dtor': 502, 'sd_back': 510, 'sl_seg': 514, 'sg_out': 840, 'sg_k1000': 928, 'sg_m1': 600, 'sg_m2': 620, 'sg_m3': 640, 'sg_scaled': 758, 'sg_kmin': 932, 'sg_sync': 694, 'sg_len': 726, 'rv_on': 800, 'rv_t1': 778, 'rv_t2': 788, 'rv_t3': 798, 'sg_vdone': 836, 'rv_sync': 812, 'rv_set': 820, 'sg_ret': 868, 'sg_back': 864, 'sr_done': 910, 'sl_segfind': 1138, 'sl_read': 936, 'sv_plain': 1096, 'sv_call': 1060, 'sv_ret': 1092, 'sl_flip': 1104, 'sv_pass': 1100, 'sf_flipped': 1136, 'sf_swap': 1116, 'sgf_scan': 1178, 'sgf_zero': 1170, 'sgf_loop': 1188, 'sgf_hit': 1224, 'sgf_next': 1200, 'sgf_none': 1226, 'sgf_use': 1214, 'sl_drop_seg': 1244, 'sl_drop_out': 1294, 'sd_loop': 1274, 'sd_next': 1288, 'sl_drop_done': 1338, 'sd_sus': 1318, 'sd_snext': 1332, 'fx_drop': 3148, 'sl_batt': 1360, 'ba_sus': 1382, 'ba_fx': 1408, 'ba_back': 1378, 'sus_set': 1898, 'fx_att': 1412, 'fx_set': 2888, 'sl_satt': 1428, 'sa2_sus': 1456, 'sa2_go': 1448, 'sb_back': 1452, 'sl_bloc': 1472, 'bl_sus': 1500, 'bl_fx': 1634, 'bl_back': 1496, 'sus_amount': 1710, 'bl_ext': 1558, 'map_b': 1766, 'sus_map': 1736, 'bl_s0': 1530, 'bl_s1': 1548, 'sl_sloc': 1560, 'ls_sus': 1588, 'ls_fx': 1646, 'ls_back': 1584, 'ls_ext': 1632, 'map_s': 1854, 'ls_set': 1622, 'map_c': 1810, 'lf_go': 1656, 'lf_ext': 1706, 'lf_set': 1696, 'sm_loop': 1740, 'sm_out': 1764, 'sm_hit': 1756, 'sus_set_ret': 1932, 'sus_set_f': 1910, 'sus_find': 2188, 'sus_set_out': 1930, 'sl_sus': 1934, 'su_have': 1980, 'map_get': 2250, 'su_out': 2098, 'su_t1': 2016, 'su_t2': 2044, 'su_t3': 2072, 'su_back': 2102, 'sl_non': 2106, 'map_set': 2288, 'fx_voice': 3132, 'no_back': 2150, 'sus_init': 2154, 'si_out': 2186, 'si_zero': 2178, 'suf_loop': 2212, 'suf_out': 2248, 'suf_next': 2224, 'mg_loop': 2268, 'mg_hit': 2284, 'ms_loop': 2310, 'ms_put': 2352, 'ms_next': 2322, 'sl_held': 2376, 'hd_out': 2488, 'hd_v1': 2412, 'hd_loop': 2424, 'hold_on': 2560, 'hd_s1': 2466, 'hd_s2': 2476, 'hd_no': 2486, 'sl_prep': 2490, 'pp_prep': 2508, 'pp_skip': 2504, 'sl_hon': 2512, 'ho_back': 2532, 'sl_hoff': 2536, 'hf_back': 2556, 'ho_yes': 2604, 'ho_s1': 2580, 'ho_s2': 2590, 'ho_no': 2600, 'sl_pick': 2608, 'pk_stock': 2630, 'pk_orig': 2634, 'mi_na': 2638, 'mi_nb': 2662, 'na_hit': 2658, 'nb_next': 2684, 'nb_orig': 2688, 'mi_fa': 2692, 'mi_fb': 2716, 'fa_hit': 2712, 'fb_next': 2738, 'fb_orig': 2742, 'fx_k5': 2746, 'fx_base': 2770, 'fx_k10': 2754, 'fx_k558': 2762, 'fx_find': 2790, 'fxk_none': 2782, 'fx_curve': 2786, 'fxf_scan': 2832, 'fxf_zero': 2824, 'fxf_loop': 2842, 'fxf_out': 2886, 'fxf_next': 2854, 'fxs_ret': 2964, 'fxs_out': 2962, 'fxs_curve': 2948, 'fx_apply': 2966, 'fxa_out': 3130, 'fxa_v': 3004, 'fxa_t1': 3038, 'fxa_a1': 3026, 'fxa_t2': 3068, 'fxa_a2': 3056, 'fxa_t3': 3098, 'fxa_a3': 3086, 'fxa_curve': 3120, 'fxv_out': 3146, 'fxd_out': 3162, 'fx_bk': 3164, 'fxb_v1': 3184, 'fxb_go': 3194, 'fxb_back': 3228, 'fx_sk': 3232, 'fxk_back': 3272, 'fx_sdtor': 3276, 'fxd_back': 3298, 'sf_scan': 3352, 'sf_zero': 3344, 'sf_loop': 3362, 'sf_hit': 3414, 'sf_next': 3374, 'sf_none': 3418, 'sf_clear': 3394, 'fx_l1': 3516, 'fx_l2': 3528, '_sSL': 0}),
+    "hookCM": ("2de90f50009840f211114df22012cff6ff7200000000009840f2121140f20202c0f2000200000000009840f20f1140f22c12c0f2000200000000009840f2101140f6b832c0f2000200000000009840f21a1140f20002c0f2000200000000bde80f500000000040f2111c624529d040f2121c624525d040f20f1c624521d040f2101c62451dd040f21a1c624519d0ffe70000000040f2111c624512d040f2121c62450ed040f20f1c62450ad040f2101c624506d040f21a1c624502d0ffe700000000f0b52ded027a3f4c404f2568bd421bd040f20005ccf24015656040f20005c4f20005a56040f2a055c0f20005e56043f64005c0f20005256140f20005c0f200056561324da561276040f2111c624510d040f2121c624518d040f20f1c62451fd040f2101c624526d040f21a1c62452dd044e007ee903af8eee77a9fed217a67ee877a17ee905a65602ce0012bb8bf012307ee903af8eee77a17ee905aa56021e0052bb8bf0523182503fb05f50526b5fbf6f5e56016e0642bb8bf6423182503fb05f50526b5fbf6f525610be007ee903af8eee77a9fed0b7a67ee877a17ee905a6561ffe73d4666687540a6687540e66875402669754066697540a561bdec027af0bd6f12833a00c00624dec010103efd5091",
+        {'cstore': 0, 'cstore_call0': 18, 'cstore_call1': 36, 'cstore_call2': 54, 'cstore_call3': 72, 'cstore_call4': 90, 'cstore_next': 98, 'cpost': 102, 'cmine': 194, 'cpost_next': 144, 'cedit': 148, 'cedit_next': 190, 'cm_go': 266, 'cmc_0': 308, 'cmc_1': 332, 'cmc_2': 354, 'cmc_3': 376, 'cmc_4': 398, 'cmc_out': 446, 'cm_milli': 452, 'cmc_sum': 422, '_sCM': 0}),
 }
 
 # Reduced C objects (see "C hooks" below): compressed, origin-independent, and
@@ -12238,6 +12247,239 @@ def apply_slice_loop(d):
     return org, syms
 
 
+# --- CM: the stock compressor on the Settings screen (fork, --comp-menu) -------
+# Five rows on Settings page 3: C Thresh, C Ratio, C Attack, C Release, C Gain,
+# in real units (dB, N:1, ms). On/off is stock's own Compressor row, page 1.
+# Only the stock compressor: no types, no MIDI. Built on the minimal base (stock
+# 2.3.4, plus Gate Rec with --gate-only), never on the full 2.3.10 set, whose
+# compressor hooks own the same store.
+#
+# Stock already has these rows. The registry dump of 0x08069f00 shows them,
+# shared with 1010music's other modules and never put on a Micro screen:
+#   id     label        type  range            shown as
+#   0x111  C Thresh:     7    -48000 .. 0      -48.0 .. 0.0 dB  (milli-dB, 0.1 dB steps)
+#   0x112  C Ratio:     16    1 .. 100         1 .. 100         (plain, the N of N:1)
+#   0x10f  C Attack:    15    0 .. 10000       0 .. 1000 ms     (0.1 ms, 1 ms steps)
+#   0x110  C Release:   14    0 .. 10000       0 .. 1000 ms
+#   0x11a  C Gain:       7    -36000 .. 36000  -36.0 .. +36.0 dB
+# The units come from the Settings value widget: its formatter 0x0805eacc and
+# setter 0x0805ed24 switch on the type byte: 7 is milli-dB printed "%d.%01d dB"
+# in 100 steps; 14 and 15 print "%ld ms" of value/10; 16 prints the value.
+# Nothing applies them, though: none is in the global store (0x08089e04's 36
+# entries), the engine's settings switch (0x080ac0f0) stops at 0xed, and the
+# compressor object has no parameter handler at all (see hook D's notes).
+#
+# So CM gives them a store entry each (defaults = hook E's glue seed, so the
+# screen shows what is playing), catches their apply-all and live-edit posts,
+# converts the value to the field's own units and writes hook D/E's store at
+# PATCH_RAM, checksum and all; hook E stamps it onto the live compressor every
+# block, exactly as in the full build. Attack is clamped to 0.5 ms and release
+# to 10 ms, hook D's floors: 0 samples is not a time constant.
+CM_ROWS = (                          # (id, store offset, default, kind)
+    (0x111, 4, -12000, "db"),        # threshold -12.0 dB  -> float dB
+    (0x112, 8, 2, "ratio"),          # ratio 2:1           -> float
+    (0x10f, 12, 300, "time"),        # attack 30 ms        -> samples @ 48 k
+    (0x110, 16, 3000, "time"),       # release 300 ms      -> samples
+    (0x11a, 20, 0, "db"),            # makeup 0.0 dB       -> float dB
+)
+CM_TIME_MIN = {0x10f: 5, 0x110: 100} # 0.1 ms units: 0.5 ms, 10 ms
+# The Settings screen walks one list of 64 ids, skipping zeros (0x08076dde):
+# the rows go in right after stock's Compressor row, the rest move down.
+SETTINGS_LIST_VA, SETTINGS_LIST_N = SETTINGS_P2_VA - 16, 64
+CM_AFTER = 0x96                      # Compressor: (on/off)
+CM_VERSION = "2.3.4-cm1"             # --comp-menu alone
+CM_GATE_VERSION = "2.3.4-gc1"        # --comp-menu with --gate-only
+assert CM_VERSION in USAGE and CM_GATE_VERSION in USAGE
+# The seed must agree with hook E's, or the screen would show one thing while
+# the compressor does another until the first edit.
+assert [round(struct.unpack("<f", struct.pack("<I", DEFAULTS[0][0]))[0] * 1000),
+        round(struct.unpack("<f", struct.pack("<I", DEFAULTS[1][0]))[0]),
+        DEFAULTS[2][0] * 10 // 48, DEFAULTS[3][0] * 10 // 48,
+        round(struct.unpack("<f", struct.pack("<I", DEFAULTS[4][0]))[0] * 1000)] \
+    == [d for _, _, d, _ in CM_ROWS], "CM's defaults no longer match hook E's seed"
+CM_GUARDS = (                        # (va, bytes, what)
+    (0x0806b51a, "40f21111", "C Thresh's registration id (movw r1, #0x111)"),
+    (0x0806b536, "4ff48971", "C Ratio's (mov.w r1, #0x112)"),
+    (0x0806b4ea, "40f20f11", "C Attack's (movw r1, #0x10f)"),
+    (0x0806b502, "4ff48871", "C Release's (mov.w r1, #0x110)"),
+    (0x0806b518, "0722", "... C Thresh is type 7, milli-dB"),
+    (0x0806b4e8, "0f22", "... C Attack is type 15, tenths of a ms"),
+    (0x0806b500, "0e22", "... C Release is type 14, tenths of a ms"),
+    (0x0806b72a, "4ff48d71", "C Gain's (mov.w r1, #0x11a)"),
+    (0x0806b728, "0722", "... C Gain is type 7, milli-dB"),
+    (0x0806b71c, "48f6a043", "... C Gain's max 36000 (movw r3, #0x8ca0)"),
+    (0x0805eae4, "90f83130", "the value widget's type byte at +0x31"),
+)
+CM_SITES = (                         # (site, entry, what): CM's head insertions
+    (0x08089efe, "cstore", "the global store's entries"),
+    (0x0807c5be, "cpost", "the Settings apply-all post"),
+    (0x0807d51c, "cedit", "the Settings live-edit post"),
+)
+
+
+def build_comp_menu_hook(org, nexts):
+    """CM: store entries for the five rows, and their posts -> hook E's store."""
+    store = "".join(f"""
+    ldr     r0, [sp]
+    movw    r1, #0x{gid:x}
+    movw    r2, #0x{default & 0xffff:x}
+    movt    r2, #0x{(default >> 16) & 0xffff:x}
+cstore_call{i}:
+    .short  0, 0                    /* AddParam */
+""" for i, (gid, _, default, _) in enumerate(CM_ROWS))
+
+    def match(hit, miss):
+        return "".join(f"""
+    movw    r12, #0x{gid:x}
+    cmp     r2, r12
+    beq     {hit}""" for gid, _, _, _ in CM_ROWS) + f"""
+    b       {miss}"""
+
+    seed = "".join(f"""
+    movw    r5, #0x{w & 0xffff:x}
+    movt    r5, #0x{w >> 16:x}
+    str     r5, [r4, #{4 + 4 * i}]""" for i, (w, _) in enumerate(DEFAULTS))
+    pick = "".join(f"""
+    movw    r12, #0x{gid:x}
+    cmp     r2, r12
+    beq     cmc_{i}""" for i, (gid, _, _, _) in enumerate(CM_ROWS))
+    cases = ""
+    for i, (gid, off, _, kind) in enumerate(CM_ROWS):
+        if kind == "db":                    # milli-dB -> float dB
+            body = """
+    vmov    s15, r3
+    vcvt.f32.s32 s15, s15
+    vldr    s14, cm_milli
+    vmul.f32 s15, s15, s14
+    vmov    r5, s15"""
+        elif kind == "ratio":               # N -> float N, at least 1
+            body = """
+    cmp     r3, #1
+    it      lt
+    movlt   r3, #1
+    vmov    s15, r3
+    vcvt.f32.s32 s15, s15
+    vmov    r5, s15"""
+        else:                               # tenths of a ms -> samples at 48 kHz
+            body = f"""
+    cmp     r3, #{CM_TIME_MIN[gid]}
+    it      lt
+    movlt   r3, #{CM_TIME_MIN[gid]}
+    movs    r5, #24
+    mul     r5, r3, r5
+    movs    r6, #5
+    udiv    r5, r5, r6"""
+        cases += f"""
+cmc_{i}:{body}
+    str     r5, [r4, #{off}]
+    b       cmc_sum"""
+
+    src = f"""
+.syntax unified
+.thumb
+.section .text
+.global _sCM
+.thumb_func
+_sCM:
+cstore:                             /* r0 = the global store */
+    push    {{r0, r1, r2, r3, r12, lr}}{store}
+    pop     {{r0, r1, r2, r3, r12, lr}}
+cstore_next:
+    .short  0, 0
+
+cpost:                              /* PostSetParam(r0 mgr, r1 key, r2 id, r3 value) */{match("cmine", "cpost_next")}
+cpost_next:
+    .short  0, 0
+
+cedit:                              /* the live-edit post: the same catch */{match("cmine", "cedit_next")}
+cedit_next:
+    .short  0, 0
+
+cmine:                              /* ours: kept in hook E's store, NOT posted */
+    push    {{r4, r5, r6, r7, lr}}
+    vpush   {{s14, s15}}
+    ldr     r4, =0x{PATCH_RAM:08x}
+    ldr     r7, =0x{PATCH_MAGIC:08x}
+    ldr     r5, [r4]
+    cmp     r5, r7
+    beq     cm_go                   /* not yet claimed: lay hook E's own seed */{seed}
+    ldr     r5, =0x{DEFAULT_SUM:08x}
+    str     r5, [r4, #{PATCH_SUM}]
+    str     r7, [r4]
+cm_go:{pick}
+    b       cmc_out
+{cases}
+cmc_sum:                            /* magic ^ the five, as hook E verifies */
+    mov     r5, r7
+    ldr     r6, [r4, #4]
+    eors    r5, r6
+    ldr     r6, [r4, #8]
+    eors    r5, r6
+    ldr     r6, [r4, #12]
+    eors    r5, r6
+    ldr     r6, [r4, #16]
+    eors    r5, r6
+    ldr     r6, [r4, #20]
+    eors    r5, r6
+    str     r5, [r4, #{PATCH_SUM}]
+cmc_out:
+    vpop    {{s14, s15}}
+    pop     {{r4, r5, r6, r7, pc}}
+
+    .balign 4
+cm_milli:
+    .float  0.001
+    .ltorg
+"""
+    code, syms = assemble("hookCM", src)
+    code = bytearray(code)
+    fix = [(f"cstore_call{i}", 0x0808951e, True) for i in range(len(CM_ROWS))]
+    fix += [("cstore_next", nexts["cstore"], False),
+            ("cpost_next", nexts["cpost"], False),
+            ("cedit_next", nexts["cedit"], False)]
+    for sym, target, call in fix:
+        off = syms[sym]
+        code[off:off + 4] = enc_b_bl(org + off, target, call)
+    return bytes(code), syms
+
+
+def apply_comp_menu(d):
+    """Guard CM's facts, install hook E at the compressor's DSP call, append CM,
+    take its Settings sites at the head of their chains, add the page-3 rows."""
+    _guard(d, CLK_STORE_CAP_VA, CLK_STORE_CAP, "global settings capacity")
+    for va, raw, what in CM_GUARDS:
+        _guard(d, va, raw, what)
+    for nm, va, expect in (("compressor field offset", COMP_INIT_VA, COMP_INIT),
+                           ("compressor default", COMP_DFLT_VA, COMP_DFLT),
+                           ("compressor DSP call", COMP_DSP_CALL, COMP_DSP_CALL_GUARD)):
+        if struct.unpack_from("<I", d, va - BASE)[0] != expect:
+            refuse(f"The {nm} at {va:#x} is not what the compressor menu expects.")
+    off = COMP_DSP_CALL - BASE
+    if bytes(d[off:off + 4]) != enc_b_bl(COMP_DSP_CALL, COMP_DSP_FN, True):
+        refuse(f"The compressor call at {COMP_DSP_CALL:#x} is not what it should be.")
+    lst = SETTINGS_LIST_VA - BASE
+    rows = [r for r in struct.unpack_from(f"<{SETTINGS_LIST_N}H", d, lst) if r]
+    if CM_AFTER not in rows or any(gid in rows for gid, _, _, _ in CM_ROWS):
+        refuse("The Settings list does not have the Compressor row where CM expects it.")
+    k = rows.index(CM_AFTER) + 1
+    rows[k:k] = [gid for gid, _, _, _ in CM_ROWS]
+    assert len(rows) <= SETTINGS_LIST_N
+    e_org = BASE + len(d)
+    _append(d, bytearray(build_comp_dsp_hook(e_org)))
+    d[off:off + 4] = enc_b_bl(COMP_DSP_CALL, e_org, True)
+    nexts = {entry: branch_target(d, site) for site, entry, _ in CM_SITES}
+    org = BASE + len(d)
+    code, syms = build_comp_menu_hook(org, nexts)
+    org2 = _append(d, bytearray(code))
+    assert org2 == org
+    for site, entry, _ in CM_SITES:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], True)
+    struct.pack_into(f"<{SETTINGS_LIST_N}H", d, lst, *rows, *([0] * (SETTINGS_LIST_N - len(rows))))
+    vprint(f"E compressor DSP at {e_org:#010x}; CM {len(code)} bytes at {org:#010x}, "
+           f"rows {'/'.join(hex(r[0]) for r in CM_ROWS)}, store {PATCH_RAM:#x}")
+    return org, syms
+
+
 def patch_ram_ranges():
     """Every byte of RAM any hook in this file writes: (what, lo, hi)."""
     return [
@@ -12351,11 +12593,12 @@ def main():
         refuse("--gate-rec builds on the default 2.3.10 set: no --v238, --v239 or test options with it.")
     gate_only = "--gate-only" in flags             # fork: stock 2.3.4 plus GR alone
     slice_loop = "--slice-loop" in flags           # fork: Loop Mode as a mod target
-    minimal = gate_only or slice_loop
+    comp_menu = "--comp-menu" in flags             # fork: stock 2.3.4 plus CM (and GR, SL)
+    minimal = gate_only or slice_loop or comp_menu
     others = [f for f in flags if f.startswith("--") and
-              f not in ("--gate-only", "--slice-loop", "--reassemble", "--verbose")]
+              f not in ("--gate-only", "--slice-loop", "--comp-menu", "--reassemble", "--verbose")]
     if minimal and others:
-        refuse("--gate-only and --slice-loop build on stock 2.3.4, with nothing else added.",
+        refuse("--gate-only, --slice-loop and --comp-menu build on stock 2.3.4, with nothing else added.",
                f"Leave out: {' '.join(others)}")
     cpu_meter = v239 or "--cpu-meter" in flags     # opt-in test build, never a release
     preset_bpm = v239 or "--preset-bpm" in flags   # opt-in test build, never a release
@@ -12370,7 +12613,10 @@ def main():
         refuse("--osd needs --character: the OSD's MIDI side lives in its C object.")
     if len(argv) <= 2:
         if slice_loop:
-            ver = "2.3.4-" + ("g" if gate_only else "") + SL_VERSION_TAG
+            ver = "2.3.4-" + (("x" if gate_only else "c") if comp_menu
+                              else ("g" if gate_only else "")) + SL_VERSION_TAG
+        elif comp_menu:
+            ver = CM_GATE_VERSION if gate_only else CM_VERSION
         elif gate_only:
             ver = GATE_ONLY_VERSION
         elif gate_rec:
@@ -12514,6 +12760,9 @@ def main():
         if slice_loop:
             apply_slice_loop(d)
             print(f"     ok   {'Slicer, Sustain targets':<28} Slicer pads (FORK)")
+        if comp_menu:
+            apply_comp_menu(d)
+            print(f"     ok   {'Compressor, in dB and ms':<28} TOOLS > Settings (FORK)")
         finish(d, outp, ver)
         return
 

@@ -5,6 +5,16 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-xs13 / 2.3.4-cs13 (fork, --comp-menu with --slice-loop) — November 2026
+
+- `--comp-menu` now goes with `--slice-loop`, so one image has the gate rows,
+  the Slicer and send features and the compressor's controls: `2.3.4-xs13`
+  (with `--gate-only` too) or `2.3.4-cs13`.
+- The compressor's five rows (C Thresh, C Ratio, C Attack, C Release, C Gain)
+  now sit right under stock's Compressor row on the Settings screen. The rows
+  after it move down. This applies to `2.3.4-cm1` and `2.3.4-gc1` too.
+- Not yet tried on a module.
+
 ## 2.3.4-gs13 (fork, test build) — November 2026
 
 - The send rows are renamed **Delay Send** and **Reverb Send** (they were FX1
@@ -128,6 +138,15 @@ the guide you are reading. None of them covers how any of it is built.
 - 2.3.4-gs0 was a probe: Loop Mode got its modulation boxes, but a CV did
   nothing.
 - Confirmed on a module, in Trigger and Gate launch modes.
+## 2.3.4-cm1 / 2.3.4-gc1 (fork, --comp-menu) — November 2026
+
+- New: `--comp-menu` puts the stock compressor's Threshold, Ratio, Attack,
+  Release and Gain on the Settings screen, in dB, N:1 and ms. Stock only: no
+  compressor types and no MIDI. See
+  [Settings](SETTINGS.md#the-compressor-by-menu).
+- With `--gate-only` as well, one image has both features (`2.3.4-gc1`).
+- Every other build is unchanged, byte for byte.
+- Not yet confirmed on a module.
 
 ## Guide update (fork) — November 2026
 
