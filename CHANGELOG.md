@@ -5,6 +5,14 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs11 (fork, test build) — November 2026
+
+- New: **FX1 Send and FX2 Send are modulation targets** on Sample and
+  Clip/Slicer pads (delay and reverb), from EXT 1-8, VEL, LFO, PTCH, MODW,
+  MVOL or MPAN. Send = the pad's setting + source x Amount, within 0-100 %,
+  as Sustain does; with Amount +100 %, +5 V adds the whole send.
+- Not yet tried on a module.
+
 ## 2.3.4-gs10 (fork, test build) — November 2026
 
 - New: **Loop Hold is a modulation target**, like Loop Mode. Assign EXT 1-8 to

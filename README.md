@@ -71,6 +71,12 @@ Sustain = your setting + source x Amount, within 0-100 %; with Amount
 +100 %, +5 V adds 100 % and -5 V takes 100 % away. It follows the source
 during a held note. The inputs take -5 V to +5 V.
 
+**Sends on a CV** (same builds): FX1 Send (delay) and FX2 Send (reverb) are
+modulation targets on Sample and Clip/Slicer pads, from the same sources.
+Send = your setting + source x Amount, within 0-100 %, worked out every audio
+block. VEL and LFO follow the voice that is playing (on a Sample pad, the
+note that started last). With no source assigned the send is stock.
+
 ## Building It
 
 You need a Bitbox Micro on firmware 2.3.4, Python 3, a microSD card, and

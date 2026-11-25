@@ -1263,8 +1263,8 @@ FROZEN = {
         {'nblock': 0, '$t': 484, 'nblock_orig': 2, '$d': 504, 'nblock_c': 26, 'nmidi': 52, 'nmidi_c': 76, 'nmidi_next': 100, 'ncomp': 104, 'ncomp_c': 136, 'ncomp_e': 132, 'ncomp_call': 154, 'nclip_rate': 178, 'nclip_rate_c': 200, 'nclip_cc': 236, 'nclip_cc_go': 248, 'nclip_cc_out': 296, 'nclip_cc_c': 274, 'njread': 300, 'njread_c': 380, 'nclip_beats': 408, 'nclip_beats_c': 430, 'nfinal': 456, 'nfinal_p': 458, 'nfinal_c': 480, '_sN': 0}),
     "hookGR": ("2de91f5083b0039840f2a1110ff2fc120ff2d413092400940ff2fc14019400000000039840f2a3110ff2f8120ff2b813092400940ff2f814019400000000039840f2a5110ff2f4120ff29c13092400940ff2f41401940000000003b0bde81f50000000002de90f50009840f2a111002200000000009840f2a311002200000000009840f2a511002200000000bde80f500000000040f2a11c624517d040f2a31c624513d040f2a51c62450fd00000000040f2a11c624509d040f2a31c624505d040f2a51c624501d00000000010b51446082b05d9414811460022000000000023002140f2a110844209d0042140f2a310844204d0082140f2a5108442ffd0dff8e0c040f20000c4f2417040ea03004cf8010010bd00f02ef818b9b8f1130f00000000012803d1682000f005f8672000f002f80000000010b514a900220a604a608a60ca600a614a612d220a70099a4a60886045f28820c0f2010030440000000010bd00f007f818b9b8f1130f0000000000000000dff868c01a4944f24173dcf80000b3eb104f09d1c0b20138072805d851f82000404501d167207047dcf80400b3eb104f09d1c0b20138072805d851f82000404501d168207047dcf80800b3eb104f09d1c0b20138072805d851f82000404501d1012070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf67617465726563696e0000bf4761746520436c723a0000bf67617465636c72696e0000bf47617465204c6f6f703a0000676174656c6f6f70696e00004f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
         {'greg': 0, 'glabel0': 524, 'gvalues': 488, 'gxml0': 536, 'greg_call0': 30, 'glabel1': 548, 'gxml1': 560, 'greg_call1': 58, 'glabel2': 572, 'gxml2': 584, 'greg_call2': 86, 'greg_next': 96, 'gstore': 100, 'gstore_call0': 112, 'gstore_call1': 124, 'gstore_call2': 136, 'gstore_next': 144, 'gpost': 148, 'gmine': 204, 'gpost_next': 172, 'gedit': 176, 'gedit_next': 200, 'gm_store': 224, 'gm_set': 218, 'gm_put': 254, 'gon': 276, 'gmatch': 372, 'gon_act': 290, 'gon_back': 286, 'gon_one': 302, 'gsend': 310, 'gon_done': 306, 'gsend_push': 348, 'goff': 354, 'goff_eat': 368, 'goff_back': 364, 'gm_0': 382, 'gm_1': 412, 'gm_2': 442, 'gm_3': 472, 'gv0': 596, 'gv1': 600, 'gv2': 608, 'gv3': 616, 'gv4': 624, 'gv5': 632, 'gv6': 640, 'gv7': 648, 'gv8': 656, '_sGR': 0}),
-    "hookSL": ("40f2a7139c421dd040f2a9139c4237d040f2ab139c4225d06f2c0dd1022a09d82846002106b1012100f0d3fc10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f0bffc0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f0affc0028ddd000eb82000664d9e7022ad7d82846002106b1012100f0a1fc0028cfd000eb82000663cbe740f2a9139c4214d040f2ab139c421dd040f2a7139c4226d1284632690021b2f57a7f18bf012100f086fc00b102610000000028463269111e18bf01210a4600f07afc0028f3d080f82c20f0e728463269111e18bf01210a4600f06dfc0028e6d080f82d20e3e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a911002200000000009840f2ab1100220000000001bd2de91f5083b040f2a71108220ff600130a24009440f2e83401940ff60014029400000000039840f2a91104220ff6fc0300240094012401940ff6fc04029400000000039840f2ab1104220ff6fc0300240094012401940ff6fc0402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f00ffc002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f06ef905b00000000010b5044600f067f9000000002de90f50dff894c1ccf808000021ccf8101090f85532002b40f09580012100f0d7fb002800f08f80039bc3632ded046b016907ee901af8eee77a9fed587ac7ee877a42693ab192ed017ad0ed066a27ee267a77eec77ac2693ab192ed017ad0ed086a27ee267a77eec77a426a3ab192ed017ad0ed0a6a27ee267a77eec77ab7ee007af4ee477af1ee10fa33da9fed457ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e9290f82c308bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff8d8c3dcf80000f54b98420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f07ffa08b100210160009800f6a034dff86cc3dcf80010da4a91420dd10cf114010cf234120b68834203d3a34201d200230b600c319142f5d1dff84cc3dcf80010d04a91420dd10cf108010cf208320b68834203d3a34201d200230b6020319142f5d115bd222a03d070b514460000000010b504460a46194604f2f04000f0a2f804f6001000f09ef810bd222a03d070b514460000000010b50a46194600f26c3000f090f810bdb1f80cc0bcf1220f03d02de9f04300000000f0b5044600f03af8a5f10f03072b14d90ff2a20c00f03ff81f4602b12244314604f2f04000f072f800220fb104eb0702314604f6001000f069f8f0bdb1f80cc0bcf1220f03d02de9f84300000000f0b5044600f013f8a5f10f03072b0dd90ff27e0c00f018f81ab112f0010f08bf2244314604f26c3000f049f8f0bdb1f9163000ee103ab8eec00a5fed9d0a80ee200a8d8a0e8a704700220023bcf8000040b1a84202d00cf1060cf7e7bcf80220bcf8043070470d00a802b8060400880398070e00b002c0061a00480b480b1c00500b500b1d00580b580b1900600b600b00000d00810000000e00890000000400190500001a00240100001c002c0100001d003401000019003c010000000002290ed816b5002102b1012100f07ff830b1009900ebc100019a426080ed020a16bd704793ed068a2de90f5018460021002200f06cf860b9039800f087f8002842d0039aa2f55872002100f060f800283ad02ded046bf0ee487a416859b111f0010f1cbf21f00101114491ed017ad0ed026ae7ee267ac16859b111f0010f1cbf21f00101114491ed017ad0ed046ae7ee267a416959b111f0010f1cbf21f00101114491ed017ad0ed066ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee678abdec046bbde80f50000000002de907500bf5587007f55b7100f049f8bde80750d7f8843300000000dcf80000334b98420ad0ccf8003000230cf104000cf2085140f8043b8842fbd1704734b50d460446dff8acc0fff7e8ff0cf108000cf2083100220368a3420ed00bb902b9024620308842f6d1002035b12ab100235360d36053611460104634bd14b50446dff870c0fff7caff1b4800f200210368a34204d008308842f9d1002014bd406814bd30b504460d46dff848c0fff7b6ff114800f2002100220368a34211d00bb902b9024608308842f6d1104648b9dcf80420531c03f03f03ccf80430064800ebc2004560046030bd0000c0920624344f4c5300a7062408aa062410b50446002094f8541289b3d4f8501271b394f8551259bb94f8601211b194f8691229b104f27062117809b3517af9b92046002100f09df8d0b1034600f03cf80846a8b1012094f8f41189b94ff07c5c596811b1496861450ada996811b14968614505dad96811b14968614500da002010bd13b5fff7c4ff0028bde8134001d000000000000000001fb5fff7b9ff0028bde81f4018bf70472de9f04f000000001fb5fff7adff0028bde81f4018bf704790f860120000000093f82d1091b94ff07c5c1a6c12b1526862450bda5a6c12b15268624506da9a6c12b15268624501da002170470121704707b5002100f041f828b10346fff7e0ff09b1d86b0ebdbde8074000000000bb6a4b4508d17b6a23b1013bd6f808c0634501d100000000fb6a534507d17b6a3bb1013bd6f808c0634502d000220000000000000000bb6a4b4508d17b6a23b1013bd6f808c0634501d100000000fb6a534507d17b6a3bb1013bd6f808c0634502d00022000000000000000034b50d46dff868c0dcf80010194b99420ad0ccf8003000230cf104010cf2847241f8043b9142fbd10cf104010cf2847200240b68834216d00bb904b90c4650319142f6d18db184b1002304f1040104f1500241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd80ac0624344f4c534c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf004c6f6f7020486f6c643a0000736c6963656c6f6f70686f6c640000bf",
-        {'sl_att': 0, 'sa_len': 68, 'sa_rev': 128, 'sa_hold': 100, 'sa_other': 56, 'sa_done': 52, 'sa_find': 40, 'sl_find': 2514, 'sa_84': 64, 'sa_back': 60, 'sa_lfind': 80, 'sa_hfind': 112, 'sa_rfind': 140, 'sl_set': 156, 'ss_rev': 206, 'ss_hold': 232, 'ss_other': 258, 'ss_done': 202, 'ss_back': 262, 'sl_store': 266, 'st_add0': 268, 'st_add1': 282, 'st_add2': 294, 'st_add3': 306, 'sl_reg': 312, 'sr_label': 2632, 'sr_xml': 2644, 'sr_call': 344, 'sr_rlabel': 2660, 'sr_rxml': 2672, 'sr_call2': 374, 'sr_hlabel': 2688, 'sr_hxml': 2700, 'sr_call3': 404, 'sr_next': 414, 'sl_eos': 418, 'se_out': 478, 'se_t1': 454, 'se_on': 476, 'se_t2': 464, 'se_t3': 474, 'se_stop': 488, 'se_loop': 484, 'sl_ctor': 492, 'sl_drop': 1228, 'sc_back': 498, 'sl_dtor': 502, 'sd_back': 510, 'sl_seg': 514, 'sg_out': 840, 'sg_k1000': 928, 'sg_m1': 600, 'sg_m2': 620, 'sg_m3': 640, 'sg_scaled': 758, 'sg_kmin': 932, 'sg_sync': 694, 'sg_len': 726, 'rv_on': 800, 'rv_t1': 778, 'rv_t2': 788, 'rv_t3': 798, 'sg_vdone': 836, 'rv_sync': 812, 'rv_set': 820, 'sg_ret': 868, 'sg_back': 864, 'sr_done': 910, 'sl_segfind': 1138, 'sl_read': 936, 'sv_plain': 1096, 'sv_call': 1060, 'sv_ret': 1092, 'sl_flip': 1104, 'sv_pass': 1100, 'sf_flipped': 1136, 'sf_swap': 1116, 'sgf_scan': 1176, 'sgf_zero': 1168, 'sgf_loop': 1186, 'sgf_hit': 1222, 'sgf_next': 1198, 'sgf_none': 1224, 'sgf_use': 1212, 'sl_drop_seg': 1242, 'sl_drop_out': 1290, 'sd_loop': 1270, 'sd_next': 1284, 'sl_drop_done': 1332, 'sd_sus': 1312, 'sd_snext': 1326, 'sl_batt': 1334, 'ba_sus': 1346, 'ba_back': 1342, 'sus_set': 1686, 'sl_satt': 1372, 'sa2_sus': 1384, 'sb_back': 1380, 'sl_bloc': 1400, 'bl_sus': 1418, 'bl_back': 1414, 'sus_amount': 1542, 'bl_ext': 1476, 'map_b': 1598, 'sus_map': 1568, 'bl_s0': 1448, 'bl_s1': 1466, 'sl_sloc': 1478, 'ls_sus': 1496, 'ls_back': 1492, 'ls_ext': 1540, 'map_s': 1642, 'ls_set': 1530, 'sm_loop': 1572, 'sm_out': 1596, 'sm_hit': 1588, 'sus_set_ret': 1720, 'sus_set_f': 1698, 'sus_find': 1956, 'sus_set_out': 1718, 'sl_sus': 1722, 'su_have': 1768, 'map_get': 2018, 'su_out': 1886, 'su_t1': 1804, 'su_t2': 1832, 'su_t3': 1860, 'su_back': 1890, 'sl_non': 1894, 'map_set': 2056, 'no_back': 1918, 'sus_init': 1922, 'si_out': 1954, 'si_zero': 1946, 'suf_loop': 1980, 'suf_out': 2016, 'suf_next': 1992, 'mg_loop': 2036, 'mg_hit': 2052, 'ms_loop': 2078, 'ms_put': 2120, 'ms_next': 2090, 'sl_held': 2144, 'hd_out': 2256, 'hd_v1': 2180, 'hd_loop': 2192, 'hold_on': 2328, 'hd_s1': 2234, 'hd_s2': 2244, 'hd_no': 2254, 'sl_prep': 2258, 'pp_prep': 2276, 'pp_skip': 2272, 'sl_hon': 2280, 'ho_back': 2300, 'sl_hoff': 2304, 'hf_back': 2324, 'ho_yes': 2372, 'ho_s1': 2348, 'ho_s2': 2358, 'ho_no': 2368, 'sl_pick': 2376, 'pk_stock': 2398, 'pk_orig': 2402, 'mi_na': 2406, 'mi_nb': 2430, 'na_hit': 2426, 'nb_next': 2452, 'nb_orig': 2456, 'mi_fa': 2460, 'mi_fb': 2484, 'fa_hit': 2480, 'fb_next': 2506, 'fb_orig': 2510, 'sf_scan': 2554, 'sf_zero': 2546, 'sf_loop': 2564, 'sf_hit': 2616, 'sf_next': 2576, 'sf_none': 2620, 'sf_clear': 2596, '_sSL': 0}),
+    "hookSL": ("40f2a7139c421dd040f2a9139c4237d040f2ab139c4225d06f2c0dd1022a09d82846002106b1012100f062fe10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f04efe0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f03efe0028ddd000eb82000664d9e7022ad7d82846002106b1012100f030fe0028cfd000eb82000663cbe740f2a9139c4214d040f2ab139c421dd040f2a7139c4226d1284632690021b2f57a7f18bf012100f015fe00b102610000000028463269111e18bf01210a4600f009fe0028f3d080f82c20f0e728463269111e18bf01210a4600f0fcfd0028e6d080f82d20e3e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a911002200000000009840f2ab1100220000000001bd2de91f5083b040f2a71108220ff620430a24009440f2e83401940ff62044029400000000039840f2a91104220ff61c4300240094012401940ff61c44029400000000039840f2ab1104220ff61c4300240094012401940ff61c4402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f09efd002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f06ff905b00000000010b5044600f068f9000000002de90f50dff894c1ccf808000021ccf8101090f85532002b40f09580012100f066fd002800f08f80039bc3632ded046b016907ee901af8eee77a9fed587ac7ee877a42693ab192ed017ad0ed066a27ee267a77eec77ac2693ab192ed017ad0ed086a27ee267a77eec77a426a3ab192ed017ad0ed0a6a27ee267a77eec77ab7ee007af4ee477af1ee10fa33da9fed457ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e9290f82c308bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff8c0c4dcf80000dff8bc3498420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f00dfc08b100210160009800f6a034dff854c4dcf80010dff8502491420dd10cf114010cf234120b68834203d3a34201d200230b600c319142f5d1dff830c4dcf80010dff8242491420dd10cf108010cf208320b68834203d3a34201d200230b6020319142f5d1009800f6843000f084fb009800f6883000f07ffb15bd222a08d0a2f1bb0cbcf1010f10d970b514460000000010b504460a46194604f2f04000f0faf804f6001000f0f6f810bd00f6843010b500eb8c000a46194600f0dbfa10bd222a0bd0a2f1bb0cbcf1010f02d800f25850ede770b514460000000010b50a46194600f26c3000f0d6f810bdb1f80cc0bcf1220f08d0acf1bb0cbcf1010f46d92de9f04300000000f0b5044600f065f8a5f10f03072b14d90ff2f60c00f06af81f4602b12244314604f2f04000f0b3f800220fb104eb0702314604f6001000f0aaf8f0bdb1f80cc0bcf1220f08d0acf1bb0cbcf1010f20d92de9f84300000000f0b5044600f039f8a5f10f03072b0dd90ff2f60c00f03ef81ab112f0010f08bf2244314604f26c3000f085f8f0bdf0b500f684340ff2a60704e0f0b500f258540ff2c60704eb8c04a4eb000411b400f014f8a5f10f03072b0dd9bc4600f01af800981ab112f0010f08bf024401990844314600f04ffa02b0f0bdb1f9163000ee103ab8eec00a5fedc70a80ee200a8d8a0e8a704700220023bcf8000040b1a84202d00cf1060cf7e7bcf80220bcf8043070470d00a802b8060400880398070e00b002c0061a00480b480b1c00500b500b1d00580b580b1900600b600b00000d00490000000400290100000e00510000001a00480b00001c00500b00001d00580b00001900600b000000000d00810000000e00890000000400190500001a00240100001c002c0100001d003401000019003c010000000002290ed816b5002102b1012100f089f830b1009900ebc100019a426080ed020a16bd704793ed068a2de90f5018460021002200f076f860b9039800f091f8002842d0039aa2f55872002100f06af800283ad02ded046bf0ee487a416859b111f0010f1cbf21f00101114491ed017ad0ed026ae7ee267ac16859b111f0010f1cbf21f00101114491ed017ad0ed046ae7ee267a416959b111f0010f1cbf21f00101114491ed017ad0ed066ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee678abdec046bbde80f50000000002de907500bf5587007f55b7100f053f807f5ab60594600f0f4f907f25c50594600f0eff9bde80750d7f8843300000000dcf80000334b98420ad0ccf8003000230cf104000cf2085140f8043b8842fbd1704734b50d460446dff8acc0fff7e8ff0cf108000cf2083100220368a3420ed00bb902b9024620308842f6d1002035b12ab100235360d36053611460104634bd14b50446dff870c0fff7caff1b4800f200210368a34204d008308842f9d1002014bd406814bd30b504460d46dff848c0fff7b6ff114800f2002100220368a34211d00bb902b9024608308842f6d1104648b9dcf80420531c03f03f03ccf80430064800ebc2004560046030bd0000c0920624344f4c5300a7062408aa062410b50446002094f8541289b3d4f8501271b394f8551259bb94f8601211b194f8691229b104f27062117809b3517af9b92046002100f0b8f9d0b1034600f03cf80846a8b1012094f8f41189b94ff07c5c596811b1496861450ada996811b14968614505dad96811b14968614500da002010bd13b5fff7c4ff0028bde8134001d000000000000000001fb5fff7b9ff0028bde81f4018bf70472de9f04f000000001fb5fff7adff0028bde81f4018bf704790f860120000000093f82d1091b94ff07c5c1a6c12b1526862450bda5a6c12b15268624506da9a6c12b15268624501da002170470121704707b5002100f05cf928b10346fff7e0ff09b1d86b0ebdbde8074000000000bb6a4b4508d17b6a23b1013bd6f808c0634501d100000000fb6a534507d17b6a3bb1013bd6f808c0634502d000220000000000000000bb6a4b4508d17b6a23b1013bd6f808c0634501d100000000fb6a534507d17b6a3bb1013bd6f808c0634502d0002200000000000000002de90f50284607e02de90f50504603e02de90f5004f5ab60012100f007f808b180ed010abde80f500000000030b50d460446dff8f8c1dcf800007d4b98420ad0ccf8003000230cf104000cf2847140f8043b8842fbd10cf104000cf2847100220368a34212d00bb902b9024628308842f6d1002055b14ab14ff0ff33536000239360d3605361d3611460104630bd022923d870b50d461646111e18bf0121fff7c5ffc8b1044600ebc501ce6081ed040ae16862691143e26911430dd161684a1c0ad02ded100b00ee101a00000000206880ed000abdec100b70bd704770b50d460021fff7a3ff00284ad00446e16862691143e269114343d061684a1c40d005b9a568d4ed017ae16861b111f0010f03d045b121f00101294491ed017ad4ed046ae7ee267a616961b111f0010f03d045b121f00101294491ed017ad4ed066ae7ee267ae16961b111f0010f03d045b121f00101294491ed017ad4ed086ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee670a00000000206880ed000a70bd10b50c460021fff750ff00b1846010bd10b50021fff749ff08b10021016010bd2de90f502ded100b04f518710a780ab14a7a22b104f5ce62137803b1114606b404f68430fff789ff009904f68830fff784ff02b0bdec100bbde80f5004f6843b000000002de90f502ded100b04f5ab600021fff772ff04f25c500021fff76dffbdec100bbde80f5004f5ab660000000010b5044604f5ab60fff7baff04f25c50fff7b6ff204600000000000040b40624344f4c5334b50d46dff868c0dcf80010194b99420ad0ccf8003000230cf104010cf2847241f8043b9142fbd10cf104010cf2847200240b68834216d00bb904b90c4650319142f6d18db184b1002304f1040104f1500241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd000080ac0624344f4c534c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf004c6f6f7020486f6c643a0000736c6963656c6f6f70686f6c640000bf",
+        {'sl_att': 0, 'sa_len': 68, 'sa_rev': 128, 'sa_hold': 100, 'sa_other': 56, 'sa_done': 52, 'sa_find': 40, 'sl_find': 3312, 'sa_84': 64, 'sa_back': 60, 'sa_lfind': 80, 'sa_hfind': 112, 'sa_rfind': 140, 'sl_set': 156, 'ss_rev': 206, 'ss_hold': 232, 'ss_other': 258, 'ss_done': 202, 'ss_back': 262, 'sl_store': 266, 'st_add0': 268, 'st_add1': 282, 'st_add2': 294, 'st_add3': 306, 'sl_reg': 312, 'sr_label': 3432, 'sr_xml': 3444, 'sr_call': 344, 'sr_rlabel': 3460, 'sr_rxml': 3472, 'sr_call2': 374, 'sr_hlabel': 3488, 'sr_hxml': 3500, 'sr_call3': 404, 'sr_next': 414, 'sl_eos': 418, 'se_out': 478, 'se_t1': 454, 'se_on': 476, 'se_t2': 464, 'se_t3': 474, 'se_stop': 488, 'se_loop': 484, 'sl_ctor': 492, 'sl_drop': 1230, 'sc_back': 498, 'sl_dtor': 502, 'sd_back': 510, 'sl_seg': 514, 'sg_out': 840, 'sg_k1000': 928, 'sg_m1': 600, 'sg_m2': 620, 'sg_m3': 640, 'sg_scaled': 758, 'sg_kmin': 932, 'sg_sync': 694, 'sg_len': 726, 'rv_on': 800, 'rv_t1': 778, 'rv_t2': 788, 'rv_t3': 798, 'sg_vdone': 836, 'rv_sync': 812, 'rv_set': 820, 'sg_ret': 868, 'sg_back': 864, 'sr_done': 910, 'sl_segfind': 1138, 'sl_read': 936, 'sv_plain': 1096, 'sv_call': 1060, 'sv_ret': 1092, 'sl_flip': 1104, 'sv_pass': 1100, 'sf_flipped': 1136, 'sf_swap': 1116, 'sgf_scan': 1178, 'sgf_zero': 1170, 'sgf_loop': 1188, 'sgf_hit': 1224, 'sgf_next': 1200, 'sgf_none': 1226, 'sgf_use': 1214, 'sl_drop_seg': 1244, 'sl_drop_out': 1294, 'sd_loop': 1274, 'sd_next': 1288, 'sl_drop_done': 1338, 'sd_sus': 1318, 'sd_snext': 1332, 'fx_drop': 3148, 'sl_batt': 1360, 'ba_sus': 1382, 'ba_fx': 1408, 'ba_back': 1378, 'sus_set': 1898, 'fx_att': 1412, 'fx_set': 2888, 'sl_satt': 1428, 'sa2_sus': 1456, 'sa2_go': 1448, 'sb_back': 1452, 'sl_bloc': 1472, 'bl_sus': 1500, 'bl_fx': 1634, 'bl_back': 1496, 'sus_amount': 1710, 'bl_ext': 1558, 'map_b': 1766, 'sus_map': 1736, 'bl_s0': 1530, 'bl_s1': 1548, 'sl_sloc': 1560, 'ls_sus': 1588, 'ls_fx': 1646, 'ls_back': 1584, 'ls_ext': 1632, 'map_s': 1854, 'ls_set': 1622, 'map_c': 1810, 'lf_go': 1656, 'lf_ext': 1706, 'lf_set': 1696, 'sm_loop': 1740, 'sm_out': 1764, 'sm_hit': 1756, 'sus_set_ret': 1932, 'sus_set_f': 1910, 'sus_find': 2188, 'sus_set_out': 1930, 'sl_sus': 1934, 'su_have': 1980, 'map_get': 2250, 'su_out': 2098, 'su_t1': 2016, 'su_t2': 2044, 'su_t3': 2072, 'su_back': 2102, 'sl_non': 2106, 'map_set': 2288, 'fx_voice': 3132, 'no_back': 2150, 'sus_init': 2154, 'si_out': 2186, 'si_zero': 2178, 'suf_loop': 2212, 'suf_out': 2248, 'suf_next': 2224, 'mg_loop': 2268, 'mg_hit': 2284, 'ms_loop': 2310, 'ms_put': 2352, 'ms_next': 2322, 'sl_held': 2376, 'hd_out': 2488, 'hd_v1': 2412, 'hd_loop': 2424, 'hold_on': 2560, 'hd_s1': 2466, 'hd_s2': 2476, 'hd_no': 2486, 'sl_prep': 2490, 'pp_prep': 2508, 'pp_skip': 2504, 'sl_hon': 2512, 'ho_back': 2532, 'sl_hoff': 2536, 'hf_back': 2556, 'ho_yes': 2604, 'ho_s1': 2580, 'ho_s2': 2590, 'ho_no': 2600, 'sl_pick': 2608, 'pk_stock': 2630, 'pk_orig': 2634, 'mi_na': 2638, 'mi_nb': 2662, 'na_hit': 2658, 'nb_next': 2684, 'nb_orig': 2688, 'mi_fa': 2692, 'mi_fb': 2716, 'fa_hit': 2712, 'fb_next': 2738, 'fb_orig': 2742, 'fx_k5': 2746, 'fx_base': 2770, 'fx_k10': 2754, 'fx_k558': 2762, 'fx_find': 2790, 'fxk_none': 2782, 'fx_curve': 2786, 'fxf_scan': 2832, 'fxf_zero': 2824, 'fxf_loop': 2842, 'fxf_out': 2886, 'fxf_next': 2854, 'fxs_ret': 2964, 'fxs_out': 2962, 'fxs_curve': 2948, 'fx_apply': 2966, 'fxa_out': 3130, 'fxa_v': 3004, 'fxa_t1': 3038, 'fxa_a1': 3026, 'fxa_t2': 3068, 'fxa_a2': 3056, 'fxa_t3': 3098, 'fxa_a3': 3086, 'fxa_curve': 3120, 'fxv_out': 3146, 'fxd_out': 3162, 'fx_bk': 3164, 'fxb_v1': 3184, 'fxb_go': 3194, 'fxb_back': 3228, 'fx_sk': 3232, 'fxk_back': 3272, 'fx_sdtor': 3276, 'fxd_back': 3298, 'sf_scan': 3352, 'sf_zero': 3344, 'sf_loop': 3362, 'sf_hit': 3414, 'sf_next': 3374, 'sf_none': 3418, 'sf_clear': 3394, '_sSL': 0}),
 }
 
 # Reduced C objects (see "C hooks" below): compressed, origin-independent, and
@@ -10471,7 +10471,7 @@ def apply_gate_rec(d, only=False):
 #     VFP register is touched), restarts it; otherwise the slice ends as stock.
 #   - Not touched: Clip pads, and Slicer with PlayThru (whose Loop Mode loops
 #     the whole file). The Amount box is ignored: the threshold is on the CV.
-SL_VERSION_TAG = "s10"               # appended to the minimal build's version
+SL_VERSION_TAG = "s11"               # appended to the minimal build's version
 SL_LIST = 0x080c86f8                 # modulation targets, u16 ids
 SL_LIST_USED = 36
 SL_LIST_CAP = 49
@@ -10480,7 +10480,8 @@ SL_LEN_ID = 0x1a7                    # Loop Len: unregistered in stock, no immed
 SL_REV_ID = 0x1a9                    # Reverse: unregistered in stock, no immediate anywhere
 SL_SUS_ID = 0x22                     # Sustain: a stock pad parameter, not a stock target
 SL_HOLD_ID = 0x1ab                   # Loop Hold: unregistered in stock, no immediate anywhere
-SL_ADD = (SL_LOOP_ID, SL_LEN_ID, SL_REV_ID, SL_SUS_ID, SL_HOLD_ID)
+SL_FX_IDS = (0xbb, 0xbc)             # FX1 (delay) and FX2 (reverb) Send: stock pad parameters
+SL_ADD = (SL_LOOP_ID, SL_LEN_ID, SL_REV_ID, SL_SUS_ID, SL_HOLD_ID) + SL_FX_IDS
 SL_REV_LABEL, SL_REV_XML = "Reverse:", "slicereverse"
 SL_HOLD_LABEL, SL_HOLD_XML = "Loop Hold:", "sliceloophold"
 SL_LEN_LABEL, SL_LEN_XML = "Loop Len:", "slicelooplen"
@@ -10511,6 +10512,15 @@ SL_ENV_B = (0x4f0, 0x900)            # a Clip/Slicer engine's two envelopes' set
 SL_ENV_S, SL_VOICE_ENV_S = 0x36c, 0x360    # a Sample engine's, and each voice's copy
 SL_SUS_READ = 0x080b89ba             # the envelope's vldr s16, [settings, #24]
 SL_RAM_BYTES = 4 + SL_ENTRY * SL_ENGINES
+# Sends: records keyed by the engine's send slot (it holds the curved send the
+# renderer reads each block): +0 slot, +4 the linear setting (-1: not seen yet),
+# +8 the Sample voice that started last, +12.. 3 x {source, amount}.
+SL_FX_RAM = 0x2406b440               # minimal builds only
+SL_FX_REC, SL_FX_RECS = 40, 48
+SL_FX_BYTES = 4 + SL_FX_REC * SL_FX_RECS
+SL_FX_B, SL_FX_S = 0xb84, 0x558      # the Clip/Slicer's and the Sample's FX1 slot; FX2 at +4
+SL_FX_CURVE = 0x080a04c0             # the send's curve: linear 0-1 in s0 -> gain in s0
+SL_VOICES_B = (0x260, 0x670)         # a Clip/Slicer engine's two voices
 SL_THRESH_BITS = 0x3f000000          # 0.5f: 2.5 V on a +-5 V input
 SL_PAGES = (0x080c7edc, 0x080c80f8)  # the Slicer page's row list, in both page tables
 SL_PAGE_IDS = (0x6f, 0xd3, 0xb4, 0xd4, 0xd5, 0x31, 0x84)
@@ -10613,6 +10623,19 @@ SL_GUARDS = (
     (0x080ae910, "04f59671", "Sample MVOL: +0x12c"),
     (0x080ae6e4, "04f59a71", "Sample MPAN: +0x134"),
     (0x080ae726, "04f59e71", "Sample PTCH: +0x13c"),
+    (0x080b6e8a, "df02d002", "the Clip/Slicer setter's table: 0xbb, 0xbc -> 0x080b72d6, 0x080b72b8"),
+    (0x080b72b8, "d6ed047a05f68835", "... FX2 Send: vldr s15, [r6, #16]; addw r5, r5, #0xb88"),
+    (0x080b72cc, "e9f7f8f8", "... bl the send curve"),
+    (0x080b72d6, "d6ed047a05f68435", "... FX1 Send: addw r5, r5, #0xb84"),
+    (0x080b72ea, "e9f7e9f8", "... bl the send curve"),
+    (0x080b1de0, "1f300b0803300b08", "the Sample setter's table: 0xbb, 0xbc -> 0x080b301e, 0x080b3002"),
+    (0x080b3006, "04f25c5a", "... FX2 Send: addw r10, r4, #0x55c"),
+    (0x080b3012, "edf755fa", "... bl the send curve"),
+    (0x080b302a, "edf749fa04f5ab63", "... FX1 Send: bl the curve; add.w r3, r4, #0x558"),
+    (0x080a04c0, "b5eec00af1ee10fa", "the send curve: vcmpe.f32 s0, #0"),
+    (0x080b7d86, "04f6843b0122dbed007a", "Clip/Slicer render: addw r11, r4, #0xb84; ...; vldr s15, [r11]"),
+    (0x080b13c4, "04f5ab66", "Sample render: add.w r6, r4, #0x558"),
+    (0x080acf0c, "10b5044610f046f9", "the Sample engine's deleting destructor: push {r4, lr}; mov r4, r0; bl free"),
 )
 SL_SITES = (                         # (site, entry, bl?): b.w or bl in
     (0x080b36ee, "sl_att", False),
@@ -10640,6 +10663,13 @@ SL_SITES = (                         # (site, entry, bl?): b.w or bl in
     (0x080ab8e2, "mi_nb", False),
     (0x080abcd2, "mi_fa", False),
     (0x080abcbe, "mi_fb", False),
+    (0x080b72cc, "fx_k5", True),
+    (0x080b72ea, "fx_k5", True),
+    (0x080b3012, "fx_k10", True),
+    (0x080b302a, "fx_k558", True),
+    (0x080b7d86, "fx_bk", False),
+    (0x080b13c4, "fx_sk", False),
+    (0x080acf0c, "fx_sdtor", False),
 )
 SL_FIX = (                           # (placeholder, target, bl?): b.w or bl out
     ("sa_done", 0x080b373c, False),
@@ -10678,6 +10708,12 @@ SL_FIX = (                           # (placeholder, target, bl?): b.w or bl out
     ("fa_hit", 0x080abcd8, False),
     ("fb_orig", 0x080abcc4, False),
     ("fb_next", 0x080abccc, False),
+    ("fx_curve", SL_FX_CURVE, False),
+    ("fxs_curve", SL_FX_CURVE, True),
+    ("fxa_curve", SL_FX_CURVE, True),
+    ("fxb_back", 0x080b7d8a, False),
+    ("fxk_back", 0x080b13c8, False),
+    ("fxd_back", 0x080acf10, False),
 )
 
 
@@ -10701,6 +10737,19 @@ se_t{k + 1}:""" for k in range(3))
     vldr    s13, [r0, #{8 + 8 * k}]
     vfma.f32 s15, s14, s13
 su_t{k + 1}:""" for k in range(3))
+    fxterms = "".join(f"""
+    ldr     r1, [r4, #{12 + 8 * k}]
+    cbz     r1, fxa_t{k + 1}
+    tst     r1, #1
+    beq     fxa_a{k + 1}
+    cbz     r5, fxa_t{k + 1}        /* no voice yet */
+    bic     r1, r1, #1
+    add     r1, r5                  /* a voice's own source */
+fxa_a{k + 1}:
+    vldr    s14, [r1, #4]
+    vldr    s13, [r4, #{16 + 8 * k}]
+    vfma.f32 s15, s14, s13
+fxa_t{k + 1}:""" for k in range(3))
     rtests = "".join(f"""
     ldr     r2, [r0, #{48 + 4 * k}]
     cbz     r2, rv_t{k + 1}
@@ -11250,12 +11299,21 @@ sd_snext:
     adds    r1, #{SL_SUS_REC}
     cmp     r1, r2
     bne     sd_sus
-sl_drop_done:
+sl_drop_done:                       /* and its sends' */
+    ldr     r0, [sp]
+    addw    r0, r0, #0x{SL_FX_B:x}
+    bl      fx_drop
+    ldr     r0, [sp]
+    addw    r0, r0, #0x{SL_FX_B + 4:x}
+    bl      fx_drop
     pop     {{r0, r2, r4, pc}}
 
 sl_batt:                            /* Clip/Slicer attach (r0 this, r1 src, r2 id, r3 slot, s0 amount) */
     cmp     r2, #0x{SL_SUS_ID:x}
     beq     ba_sus
+    sub     r12, r2, #0x{SL_FX_IDS[0]:x}
+    cmp     r12, #1
+    bls     ba_fx
     push    {{r4, r5, r6, lr}}      /* the instructions this replaced */
     mov     r4, r2
 ba_back:
@@ -11270,10 +11328,25 @@ ba_sus:                             /* Sustain, on both of the engine's envelope
     addw    r0, r4, #0x{SL_ENV_B[1]:x}
     bl      sus_set
     pop     {{r4, pc}}
+ba_fx:                              /* a send: r12 = 0 FX1, 1 FX2 */
+    addw    r0, r0, #0x{SL_FX_B:x}
+fx_att:
+    push    {{r4, lr}}
+    add.w   r0, r0, r12, lsl #2
+    mov     r2, r1
+    mov     r1, r3
+    bl      fx_set
+    pop     {{r4, pc}}
 
 sl_satt:                            /* Sample attach, the same arguments */
     cmp     r2, #0x{SL_SUS_ID:x}
     beq     sa2_sus
+    sub     r12, r2, #0x{SL_FX_IDS[0]:x}
+    cmp     r12, #1
+    bhi     sa2_go
+    addw    r0, r0, #0x{SL_FX_S:x}
+    b       fx_att
+sa2_go:
     push    {{r4, r5, r6, lr}}
     mov     r4, r2
 sb_back:
@@ -11290,6 +11363,9 @@ sl_bloc:                            /* Clip/Slicer local source (r0 this, r1 msg
     ldrh    r12, [r1, #12]
     cmp     r12, #0x{SL_SUS_ID:x}
     beq     bl_sus
+    sub     r12, r12, #0x{SL_FX_IDS[0]:x}
+    cmp     r12, #1
+    bls     bl_fx
     push.w  {{r4, r5, r6, r7, r8, r9, lr}}   /* the instruction this replaced */
 bl_back:
     .short  0, 0                    /* b.w on: vpush {{d8}} */
@@ -11323,6 +11399,9 @@ sl_sloc:                            /* Sample local source (r0 this, r1 msg) */
     ldrh    r12, [r1, #12]
     cmp     r12, #0x{SL_SUS_ID:x}
     beq     ls_sus
+    sub     r12, r12, #0x{SL_FX_IDS[0]:x}
+    cmp     r12, #1
+    bls     ls_fx
     push.w  {{r3, r4, r5, r6, r7, r8, r9, lr}}   /* the instruction this replaced */
 ls_back:
     .short  0, 0                    /* b.w on: ldrsh.w r3, [r1, #0x16] */
@@ -11344,6 +11423,39 @@ ls_set:
     addw    r0, r4, #0x{SL_ENV_S:x}
     bl      sus_set
 ls_ext:
+    pop     {{r4, r5, r6, r7, pc}}
+
+bl_fx:                              /* a Clip/Slicer send's internal source; r12 = 0 FX1, 1 FX2 */
+    push    {{r4, r5, r6, r7, lr}}
+    addw    r4, r0, #0x{SL_FX_B:x}
+    adr.w   r7, map_c
+    b       lf_go
+ls_fx:                              /* a Sample send's */
+    push    {{r4, r5, r6, r7, lr}}
+    addw    r4, r0, #0x{SL_FX_S:x}
+    adr.w   r7, map_s
+lf_go:
+    add.w   r4, r4, r12, lsl #2     /* the slot */
+    sub     r4, r4, r0
+    push    {{r0, r4}}              /* this, the slot's offset */
+    bl      sus_amount
+    sub     r3, r5, #0x0f           /* EXT 1-8: attach carries those */
+    cmp     r3, #7
+    bls     lf_ext
+    mov     r12, r7
+    bl      sus_map                 /* r2: the source's offset, odd from the voice */
+    ldr     r0, [sp]
+    cbz     r2, lf_set
+    tst     r2, #1
+    it      eq
+    addeq   r2, r0
+lf_set:
+    ldr     r1, [sp, #4]
+    add     r0, r1
+    mov     r1, r6
+    bl      fx_set
+lf_ext:
+    add     sp, #8
     pop     {{r4, r5, r6, r7, pc}}
 
 sus_amount:                         /* r1 msg -> s0 amount, r5 source, r6 slot */
@@ -11380,6 +11492,15 @@ map_b:                              /* source, envelope 0's, envelope 1's */
     .short  0x1c, 0xb50, 0xb50      /* MVOL */
     .short  0x1d, 0xb58, 0xb58      /* MPAN */
     .short  0x19, 0xb60, 0xb60      /* PTCH */
+    .short  0
+map_c:                              /* a Clip/Slicer send's: odd from the playing voice */
+    .short  0x0d, 0x{0x2a8 - 0x260 + 1:x}, 0   /* VEL */
+    .short  0x04, 0x{0x388 - 0x260 + 1:x}, 0   /* LFO */
+    .short  0x0e, 0x{0x2b0 - 0x260 + 1:x}, 0
+    .short  0x1a, 0xb48, 0          /* MODW */
+    .short  0x1c, 0xb50, 0          /* MVOL */
+    .short  0x1d, 0xb58, 0          /* MPAN */
+    .short  0x19, 0xb60, 0          /* PTCH */
     .short  0
 map_s:                              /* source, offset (odd: from the voice) */
     .short  0x0d, 0x081, 0          /* VEL */
@@ -11450,6 +11571,12 @@ sl_non:                             /* a Sample voice starts: r11 voice, r7 engi
     add.w   r0, r11, #0x{SL_VOICE_ENV_S:x}
     add.w   r1, r7, #0x{SL_ENV_S:x}
     bl      map_set
+    add.w   r0, r7, #0x{SL_FX_S:x}
+    mov     r1, r11
+    bl      fx_voice
+    addw    r0, r7, #0x{SL_FX_S + 4:x}
+    mov     r1, r11
+    bl      fx_voice
     pop     {{r0, r1, r2, r12, lr}}
     ldr.w   r3, [r7, #0x384]        /* the instruction this replaced */
 no_back:
@@ -11745,6 +11872,218 @@ fb_next:
 fb_orig:
     .short  0, 0                    /* b.w on */
 
+fx_k5:                              /* the Clip/Slicer setter: r5 = the slot, s0 = the setting */
+    push    {{r0, r1, r2, r3, r12, lr}}
+    mov     r0, r5
+    b       fx_base
+fx_k10:                             /* the Sample's FX2: r10 = the slot */
+    push    {{r0, r1, r2, r3, r12, lr}}
+    mov     r0, r10
+    b       fx_base
+fx_k558:                            /* the Sample's FX1: r4 = the engine */
+    push    {{r0, r1, r2, r3, r12, lr}}
+    add.w   r0, r4, #0x{SL_FX_S:x}
+fx_base:                            /* keep the linear setting, then the stock curve */
+    movs    r1, #1
+    bl      fx_find
+    cbz     r0, fxk_none
+    vstr    s0, [r0, #4]
+fxk_none:
+    pop     {{r0, r1, r2, r3, r12, lr}}
+fx_curve:
+    .short  0, 0                    /* b.w the curve: it returns to the setter */
+
+fx_find:                            /* r0 slot, r1 = 1 to add -> r0 record or 0. Uses r1-r3, r12 */
+    push    {{r4, r5, lr}}
+    mov     r5, r1
+    mov     r4, r0
+    ldr     r12, =0x{SL_FX_RAM:08x}
+    ldr     r0, [r12]
+    ldr     r3, =0x{SL_MAGIC:08x}
+    cmp     r0, r3
+    beq     fxf_scan
+    str     r3, [r12]               /* stale RAM: start the table empty */
+    movs    r3, #0
+    add.w   r0, r12, #4
+    addw    r1, r12, #{SL_FX_BYTES}
+fxf_zero:
+    str     r3, [r0], #4
+    cmp     r0, r1
+    bne     fxf_zero
+fxf_scan:
+    add.w   r0, r12, #4
+    addw    r1, r12, #{SL_FX_BYTES}
+    movs    r2, #0                  /* the first free record */
+fxf_loop:
+    ldr     r3, [r0]
+    cmp     r3, r4
+    beq     fxf_out
+    cbnz    r3, fxf_next
+    cbnz    r2, fxf_next
+    mov     r2, r0
+fxf_next:
+    adds    r0, #{SL_FX_REC}
+    cmp     r0, r1
+    bne     fxf_loop
+    movs    r0, #0
+    cbz     r5, fxf_out
+    cbz     r2, fxf_out
+    mov.w   r3, #-1
+    str     r3, [r2, #4]            /* the setting: not seen yet */
+    movs    r3, #0
+    str     r3, [r2, #8]
+    str     r3, [r2, #12]
+    str     r3, [r2, #20]
+    str     r3, [r2, #28]
+    str     r4, [r2]
+    mov     r0, r2
+fxf_out:
+    pop     {{r4, r5, pc}}
+
+fx_set:                             /* r0 slot, r1 mod slot, r2 source or 0, s0 amount */
+    cmp     r1, #2
+    bhi     fxs_ret
+    push    {{r4, r5, r6, lr}}
+    mov     r5, r1
+    mov     r6, r2
+    subs    r1, r2, #0
+    it      ne
+    movne   r1, #1
+    bl      fx_find
+    cbz     r0, fxs_out
+    mov     r4, r0
+    add.w   r1, r0, r5, lsl #3
+    str     r6, [r1, #12]
+    vstr    s0, [r1, #16]
+    ldr     r1, [r4, #12]
+    ldr     r2, [r4, #20]
+    orrs    r1, r2
+    ldr     r2, [r4, #28]
+    orrs    r1, r2
+    bne     fxs_out
+    ldr     r1, [r4, #4]            /* no sources left: put the setting back */
+    adds    r2, r1, #1
+    beq     fxs_out
+    vpush   {{d0-d7}}
+    vmov    s0, r1
+fxs_curve:
+    .short  0, 0                    /* bl the curve */
+    ldr     r0, [r4]
+    vstr    s0, [r0]
+    vpop    {{d0-d7}}
+fxs_out:
+    pop     {{r4, r5, r6, pc}}
+fxs_ret:
+    bx      lr
+
+fx_apply:                           /* r0 slot, r1 voice or 0 (the Sample's last). Uses r0-r3, r12, s0-s15 */
+    push    {{r4, r5, r6, lr}}
+    mov     r5, r1
+    movs    r1, #0
+    bl      fx_find
+    cmp     r0, #0
+    beq     fxa_out
+    mov     r4, r0
+    ldr     r1, [r4, #12]
+    ldr     r2, [r4, #20]
+    orrs    r1, r2
+    ldr     r2, [r4, #28]
+    orrs    r1, r2
+    beq     fxa_out                 /* no sources: the stock setting stands */
+    ldr     r1, [r4, #4]
+    adds    r2, r1, #1
+    beq     fxa_out
+    cbnz    r5, fxa_v
+    ldr     r5, [r4, #8]
+fxa_v:
+    vldr    s15, [r4, #4]{fxterms}
+    movs    r1, #0
+    vmov    s14, r1                 /* 0.0 */
+    vmaxnm.f32 s15, s15, s14
+    vmov.f32 s14, #1.0
+    vminnm.f32 s15, s15, s14
+    vmov.f32 s0, s15
+fxa_curve:
+    .short  0, 0                    /* bl the curve */
+    ldr     r0, [r4]
+    vstr    s0, [r0]
+fxa_out:
+    pop     {{r4, r5, r6, pc}}
+
+fx_voice:                           /* r0 slot, r1 a Sample voice that starts */
+    push    {{r4, lr}}
+    mov     r4, r1
+    movs    r1, #0
+    bl      fx_find
+    cbz     r0, fxv_out
+    str     r4, [r0, #8]
+fxv_out:
+    pop     {{r4, pc}}
+
+fx_drop:                            /* r0 slot: forget its record */
+    push    {{r4, lr}}
+    movs    r1, #0
+    bl      fx_find
+    cbz     r0, fxd_out
+    movs    r1, #0
+    str     r1, [r0]
+fxd_out:
+    pop     {{r4, pc}}
+
+fx_bk:                              /* Clip/Slicer render, each block: r4 = the engine */
+    push    {{r0, r1, r2, r3, r12, lr}}
+    vpush   {{d0-d7}}
+    add.w   r1, r4, #0x{SL_VOICES_B[0]:x}  /* the voice that plays, else voice 0 */
+    ldrb    r2, [r1]
+    cbz     r2, fxb_v1
+    ldrb    r2, [r1, #9]
+    cbz     r2, fxb_go
+fxb_v1:
+    add.w   r2, r4, #0x{SL_VOICES_B[1]:x}
+    ldrb    r3, [r2]
+    cbz     r3, fxb_go
+    mov     r1, r2
+fxb_go:
+    push    {{r1, r2}}
+    addw    r0, r4, #0x{SL_FX_B:x}
+    bl      fx_apply
+    ldr     r1, [sp]
+    addw    r0, r4, #0x{SL_FX_B + 4:x}
+    bl      fx_apply
+    add     sp, #8
+    vpop    {{d0-d7}}
+    pop     {{r0, r1, r2, r3, r12, lr}}
+    addw    r11, r4, #0x{SL_FX_B:x}  /* the instruction this replaced */
+fxb_back:
+    .short  0, 0                    /* b.w on */
+
+fx_sk:                              /* Sample render, each block: r4 = the engine */
+    push    {{r0, r1, r2, r3, r12, lr}}
+    vpush   {{d0-d7}}
+    add.w   r0, r4, #0x{SL_FX_S:x}
+    movs    r1, #0
+    bl      fx_apply
+    addw    r0, r4, #0x{SL_FX_S + 4:x}
+    movs    r1, #0
+    bl      fx_apply
+    vpop    {{d0-d7}}
+    pop     {{r0, r1, r2, r3, r12, lr}}
+    add.w   r6, r4, #0x{SL_FX_S:x}  /* the instruction this replaced */
+fxk_back:
+    .short  0, 0                    /* b.w on */
+
+fx_sdtor:                           /* the Sample's deleting destructor: r0 = this */
+    push    {{r4, lr}}              /* the instructions this replaced */
+    mov     r4, r0
+    add.w   r0, r4, #0x{SL_FX_S:x}
+    bl      fx_drop
+    addw    r0, r4, #0x{SL_FX_S + 4:x}
+    bl      fx_drop
+    mov     r0, r4
+fxd_back:
+    .short  0, 0                    /* b.w on to free() */
+    .ltorg
+
 sl_find:                            /* r0 = engine, r1 = 1 to add -> r0 = entry or 0 */
     push    {{r2, r4, r5, lr}}      /* uses r1, r3, r12; keeps r2 */
     mov     r5, r1
@@ -11899,6 +12238,7 @@ def patch_ram_ranges():
         ("SL Slicer settings (minimal builds only)", SL_RAM, SL_RAM + SL_RAM_BYTES),
         ("SL Reverse segments", SL_SEG_RAM, SL_SEG_RAM + SL_SEG_BYTES),
         ("SL Sustain sources (minimal builds only)", SL_SUS_RAM, SL_SUS_RAM + SL_SUS_BYTES),
+        ("SL send sources (minimal builds only)", SL_FX_RAM, SL_FX_RAM + SL_FX_BYTES),
     ]
 
 
