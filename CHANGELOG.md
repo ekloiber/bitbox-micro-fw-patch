@@ -5,6 +5,13 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs13 (fork, test build) — November 2026
+
+- The send rows are renamed **Delay Send** and **Reverb Send** (they were FX1
+  Send and FX2 Send), on the Main page and in the modulation screens. Presets
+  are unaffected: they still save `fx1send` and `fx2send`.
+- Not yet tried on a module.
+
 ## 2.3.4-gs12 (fork, test build) — November 2026
 
 - New: **FX1 Send and FX2 Send rows on the Main page** (after Pan) of Sample,
