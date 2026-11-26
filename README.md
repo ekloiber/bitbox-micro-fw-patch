@@ -118,10 +118,10 @@ The builds:
 |---|---|---|---|---|
 | `--gate-only` | Stock 2.3.4 plus the three rows, nothing else. The rows follow SD Mode on Settings page 2. | `2.3.4-gr3` | `e187b8dc` | Yes, on a module |
 | `--gate-only --slice-loop` | Stock 2.3.4 plus the three Gate rows, the Slicer controls, Sustain and send targets, and the Delay/Reverb Send rows. | `2.3.4-gs13` | `08144a0a` | Up to gs10; gs11-13 not yet |
-| `--gate-only --slice-loop --comp-menu` | All of the above plus the compressor rows under Compressor, the limiter rows and the reworked compressor. | `2.3.4-x15` | `433e612b` | Not yet |
+| `--gate-only --slice-loop --comp-menu` | All of the above plus the compressor rows under Compressor, the limiter rows and the reworked compressor. | `2.3.4-x16` | `94ae5aee` | Not yet |
 | `--gate-rec` | The original project's full 2.3.10 patch plus the three rows, after Theme on page 3. | `2.3.10-gr3` | `804ba422` | Not yet |
-| `--comp-menu` | Stock 2.3.4 plus the compressor and limiter rows under Compressor, and the reworked compressor. | `2.3.4-cm3` | `8aac2222` | Not yet |
-| `--gate-only --comp-menu` | Stock 2.3.4 plus the gate rows and the compressor rows. | `2.3.4-gc3` | `afaad3a5` | Not yet |
+| `--comp-menu` | Stock 2.3.4 plus the compressor and limiter rows under Compressor, and the reworked compressor. | `2.3.4-cm4` | `8f4762fe` | Not yet |
+| `--gate-only --comp-menu` | Stock 2.3.4 plus the gate rows and the compressor rows. | `2.3.4-gc4` | `5cb444ca` | Not yet |
 
 Start with `--gate-only`. With no flag, the script builds the original
 project's 2.3.10-mod unchanged; its features are documented in the guide pages

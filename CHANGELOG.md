@@ -5,6 +5,12 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-x16 / c16 / cm4 / gc4 (fork, --comp-menu) — November 2026
+
+- **Lim Release** goes down to 1 ms (it stopped at 10 ms). Very short
+  releases distort low notes, like a soft clipper.
+- Not yet tried on a module.
+
 ## 2.3.4-x15 / c15 / cm3 / gc3 (fork, --comp-menu) — November 2026
 
 - Fixed: **Lim Release** could not be adjusted. It now has C Release's range,
