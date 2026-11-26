@@ -252,8 +252,8 @@ Builds made with `--comp-menu` put the compressor's controls on the Settings
 screen, in real units, and replace the stock compressor's insides with a
 typical one. No compressor types and no MIDI control. Use `--comp-menu` alone,
 or with `--gate-only` to have the gate rows as well, and with `--slice-loop`
-for the Slicer and send features in the same image (`2.3.4-c14`, or
-`2.3.4-x14` with all three).
+for the Slicer and send features in the same image (`2.3.4-c15`, or
+`2.3.4-x15` with all three).
 
 Switch the compressor on and off with stock's own **Compressor** row, near the
 top of Settings. The controls follow it directly:
@@ -265,7 +265,7 @@ C Attack:     0 to 1000 ms                        starts at 30 ms
 C Release:    0 to 1000 ms                        starts at 300 ms
 C Gain:       -36.0 to +36.0 dB makeup            starts at 0.0 dB
 Limiter:      On / Off                            starts On
-Lim Release:  10 to 2000 ms                       starts at 750 ms
+Lim Release:  0 to 1000 ms (10 ms at least)        starts at 750 ms
 ```
 
 Every change is saved, so the compressor comes back as you left it after a
@@ -290,7 +290,7 @@ power cycle. Attack below 0.5 ms and release below 10 ms act as 0.5 ms and
 
 ### Not Yet Confirmed on Hardware
 
-`2.3.4-cm2`, `2.3.4-gc2`, `2.3.4-c14` and `2.3.4-x14` have not been run on a module yet. Check these first:
+`2.3.4-cm3`, `2.3.4-gc3`, `2.3.4-c15` and `2.3.4-x15` have not been run on a module yet. Check these first:
 
 - The five rows appear with the units and starting values above. If Attack
   shows 300 ms instead of 30 ms, the unit is wrong. Report it.

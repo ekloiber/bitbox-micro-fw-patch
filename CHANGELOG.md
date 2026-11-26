@@ -5,9 +5,15 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-x15 / c15 / cm3 / gc3 (fork, --comp-menu) — November 2026
+
+- Fixed: **Lim Release** could not be adjusted. It now has C Release's range,
+  0 to 1000 ms (below 10 ms acts as 10 ms), which the Settings knob handles.
+- Not yet tried on a module.
+
 ## 2.3.4-x14 / c14 / cm2 / gc2 (fork, --comp-menu) — November 2026
 
-- New: **Limiter** (On/Off) and **Lim Release** (10-2000 ms) rows after
+- New: **Limiter** (On/Off) and **Lim Release** rows after
   C Gain. Stock's limiter after the makeup gain was always on with a fixed
   750 ms release, which ducked the whole mix after every peak over 0 dBFS.
 - Changed: the compressor now behaves like a typical one. It holds its
