@@ -33,8 +33,11 @@ exactly as stock. The settings are saved, so they survive power cycles.
 `--comp-menu` adds the stock compressor's controls to the Settings screen, right
 under the Compressor row, in
 real units: **C Thresh** (dB), **C Ratio** (N:1), **C Attack** and **C Release**
-(ms) and **C Gain** (makeup, dB). Stock's own Compressor row switches it on and
-off. It is the stock compressor only, with no compressor types and no MIDI. See
+(ms), **C Gain** (makeup, dB), **Limiter** (on/off) and **Lim Release** (ms).
+Stock's own Compressor row switches it on and off. Inside, the compressor is
+reworked to behave like a typical one: it holds its reduction while the signal
+is over the threshold, and the limiter after it can be shortened or switched
+off. No compressor types and no MIDI. See
 [The Compressor, by Menu](SETTINGS.md#the-compressor-by-menu). Not yet tried on
 a module.
 
@@ -115,10 +118,10 @@ The builds:
 |---|---|---|---|---|
 | `--gate-only` | Stock 2.3.4 plus the three rows, nothing else. The rows follow SD Mode on Settings page 2. | `2.3.4-gr3` | `e187b8dc` | Yes, on a module |
 | `--gate-only --slice-loop` | Stock 2.3.4 plus the three Gate rows, the Slicer controls, Sustain and send targets, and the Delay/Reverb Send rows. | `2.3.4-gs13` | `08144a0a` | Up to gs10; gs11-13 not yet |
-| `--gate-only --slice-loop --comp-menu` | All of the above plus the compressor rows under Compressor. | `2.3.4-xs13` | `ae04b24b` | Not yet |
+| `--gate-only --slice-loop --comp-menu` | All of the above plus the compressor rows under Compressor, the limiter rows and the reworked compressor. | `2.3.4-x14` | `3b784b6c` | Not yet |
 | `--gate-rec` | The original project's full 2.3.10 patch plus the three rows, after Theme on page 3. | `2.3.10-gr3` | `804ba422` | Not yet |
-| `--comp-menu` | Stock 2.3.4 plus the compressor rows under Compressor. | `2.3.4-cm1` | `d86b6134` | Not yet |
-| `--gate-only --comp-menu` | Stock 2.3.4 plus the gate rows and the compressor rows. | `2.3.4-gc1` | `2a29c727` | Not yet |
+| `--comp-menu` | Stock 2.3.4 plus the compressor and limiter rows under Compressor, and the reworked compressor. | `2.3.4-cm2` | `2bb687fa` | Not yet |
+| `--gate-only --comp-menu` | Stock 2.3.4 plus the gate rows and the compressor rows. | `2.3.4-gc2` | `71964428` | Not yet |
 
 Start with `--gate-only`. With no flag, the script builds the original
 project's 2.3.10-mod unchanged; its features are documented in the guide pages

@@ -248,35 +248,49 @@ set Sync to None for a clean loop (see above).
 
 ## The Compressor, by Menu
 
-Builds made with `--comp-menu` put the stock compressor's controls on the
-Settings screen, in real units. It is the stock compressor only: no
-compressor types and no MIDI control. Use `--comp-menu` alone, or with
-`--gate-only` to have the gate rows as well, and with `--slice-loop` for the
-Slicer and send features in the same image (`2.3.4-cs13`, or `2.3.4-xs13`
-with all three).
+Builds made with `--comp-menu` put the compressor's controls on the Settings
+screen, in real units, and replace the stock compressor's insides with a
+typical one. No compressor types and no MIDI control. Use `--comp-menu` alone,
+or with `--gate-only` to have the gate rows as well, and with `--slice-loop`
+for the Slicer and send features in the same image (`2.3.4-c14`, or
+`2.3.4-x14` with all three).
 
 Switch the compressor on and off with stock's own **Compressor** row, near the
-top of Settings. The five controls follow it directly:
+top of Settings. The controls follow it directly:
 
 ```text
-C Thresh:    -48.0 to 0.0 dB, in 0.1 dB steps     starts at -12.0 dB
-C Ratio:     1 to 100, the N of N:1               starts at 2
-C Attack:    0 to 1000 ms                         starts at 30 ms
-C Release:   0 to 1000 ms                         starts at 300 ms
-C Gain:      -36.0 to +36.0 dB makeup             starts at 0.0 dB
+C Thresh:     -48.0 to 0.0 dB, in 0.1 dB steps    starts at -12.0 dB
+C Ratio:      1 to 100, the N of N:1              starts at 2
+C Attack:     0 to 1000 ms                        starts at 30 ms
+C Release:    0 to 1000 ms                        starts at 300 ms
+C Gain:       -36.0 to +36.0 dB makeup            starts at 0.0 dB
+Limiter:      On / Off                            starts On
+Lim Release:  10 to 2000 ms                       starts at 750 ms
 ```
 
-The labels and units are 1010music's own: the rows are in the stock firmware,
-unused on the Micro, and this build connects them to the compressor. The
-starting values are the glue setting described in
-[The compressor](COMPRESSOR.md#how-it-arrives). Every change is saved, so the
-compressor comes back as you left it after a power cycle.
+Every change is saved, so the compressor comes back as you left it after a
+power cycle. Attack below 0.5 ms and release below 10 ms act as 0.5 ms and
+10 ms.
 
-Attack below 0.5 ms and release below 10 ms act as 0.5 ms and 10 ms.
+### How It Behaves
+
+- **It holds.** While the signal stays over C Thresh the reduction stays,
+  at (level − threshold) × (1 − 1/ratio). Stock let go as soon as its attack
+  ramp ended.
+- **Attack and Release are time constants.** Attack sets how fast the
+  reduction grows, Release how fast it goes away once the level drops. A slow
+  attack (10–30 ms) lets the front of each hit through, which is how you bring
+  transients forward.
+- **It reacts to peaks**, measured every 8 samples (about 0.17 ms), not to the
+  average level, so the threshold matches what a peak meter shows.
+- **The limiter** sits after C Gain, as stock's did. Anything that would pass
+  −0.1 dBFS is turned down at once and given back over Lim Release. Stock's
+  was fixed at 750 ms, which pumps the whole mix after every loud hit; set it
+  shorter, or turn it off. Off, peaks over 0 dBFS clip.
 
 ### Not Yet Confirmed on Hardware
 
-`2.3.4-cm1`, `2.3.4-gc1`, `2.3.4-cs13` and `2.3.4-xs13` have not been run on a module yet. Check these first:
+`2.3.4-cm2`, `2.3.4-gc2`, `2.3.4-c14` and `2.3.4-x14` have not been run on a module yet. Check these first:
 
 - The five rows appear with the units and starting values above. If Attack
   shows 300 ms instead of 30 ms, the unit is wrong. Report it.

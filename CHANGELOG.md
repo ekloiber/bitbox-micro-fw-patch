@@ -5,6 +5,18 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-x14 / c14 / cm2 / gc2 (fork, --comp-menu) — November 2026
+
+- New: **Limiter** (On/Off) and **Lim Release** (10-2000 ms) rows after
+  C Gain. Stock's limiter after the makeup gain was always on with a fixed
+  750 ms release, which ducked the whole mix after every peak over 0 dBFS.
+- Changed: the compressor now behaves like a typical one. It holds its
+  reduction while the signal stays over the threshold (stock released as soon
+  as the attack ended), Attack and Release are smoothing times, and it reacts
+  to peaks every 8 samples instead of a 128-sample RMS once a block. A slow
+  attack now brings transients forward.
+- Not yet tried on a module.
+
 ## 2.3.4-xs13 / 2.3.4-cs13 (fork, --comp-menu with --slice-loop) — November 2026
 
 - `--comp-menu` now goes with `--slice-loop`, so one image has the gate rows,
