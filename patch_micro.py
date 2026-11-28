@@ -1051,8 +1051,9 @@ USAGE = f"""
                        a CV (EXT 1-8), and Sustain as a modulation target on
                        Sample and Clip/Slicer pads, Loop Hold, and the
                        Delay/Reverb Sends on the Main page and as targets
-                       (2.3.4-s13; with --gate-only, 2.3.4-gs13; with
-                       --comp-menu as well, 2.3.4-c16, or 2.3.4-x16 with
+                       and the reverb's Size on the FX screen
+                       (2.3.4-s14; with --gate-only, 2.3.4-gs14; with
+                       --comp-menu as well, 2.3.4-c17, or 2.3.4-x17 with
                        all three)
     --comp-menu        stock 2.3.4 with the stock compressor's Threshold,
                        Ratio, Attack, Release and Gain on the Settings
@@ -1272,6 +1273,8 @@ FROZEN = {
         {'nblock': 0, '$t': 484, 'nblock_orig': 2, '$d': 504, 'nblock_c': 26, 'nmidi': 52, 'nmidi_c': 76, 'nmidi_next': 100, 'ncomp': 104, 'ncomp_c': 136, 'ncomp_e': 132, 'ncomp_call': 154, 'nclip_rate': 178, 'nclip_rate_c': 200, 'nclip_cc': 236, 'nclip_cc_go': 248, 'nclip_cc_out': 296, 'nclip_cc_c': 274, 'njread': 300, 'njread_c': 380, 'nclip_beats': 408, 'nclip_beats_c': 430, 'nfinal': 456, 'nfinal_p': 458, 'nfinal_c': 480, '_sN': 0}),
     "hookGR": ("2de91f5083b0039840f2a1110ff2fc120ff2d413092400940ff2fc14019400000000039840f2a3110ff2f8120ff2b813092400940ff2f814019400000000039840f2a5110ff2f4120ff29c13092400940ff2f41401940000000003b0bde81f50000000002de90f50009840f2a111002200000000009840f2a311002200000000009840f2a511002200000000bde80f500000000040f2a11c624517d040f2a31c624513d040f2a51c62450fd00000000040f2a11c624509d040f2a31c624505d040f2a51c624501d00000000010b51446082b05d9414811460022000000000023002140f2a110844209d0042140f2a310844204d0082140f2a5108442ffd0dff8e0c040f20000c4f2417040ea03004cf8010010bd00f02ef818b9b8f1130f00000000012803d1682000f005f8672000f002f80000000010b514a900220a604a608a60ca600a614a612d220a70099a4a60886045f28820c0f2010030440000000010bd00f007f818b9b8f1130f0000000000000000dff868c01a4944f24173dcf80000b3eb104f09d1c0b20138072805d851f82000404501d167207047dcf80400b3eb104f09d1c0b20138072805d851f82000404501d168207047dcf80800b3eb104f09d1c0b20138072805d851f82000404501d1012070470020704780bc0124e0c3062444df022400000000000000000000000000000000000000000000000000000000000000000000000047617465205265633a0000bf67617465726563696e0000bf4761746520436c723a0000bf67617465636c72696e0000bf47617465204c6f6f703a0000676174656c6f6f70696e00004f464600494e20310000bf00494e20320000bf00494e20330000bf00494e20340000bf00494e20350000bf00494e20360000bf00494e20370000bf00494e20380000bf00",
         {'greg': 0, 'glabel0': 524, 'gvalues': 488, 'gxml0': 536, 'greg_call0': 30, 'glabel1': 548, 'gxml1': 560, 'greg_call1': 58, 'glabel2': 572, 'gxml2': 584, 'greg_call2': 86, 'greg_next': 96, 'gstore': 100, 'gstore_call0': 112, 'gstore_call1': 124, 'gstore_call2': 136, 'gstore_next': 144, 'gpost': 148, 'gmine': 204, 'gpost_next': 172, 'gedit': 176, 'gedit_next': 200, 'gm_store': 224, 'gm_set': 218, 'gm_put': 254, 'gon': 276, 'gmatch': 372, 'gon_act': 290, 'gon_back': 286, 'gon_one': 302, 'gsend': 310, 'gon_done': 306, 'gsend_push': 348, 'goff': 354, 'goff_eat': 368, 'goff_back': 364, 'gm_0': 382, 'gm_1': 412, 'gm_2': 442, 'gm_3': 472, 'gv0': 596, 'gv1': 600, 'gv2': 608, 'gv3': 616, 'gv4': 624, 'gv5': 632, 'gv6': 640, 'gv7': 648, 'gv8': 656, '_sGR': 0}),
+    "hookRS": ("2de91f5083b0039840f2b11108220ff2383340f2fa04009440f2406401940ff2303402940000000003b0bde81f500000000031b5044600000000204640f2b11140f2e8320000000031bd40f2b11c634505d0472b01d000000000000000000e9a2046012100f00cf840b1fa2ab8bffa2240f240639a42c8bf1a4642600000000030b504460d46dff8b8c2dcf80000ad4b98420ad0ccf80030002300200cebc0014b608b6001300428f8d1002000230cebc0010431d1f800e0a64514d0bef1000f02d1002b08bf0b4601300428efd1002055b1002b08bf0cf104031c6040f2e8315960184600e0084630bdffb5054620460021fff7c5ff40f2e83600b1466840f2e83740f28e0101fb06f1b1fbf7f1ea8c8b1a0bd004d4980908bf0120024405e05b42980908bf0120a2eb0002ea8440f26b0101fb06f1b1fbf7f16a8e8b1a0bd004d4980908bf0120024405e05b42980908bf0120a2eb00026a8640f27b1101fb06f1b1fbf7f1ea8f8b1a0bd004d4980908bf0120024405e05b42980908bf0120a2eb0002ea8740f2151101fb06f1b1fbf7f1b5f84a208b1a0bd004d4980908bf0120024405e05b42980908bf0120a2eb0002a5f84a2040f2a02101fb06f1b1fbf7f1b5f856208b1a0bd004d4980908bf0120024405e05b42980908bf0120a2eb0002a5f8562040f28c3101fb06f1b1fbf7f1b5f86a208b1a0bd004d4980908bf0120024405e05b42980908bf0120a2eb0002a5f86a2040f2087101fb06f1b1fbf7f1b5f87e208b1a0bd004d4980908bf0120024405e05b42980908bf0120a2eb0002a5f87e2040f6602101fb06f1b1fbf7f1b5f88a208b1a0bd004d4980908bf0120024405e05b42980908bf0120a2eb0002a5f88a2041f2651101fb06f1b1fbf7f1b5f892208b1a0bd004d4980908bf0120024405e05b42980908bf0120a2eb0002a5f8922041f2790101fb06f1b1fbf7f1b5f89a208b1a0bd004d4980908bf0120024405e05b42980908bf0120a2eb0002a5f89a2040f6886101fb06f1b1fbf7f1b5f8a2208b1a0bd004d4980908bf0120024405e05b42980908bf0120a2eb0002a5f8a22040f65b4101fb06f1b1fbf7f1b5f8aa208b1a0bd004d4980908bf0120024405e05b42980908bf0120a2eb0002a5f8aa20bde8ff4000000000000040bc0624315a535253697a653a0000bf72657673697a6500",
+        {'rs_reg': 0, 'rs_label': 840, 'rs_xml': 848, 'rs_reg_call': 36, 'rs_reg_next': 46, 'rs_store': 50, 'rs_st_call0': 54, 'rs_st_call1': 68, 'rs_set': 74, 'rs_mine': 94, 'rs_set_47': 90, 'rs_set_no': 86, 'rs_find': 128, 'rs_set_done': 124, 'rsf_scan': 170, 'rsf_zero': 156, 'rsf_loop': 174, 'rsf_hit': 230, 'rsf_next': 200, 'rsf_out': 232, 'rs_kern': 234, 'rsk_go': 254, 'rsk_0': 300, 'rsk_d0': 288, 'rsk_1': 344, 'rsk_d1': 332, 'rsk_2': 388, 'rsk_d2': 376, 'rsk_3': 434, 'rsk_d3': 422, 'rsk_4': 482, 'rsk_d4': 470, 'rsk_5': 530, 'rsk_d5': 518, 'rsk_6': 578, 'rsk_d6': 566, 'rsk_7': 626, 'rsk_d7': 614, 'rsk_8': 674, 'rsk_d8': 662, 'rsk_9': 722, 'rsk_d9': 710, 'rsk_10': 770, 'rsk_d10': 758, 'rsk_11': 818, 'rsk_d11': 806, 'rs_kern_go': 826, '_sRS': 0}),
     "hookCX": ("2de91f5083b0039840f2ad1104220ff2a83340f20004009440f2010401940ff2a434029400000000039840f2af110e220ff29c3340f20004009442f2107401940ff29c3402940000000003b0bde81f50000000002de90f50009840f2ad1140f2010200000000009840f2af1141f64c5200000000bde80f500000000040f2ad1c62450fd040f2af1c62450bd00000000040f2ad1c624505d040f2af1c624501d00000000030b500f014f840f2ad1c624504d11d1e18bf0125656030bd0a2bb8bf0a23182503fb05f50523b5fbf3f5a56030bdb44c256840b4b34eb54205d00125656048f6a045a560266040bc70472de9f04f2ded108b85b006460f4603685b6daa4a934240f04481c18b3846000000008046000000000446002302930393404602a903aa00000000ddf80880ddf80c90336a9f4a934207d0326200237362f3624ff07e53b362336306f5856393ed008ad3ed018a93ed029ab7ee000ac8fe808ac0ee288a70ee688ab2ee001ad6f84834083300ee903af8eee00ac1ee209ad6f84c34083300ee903af8eee00a81ee20aa10b4fff79effd4f804b0a36810bc083300ee903af8eee00ac1ee20aa96f880a6baf1000f18bf4ff0000b06f1240393ec04ba00230dee103a0dee903ab8f1000f00f0b580b9f1000f00f0b180002c40f3ae800825082cb8bf2546002300ee103a404649462a46f0ec010ab1ec011af0eee00ab0eec11a80fe200a80fe010a013af1d1cdfe80da00f0bef830ee480a20ee280a002300ee903a80fe200ab4eecb0af1ee10faccbff0ee690af0ee4a0a30ee4b0aa0ee20ba39ee4b0a00f0a6f830ee6bea00ee905af8eee00a8eee20eaf0ee6beaf0ee40ba00230fee103a404649462a467eee8eea90ed002a22ee2e2aa0ec012ad1ed002a62eeae2ae1ec012ab0eec22af0eee22a8ffe02fa8ffe22fa013ae7d18dfe0fdabbf1000f42d0b0ee4f0a00f071f8dfed3f0a30ee200a002300ee903a80fe200ab4eecc0af1ee10fa02ddb0ee40ca03e030ee4c0aa0ee2acab1ee4c0a00f05af8b4eeec0af1ee10fab8bff0ee40ca30ee6cea00ee905af8eee00a8eee20eaf0ee6ceaf0ee40ca404649462a467eee8eea90ed002a22ee2e2aa0ec012ad1ed002a62eeae2ae1ec012a013aefd108eb850809eb8509641b4ee706f1240383ec04ba96f878353bb1b0ee6d0a00f021f806f2744000f021f8b0ee4d0a00f019f806f27440baf1000f18bf06f27c5000f014f8b06820b103683946db68984700e0012005b0bdec108bbde8f08f98470146b9e6000000000000000000000000000000bc0624314c584365200a0832504d43cdcccc3d4c696d697465723a0000bf00636c696d697465720000bf004c696d2052656c656173653a0000bf00636c72656c656173650000bf",
         {'cx_reg': 0, 'cx_label0': 952, 'cx_xml0': 964, 'cx_reg_call0': 36, 'cx_label1': 976, 'cx_xml1': 992, 'cx_reg_call1': 70, 'cx_reg_next': 80, 'cx_store': 84, 'cx_st_call0': 98, 'cx_st_call1': 112, 'cx_store_next': 120, 'cx_post': 124, 'cx_mine': 164, 'cx_post_next': 140, 'cx_edit': 144, 'cx_edit_next': 160, 'cx_ram': 210, 'cxm_rel': 188, 'cxr_out': 234, 'cx_dsp': 238, 'cx_vbus': 912, 'cx_bus': 266, 'cx_desc': 268, 'cx_frames': 274, 'cx_bufs': 292, 'cx_st': 328, 'cx_done': 830, 'cx_loop': 476, 'cx_pk': 502, 'cx_l2d': 918, 'cx_d2l': 922, 'cx_g': 626, 'cx_next': 818, 'cx_margin': 948, 'cx_lrel': 726, 'cx_lg': 734, 'cx_l': 786, 'cx_m2': 860, 'cx_push': 926, 'cx_one': 900, 'cx_ret': 902, '_sCX': 0}),
     "hookSL": ("40f2a7139c421dd040f2a9139c4237d040f2ab139c4225d06f2c0dd1022a09d82846002106b1012100f062fe10b100eb8200466000000000842c01d00000000000000000022af5d82846002106b1012100f04efe0028edd000ebc200466180ed068ae7e7022ae5d82846002106b1012100f03efe0028ddd000eb82000664d9e7022ad7d82846002106b1012100f030fe0028cfd000eb82000663cbe740f2a9139c4214d040f2ab139c421dd040f2a7139c4226d1284632690021b2f57a7f18bf012100f015fe00b102610000000028463269111e18bf01210a4600f009fe0028f3d080f82c20f0e728463269111e18bf01210a4600f0fcfd0028e6d080f82d20e3e740f23f130000000001b500000000009840f2a71140f2e83200000000009840f2a911002200000000009840f2ab1100220000000001bd2de91f5083b040f2a71108220ff620430a24009440f2e83401940ff62044029400000000039840f2a91104220ff61c4300240094012401940ff61c44029400000000039840f2ab1104220ff61c4300240094012401940ff61c4402940000000003b0bde81f50000000002de9075096f8f431c3b93046002100f09efd002390b14ff07c51426812b152688a420ada826812b152688a4205dac26812b152688a4200da00e00123bde807500bb1000000000000000000f06ff905b00000000010b5044600f068f9000000002de90f50dff894c1ccf808000021ccf8101090f85532002b40f09580012100f066fd002800f08f80039bc3632ded046b016907ee901af8eee77a9fed587ac7ee877a42693ab192ed017ad0ed066a27ee267a77eec77ac2693ab192ed017ad0ed086a27ee267a77eec77a426a3ab192ed017ad0ed0a6a27ee267a77eec77ab7ee007af4ee477af1ee10fa33da9fed457ac7fe877a0a990d9a521a0bdd07ee102ab8eec77a27ee277abdeec77a17ee102a0a440d920b9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220b920e9a6ab107ee102ab8eec77a27ee277abdeec77a17ee102a012ab8bf01220e9290f82c308bb94ff07c51026b12b152688a420ada426b12b152688a4205da826b12b152688a4200da11e00a990d9a8a4201dd013203e00e9a002a08dd0a440a44dff864c0ccf80c200123ccf81030bdec046bbde80f50dff84cc0ccf804e00ff20c0e4ef0010e2de9f04f0000000071b4dff834c008280fd2dcf80810702200fb02113031dcf80c50dcf81060324600f075f808b14560866071bcdff808c0dcf804c060470000c092062400007a440ad7233c0fb507991c39002200f05ff8002847d08368002b44d08446bde80f402de9f04f644605468846164610ee10ba099f0b9bd3ed007a07ee107ab8eec77a27ee007a37ee277abdeec77a17ee109a6268921bb2eb090222eae27286b00f9b0093109b0193119b0293129b0393139b0493149b059328464146002300ee10ba0000000006b058b10e9909688a683b4600f00cf84a7c1ab1ca683b4600f006f8bde8f08fbde80f4000000000022b0ddba3f1010302eb8309d2f800a0d9f800c042f804cb49f804a94a45f5d3704730b5dff8c0c4dcf80000dff8bc3498420ad0ccf8003000230cf114000cf2341440f8043ba042fbd10cf114000cf23414002503688b420ed00bb905b905460c30a042f6d142b10db90cf1140500236b60ab602960284630bd002030bd15b5002100f00dfc08b100210160009800f6a034dff854c4dcf80010dff8502491420dd10cf114010cf234120b68834203d3a34201d200230b600c319142f5d1dff830c4dcf80010dff8242491420dd10cf108010cf208320b68834203d3a34201d200230b6020319142f5d1009800f6843000f084fb009800f6883000f07ffb15bd222a08d0a2f1bb0cbcf1010f10d970b514460000000010b504460a46194604f2f04000f0faf804f6001000f0f6f810bd00f6843010b500eb8c000a46194600f0dbfa10bd222a0bd0a2f1bb0cbcf1010f02d800f25850ede770b514460000000010b50a46194600f26c3000f0d6f810bdb1f80cc0bcf1220f08d0acf1bb0cbcf1010f46d92de9f04300000000f0b5044600f065f8a5f10f03072b14d90ff2f60c00f06af81f4602b12244314604f2f04000f0b3f800220fb104eb0702314604f6001000f0aaf8f0bdb1f80cc0bcf1220f08d0acf1bb0cbcf1010f20d92de9f84300000000f0b5044600f039f8a5f10f03072b0dd90ff2f60c00f03ef81ab112f0010f08bf2244314604f26c3000f085f8f0bdf0b500f684340ff2a60704e0f0b500f258540ff2c60704eb8c04a4eb000411b400f014f8a5f10f03072b0dd9bc4600f01af800981ab112f0010f08bf024401990844314600f04ffa02b0f0bdb1f9163000ee103ab8eec00a5fedc70a80ee200a8d8a0e8a704700220023bcf8000040b1a84202d00cf1060cf7e7bcf80220bcf8043070470d00a802b8060400880398070e00b002c0061a00480b480b1c00500b500b1d00580b580b1900600b600b00000d00490000000400290100000e00510000001a00480b00001c00500b00001d00580b00001900600b000000000d00810000000e00890000000400190500001a00240100001c002c0100001d003401000019003c010000000002290ed816b5002102b1012100f089f830b1009900ebc100019a426080ed020a16bd704793ed068a2de90f5018460021002200f076f860b9039800f091f8002842d0039aa2f55872002100f06af800283ad02ded046bf0ee487a416859b111f0010f1cbf21f00101114491ed017ad0ed026ae7ee267ac16859b111f0010f1cbf21f00101114491ed017ad0ed046ae7ee267a416959b111f0010f1cbf21f00101114491ed017ad0ed066ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee678abdec046bbde80f50000000002de907500bf5587007f55b7100f053f807f5ab60594600f0f4f907f25c50594600f0eff9bde80750d7f8843300000000dcf80000334b98420ad0ccf8003000230cf104000cf2085140f8043b8842fbd1704734b50d460446dff8acc0fff7e8ff0cf108000cf2083100220368a3420ed00bb902b9024620308842f6d1002035b12ab100235360d36053611460104634bd14b50446dff870c0fff7caff1b4800f200210368a34204d008308842f9d1002014bd406814bd30b504460d46dff848c0fff7b6ff114800f2002100220368a34211d00bb902b9024608308842f6d1104648b9dcf80420531c03f03f03ccf80430064800ebc2004560046030bd0000c0920624344f4c5300a7062408aa062410b50446002094f8541289b3d4f8501271b394f8551259bb94f8601211b194f8691229b104f27062117809b3517af9b92046002100f0b8f9d0b1034600f03cf80846a8b1012094f8f41189b94ff07c5c596811b1496861450ada996811b14968614505dad96811b14968614500da002010bd13b5fff7c4ff0028bde8134001d000000000000000001fb5fff7b9ff0028bde81f4018bf70472de9f04f000000001fb5fff7adff0028bde81f4018bf704790f860120000000093f82d1091b94ff07c5c1a6c12b1526862450bda5a6c12b15268624506da9a6c12b15268624501da002170470121704707b5002100f05cf928b10346fff7e0ff09b1d86b0ebdbde8074000000000bb6a4b4508d17b6a23b1013bd6f808c0634501d100000000fb6a534507d17b6a3bb1013bd6f808c0634502d000220000000000000000bb6a4b4508d17b6a23b1013bd6f808c0634501d100000000fb6a534507d17b6a3bb1013bd6f808c0634502d0002200000000000000002de90f50284607e02de90f50504603e02de90f5004f5ab60012100f007f808b180ed010abde80f500000000030b50d460446dff8f8c1dcf800007d4b98420ad0ccf8003000230cf104000cf2847140f8043b8842fbd10cf104000cf2847100220368a34212d00bb902b9024628308842f6d1002055b14ab14ff0ff33536000239360d3605361d3611460104630bd022923d870b50d461646111e18bf0121fff7c5ffc8b1044600ebc501ce6081ed040ae16862691143e26911430dd161684a1c0ad02ded100b00ee101a00000000206880ed000abdec100b70bd704770b50d460021fff7a3ff00284ad00446e16862691143e269114343d061684a1c40d005b9a568d4ed017ae16861b111f0010f03d045b121f00101294491ed017ad4ed046ae7ee267a616961b111f0010f03d045b121f00101294491ed017ad4ed066ae7ee267ae16961b111f0010f03d045b121f00101294491ed017ad4ed086ae7ee267a002107ee101ac7fe877ab7ee007ac7fec77ab0ee670a00000000206880ed000a70bd10b50c460021fff750ff00b1846010bd10b50021fff749ff08b10021016010bd2de90f502ded100b04f518710a780ab14a7a22b104f5ce62137803b1114606b404f68430fff789ff009904f68830fff784ff02b0bdec100bbde80f5004f6843b000000002de90f502ded100b04f5ab600021fff772ff04f25c500021fff76dffbdec100bbde80f5004f5ab660000000010b5044604f5ab60fff7baff04f25c50fff7b6ff204600000000000040b40624344f4c5334b50d46dff868c0dcf80010194b99420ad0ccf8003000230cf104010cf2847241f8043b9142fbd10cf104010cf2847200240b68834216d00bb904b90c4650319142f6d18db184b1002304f1040104f1500241f8043b9142fbd140f2e83323612060204634bd084634bd002034bd000080ac0624344f4c534c6f6f70204c656e3a0000bf736c6963656c6f6f706c656e0000bf00526576657273653a0000bf00736c696365726576657273650000bf004c6f6f7020486f6c643a0000736c6963656c6f6f70686f6c640000bf44656c61792053656e643a005265766572622053656e643a0000bf00",
@@ -10484,7 +10487,7 @@ def apply_gate_rec(d, only=False):
 #     VFP register is touched), restarts it; otherwise the slice ends as stock.
 #   - Not touched: Clip pads, and Slicer with PlayThru (whose Loop Mode loops
 #     the whole file). The Amount box is ignored: the threshold is on the CV.
-SL_VERSION_TAG = "s13"               # appended to the minimal build's version
+SL_VERSION_TAG = "s14"               # appended to the minimal build's version
 SL_LIST = 0x080c86f8                 # modulation targets, u16 ids
 SL_LIST_USED = 36
 SL_LIST_CAP = 49
@@ -12524,7 +12527,7 @@ CX_LREL_DEFAULT = 36000                  # 750 ms at 48 kHz: stock's
 CX_STATE_MAGIC = 0x434d5032              # "CMP2", at the object's +0x20
 CX_REG_SITE = 0x0806abbc                 # the registration bl SL and GR chain on
 CX_DSP_FN, CX_DSP_HEAD = 0x080b9b04, "0368644a5b6d9342"
-CX_VERSION_TAG = "16"                    # 2.3.4-x16 (all three), 2.3.4-c16 (slice + comp)
+CX_VERSION_TAG = "17"                    # 2.3.4-x17 (all three), 2.3.4-c17 (slice + comp)
 CX_GUARDS = (
     (CX_DSP_FN, CX_DSP_HEAD, "the compressor's process: ldr r3, [r0]; ldr r2, =; ldr r3, [r3, #0x54]; cmp"),
     (0x080b9c98, "6520 0a08".replace(" ", ""), "... its default bus getter, 0x080a2065"),
@@ -12948,6 +12951,287 @@ def apply_comp_cx(d):
     return org, syms
 
 
+# --- RS: the reverb's Size, on the FX screen ----------------------------------
+# The reverb (node vtable 0x080de1a0, kernel 0x080a9ec4) is Dattorro's plate:
+# four input diffusers (142, 107, 379, 277 samples), two modulated allpasses
+# (672, 908), two allpasses (1800, 2656) and four delays (4453, 4217, 3720,
+# 3163) - his lengths for 29761 Hz, run unscaled at 48 kHz, so the plate is
+# about 62 % of its design size. The kernel takes each length from its state
+# (+0x26 ... +0xaa, halfwords) on every call and wraps every line with a mask,
+# so lengths can change while it runs.
+#
+# Size (25-160 %, default 100 % = stock) scales all twelve, gliding each a
+# block at a time (1/64 of the way, at least a sample) so a turn sweeps rather
+# than clicks. For 160 % the diffusers' buffers grow from 512 to 1024 floats
+# and the modulated allpasses' from 1024 to 2048 (+16 KB), with the kernel's
+# masks to match; the tanks' 8192 already fit. The output taps are fixed in
+# the kernel's code and stay where they are.
+#
+# The FX screen lists the reverb's store, so Size goes into it, after Decay;
+# the reverb's setter (ids above 0x1e) passes it to RS, which keeps it per
+# reverb in RS_RAM.
+RS_ID = 0x1b1                            # unregistered in stock, no immediate anywhere
+RS_ROW = (RS_ID, "Size:", "revsize", 8, 250, 1600, 1000)   # per mille
+RS_RAM = 0x2406bc40                      # magic, then 4 x {reverb, size per mille}
+RS_MAGIC = 0x52535a31                    # "RSZ1"
+RS_SLOTS = 4
+RS_LINES = ((0x26, 142), (0x32, 107), (0x3e, 379), (0x4a, 277), (0x56, 672), (0x6a, 908),
+            (0x7e, 1800), (0x8a, 2656), (0x92, 4453), (0x9a, 4217), (0xa2, 3720), (0xaa, 3163))
+RS_STORE_SITE = 0x08089aa8               # the reverb store's AddParam(Decay)
+RS_SET_SITE = 0x080a97e0                 # its setter: cmp r3, #0x47; bne
+RS_KERN_SITE = 0x080a9912                # its render: bl the kernel
+RS_KERNEL = 0x080a9ec4
+RS_GROW = (                              # (va, stock, new): buffers and masks for 160 %
+    (0x080a9cb6, "4ff40060", "4ff48050"), (0x080a9d18, "4ff40062", "4ff48052"),   # diffusers 0x800 -> 0x1000
+    (0x080a9d26, "4ff40060", "4ff48050"), (0x080a9d36, "4ff40062", "4ff48052"),
+    (0x080a9d48, "4ff40060", "4ff48050"), (0x080a9d58, "4ff40062", "4ff48052"),
+    (0x080a9d68, "4ff40060", "4ff48050"), (0x080a9d7a, "4ff40062", "4ff48052"),
+    (0x080a9d8a, "4ff48050", "4ff40050"), (0x080a9d9c, "4ff48052", "4ff40052"),   # mod allpasses 0x1000 -> 0x2000
+    (0x080a9dae, "4ff48050", "4ff40050"), (0x080a9dc2, "4ff48052", "4ff40052"),
+)
+RS_MASK9 = (0x080aa008, 0x080aa00c, 0x080aa02e, 0x080aa056, 0x080aa07c, 0x080aa098,
+            0x080aa0c4, 0x080aa0c8)      # the diffusers' ubfx #9 -> #10
+RS_MASK10 = (0x080aa0fc, 0x080aa108, 0x080aa15a, 0x080aa1ec, 0x080aa230, 0x080aa238)   # #10 -> #11
+RS_GUARDS = (
+    (RS_STORE_SITE - 8, "4ff416721a212046fff739fd", "the reverb store: Decay 600, then AddParam"),
+    (0x08089aac, "28221e212046fff734fd", "... Predelay 40"),
+    (0x08089ab6, "4ff4fa721d212046fff72efd", "... Damping 500"),
+    (RS_SET_SITE, "472b86d1", "the reverb's setter: cmp r3, #0x47; bne (ids above 0x1e)"),
+    (0x080a9760, "bdf834301e2b3bd8", "... the id at [sp, #0x34]"),
+    (0x080a9a64, "dded0e7a", "... its value at [sp, #0x38]"),
+    (0x080a9a70, "84ed3a7a", "... and r4 = the reverb (Decay into +0xe8)"),
+    (0x080a990c, "a06ddde90523", "the render: ldr r0, [r4, #0x58] (the kernel's state); ldrd r2, r3"),
+    (RS_KERN_SITE, "00f0d7fa", "... bl the kernel"),
+    (0x080a9eda, "c28c", "the kernel: ldrh r2, [r0, #0x26] each call"),
+    (0x080aa418, "fc350e08", "... its modulation table, 0 to 16 samples"),
+) + tuple((va, old, "a buffer's size") for va, old, _ in RS_GROW) + tuple(
+    (va + 2, None, "a diffuser's mask, #9") for va in RS_MASK9) + tuple(
+    (va + 2, None, "a modulated allpass's mask, #10") for va in RS_MASK10)
+RS_FIX = (
+    ("rs_reg_call", 0x08069ed4, True),
+    ("rs_st_call0", 0x0808951e, True),
+    ("rs_st_call1", 0x0808951e, True),
+    ("rs_set_47", 0x080a97e4, False),
+    ("rs_set_no", 0x080a96f2, False),
+    ("rs_set_done", 0x080a96f2, False),
+    ("rs_kern_go", RS_KERNEL, False),
+)
+RS_SITES = (                            # (site, entry, bl?)
+    (0x0806abbc, "rs_reg", True),
+    (RS_STORE_SITE, "rs_store", True),
+    (RS_SET_SITE, "rs_set", False),
+    (RS_KERN_SITE, "rs_kern", True),
+)
+
+
+def build_rev_size_hook():
+    """RS: the reverb's Size row, its setter and the kernel's lengths."""
+    gid, lab, xml, typ, lo, hi, dflt = RS_ROW
+    lines = "".join(f"""
+    movw    r1, #{base}
+    mul     r1, r1, r6
+    udiv    r1, r1, r7              /* the target */
+    ldrh    r2, [r5, #0x{off:x}]
+    subs    r3, r1, r2
+    beq     rsk_{i}
+    bmi     rsk_d{i}
+    lsrs    r0, r3, #6              /* up: 1/64 of the way, at least 1 */
+    it      eq
+    moveq   r0, #1
+    add     r2, r0
+    b       rsk_{i}
+rsk_d{i}:
+    rsbs    r3, r3, #0
+    lsrs    r0, r3, #6              /* down */
+    it      eq
+    moveq   r0, #1
+    sub     r2, r2, r0
+rsk_{i}:
+    strh    r2, [r5, #0x{off:x}]""" for i, (off, base) in enumerate(RS_LINES))
+    src = f"""
+.syntax unified
+.thumb
+.section .text
+.global _sRS
+.thumb_func
+_sRS:
+rs_reg:                             /* a registrar call: register Size first */
+    push    {{r0, r1, r2, r3, r4, r12, lr}}
+    sub     sp, #12
+    ldr     r0, [sp, #12]
+    movw    r1, #0x{gid:x}
+    movs    r2, #{typ}
+    adr.w   r3, rs_label
+    movw    r4, #{lo}
+    str     r4, [sp]
+    movw    r4, #{hi}
+    str     r4, [sp, #4]
+    adr.w   r4, rs_xml
+    str     r4, [sp, #8]
+rs_reg_call:
+    .short  0, 0
+    add     sp, #12
+    pop     {{r0, r1, r2, r3, r4, r12, lr}}
+rs_reg_next:
+    .short  0, 0
+
+rs_store:                           /* the reverb store's AddParam(Decay), then Size */
+    push    {{r0, r4, r5, lr}}
+    mov     r4, r0
+rs_st_call0:
+    .short  0, 0
+    mov     r0, r4
+    movw    r1, #0x{gid:x}
+    movw    r2, #{dflt}
+rs_st_call1:
+    .short  0, 0
+    pop     {{r0, r4, r5, pc}}
+
+rs_set:                             /* the reverb's setter, an id above 0x1e in r3 */
+    movw    r12, #0x{gid:x}
+    cmp     r3, r12
+    beq     rs_mine
+    cmp     r3, #0x47
+    beq     rs_set_47
+rs_set_no:
+    .short  0, 0                    /* b.w: not ours */
+rs_set_47:
+    .short  0, 0                    /* b.w: stock's 0x47 */
+rs_mine:
+    ldr     r2, [sp, #0x38]         /* per mille */
+    mov     r0, r4
+    movs    r1, #1
+    bl      rs_find
+    cbz     r0, rs_set_done
+    cmp     r2, #{lo}
+    it      lt
+    movlt   r2, #{lo}
+    movw    r3, #{hi}
+    cmp     r2, r3
+    it      gt
+    movgt   r2, r3
+    str     r2, [r0, #4]
+rs_set_done:
+    .short  0, 0                    /* b.w back to the event loop */
+
+rs_find:                            /* r0 reverb, r1 = 1 to add -> r0 slot or 0. Uses r1, r3, r12 */
+    push    {{r4, r5, lr}}
+    mov     r4, r0
+    mov     r5, r1
+    ldr     r12, =0x{RS_RAM:08x}
+    ldr     r0, [r12]
+    ldr     r3, =0x{RS_MAGIC:08x}
+    cmp     r0, r3
+    beq     rsf_scan
+    str     r3, [r12]
+    movs    r3, #0
+    movs    r0, #0
+rsf_zero:
+    add.w   r1, r12, r0, lsl #3
+    str     r3, [r1, #4]
+    str     r3, [r1, #8]
+    adds    r0, #1
+    cmp     r0, #{RS_SLOTS}
+    bne     rsf_zero
+rsf_scan:
+    movs    r0, #0
+    movs    r3, #0                  /* the first free slot */
+rsf_loop:
+    add.w   r1, r12, r0, lsl #3
+    adds    r1, #4
+    ldr     lr, [r1]
+    cmp     lr, r4
+    beq     rsf_hit
+    cmp     lr, #0
+    bne     rsf_next
+    cmp     r3, #0
+    it      eq
+    moveq   r3, r1
+rsf_next:
+    adds    r0, #1
+    cmp     r0, #{RS_SLOTS}
+    bne     rsf_loop
+    movs    r0, #0
+    cbz     r5, rsf_out
+    cmp     r3, #0
+    it      eq
+    addeq   r3, r12, #4             /* full: take the first (a reverb since gone) */
+    str     r4, [r3]
+    movw    r1, #{dflt}
+    str     r1, [r3, #4]
+    mov     r0, r3
+    b       rsf_out
+rsf_hit:
+    mov     r0, r1
+rsf_out:
+    pop     {{r4, r5, pc}}
+
+rs_kern:                            /* the render's bl to the kernel: r4 = the reverb, r0 = its state */
+    push    {{r0, r1, r2, r3, r4, r5, r6, r7, lr}}
+    mov     r5, r0
+    mov     r0, r4
+    movs    r1, #0
+    bl      rs_find
+    movw    r6, #{dflt}
+    cbz     r0, rsk_go
+    ldr     r6, [r0, #4]
+rsk_go:
+    movw    r7, #1000{lines}
+    pop     {{r0, r1, r2, r3, r4, r5, r6, r7, lr}}
+rs_kern_go:
+    .short  0, 0                    /* b.w the kernel: its fifth argument is still at [sp] */
+    .ltorg
+    .balign 4
+rs_label:
+    .asciz  "{lab}"
+    .balign 4
+rs_xml:
+    .asciz  "{xml}"
+    .balign 4
+"""
+    return assemble("hookRS", src)
+
+
+def _ubfx_width(d, va, old_w, new_w):
+    """A ubfx's width field (the second halfword's low 5 bits hold width - 1)."""
+    o = va - BASE + 2
+    hw = struct.unpack_from("<H", d, o)[0]
+    if (hw & 0x1f) != old_w - 1 or (hw & 0x00c0) or ((hw >> 12) & 7):
+        refuse(f"The reverb kernel's mask at {va:#x} is not a ubfx #0, #{old_w}.")
+    struct.pack_into("<H", d, o, (hw & ~0x1f) | (new_w - 1))
+
+
+def apply_rev_size(d):
+    """Guard RS's facts, grow the reverb's short lines, append RS, chain it in."""
+    for va, raw, what in RS_GUARDS:
+        if raw is not None:
+            _guard(d, va, raw, what)
+    first = struct.unpack_from("<H", d, RS_MASK9[0] - BASE)[0]
+    for va in RS_MASK9 + RS_MASK10:
+        if struct.unpack_from("<H", d, va - BASE)[0] & 0xfff0 != 0xf3c0:
+            refuse(f"The reverb kernel's mask at {va:#x} is not a ubfx.")
+    del first
+    for va, old, new in RS_GROW:
+        d[va - BASE:va - BASE + 4] = bytes.fromhex(new)
+    for va in RS_MASK9:
+        _ubfx_width(d, va, 9, 10)
+    for va in RS_MASK10:
+        _ubfx_width(d, va, 10, 11)
+    nexts = {"rs_reg": branch_target(d, 0x0806abbc)}
+    org = BASE + len(d)
+    code, syms = build_rev_size_hook()
+    code = bytearray(code)
+    for sym, target, call in RS_FIX + (("rs_reg_next", nexts["rs_reg"], False),):
+        off = syms[sym]
+        assert code[off:off + 4] == b"\0\0\0\0", sym
+        code[off:off + 4] = enc_b_bl(org + off, target, call)
+    assert _append(d, code) == org
+    for site, entry, call in RS_SITES:
+        d[site - BASE:site - BASE + 4] = enc_b_bl(site, org + syms[entry], call)
+    vprint(f"RS reverb Size at {org:#010x}: id {RS_ID:#x}, ram {RS_RAM:#x}")
+    return org, syms
+
+
 def patch_ram_ranges():
     """Every byte of RAM any hook in this file writes: (what, lo, hi)."""
     return [
@@ -12982,6 +13266,7 @@ def patch_ram_ranges():
         ("SL Sustain sources (minimal builds only)", SL_SUS_RAM, SL_SUS_RAM + SL_SUS_BYTES),
         ("SL send sources (minimal builds only)", SL_FX_RAM, SL_FX_RAM + SL_FX_BYTES),
         ("CM limiter settings (minimal builds only)", CX_RAM, CX_RAM + 12),
+        ("SL reverb size (minimal builds only)", RS_RAM, RS_RAM + 4 + 8 * RS_SLOTS),
     ]
 
 
@@ -13228,6 +13513,7 @@ def main():
             print(f"     ok   {'Gate Rec / Clr / Loop':<28} TOOLS > Settings (FORK)")
         if slice_loop:
             apply_slice_loop(d)
+            apply_rev_size(d)
             print(f"     ok   {'Slicer, Sustain targets':<28} Slicer pads (FORK)")
         if comp_menu:
             apply_comp_menu(d)

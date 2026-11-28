@@ -5,6 +5,15 @@ something you would notice: what the module does differently once it is
 flashed, what the patcher does differently to your files, or what changed in
 the guide you are reading. None of them covers how any of it is built.
 
+## 2.3.4-gs14 / x17 / c17 (fork, --slice-loop) — November 2026
+
+- New: **Size** on the FX screen, after Decay: 25-160 % of the reverb's
+  room, saved with the preset (`revsize`). 100 % is stock. The plate's twelve
+  delay lines are scaled together and glide to a new size a block at a time.
+  Its short lines' buffers double (+16 KB) so it can reach 160 %, the size
+  Dattorro designed it at; the output taps stay where stock has them.
+- Not yet tried on a module.
+
 ## 2.3.4-x16 / c16 / cm4 / gc4 (fork, --comp-menu) — November 2026
 
 - **Lim Release** goes down to 1 ms (it stopped at 10 ms). Very short
